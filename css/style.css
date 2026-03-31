@@ -106,6 +106,7 @@ nav {
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 10px;
   gap: 20px;
 }
 
