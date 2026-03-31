@@ -1,0 +1,142 @@
+/* ===== Grundlayout ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #1e293b;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+nav {
+  background: #020617;
+  padding: 10px;
+  text-align: center;
+}
+
+/* ===== Menü ===== */
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: #020617;
+  padding: 10px;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Submenu + Animation */
+.submenu {
+  display: block;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e293b;
+  list-style: none;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.dropdown:hover .submenu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* ===== News Block ===== */
+.news-block {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.news-item {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.news-item.active {
+  opacity: 1;
+}
+
+/* ===== Grid / Boxen ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 10px;
+  gap: 20px;
+}
+
+.box, .team-box {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ===== Teams Grid ===== */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Tabellen ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td, th {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+
+th {
+  color: #38bdf8;
+}
+
+/* ===== Trennlinie ===== */
+hr {
+  border: 0;
+  height: 2px;
+  background: #38bdf8;
+  margin: 20px 0;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
