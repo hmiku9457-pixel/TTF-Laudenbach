@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Neues Training startet",
+    "text": "Ab nächster Woche gelten neue Trainingszeiten...",
+    "image": "images/news1.jpg",
+    "link": "news/artikel1.html"
+  },
+  {
+    "title": "Turniererfolg Jugend",
+    "text": "Unsere Jugend hat großartige Ergebnisse erzielt...",
+    "image": "images/news2.jpg",
+    "link": "news/artikel2.html"
+  }
+]
