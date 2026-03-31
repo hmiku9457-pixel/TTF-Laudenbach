@@ -2,42 +2,87 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Meine Seite</title>
+  <title>TTF Laudenbach</title>
 
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #0f172a;
       color: #e2e8f0;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px;
       text-align: center;
-      padding: 50px;
     }
 
-    h1 {
-      font-size: 3em;
+    nav {
+      background: #020617;
+      padding: 10px;
+      text-align: center;
     }
 
-    p {
-      font-size: 1.2em;
-      color: #94a3b8;
+    nav a {
+      color: #38bdf8;
+      margin: 0 15px;
+      text-decoration: none;
     }
 
-    .box {
-      margin-top: 40px;
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1e293b;
       padding: 20px;
       border-radius: 12px;
-      background: #1e293b;
-      display: inline-block;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
     }
   </style>
 </head>
 
 <body>
-  <h1>Hi 👋</h1>
-  <p>Meine erste echte Webseite</p>
 
-  <div class="box">
-    <p>Ich habe das selbst gebaut 🚀</p>
+<header>
+  <h1>TTF Laudenbach</h1>
+  <p>Willkommen auf unserer Webseite 🏓</p>
+</header>
+
+<nav>
+  <a href="index.html">Start</a>
+  <a href="spielbetrieb.html">Spielbetrieb</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <h2>Über uns</h2>
+    <p>Wir sind ein aktiver Tischtennisverein mit mehreren Mannschaften und Trainingsangeboten.</p>
   </div>
+
+  <div class="card">
+    <h2>Aktuelles</h2>
+    <p>Hier findest du Neuigkeiten rund um unseren Verein.</p>
+  </div>
+</div>
+
+<footer>
+  © 2026 Tischtennisverein
+</footer>
+
 </body>
 </html>
