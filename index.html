@@ -15,6 +15,7 @@
       header {
         position: sticky;
         top: 0;
+        align: center;
         background: #1e293b;
         z-index: 1000;
       }
@@ -23,6 +24,7 @@
         background: #020617;
         padding: 10px;
         text-align: center;
+        align: center;
       }
   
       nav a {
@@ -83,7 +85,7 @@
       
       .grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
       }
       
