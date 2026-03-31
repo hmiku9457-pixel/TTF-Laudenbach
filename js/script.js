@@ -1,10 +1,10 @@
-const newsItems = document.querySelectorAll('.news-item');
-let current = 0;
+const slides = document.querySelectorAll('.news-slide');
+let index = 0;
 
-function showNextNews() {
-  newsItems[current].classList.remove('active');
-  current = (current + 1) % newsItems.length;
-  newsItems[current].classList.add('active');
+function nextSlide() {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
 }
 
-setInterval(showNextNews, 5000); // alle 5 Sekunden wechseln
+setInterval(nextSlide, 6000);
