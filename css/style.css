@@ -89,6 +89,9 @@ nav {
   transition: opacity 0.6s ease;
   background: #1e293b;
   padding: 15px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .news-slide img {
@@ -96,6 +99,20 @@ nav {
   height: 120px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.news-slide a {
+  margin-top: auto;
+  padding: 8px 12px;
+  background: #38bdf8;
+  color: #020617;
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.news-slide a:hover {
+  background: #0ea5e9;
 }
 
 .news-slide.active {
