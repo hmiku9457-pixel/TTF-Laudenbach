@@ -1,14 +1,18 @@
 [
   {
-    "title": "Artikel 1",
-    "text": "Ab nächster Woche gelten neue Trainingszeiten...",
+    "title": "Training bei den Tischtennis-Freunden Laudenbach",
+    "text": "Dass Tischtennis spielen Spaß machen kann, können sicherlich die Teilnehmer des Trainings bei den Tischtennis-Freunden Laudenbach bestätigen.
+
+Wer mal Lust hat, sich an der schnellsten Ballsportart der Welt zu versuchen, ist herzlich willkommen - Jungs und Mädchen gleichermaßen. Aber auch Erwachsene (Damen und Herren) dürfen gerne bei uns im Training "hereinschneien."
+
+Unter fachkundiger Anleitung können die einzelnen Schläge erlernt werden.",
     "image": "images/LustAufTischtennis.png",
     "link": "news/artikel1.html"
   },
   {
     "title": "Artikel 2",
     "text": "Unsere Jugend hat großartige Ergebnisse erzielt...",
-    "image": "images/LustAufTischtennis.png",
+    "image": "images/VierElemente_TTFLaudenbach.jpg",
     "link": "news/artikel2.html"
   }
 ]
