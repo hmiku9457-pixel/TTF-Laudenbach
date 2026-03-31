@@ -29,5 +29,5 @@ function startSlider(length) {
     slides[index].classList.remove('active');
     index = (index + 1) % length;
     slides[index].classList.add('active');
-  }, 6000);
+  }, 18000);
 }
