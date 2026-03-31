@@ -15,9 +15,14 @@
       header {
         position: sticky;
         top: 0;
-        align-items: center;
         background: #1e293b;
         z-index: 1000;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;   /* horizontal */
+        text-align: center;    /* Text selbst */
+        padding: 10px;
       }
   
       nav {
@@ -53,9 +58,11 @@
       .menu {
         list-style: none;
         display: flex;
+        justify-content: center;  /* DAS ist der wichtige Teil */
         gap: 20px;
         background: #020617;
         padding: 10px;
+        margin: 0;
       }
       
       .menu li {
@@ -96,9 +103,20 @@
         border-radius: 10px;
       }
 
-      .table {
-        padding: 5px;
-        gap: 10px;
+      table {
+        width: 100%;
+        border-collapse: collapse; /* wichtig */
+        margin-top: 10px;
+      }
+      
+      td, th {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #334155;
+      }
+      
+      th {
+        color: #38bdf8;
       }
   
       footer {
@@ -146,46 +164,44 @@
         <p>Wer mal Lust hat, sich an der schnellsten Ballsportart der Welt zu versuchen, ist herzlich willkommen - Jungs und Mädchen gleichermaßen. Aber auch Erwachsene (Damen und Herren) dürfen gerne bei uns im Training "hereinschneien."</p>
         <p>Unter fachkundiger Anleitung können die einzelnen Schläge erlernt werden.</p>
         <p>Trainingszeiten:</p>
-        <p>
-          <table>
-            <tr>
-              <td>Tag</td>
-              <td>Für</td>
-              <td>Uhrzeit</td>
-              <td>Ort</td>
-            </tr>
-            <tr>
-              <td>Montag</td>
-              <td>Jugend</td>
-              <td>Ab 18:00 Uhr</td>
-              <td>Großsporthalle Weikersheim</td>
-            </tr>
-            <tr>
-              <td>Montag</td>
-              <td>Erwachsene</td>
-              <td>Ab 19:30 Uhr</td>
-              <td>Großsporthalle Weikersheim</td>
-            </tr>
-            <tr>
-              <td>Mittwoch</td>
-              <td>Alle</td>
-              <td>Ab 19:30 Uhr</td>
-              <td>Zehntscheune Laudenbach</td>
-            </tr>
-            <tr>
-              <td>Freitag</td>
-              <td>Jugend</td>
-              <td>Ab 19:00 Uhr</td>
-              <td>Großsporthalle Weikersheim</td>
-            </tr>
-            <tr>
-              <td>Freitag</td>
-              <td>Erwachsene</td>
-              <td>Ab 20:00 Uhr</td>
-              <td>Großsporthalle Weikersheim</td>
-            </tr>
-          </table>
-        </p>
+        <table>
+          <tr>
+            <th>Tag</th>
+            <th>Für</th>
+            <th>Uhrzeit</th>
+            <th>Ort</th>
+          </tr>
+          <tr>
+            <td>Montag</td>
+            <td>Jugend</td>
+            <td>Ab 18:00 Uhr</td>
+            <td>Großsporthalle Weikersheim</td>
+          </tr>
+          <tr>
+            <td>Montag</td>
+            <td>Erwachsene</td>
+            <td>Ab 19:30 Uhr</td>
+            <td>Großsporthalle Weikersheim</td>
+          </tr>
+          <tr>
+            <td>Mittwoch</td>
+            <td>Alle</td>
+            <td>Ab 19:30 Uhr</td>
+            <td>Zehntscheune Laudenbach</td>
+          </tr>
+          <tr>
+            <td>Freitag</td>
+            <td>Jugend</td>
+            <td>Ab 19:00 Uhr</td>
+            <td>Großsporthalle Weikersheim</td>
+          </tr>
+          <tr>
+            <td>Freitag</td>
+            <td>Erwachsene</td>
+            <td>Ab 20:00 Uhr</td>
+            <td>Großsporthalle Weikersheim</td>
+          </tr>
+        </table>
       </div>
     </div>
     
