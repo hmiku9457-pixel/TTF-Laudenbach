@@ -94,7 +94,7 @@ nav {
 }
 
 .news-slide img {
-  width: 100%;
+  width: 90%;
   max-height: 75%;
   object-fit: cover;
   border-radius: 8px;
