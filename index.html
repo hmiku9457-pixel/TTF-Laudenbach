@@ -15,7 +15,7 @@
       header {
         position: sticky;
         top: 0;
-        align: center;
+        align-items: center;
         background: #1e293b;
         z-index: 1000;
       }
@@ -24,7 +24,7 @@
         background: #020617;
         padding: 10px;
         text-align: center;
-        align: center;
+        align-items: center;
       }
   
       nav a {
@@ -87,12 +87,17 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 10px;
+        gap: 20px;
       }
       
       .box {
         background: #1e293b;
         padding: 20px;
         border-radius: 10px;
+      }
+
+      .table {
+        padding: 5px;
       }
   
       footer {
