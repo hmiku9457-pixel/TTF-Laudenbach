@@ -1,88 +1,145 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>TTF Laudenbach</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>TTF Laudenbach</title>
+  
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+  
+      header {
+        position: sticky;
+        top: 0;
+        background: #1e293b;
+        z-index: 1000;
+      }
+  
+      nav {
+        background: #020617;
+        padding: 10px;
+        text-align: center;
+      }
+  
+      nav a {
+        color: #38bdf8;
+        margin: 0 15px;
+        text-decoration: none;
+      }
+  
+      nav a:hover {
+        text-decoration: underline;
+      }
+  
+      .container {
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+      }
+  
+      .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+      }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-    }
-
-    header {
-      background: #1e293b;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
-      background: #020617;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: #38bdf8;
-      margin: 0 15px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #64748b;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <h1>TTF Laudenbach</h1>
-  <p>Willkommen auf unserer Webseite 🏓</p>
-</header>
-
-<nav>
-  <a href="index.html">Start</a>
-  <a href="spielbetrieb.html">Spielbetrieb</a>
-  <a href="kontakt.html">Kontakt</a>
-</nav>
-
-<div class="container">
-  <div class="card">
-    <h2>Über uns</h2>
-    <p>Wir sind ein aktiver Tischtennisverein mit mehreren Mannschaften und Trainingsangeboten.</p>
-  </div>
-
-  <div class="card">
-    <h2>Aktuelles</h2>
-    <p>Hier findest du Neuigkeiten rund um unseren Verein.</p>
-  </div>
-</div>
-
-<footer>
-  © 2026 Tischtennisverein
-</footer>
-
-</body>
+      .menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        background: #020617;
+        padding: 10px;
+      }
+      
+      .menu li {
+        position: relative;
+      }
+      
+      .menu a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      
+      /* Submenu verstecken */
+      .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #1e293b;
+        list-style: none;
+        padding: 10px;
+      }
+      
+      /* Beim Hover anzeigen */
+      .dropdown:hover .submenu {
+        display: block;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+        gap: 20px;
+      }
+      
+      .box {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 10px;
+      }
+  
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <h1>TTF Laudenbach</h1>
+      <p>Willkommen bei den Tischtennis-Freunden Laudenbach</p>
+    </header>
+    
+    <nav>
+      <ul class="menu">
+        <li>
+          <a href="index.html">Startseite</a>
+        </li>
+        <li class="dropdown">
+          <a href="spielbetrieb.html">Aktiver Spielbetrieb</a>
+          <ul class="submenu">
+            <li><a href="unserVerein.html">Herren Mannschaften</a></li>
+            <li><a href="unserVerein.html">Jugend Mannschaften</a></li>
+            <li><a href="unserVerein.html">Ewige Rangliste</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="unserVerein.html">Unser Verein</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="grid">
+      <div class="box">
+        <h2>Über uns</h2>
+        <p>Wir sind ein aktiver Tischtennisverein mit mehreren Mannschaften und Trainingsangeboten.</p>
+      </div>
+    
+      <div class="box">
+        <h2>Aktuelles</h2>
+        <p>Hier findest du Neuigkeiten rund um unseren Verein.</p>
+      </div>
+    </div>
+    
+    <footer>
+      © 2026 Tischtennisverein
+    </footer>
+  </body>
 </html>
