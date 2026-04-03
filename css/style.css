@@ -121,8 +121,9 @@ nav {
 /* ===== Grid / Boxen ===== */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* immer 2 Spalten */
   padding: 20px;
+  gap: 20px;
 }
 
 .box, .team-box {
@@ -138,12 +139,6 @@ nav {
 
 .games {
   grid-column: 1 / -1;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ===== Teams Grid ===== */
