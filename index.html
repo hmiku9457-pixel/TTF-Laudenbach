@@ -2,19 +2,18 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TTF Laudenbach</title>
     <!-- externes CSS -->
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
-    <div class="top-bar">
-      <header>
-        <h1>TTF Laudenbach</h1>
-        <p>Willkommen bei den Tischtennis-Freunden Laudenbach</p>
-      </header>
-      
-      <nav>
+    <header class="top-bar">
+      <h1>TTF Laudenbach</h1>
+      <p>Willkommen bei den Tischtennis-Freunden Laudenbach</p>
+
+      <nav aria-label="Hauptnavigation">
         <ul class="menu">
           <li><a href="index.html">Startseite</a></li>
           <li class="dropdown">
@@ -28,7 +27,7 @@
           <li><a href="unserVerein.html">Unser Verein</a></li>
         </ul>
       </nav>
-    </div>
+    </header>
     
     <div class="grid">
      <div class="news-slider"></div>
@@ -38,123 +37,129 @@
         <p>Dass Tischtennis spielen Spaß machen kann, können sicherlich die Teilnehmer des Trainings bei den Tischtennis-Freunden Laudenbach bestätigen.</p>
         <p>Wer mal Lust hat, sich an der schnellsten Ballsportart der Welt zu versuchen, ist herzlich willkommen - Jungs und Mädchen gleichermaßen. Aber auch Erwachsene (Damen und Herren) dürfen gerne bei uns im Training "hereinschneien."</p>
         <p>Unter fachkundiger Anleitung können die einzelnen Schläge erlernt werden.</p>
-        <p><u><b>Trainingszeiten:</b></u></p>
+        <h3 class="underline">Trainingszeiten:</h3>
         <table>
-          <tr>
-            <th>Tag</th>
-            <th>Für</th>
-            <th>Uhrzeit</th>
-            <th>Ort</th>
-          </tr>
-          <tr>
-            <td>Montag</td>
-            <td>Jugend</td>
-            <td>Ab 18:00 Uhr</td>
-            <td>Großsporthalle Weikersheim</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Erwachsene</td>
-            <td>Ab 19:30 Uhr</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Mittwoch</td>
-            <td>Alle</td>
-            <td>Ab 19:30 Uhr</td>
-            <td>Zehntscheune Laudenbach</td>
-          </tr>
-          <tr>
-            <td>Freitag</td>
-            <td>Jugend</td>
-            <td>Ab 19:00 Uhr</td>
-            <td>Großsporthalle Weikersheim</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Erwachsene</td>
-            <td>Ab 20:00 Uhr</td>
-            <td></td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Für</th>
+              <th>Uhrzeit</th>
+              <th>Ort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Montag</td>
+              <td>Jugend</td>
+              <td>Ab 18:00 Uhr</td>
+              <td>Großsporthalle Weikersheim</td>
+            </tr>
+            <tr>
+              <td></td>  <!-- bewusst leer -->
+              <td>Erwachsene</td>
+              <td>Ab 19:30 Uhr</td>
+              <td></td>  <!-- bewusst leer -->
+            </tr>
+            <tr>
+              <td>Mittwoch</td>
+              <td>Alle</td>
+              <td>Ab 19:30 Uhr</td>
+              <td>Zehntscheune Laudenbach</td>
+            </tr>
+            <tr>
+              <td>Freitag</td>
+              <td>Jugend</td>
+              <td>Ab 19:00 Uhr</td>
+              <td>Großsporthalle Weikersheim</td>
+            </tr>
+            <tr>
+              <td></td>  <!-- bewusst leer -->
+              <td>Erwachsene</td>
+              <td>Ab 20:00 Uhr</td>
+              <td></td>  <!-- bewusst leer -->
+            </tr>
+          </tbody>
         </table>
 
         <hr>
 
         <div class="games full-width">
           <div class="next-games">
-            <h3>Nächste Spiele</h3>
+            <h3 class="underline">Nächste Spiele</h3>
             <table>
-              <tr>
-                <th>Mannschaft</th>
-                <th>Gegner</th>
-                <th>Spielort</th>
-                <th text-align="right">Datum</th>
-                <th>Uhrzeit</th>
-              </tr>
-              <tr>
-                <td>Herren II</td>
-                <td>SC Buchenbach III</td>
-                <td>Großsporthalle Weikersheim</td>
-                <td text-align="right">Fr. 10.04.2026</td>
-                <td>20:00 Uhr</td>
-              </tr>
-              <tr>
-                <td>Jugend II</td>
-                <td>SV Bieberehren</td>
-                <td>Großsporthalle Weikersheim</td>
-                <td text-align="right">Sa. 11.04.2026</td>
-                <td>10:00 Uhr</td>
-              </tr>
-              <tr>
-                <td>Herren III</td>
-                <td>SC Buchenbach IV</td>
-                <td>Großsporthalle Weikersheim</td>
-                <td text-align="right">Sa. 11.04.2026</td>
-                <td>18:45 Uhr</td>
-              </tr>
-              <tr>
-                <td>Herren II</td>
-                <td>SV Morsbach</td>
-                <td>Laudenbach</td>
-                <td text-align="right">So. 12.04.2026</td>
-                <td>10:30 Uhr</td>
-              </tr>
-              <tr>
-                <td>Herren I</td>
-                <td>FC Honhardt</td>
-                <td>Honhardt</td>
-                <td text-align="right">Fr. 17.04.2026</td>
-                <td>20:00 Uhr</td>
-              </tr>
-              <tr>
-                <td>Jugend II</td>
-                <td>TSV Gerabronn III</td>
-                <td>Gerabronn</td>
-                <td text-align="right">Sa. 18.04.2026</td>
-                <td>12:30 Uhr</td>
-              </tr>
-              <tr>
-                <td>Herren II</td>
-                <td>VFB Bad Mergentheim III</td>
-                <td>Bad Mergentheim</td>
-                <td text-align="right">Sa. 18.04.2026</td>
-                <td>18:00 Uhr</td>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Mannschaft</th>
+                  <th>Gegner</th>
+                  <th>Spielort</th>
+                  <th>Datum</th>
+                  <th>Uhrzeit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Herren II</td>
+                  <td>SC Buchenbach III</td>
+                  <td>Großsporthalle Weikersheim</td>
+                  <td>Fr. 10.04.2026</td>
+                  <td>20:00 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Jugend II</td>
+                  <td>SV Bieberehren</td>
+                  <td>Großsporthalle Weikersheim</td>
+                  <td>Sa. 11.04.2026</td>
+                  <td>10:00 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Herren III</td>
+                  <td>SC Buchenbach IV</td>
+                  <td>Großsporthalle Weikersheim</td>
+                  <td>Sa. 11.04.2026</td>
+                  <td>18:45 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Herren II</td>
+                  <td>SV Morsbach</td>
+                  <td>Laudenbach</td>
+                  <td>So. 12.04.2026</td>
+                  <td>10:30 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Herren I</td>
+                  <td>FC Honhardt</td>
+                  <td>Honhardt</td>
+                  <td>Fr. 17.04.2026</td>
+                  <td>20:00 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Jugend II</td>
+                  <td>TSV Gerabronn III</td>
+                  <td>Gerabronn</td>
+                  <td>Sa. 18.04.2026</td>
+                  <td>12:30 Uhr</td>
+                </tr>
+                <tr>
+                  <td>Herren II</td>
+                  <td>VFB Bad Mergentheim III</td>
+                  <td>Bad Mergentheim</td>
+                  <td>Sa. 18.04.2026</td>
+                  <td>18:00 Uhr</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
   
-        <div>
-          <div class="past-games">
-            <h3>Vergangene Spiele</h3>
-            <ul>
-              <li>Herren I – gegen VFB Bad Mergentheim, 3:9</li>
-              <li>Herren II – gegen SV Elpersheim II, 8:8</li>
-              <li>Herren III – gegen TSV Schrozberg II, 8:8</li>
-              <li>Jugend I – gegen TSV Gerabronn II, 3:7</li>
-              <li>Jugend II – gegen SV Ingersheim II, 4:6</li>
-            </ul>
-          </div>
+        <div class="past-games">
+          <h3 class="underline">Vergangene Spiele</h3>
+          <ul>
+            <li>Herren I – gegen VFB Bad Mergentheim, 3:9</li>
+            <li>Herren II – gegen SV Elpersheim II, 8:8</li>
+            <li>Herren III – gegen TSV Schrozberg II, 8:8</li>
+            <li>Jugend I – gegen TSV Gerabronn II, 3:7</li>
+            <li>Jugend II – gegen SV Ingersheim II, 4:6</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -165,7 +170,7 @@
       <div class="team-box">
         <h2>Herren I</h2>
         <h3>Bezirksklasse B - Gr.1</h3>
-        <p><u>Aufstellung:</u></p>
+        <h4 class="underline">Aufstellung:</h4>
         <ol>
           <li>Thomas Ruske</li>
           <li>Manuel Ilzhöfer</li>
@@ -174,12 +179,12 @@
           <li>Jörg Hever</li>
           <li>Hubert Kraft</li>
         </ol>
-        <p>Manschaftsführer: Hubert Kraft</p>
+        <p>Mannschaftsführer: Hubert Kraft</p>
       </div>
       <div class="team-box">
         <h2>Herren II</h2>
         <h3>Kreisliga A - Gr.2</h3>
-        <p><u>Aufstellung:</u></p>
+        <h4 class="underline">Aufstellung:</h4>
         <ol>
           <li>Gerhard Wolfert</li>
           <li>Christian Heer</li>
@@ -195,7 +200,7 @@
       <div class="team-box">
         <h2>Herren III</h2>
         <h3>Kreisliga B - Gr.3</h3>
-        <p><u>Aufstellung:</u></p>
+        <h4 class="underline">Aufstellung:</h4>
         <ol>
           <li>Stefan Wolfert</li>
           <li>Martin Schneider</li>
@@ -218,26 +223,29 @@
         <p>Mannschaftsführer: Steffen Wolfert</p>
       </div>
       <div class="team-box">
-        <h2>Jugend I</h2>
-        <h3>Kreisliga C Ost</h3>
-        <p><u>Aufstellung:</u></p>
-        <ol>
-          <li>Adrian Bach</li>
-          <li>Tim Tippl</li>
-          <li>Nico Böckler</li>
-        </ol>
-
-        <h2>Jugend II</h2>
-        <h3>Kreisliga E2 Ost</h3>
-        <p><u>Aufstellung:</u></p>
-        <ol>
-          <li>Luca Braun</li>
-          <li>Lukas Rahn</li>
-          <li>Lina Huber</li>
-          <li>Emma Graßer</li>
-          <li>Oskar Metzger</li>
-          <li>Lucas Wenzel</li>
-        </ol>
+        <section>
+          <h2>Jugend I</h2>
+          <h3>Kreisliga C Ost</h3>
+          <h4 class="underline">Aufstellung:</h4>
+          <ol>
+            <li>Adrian Bach</li>
+            <li>Tim Tippl</li>
+            <li>Nico Böckler</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Jugend II</h2>
+          <h3>Kreisliga E2 Ost</h3>
+          <h4 class="underline">Aufstellung:</h4>
+          <ol>
+            <li>Luca Braun</li>
+            <li>Lukas Rahn</li>
+            <li>Lina Huber</li>
+            <li>Emma Graßer</li>
+            <li>Oskar Metzger</li>
+            <li>Lucas Wenzel</li>
+          </ol>
+        </section>
       </div>
     </div>
 
