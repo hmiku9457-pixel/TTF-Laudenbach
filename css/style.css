@@ -132,6 +132,10 @@ nav {
   border-radius: 10px;
 }
 
+.full-width {
+  grid-column: 1 / -1;
+}
+
 /* ===== Teams Grid ===== */
 .teams-grid {
   display: grid;
