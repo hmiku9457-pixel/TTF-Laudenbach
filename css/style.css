@@ -136,6 +136,22 @@ nav {
   grid-column: 1 / -1;
 }
 
+.games {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.games > div {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .games {
+    flex-direction: column;
+  }
+}
+
 /* ===== Teams Grid ===== */
 .teams-grid {
   display: grid;
