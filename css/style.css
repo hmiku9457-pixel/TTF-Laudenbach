@@ -349,7 +349,7 @@ tr:hover {
 
 /* Hover-Effekt */
 .table-ewigeRangliste tbody tr:hover {
-  background-color: #eef3f7;
+  background-color: #96b518;
   transition: background-color 0.2s ease;
 }
 
