@@ -96,6 +96,7 @@ nav {
 
 .menu a {
   text-decoration: none;
+  color: var(--text-main);
   transition: color 0.2s ease;
 }
 
@@ -135,7 +136,7 @@ nav {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 10px; /* ✅ dein gewünschter Abstand */
   padding: 10px 20px;
 }
 
@@ -170,16 +171,11 @@ nav {
    ===== 7. ANIMATION ======================
    ========================================= */
 
-/* Startzustand */
-.box,
-.team-box,
-.news-slider {
+/* WICHTIG: KEIN opacity:0 mehr global! */
+
+.animate {
   opacity: 0;
   transform: translateY(40px);
-}
-
-/* Wird per JS aktiviert */
-.animate {
   animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -234,6 +230,7 @@ nav {
   border-radius: 6px;
   text-decoration: none;
   width: fit-content;
+  color: #020617;
 }
 
 .news-slide a:hover {
