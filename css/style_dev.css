@@ -3,15 +3,15 @@
    ========================================= */
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	background: var(--bg-main);
-	color: var(--text-main);
-	font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, Arial, sans-serif;
 }
 
 
@@ -20,25 +20,25 @@ body {
    ========================================= */
 
 :root {
-	--bg-main: #0f172a;
-	--bg-secondary: #1e293b;
+  --bg-main: #0f172a;
+  --bg-secondary: #1e293b;
 
-	--accent: #ef4444;
-	--accent-hover: #dc2626;
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
 
-	--text-main: #e2e8f0;
-	--text-muted: #64748b;
+  --text-main: #e2e8f0;
+  --text-muted: #64748b;
 }
 
 /* alternative Themes */
 body.theme-red {
-	--accent: #ef4444;
-	--accent-hover: #dc2626;
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
 }
 
 body.theme-dark {
-	--accent: #38bdf8;
-	--accent-hover: #0ea5e9;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
 }
 
 
@@ -46,31 +46,31 @@ body.theme-dark {
    ===== 3. HEADER =========================
    ========================================= */
 
-#header-container,
 .top-bar {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+#header-container,
 header {
-	position: relative;
-	background: var(--bg-main);
-	text-align: center;
-	padding: 10px;
+  position: relative;
+  background: var(--bg-main);
+  text-align: center;
+  padding: 10px;
 }
 
 /* Logo links, Text bleibt zentriert */
 .logo {
-	position: absolute;
-	left: 15px;
-	top: 50%;
-	transform: translateY(-50%);
-	height: 75px;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 75px;
 }
 
 .header-text {
-	text-align: center;
+  text-align: center;
 }
 
 
@@ -79,54 +79,54 @@ header {
    ========================================= */
 
 nav {
-	background: #020617;
-	text-align: center;
+  background: #020617;
+  text-align: center;
 }
 
 .menu {
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	gap: 20px;
-	padding: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
 }
 
 .menu li {
-	position: relative;
+  position: relative;
 }
 
 .menu a {
-	text-decoration: none;
-	color: var(--text-main);
-	transition: color 0.2s ease;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: color 0.2s ease;
 }
 
 .menu a:hover {
-	color: var(--accent);
+  color: var(--accent);
 }
 
 /* Dropdown Menü */
 .submenu {
-	position: absolute;
-	top: 100%;
-	left: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
 
-	background: var(--bg-secondary);
-	list-style: none;
-	padding: 10px;
-	white-space: nowrap;
+  background: var(--bg-secondary);
+  list-style: none;
+  padding: 10px;
+  white-space: nowrap;
 
-	opacity: 0;
-	visibility: hidden;
-	transform: translateY(-10px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown:hover .submenu,
 .dropdown:focus-within .submenu {
-	opacity: 1;
-	visibility: visible;
-	transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 
@@ -135,22 +135,14 @@ nav {
    ========================================= */
 
 .grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
-	padding: 10px 20px;
-	align-items: start;
-}
-
-/* Spalten-Container: Boxen vertikal stapeln mit Abstand */
-.grid > div {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px 20px;
 }
 
 .full-width {
-	grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 
@@ -160,41 +152,40 @@ nav {
 
 .box,
 .team-box {
-	background: var(--bg-secondary);
-	padding: 20px;
-	border-radius: 12px;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-	display: flex;
-	flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Hover-Effekt */
 .box:hover,
 .team-box:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-/* Boxen für vertikales Wachsen */
-.box.grow {
-	flex-grow: 1; /* füllt verfügbaren Platz */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .team-box {
-	line-height: 1.6;             /* angenehmer Zeilenabstand */
-	overflow-wrap: break-word;     /* lange Worte umbrechen */
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+  /* Fix für Textabstände */
+  line-height: 1.6;      /* angenehmer Zeilenabstand */
+  overflow-wrap: break-word; /* lange Worte umbrechen */
 }
 
 .team-box ul,
 .team-box ol {
-	padding-left: 1.2em;           /* Abstand für Nummerierung/Bullet */
-	margin: 0 0 10px 0;            /* unten Abstand */
+  padding-left: 1.2em;   /* Abstand für Nummerierung/Bullet */
+  margin: 0 0 10px 0;    /* unten Abstand */
 }
 
 .team-box li {
-	margin-bottom: 0px;            /* Abstand zwischen Listenelementen */
+  margin-bottom: 0px;    /* Abstand zwischen Listenelementen */
 }
 
 
@@ -203,16 +194,16 @@ nav {
    ========================================= */
 
 .animate {
-	opacity: 0;
-	transform: translateY(40px);
-	animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 @keyframes fadeInUp {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -221,50 +212,50 @@ nav {
    ========================================= */
 
 .news-slider {
-	position: relative;
-	overflow: hidden;
-	border-radius: 10px;
-	min-width: 100px;
-	min-height: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  min-width: 100px;
+  min-height: 250px;
 }
 
 .news-slide {
-	position: absolute;
-	inset: 0;
-	opacity: 0;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
 
-	background: var(--bg-secondary);
-	padding: 15px;
+  background: var(--bg-secondary);
+  padding: 15px;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease;
 }
 
 .news-slide.active {
-	opacity: 1;
+  opacity: 1;
 }
 
 .news-slide img {
-	width: 100%;
-	max-height: 70%;
-	object-fit: cover;
-	border-radius: 8px;
+  width: 100%;
+  max-height: 70%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .news-slide a {
-	margin-top: auto;
-	padding: 8px 12px 30px;
-	background: var(--accent);
-	border-radius: 6px;
-	text-decoration: none;
-	width: fit-content;
-	color: #020617;
+  margin-top: auto;
+  padding: 8px 12px 30px;
+  background: var(--accent);
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content;
+  color: #020617;
 }
 
 .news-slide a:hover {
-	background: var(--accent-hover);
+  background: var(--accent-hover);
 }
 
 
@@ -273,10 +264,10 @@ nav {
    ========================================= */
 
 .teams-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 20px;
-	padding: 10px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px 20px;
 }
 
 
@@ -285,28 +276,23 @@ nav {
    ========================================= */
 
 table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
 td, th {
-	padding: 10px;
-	text-align: left;
-	border-bottom: 1px solid #334155;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
 }
 
 th {
-	color: var(--accent);
+  color: var(--accent);
 }
 
 tr:hover {
-	background: rgba(56, 189, 248, 0.1);
-}
-
-/* Board Tabelle */
-.board-table th {
-	background: rgba(255,255,255,0.05);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 
@@ -315,52 +301,19 @@ tr:hover {
    ========================================= */
 
 hr {
-	border: 0;
-	height: 2px;
-	background: var(--accent);
-	margin: 20px 0;
+  border: 0;
+  height: 2px;
+  background: var(--accent);
+  margin: 20px 0;
 }
 
 footer {
-	text-align: center;
-	padding: 20px;
-	color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+  color: var(--text-muted);
 }
 
 .underline {
-	border-bottom: 2px solid currentColor;
-	display: inline-block;
-}
-
-
-/* =========================================
-   ===== 12. RESPONSIVE ====================
-   ========================================= */
-
-@media (max-width: 768px) {
-	.grid {
-		grid-template-columns: 1fr; /* nur eine Spalte */
-	}
-
-	.grid > div {
-		gap: 15px; /* etwas kleinerer Abstand auf Handy */
-	}
-}
-
-
-/* =========================================
-   ===== 13. GRÜNDUNGSMITGLIEDER =============
-   ========================================= */
-
-.founders {
-	background: var(--bg-secondary);
-	padding: 15px;
-	list-style: disc;
-	padding-left: 2em;
-	margin-top: 0;
-}
-
-.founders li {
-	margin-bottom: 5px;         /* Abstand zwischen den Namen */
-	color: var(--text-main);
+  border-bottom: 2px solid currentColor;
+  display: inline-block;
 }
