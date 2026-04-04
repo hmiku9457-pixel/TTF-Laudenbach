@@ -136,7 +136,7 @@ nav {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px; /* ✅ dein gewünschter Abstand */
+  gap: 10px;
   padding: 10px 20px;
 }
 
@@ -166,12 +166,31 @@ nav {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
+.team-box {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+  /* Fix für Textabstände */
+  line-height: 1.6;      /* angenehmer Zeilenabstand */
+  overflow-wrap: break-word; /* lange Worte umbrechen */
+}
+
+.team-box ul,
+.team-box ol {
+  padding-left: 1.2em;   /* Abstand für Nummerierung/Bullet */
+  margin: 0 0 10px 0;    /* unten Abstand */
+}
+
+.team-box li {
+  margin-bottom: 6px;    /* Abstand zwischen Listenelementen */
+}
+
 
 /* =========================================
    ===== 7. ANIMATION ======================
    ========================================= */
-
-/* WICHTIG: KEIN opacity:0 mehr global! */
 
 .animate {
   opacity: 0;
@@ -245,8 +264,8 @@ nav {
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 10px;
+  gap: 20px;
+  padding: 10px 20px;
 }
 
 
