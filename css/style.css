@@ -20,14 +20,26 @@ body {
    ========================================= */
 
 :root {
-    --bg-main: #0f172a;
-    --bg-secondary: #1e293b;
+   --bg-main: #0f172a;
+   --bg-secondary: #1e293b;
 
-    --accent: #ef4444;
-    --accent-hover: #dc2626;
+   --accent: #ef4444;
+	--accent-hover: #dc2626;
+   
+	--text-main: #e2e8f0;
+   --text-muted: #64748b;
 
-    --text-main: #e2e8f0;
-    --text-muted: #64748b;
+/* Einheitliches Spacing */
+	--space-s: 5px;
+   --space-m: 10px;
+   --space-l: 15px;
+   --space-xl: 20px;
+
+/*Farbschema für die Tabelle der Ewigen Rangliste */
+	--bg-table-ewigeTabelle-head: #2c3e50;
+	--bg-table-ewigeTabelle-evenRow: #8a2c2c;
+	--bg-table-ewigeTabelle-oddRow: #b51818;
+	--bg-table-ewigeTabelle-highlight: #96b518;
 }
 
 /* alternative Themes */
@@ -39,7 +51,7 @@ body.theme-red {
 body.theme-dark {
     --accent: #38bdf8;
     --accent-hover: #0ea5e9;
-}
+}   /* Wird aktuell nicht verwendet */
 
 
 /* =========================================
@@ -57,13 +69,13 @@ header {
     position: relative;
     background: var(--bg-main);
     text-align: center;
-    padding: 10px;
+    padding: var(--space-m);
 }
 
 /* Logo links, Text bleibt zentriert */
 .logo {
     position: absolute;
-    left: 15px;
+    left: var(--space-l);
     top: 50%;
     transform: translateY(-50%);
     height: 75px;
@@ -87,8 +99,8 @@ nav {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 10px;
+    gap: var(--space-xl);
+    padding: var(--space-m);
 }
 
 .menu li {
@@ -113,7 +125,7 @@ nav {
 
     background: var(--bg-secondary);
     list-style: none;
-    padding: 10px;
+    padding: var(--space-m);
     white-space: nowrap;
 
     opacity: 0;
@@ -137,9 +149,15 @@ nav {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px 20px;
+    gap: var(--space-m);
+    padding: var(--space-m) var(--space-xl);
     align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /*.sub-grid {
@@ -151,7 +169,7 @@ nav {
 
 .full-width {
     grid-column: 1 / -1;
-   padding: 10px 20px;
+   padding: var(--space-m) var(--space-xl);
 }
 
 
@@ -162,8 +180,8 @@ nav {
 .box,
 .team-box {
     background: var(--bg-secondary);
-    padding: 20px;
-    border-radius: 12px;
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -176,21 +194,21 @@ nav {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.team-box {
+/*.team-box {
     background: var(--bg-secondary);
-    padding: 20px;
-    border-radius: 12px;
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
-    /* Fix für Textabstände */
-    line-height: 1.6;           /* angenehmer Zeilenabstand */
-    overflow-wrap: break-word;  /* lange Worte umbrechen */
-}
+    /* Fix für Textabstände /
+    line-height: 1.6;           /* angenehmer Zeilenabstand /
+    overflow-wrap: break-word;  /* lange Worte umbrechen /
+}*/
 
 .team-box ul,
 .team-box ol {
     padding-left: 1.2em;    /* Abstand für Nummerierung/Bullet */
-    margin: 0 0 10px 0;     /* unten Abstand */
+    margin: 0 0 var(--space-m) 0;     /* unten Abstand */
 }
 
 .team-box li {
@@ -223,7 +241,7 @@ nav {
 .news-slider {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: var(--space-m);
     min-width: 100px;
     min-height: 250px;
 }
@@ -234,7 +252,7 @@ nav {
     opacity: 0;
 
     background: var(--bg-secondary);
-    padding: 15px;
+    padding: var(--space-l);
 
     display: flex;
     flex-direction: column;
@@ -250,14 +268,14 @@ nav {
     width: 100%;
     max-height: 70%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--space-m);
 }
 
 .news-slide a {
     margin-top: auto;
     padding: 8px 12px 30px;
     background: var(--accent);
-    border-radius: 6px;
+    border-radius: var(--space-m);
     text-decoration: none;
     width: fit-content;
     color: #020617;
@@ -275,8 +293,8 @@ nav {
 .teams-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 10px 20px;
+    gap: var(--space-xl);
+    padding: var(--space-m) var(--space-xl);
 }
 
 
@@ -287,12 +305,12 @@ nav {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: var(--space-m);
 }
 
 td,
 th {
-    padding: 10px;
+    padding: var(--space-m);
     text-align: left;
     border-bottom: 1px solid #334155;
 }
@@ -317,39 +335,39 @@ tr:hover {
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   font-size: 0.95rem;
-  background-color: #b51818;
+  background-color: var(--bg-table-ewigeTabelle-oddRow);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
+  border-radius: var(--space-m);
   overflow: hidden;            /* wichtig für abgerundete Ecken */
 }
 
 /* Tabellenkopf */
 .table-ewigeRangliste thead {
-  background-color: #2c3e50;
+  background-color: var(--bg-table-ewigeTabelle-head);
   color: #ffffff;
 }
 
 .table-ewigeRangliste th {
   text-align: left;
-  padding: 12px 14px;
+  padding: var(--space-m) var(--space-l);
   font-weight: 600;
   letter-spacing: 0.03em;
 }
 
 /* Tabelleninhalt */
 .table-ewigeRangliste td {
-  padding: 10px 14px;
+  padding: var(--space-m) var(--space-l);
   border-bottom: 1px solid #eaeaea;
 }
 
 /* Zebra-Streifen */
 .table-ewigeRangliste tbody tr:nth-child(even) {
-  background-color: #8a2c2c;
+  background-color: var(--bg-table-ewigeTabelle-evenRow);
 }
 
 /* Hover-Effekt */
 .table-ewigeRangliste tbody tr:hover {
-  background-color: #96b518;
+  background-color: var(--bg-table-ewigeTabelle-highlight);
   transition: background-color 0.2s ease;
 }
 
@@ -376,7 +394,7 @@ tr:hover {
 
   .table-ewigeRangliste th,
   .table-ewigeRangliste td {
-    padding: 8px 10px;
+    padding: var(--space-m);
   }
 }
 
@@ -389,12 +407,12 @@ hr {
     border: 0;
     height: 2px;
     background: var(--accent);
-    margin: 20px 0;
+    margin: var(--space-xl) 0;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: var(--space-xl);
     color: var(--text-muted);
 }
 
@@ -408,18 +426,18 @@ footer {
    ========================================= */
 
 .button-container {
-  margin-top: 15px;
+  margin-top: var(--space-l);
   display: flex;
-  gap: 10px;
+  gap: var(--space-m);
 }
 
 .button-container button {
-  padding: 10px 15px;
+  padding: var(--space-m) var(--space-l);
   border: none;
   background-color: #2c7be5;
   color: white;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--space-m);
 }
 
 .button-container button:hover {
