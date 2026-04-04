@@ -37,3 +37,10 @@ const switcher = document.getElementById("themeSwitcher");
 switcher.addEventListener("change", (e) => {
   document.body.className = "theme-" + e.target.value;
 });
+
+const elements = document.querySelectorAll('.box, .team-box, .news-slider');
+
+elements.forEach((el, index) => {
+  el.style.animationDelay = (index * 0.1) + "s";
+  el.classList.add("animate");
+});
