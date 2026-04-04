@@ -6,111 +6,137 @@
 // bevor wir Elemente auswählen oder verändern
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ==========================================
-  // ===== 2. NEWS SLIDER LADEN (FETCH) =======
-  // ==========================================
+	// ==========================================
+	// ===== 1A. HEADER & NAVIGATION LADEN =====
+	// ==========================================
 
-  // Container aus dem HTML holen
-  const container = document.querySelector('.news-slider');
+	// Container, in den Header eingefügt wird
+	const headerContainer = document.getElementById('header-container');
 
-  // Daten aus JSON laden (async!)
-  fetch('data/news.json')
-    .then(res => res.json()) // Antwort → JSON umwandeln
-    .then(data => {
+	// Prüfen, ob der Container existiert
+	if(headerContainer) {
 
-      // Für jeden News-Eintrag ein Element erzeugen
-      data.forEach((item, i) => {
+		// Header HTML laden
+		fetch('header.html')
+			.then(res => res.text())
+			.then(html => {
+				// HTML in die Seite einfügen
+				headerContainer.innerHTML = html;
 
-        const div = document.createElement('div');
-        div.classList.add('news-slide');
+				// Nach dem Laden: Theme-Switcher aktivieren
+				initThemeSwitcher();
+			});
+	}
 
-        // Erstes Element sichtbar machen
-        if (i === 0) div.classList.add('active');
+	// ==========================================
+	// ===== 2. NEWS SLIDER LADEN (FETCH) =======
+	// ==========================================
 
-        // HTML-Inhalt einsetzen
-        div.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p>${item.text}</p>
-          <a href="${item.link}" class="read-more">Mehr lesen</a>
-        `;
+	// Container aus dem HTML holen
+	const container = document.querySelector('.news-slider');
 
-        // In den Slider einfügen
-        container.appendChild(div);
-      });
+	// Prüfen, ob der Slider existiert
+	if(container) {
 
-      // Slider starten (nachdem Elemente existieren!)
-      startSlider();
+		// Daten aus JSON laden (async!)
+		fetch('data/news.json')
+			.then(res => res.json()) // Antwort → JSON umwandeln
+			.then(data => {
 
-      // Animation starten (auch erst danach!)
-      initAnimations();
-    });
+				// Für jeden News-Eintrag ein Element erzeugen
+				data.forEach((item, i) => {
 
+					const div = document.createElement('div');
+					div.classList.add('news-slide');
 
-  // ==========================================
-  // ===== 3. SLIDER LOGIK ====================
-  // ==========================================
+					// Erstes Element sichtbar machen
+					if(i === 0) div.classList.add('active');
 
-  function startSlider() {
+					// HTML-Inhalt einsetzen
+					div.innerHTML = `
+						<img src="${item.image}" alt="${item.title}">
+						<h3>${item.title}</h3>
+						<p>${item.text}</p>
+						<a href="${item.link}" class="read-more">Mehr lesen</a>
+					`;
 
-    // Alle Slides holen
-    const slides = document.querySelectorAll('.news-slide');
+					// In den Slider einfügen
+					container.appendChild(div);
+				});
 
-    let index = 0;
+				// Slider starten (nachdem Elemente existieren!)
+				startSlider();
 
-    // Alle 18 Sekunden wechseln
-    setInterval(() => {
+				// Animation starten (auch erst danach!)
+				initAnimations();
+			});
+	}
 
-      // aktuelles Slide ausblenden
-      slides[index].classList.remove('active');
+	// ==========================================
+	// ===== 3. SLIDER LOGIK ====================
+	// ==========================================
 
-      // Index erhöhen (mit Loop zurück zu 0)
-      index = (index + 1) % slides.length;
+	function startSlider() {
 
-      // neues Slide anzeigen
-      slides[index].classList.add('active');
+		// Alle Slides holen
+		const slides = document.querySelectorAll('.news-slide');
 
-    }, 18000);
-  }
+		let index = 0;
 
+		// Alle 18 Sekunden wechseln
+		setInterval(() => {
 
-  // ==========================================
-  // ===== 4. BOX ANIMATION ===================
-  // ==========================================
+			// aktuelles Slide ausblenden
+			slides[index].classList.remove('active');
 
-  function initAnimations() {
+			// Index erhöhen (mit Loop zurück zu 0)
+			index = (index + 1) % slides.length;
 
-    // Alle Elemente auswählen, die animiert werden sollen
-    const elements = document.querySelectorAll('.box, .team-box, .news-slider');
+			// neues Slide anzeigen
+			slides[index].classList.add('active');
 
-    elements.forEach((el, index) => {
+		}, 18000);
+	}
 
-      // Verzögerung setzen (für "nacheinander reinfliegen")
-      el.style.animationDelay = (index * 0.1) + "s";
+	// ==========================================
+	// ===== 4. BOX ANIMATION ===================
+	// ==========================================
 
-      // Animation aktivieren (CSS übernimmt den Rest)
-      el.classList.add("animate");
-    });
-  }
+	function initAnimations() {
 
+		// Alle Elemente auswählen, die animiert werden sollen
+		const elements = document.querySelectorAll('.box, .team-box, .news-slider');
 
-  // ==========================================
-  // ===== 5. THEME SWITCHER ==================
-  // ==========================================
+		elements.forEach((el, index) => {
 
-  const switcher = document.getElementById("themeSwitcher");
+			// Verzögerung setzen (für "nacheinander reinfliegen")
+			el.style.animationDelay = (index * 0.1) + "s";
 
-  // Falls das Element existiert (Sicherheit!)
-  if (switcher) {
+			// Animation aktivieren (CSS übernimmt den Rest)
+			el.classList.add("animate");
+		});
+	}
 
-    switcher.addEventListener("change", (e) => {
+	// ==========================================
+	// ===== 5. THEME SWITCHER ==================
+	// ==========================================
 
-      // Alte Themes entfernen
-      document.body.classList.remove("theme-red", "theme-dark");
+	function initThemeSwitcher() {
 
-      // Neues Theme hinzufügen
-      document.body.classList.add("theme-" + e.target.value);
-    });
-  }
+		const switcher = document.getElementById("themeSwitcher");
+
+		// Falls das Element existiert (Sicherheit!)
+		if(switcher) {
+
+			switcher.addEventListener("change", (e) => {
+
+				// Alte Themes entfernen
+				document.body.classList.remove("theme-red", "theme-dark");
+
+				// Neues Theme hinzufügen
+				document.body.classList.add("theme-" + e.target.value);
+			});
+		}
+	}
 
 });
