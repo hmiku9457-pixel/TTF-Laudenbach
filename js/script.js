@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// neues Slide anzeigen
 			slides[index].classList.add('active');
 
-		}, 18000);
+		}, 10000);	// Wechsel alle 10 Sekunden
 	}
 
 	// ==========================================
@@ -117,6 +117,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+	// ==========================================
+	// ===== 4A. OBSERVER FÜR DYNAMISCHE BOXEN =
+	// ==========================================
+	// Falls Boxen später dynamisch nachgeladen werden (z.B. Subsite),
+	// werden sie automatisch animiert
+	const observer = new MutationObserver(() => {
+		initAnimations();
+	});
+
+	observer.observe(document.body, { childList: true, subtree: true });
+
+	// Initial Animation für bereits vorhandene Elemente
+	initAnimations();
+	
 	// ==========================================
 	// ===== 5. THEME SWITCHER ==================
 	// ==========================================
