@@ -312,12 +312,12 @@ tr:hover {
 
 .table-ewigeRangliste {
   width: 100%;
-  max-width: 900px;            /* verhindert zu breite Darstellung */
+  max-width: 600px;            /* verhindert zu breite Darstellung */
   margin: 2rem auto;           /* zentriert die Tabelle */
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   font-size: 0.95rem;
-  background-color: #ffffff;
+  background-color: #b51818;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   overflow: hidden;            /* wichtig für abgerundete Ecken */
@@ -344,7 +344,7 @@ tr:hover {
 
 /* Zebra-Streifen */
 .table-ewigeRangliste tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: #8a2c2c;
 }
 
 /* Hover-Effekt */
