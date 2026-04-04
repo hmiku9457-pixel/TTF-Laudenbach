@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		let index = 0;
 
-		// Alle 18 Sekunden wechseln
+		// Alle 10 Sekunden wechseln
 		setInterval(() => {
 
 			// aktuelles Slide ausblenden
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		elements.forEach((el, index) => {
 
 			// Verzögerung setzen (für "nacheinander reinfliegen")
-			el.style.animationDelay = (index * 0.1) + "s";
+			el.style.animationDelay = (index * 0.2) + "s";
 
 			// Animation aktivieren (CSS übernimmt den Rest)
 			el.classList.add("animate");
