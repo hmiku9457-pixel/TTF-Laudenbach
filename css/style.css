@@ -139,12 +139,14 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px 20px;
+  align-items: stretch;
 }
 
 .sub-grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  height: 100%;
 }
 
 .full-width {
