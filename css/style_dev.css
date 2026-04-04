@@ -346,3 +346,23 @@ footer {
 		gap: 15px; /* etwas kleinerer Abstand auf Handy */
 	}
 }
+
+
+/* =========================================
+   ===== 13. GRÜNDUNGSMITGLIEDER =============
+   ========================================= */
+
+.founders {
+	background: var(--bg-secondary);
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+	list-style: disc;
+	padding-left: 2em;
+	margin-top: 0;
+}
+
+.founders li {
+	margin-bottom: 5px;         /* Abstand zwischen den Namen */
+	color: var(--text-main);
+}
