@@ -184,7 +184,7 @@ nav {
 }
 
 .team-box li {
-  margin-bottom: 6px;    /* Abstand zwischen Listenelementen */
+  margin-bottom: 0px;    /* Abstand zwischen Listenelementen */
 }
 
 
