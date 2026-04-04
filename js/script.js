@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(headerContainer) {
 
 		// Header HTML laden
-		fetch('./header.html')
+		fetch('/TTF-Laudenbach/header.html')
 			.then(res => res.text())
 			.then(html => {
 				// HTML in die Seite einfügen
