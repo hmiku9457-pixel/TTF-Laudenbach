@@ -142,12 +142,12 @@ nav {
     align-items: stretch;
 }
 
-.sub-grid {
+/*.sub-grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
     height: 100%;
-}
+}*/   /* Erstmal wieder rausgenommen, da ich erstmal einen Workaround nehme*/
 
 .full-width {
     grid-column: 1 / -1;
