@@ -307,6 +307,81 @@ tr:hover {
 
 
 /* =========================================
+   ===== 10A TABELLE: EWIGE RANGLISTE =======
+   ========================================= */
+
+.table-ewigeRangliste {
+  width: 100%;
+  max-width: 900px;            /* verhindert zu breite Darstellung */
+  margin: 2rem auto;           /* zentriert die Tabelle */
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;            /* wichtig für abgerundete Ecken */
+}
+
+/* Tabellenkopf */
+.table-ewigeRangliste thead {
+  background-color: #2c3e50;
+  color: #ffffff;
+}
+
+.table-ewigeRangliste th {
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* Tabelleninhalt */
+.table-ewigeRangliste td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Zebra-Streifen */
+.table-ewigeRangliste tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Hover-Effekt */
+.table-ewigeRangliste tbody tr:hover {
+  background-color: #eef3f7;
+  transition: background-color 0.2s ease;
+}
+
+/* Spaltenausrichtung */
+.table-ewigeRangliste td:first-child {
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.table-ewigeRangliste td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+/* =========================================
+   Responsive Anpassung
+   ========================================= */
+
+@media (max-width: 600px) {
+  .table-ewigeRangliste {
+    font-size: 0.85rem;
+  }
+
+  .table-ewigeRangliste th,
+  .table-ewigeRangliste td {
+    padding: 8px 10px;
+  }
+}
+
+
+/* =========================================
    ===== 11. UI ELEMENTE ===================
    ========================================= */
 
