@@ -1,18 +1,45 @@
+/* ===== Farb-Theme ===== */
+:root {
+  --bg-main: #0f172a;
+  --bg-secondary: #1e293b;
+
+  --accent: #ef4444;       /* Rot */
+  --accent-hover: #dc2626; /* dunkleres Rot */
+
+  --text-main: #e2e8f0;
+  --text-muted: #64748b;
+}
+
+body.theme-red {
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
+}
+
+body.theme-dark {
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+}
+
 /* ===== Grundlayout ===== */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
 header {
-  background: #1e293b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+}
+
+.header-text {
   text-align: center;
-  padding: 10px;
 }
 
 nav {
@@ -47,7 +74,7 @@ nav {
 }
 
 .menu a:hover {
-  color: #0ea5e9;
+  color: var(--accent);
 }
 
 /* Submenu + Animation */
@@ -104,14 +131,14 @@ nav {
   margin-top: auto;
   padding: 8px 12px 30px;
   background: #38bdf8;
-  color: #020617;
+  background: var(--accent);
   border-radius: 6px;
   text-decoration: none;
   width: fit-content;
 }
 
 .news-slide a:hover {
-  background: #0ea5e9;
+  background: var(--accent-hover);
 }
 
 .news-slide.active {
@@ -126,11 +153,23 @@ nav {
   gap: 20px;
 }
 
-.box, .team-box {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+.box, .team-box, .news-slider {
+  opacity: 0;
+  background: var(--bg-secondary);
+  transform: translateY(40px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Verzögerung für nacheinander */
+.box:nth-child(1) { animation-delay: 0.1s; }
+.box:nth-child(2) { animation-delay: 0.2s; }
+.box:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .full-width {
@@ -163,7 +202,7 @@ td, th {
 }
 
 th {
-  color: #38bdf8;
+  color: var(--accent);
 }
 
 tr:hover {
@@ -174,7 +213,7 @@ tr:hover {
 hr {
   border: 0;
   height: 2px;
-  background: #38bdf8;
+  background: var(--accent);
   margin: 20px 0;
 }
 
