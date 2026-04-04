@@ -29,6 +29,7 @@ body {
 
 header {
   position: relative;
+  background: var(--bg-main);
 }
 
 .logo {
