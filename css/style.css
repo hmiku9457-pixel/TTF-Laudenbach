@@ -133,11 +133,6 @@ nav {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.training-box {
-  max-width: 600px; /* maximale Breite */
-  margin: 0 auto;   /* zentriert die Box horizontal */
-}
-
 .full-width {
   grid-column: 1 / -1;
 }
