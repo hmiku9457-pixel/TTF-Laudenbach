@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(headerContainer) {
 
 		// Header HTML laden
-		fetch('header.html')
+		fetch('./header.html')
 			.then(res => res.text())
 			.then(html => {
 				// HTML in die Seite einfügen
