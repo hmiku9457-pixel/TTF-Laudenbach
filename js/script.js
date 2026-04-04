@@ -31,3 +31,9 @@ function startSlider(length) {
     slides[index].classList.add('active');
   }, 18000);
 }
+
+const switcher = document.getElementById("themeSwitcher");
+
+switcher.addEventListener("change", (e) => {
+  document.body.className = "theme-" + e.target.value;
+});
