@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function initAnimations() {
 
 		// Alle Elemente auswählen, die animiert werden sollen
-		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
+		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button', .table-ewigeRangliste tbody tr);
 
 		elements.forEach((el, index) => {
 
