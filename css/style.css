@@ -360,6 +360,11 @@ table tr:hover {
   color: #ffffff;
 }
 
+.table-ewigeRangliste tbody tr {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
 .table-ewigeRangliste th {
   text-align: left;
   padding: var(--space-m) var(--space-l);
