@@ -20,20 +20,25 @@ body {
    ========================================= */
 
 :root {
-   --bg-main: #0f172a;
-   --bg-secondary: #1e293b;
+	--bg-main: #0f172a;
+	--bg-secondary: #1e293b;
+	--bg-navigation: #020617;
 
-   --accent: #ef4444;
+	--accent: #ef4444;
 	--accent-hover: #dc2626;
    
 	--text-main: #e2e8f0;
-   --text-muted: #64748b;
+	--text-muted: #64748b;
 
 /* Einheitliches Spacing */
 	--space-s: 5px;
-   --space-m: 10px;
-   --space-l: 15px;
-   --space-xl: 20px;
+	--space-m: 10px;
+	--space-l: 15px;
+	--space-xl: 20px;
+
+/* Einheitliche Shadows */
+	--shadow-light: 0 4px 10px rgba(0,0,0,0.3);
+	--shadow-heavy: 0 8px 20px rgba(0,0,0,0.4);
 
 /*Farbschema für die Tabelle der Ewigen Rangliste */
 	--bg-table-ewigeTabelle-head: #2c3e50;
@@ -91,7 +96,7 @@ header {
    ========================================= */
 
 nav {
-    background: #020617;
+    background: var(--bg-navigation);
     text-align: center;
 }
 
@@ -182,7 +187,7 @@ nav {
     background: var(--bg-secondary);
     padding: var(--space-xl);
     border-radius: var(--space-m);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-light);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -191,7 +196,7 @@ nav {
 .box:hover,
 .team-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-heavy);
 }
 
 /*.team-box {
@@ -201,8 +206,8 @@ nav {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
     /* Fix für Textabstände /
-    line-height: 1.6;           /* angenehmer Zeilenabstand /
-    overflow-wrap: break-word;  /* lange Worte umbrechen /
+    line-height: 1.6;
+    overflow-wrap: break-word;
 }*/
 
 .team-box ul,
@@ -319,7 +324,7 @@ th {
     color: var(--accent);
 }
 
-tr:hover {
+table tr:hover {
     background: rgba(56, 189, 248, 0.1);
 }
 
