@@ -416,6 +416,16 @@ table tr:hover {
   }
 }
 
+/* =========================================
+   ==== 10A-I EWIGE RANGLISTE ANIMATION ====
+   ========================================= */
+
+.table-ewigeRangliste tbody tr.animate {
+    opacity: 0;                     /* Start unsichtbar */
+    transform: translateY(40px);    /* Start leicht nach unten verschoben */
+    animation: fadeInUp 0.6s ease forwards; /* Animation wie bei Boxen */
+}
+
 
 /* =========================================
    ===== 11. UI ELEMENTE ===================
