@@ -103,31 +103,39 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ==========================================
 
 	function initAnimations() {
-	    // Boxen & Buttons
-		// Alle Elemente auswählen, die animiert werden sollen
-	    const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
-	
-	    elements.forEach((el, index) => {
+
+		// Alle Elemente auswählen, die animiert werden sollen: Boxen, Team-Boxen, Slider, Buttons
+		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
+
+		elements.forEach((el, index) => {
 
 			// Verzögerung setzen (für "nacheinander reinfliegen")
-	        el.style.animationDelay = (index * 0.2) + "s";
+			el.style.animationDelay = (index * 0.2) + "s";
+
 			// Animation aktivieren (CSS übernimmt den Rest)
-	        el.classList.add("animate");
-	    });
-	
-	    // Tabelle: jede Zeile separat
-	    const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
-	    rows.forEach((row, index) => {
-	        row.style.animationDelay = (index * 0.08) + "s"; // 80ms pro Zeile
-	        row.classList.add("animate");
-	    });
+			el.classList.add("animate");
+		});
+
+		// ==========================================
+		// ===== Tabelle: jede Zeile separat =======
+		// ==========================================
+
+		// Jede Zeile der Ewigen Rangliste nacheinander animieren
+		const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
+		rows.forEach((row, index) => {
+
+			// Verzögerung pro Zeile (80ms)
+			row.style.animationDelay = (index * 0.08) + "s";
+
+			// Animation aktivieren
+			row.classList.add("animate");
+		});
 	}
-	
 
 	// ==========================================
 	// ===== 4A. OBSERVER FÜR DYNAMISCHE BOXEN =
 	// ==========================================
-	// Falls Boxen später dynamisch nachgeladen werden (z.B. Subsite),
+	// Falls Boxen oder Tabellen später dynamisch nachgeladen werden,
 	// werden sie automatisch animiert
 	const observer = new MutationObserver(() => {
 		initAnimations();
