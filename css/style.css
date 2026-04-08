@@ -175,7 +175,8 @@ nav {
 
 .full-width {
     grid-column: 1 / -1;
-   padding: var(--space-m) var(--space-xl);
+	padding: var(--space-m) var(--space-xl);
+	gap: var(--space-m);
 }
 
 .grid-button {
