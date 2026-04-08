@@ -103,19 +103,26 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ==========================================
 
 	function initAnimations() {
-
+	    // Boxen & Buttons
 		// Alle Elemente auswählen, die animiert werden sollen
-		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button', .table-ewigeRangliste tbody tr);
-
-		elements.forEach((el, index) => {
+	    const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
+	
+	    elements.forEach((el, index) => {
 
 			// Verzögerung setzen (für "nacheinander reinfliegen")
-			el.style.animationDelay = (index * 0.2) + "s";
-
+	        el.style.animationDelay = (index * 0.2) + "s";
 			// Animation aktivieren (CSS übernimmt den Rest)
-			el.classList.add("animate");
-		});
+	        el.classList.add("animate");
+	    });
+	
+	    // Tabelle: jede Zeile separat
+	    const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
+	    rows.forEach((row, index) => {
+	        row.style.animationDelay = (index * 0.08) + "s"; // 80ms pro Zeile
+	        row.classList.add("animate");
+	    });
 	}
+	
 
 	// ==========================================
 	// ===== 4A. OBSERVER FÜR DYNAMISCHE BOXEN =
