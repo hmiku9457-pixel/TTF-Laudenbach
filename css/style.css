@@ -449,6 +449,9 @@ footer {
     display: inline-block;
 }
 
+.u-text-center {
+    text-align: center;
+}
 
 /* =========================================
    ===== 12. BUTTONS =======================
