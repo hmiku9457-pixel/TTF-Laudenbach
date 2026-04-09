@@ -208,6 +208,7 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: var(--space-l);
 	padding: var(--space-m) var(--space-xl);
+	margin-top: auto;
 }
 
 
@@ -251,6 +252,11 @@ nav {
 
 .team-box li {
     margin-bottom: 0px;     /* Abstand zwischen Listenelementen */
+}
+
+.column {
+    display: grid;
+    gap: var(--space-m);
 }
 
 
