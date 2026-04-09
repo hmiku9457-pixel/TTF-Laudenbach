@@ -548,3 +548,30 @@ footer {
 	border: 0;
 	display: block;
 }
+
+
+/* =========================================
+   ===== 13. FOOTER ========================
+   ========================================= */
+
+.footer {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-muted);
+}
+
+.footer-links {
+    margin-top: var(--space-m);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-l);
+}
+
+.footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--accent);
+}
