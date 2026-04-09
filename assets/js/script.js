@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(headerContainer) {
 
 		// Header HTML laden
-		fetch('/TTF-Laudenbach/header.html')
+		fetch('/TTF-Laudenbach/components/header.html')
 			.then(res => res.text())
 			.then(html => {
 				// HTML in die Seite einfügen
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Prüfen, ob vorhanden
 	if(footerContainer) {
 	
-	    fetch('/TTF-Laudenbach/footer.html')
+	    fetch('/TTF-Laudenbach/components/footer.html')
 	        .then(res => res.text())
 	        .then(html => {
 	            footerContainer.innerHTML = html;
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(container) {
 
 		// Daten aus JSON laden (async!)
-		fetch('data/news.json')
+		fetch('/TTF-Laudenbach/assets/data/news.json')
 			.then(res => res.json()) // Antwort → JSON umwandeln
 			.then(data => {
 
