@@ -127,24 +127,49 @@ nav {
 .submenu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
 
     background: var(--bg-secondary);
+	box-shadow: var(--shadow-heavy);
+	border-radius: var(--space-m);
     list-style: none;
-    padding: var(--space-m);
+    padding: var(--space-s);
     white-space: nowrap;
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateX(-50%) translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu li + li {
+    margin-top: 4px;
+}
+
+.submenu a {
+    display: block;
+    padding: var(--space-s) var(--space-l);
+    border-radius: var(--space-s);
+    color: var(--text-main);
+    text-decoration: none;
+
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.submenu a:hover {
+    background: var(--bg-main);
+    transform: translateX(3px); /* leichtes "Reinsliden" */
 }
 
 .dropdown:hover .submenu,
 .dropdown:focus-within .submenu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 
