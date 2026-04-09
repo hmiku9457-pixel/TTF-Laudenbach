@@ -29,6 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
+	// ===== 1B. FOOTER LADEN ===================
+	// ==========================================
+	
+	// Container für Footer holen
+	const footerContainer = document.getElementById('footer-container');
+	
+	// Prüfen, ob vorhanden
+	if(footerContainer) {
+	
+	    fetch('/TTF-Laudenbach/footer.html')
+	        .then(res => res.text())
+	        .then(html => {
+	            footerContainer.innerHTML = html;
+	        });
+	}
+
+	// ==========================================
 	// ===== 2. NEWS SLIDER LADEN (FETCH) =======
 	// ==========================================
 
