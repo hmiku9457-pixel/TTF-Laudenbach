@@ -1,51 +1,72 @@
 [
   {
     "datum": "Fr., 10.04.2026",
-    "heim": "20:00",
-    "gast": "1",
-    "ergebnis": "E KLA",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach III",
+    "ergebnis": "6:9",
     "status": "gespielt"
   },
   {
     "datum": "Sa., 11.04.2026",
-    "heim": "10:00",
-    "gast": "1",
-    "ergebnis": "J KLE",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "J KLE",
+    "heim": "TTF Laudenbach II",
+    "gast": "SV Bieberehren",
+    "ergebnis": "5:5",
     "status": "gespielt"
   },
   {
     "datum": "Sa., 11.04.2026",
-    "heim": "18:45",
-    "gast": "1",
-    "ergebnis": "E KLB",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "TTF Laudenbach III",
+    "gast": "SC Buchenbach IV",
+    "ergebnis": "9:4",
     "status": "gespielt"
   },
   {
     "datum": "So., 12.04.2026",
-    "heim": "10:30\nv",
-    "gast": "2",
-    "ergebnis": "E KLA",
+    "uhrzeit": "10:30\nv",
+    "spielort": "2",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach II",
+    "gast": "SV Morsbach",
+    "ergebnis": "9:1",
     "status": "gespielt"
   },
   {
     "datum": "Fr., 17.04.2026",
-    "heim": "19:00\nv",
-    "gast": "1",
-    "ergebnis": "E BKB",
+    "uhrzeit": "19:00\nv",
+    "spielort": "1",
+    "klasse": "E BKB",
+    "heim": "FC Honhardt",
+    "gast": "TTF Laudenbach",
+    "ergebnis": "9:0",
     "status": "gespielt"
   },
   {
     "datum": "Sa., 18.04.2026",
-    "heim": "14:00\nv",
-    "gast": "3",
-    "ergebnis": "J KLE",
+    "uhrzeit": "14:00\nv",
+    "spielort": "3",
+    "klasse": "J KLE",
+    "heim": "TSV Gerabronn III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "8:2",
     "status": "gespielt"
   },
   {
     "datum": "Sa., 18.04.2026",
-    "heim": "18:00",
-    "gast": "1",
-    "ergebnis": "E KLA",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "VFB Bad Mergentheim III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "9:1",
     "status": "gespielt"
   }
 ]
