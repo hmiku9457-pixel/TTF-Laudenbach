@@ -30,19 +30,25 @@ def scrape_spiele():
                 continue
 
             datum = safe_text(cols, 0)
-            heim = safe_text(cols, 1)
-            gast = safe_text(cols, 2)
-            ergebnis = safe_text(cols, 3)
+            uhrzeit = safe_text(cols, 1)
+            spielort = safe_text(cols, 2)
+            klasse = safe_text(cols, 3)
+            heim = safe_text(cols, 4)
+            gast = safe_text(cols, 5)
+            ergebnis = safe_text(cols, 6)
 
             # Unterscheidung: gespielt oder geplant
             gespielt = ergebnis != ""
 
             spiele.append({
                 "datum": datum,
+                "uhrzeit": uhrzeit,
+                "spielort": spielort,
+                "klasse": klasse,
                 "heim": heim,
                 "gast": gast,
-                "ergebnis": ergebnis if gespielt else None,
-                "status": "gespielt" if gespielt else "geplant"
+                "ergebnis": ergebnis if ergebnis else None,
+                "status": "gespielt" if ergebnis else "geplant"
             })
 
         browser.close()
