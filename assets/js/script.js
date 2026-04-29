@@ -10,20 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== 1A. HEADER & NAVIGATION LADEN =====
 	// ==========================================
 
-	// Container, in den Header eingefügt wird
 	const headerContainer = document.getElementById('header-container');
 
-	// Prüfen, ob der Container existiert
 	if(headerContainer) {
-
-		// Header HTML laden
 		fetch('/TTF-Laudenbach/components/header.html')
 			.then(res => res.text())
 			.then(html => {
-				// HTML in die Seite einfügen
 				headerContainer.innerHTML = html;
-
-				// Nach dem Laden: Theme-Switcher aktivieren
 				initThemeSwitcher();
 			});
 	}
@@ -32,12 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== 1B. FOOTER LADEN ===================
 	// ==========================================
 	
-	// Container für Footer holen
 	const footerContainer = document.getElementById('footer-container');
 	
-	// Prüfen, ob vorhanden
 	if(footerContainer) {
-	
 	    fetch('/TTF-Laudenbach/components/footer.html')
 	        .then(res => res.text())
 	        .then(html => {
@@ -49,27 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== 2. NEWS SLIDER LADEN (FETCH) =======
 	// ==========================================
 
-	// Container aus dem HTML holen
 	const container = document.querySelector('.news-slider');
 
-	// Prüfen, ob der Slider existiert
 	if(container) {
 
-		// Daten aus JSON laden (async!)
 		fetch('/TTF-Laudenbach/assets/data/news.json')
-			.then(res => res.json()) // Antwort → JSON umwandeln
+			.then(res => res.json())
 			.then(data => {
 
-				// Für jeden News-Eintrag ein Element erzeugen
 				data.forEach((item, i) => {
 
 					const div = document.createElement('div');
 					div.classList.add('news-slide');
 
-					// Erstes Element sichtbar machen
 					if(i === 0) div.classList.add('active');
 
-					// HTML-Inhalt einsetzen
 					div.innerHTML = `
 						<img src="${item.image}" alt="${item.title}">
 						<h3>${item.title}</h3>
@@ -77,14 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 						<a href="${item.link}" class="read-more">Mehr lesen</a>
 					`;
 
-					// In den Slider einfügen
 					container.appendChild(div);
 				});
 
-				// Slider starten (nachdem Elemente existieren!)
 				startSlider();
-
-				// Animation starten (auch erst danach!)
 				initAnimations();
 			});
 	}
@@ -95,24 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function startSlider() {
 
-		// Alle Slides holen
 		const slides = document.querySelectorAll('.news-slide');
-
 		let index = 0;
 
-		// Alle 10 Sekunden wechseln
 		setInterval(() => {
 
-			// aktuelles Slide ausblenden
 			slides[index].classList.remove('active');
-
-			// Index erhöhen (mit Loop zurück zu 0)
 			index = (index + 1) % slides.length;
-
-			// neues Slide anzeigen
 			slides[index].classList.add('active');
 
-		}, 10000);	// Wechsel alle 10 Sekunden
+		}, 10000);
 	}
 
 	// ==========================================
@@ -121,30 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function initAnimations() {
 
-		// Alle Elemente auswählen, die animiert werden sollen: Boxen, Team-Boxen, Slider, Buttons
 		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
 
 		elements.forEach((el, index) => {
-
-			// Verzögerung setzen (für "nacheinander reinfliegen")
 			el.style.animationDelay = (index * 0.2) + "s";
-
-			// Animation aktivieren (CSS übernimmt den Rest)
 			el.classList.add("animate");
 		});
 
-		// ==========================================
-		// ===== Tabelle: jede Zeile separat =======
-		// ==========================================
-
-		// Jede Zeile der Ewigen Rangliste nacheinander animieren
+		// Tabelle: jede Zeile separat
 		const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
 		rows.forEach((row, index) => {
-
-			// Verzögerung pro Zeile (80ms)
 			row.style.animationDelay = (index * 0.08) + "s";
-
-			// Animation aktivieren
 			row.classList.add("animate");
 		});
 	}
@@ -152,15 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ==========================================
 	// ===== 4A. OBSERVER FÜR DYNAMISCHE BOXEN =
 	// ==========================================
-	// Falls Boxen oder Tabellen später dynamisch nachgeladen werden,
-	// werden sie automatisch animiert
+
 	const observer = new MutationObserver(() => {
 		initAnimations();
 	});
 
 	observer.observe(document.body, { childList: true, subtree: true });
-
-	// Initial Animation für bereits vorhandene Elemente
 	initAnimations();
 	
 	// ==========================================
@@ -171,18 +127,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		const switcher = document.getElementById("themeSwitcher");
 
-		// Falls das Element existiert (Sicherheit!)
 		if(switcher) {
-
 			switcher.addEventListener("change", (e) => {
-
-				// Alte Themes entfernen
 				document.body.classList.remove("theme-red", "theme-dark");
-
-				// Neues Theme hinzufügen
 				document.body.classList.add("theme-" + e.target.value);
 			});
 		}
+	}
+
+	// ==========================================
+	// ===== 6. SPIELE LADEN (JSON) =============
+	// ==========================================
+
+	loadSpiele();
+
+	async function loadSpiele() {
+
+		const tbody = document.getElementById("spiele-body");
+
+		// Falls Tabelle nicht existiert → abbrechen
+		if(!tbody) return;
+
+		try {
+			const response = await fetch("/TTF-Laudenbach/assets/data/spiele.json");
+			const spiele = await response.json();
+
+			tbody.innerHTML = "";
+
+			spiele.forEach(spiel => {
+
+				const tr = document.createElement("tr");
+
+				// Prüfen ob Heimspiel
+				const istHeimspiel = spiel.heim.includes("Laudenbach");
+
+				tr.innerHTML = `
+					<td>${getMannschaft(spiel.heim, spiel.gast)}</td>
+					<td>${spiel.heim} vs. ${spiel.gast}</td>
+					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
+					<td>${spiel.datum}</td>
+					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
+				`;
+
+				tbody.appendChild(tr);
+			});
+
+		} catch (error) {
+			console.error("Fehler beim Laden der Spiele:", error);
+		}
+	}
+
+	// ==========================================
+	// ===== 7. HILFSFUNKTIONEN SPIELE ==========
+	// ==========================================
+
+	// Mannschaft bestimmen (Laudenbach hervorheben)
+	function getMannschaft(heim, gast) {
+		if (heim.includes("Laudenbach")) return heim;
+		if (gast.includes("Laudenbach")) return gast;
+		return "-";
+	}
+
+	// Spielort umwandeln (nur bei Heimspielen)
+	function getSpielort(code, istHeimspiel) {
+
+		if(!istHeimspiel) {
+			return code; // Auswärtsspiel → nur Zahl anzeigen
+		}
+
+		switch (code) {
+			case "1":
+				return "Großsporthalle Weikersheim";
+			case "2":
+				return "Zehntscheune Laudenbach";
+			case "3":
+				return "Ausweichhalle";
+			default:
+				return "-";
+		}
+	}
+
+	// Uhrzeit formatieren (\n entfernen)
+	function formatUhrzeit(uhrzeit) {
+		return uhrzeit.replace("\n", " ");
 	}
 
 });
