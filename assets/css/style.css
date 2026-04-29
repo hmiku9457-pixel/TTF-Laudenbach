@@ -84,7 +84,7 @@ header {
     left: var(--space-l);
     top: 50%;
     transform: translateY(-50%);
-    height: 75px;
+    height: 150px;
 }
 
 .header-text {
