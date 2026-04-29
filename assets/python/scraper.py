@@ -1,7 +1,15 @@
 from playwright.sync_api import sync_playwright
+from datetime import datetime, timedelta
 import json
 
-URL = "https://www.mytischtennis.de/click-tt/TTBW/25--26/verein/07041/TTF_Laudenbach/spielplan?date_start=2026-03-29&date_end=2026-05-29"
+today = datetime.today()
+start_date = (today - timedelta(days=30)).strftime("%Y-%m-%d")
+end_date = (today + timedelta(days=30)).strftime("%Y-%m-%d")
+
+URL = f"https://www.mytischtennis.de/click-tt/TTBW/25--26/verein/07041/TTF_Laudenbach/spielplan?date_start={start_date}&date_end={end_date}"
+
+def safe_text(cols, i):
+    return cols[i].inner_text().strip() if i < len(cols) else ""
 
 def scrape_spiele():
     spiele = []
@@ -9,28 +17,34 @@ def scrape_spiele():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-    
+
         page.goto(URL)
-        
         page.wait_for_selector("table", timeout=60000)
-    
+
         rows = page.query_selector_all("table tbody tr")
-    
-        spiele = []
-    
+
         for row in rows:
             cols = row.query_selector_all("td")
-    
-            if len(cols) < 6:
+
+            if len(cols) < 4:
                 continue
-    
+
+            datum = safe_text(cols, 0)
+            heim = safe_text(cols, 1)
+            gast = safe_text(cols, 2)
+            ergebnis = safe_text(cols, 3)
+
+            # Unterscheidung: gespielt oder geplant
+            gespielt = ergebnis != ""
+
             spiele.append({
-                "datum": cols[0].inner_text().strip(),
-                "heim": cols[2].inner_text().strip(),
-                "gast": cols[4].inner_text().strip(),
-                "ergebnis": cols[5].inner_text().strip()
+                "datum": datum,
+                "heim": heim,
+                "gast": gast,
+                "ergebnis": ergebnis if gespielt else None,
+                "status": "gespielt" if gespielt else "geplant"
             })
-    
+
         browser.close()
 
     return spiele
