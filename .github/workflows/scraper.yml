@@ -19,7 +19,7 @@ jobs:
       - run: pip install playwright
       - run: playwright install chromium
 
-      - run: python scraper.py
+      - run: python assets/python/scraper.py
 
       - run: |
           git config --global user.name "github-actions"
