@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "datum": "So., 29.03.2026",
+    "heim": "1",
+    "gast": "TSV Schrozberg II",
+    "ergebnis": "TTF Laudenbach III"
+  },
+  {
+    "datum": "Fr., 10.04.2026",
+    "heim": "1",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "SC Buchenbach III"
+  },
+  {
+    "datum": "Sa., 11.04.2026",
+    "heim": "1",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "SV Bieberehren"
+  },
+  {
+    "datum": "Sa., 11.04.2026",
+    "heim": "1",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "SC Buchenbach IV"
+  },
+  {
+    "datum": "So., 12.04.2026",
+    "heim": "2",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "SV Morsbach"
+  },
+  {
+    "datum": "Fr., 17.04.2026",
+    "heim": "1",
+    "gast": "FC Honhardt",
+    "ergebnis": "TTF Laudenbach"
+  },
+  {
+    "datum": "Sa., 18.04.2026",
+    "heim": "3",
+    "gast": "TSV Gerabronn III",
+    "ergebnis": "TTF Laudenbach II"
+  },
+  {
+    "datum": "Sa., 18.04.2026",
+    "heim": "1",
+    "gast": "VFB Bad Mergentheim III",
+    "ergebnis": "TTF Laudenbach II"
+  }
+]
