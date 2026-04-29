@@ -9,31 +9,29 @@ def scrape_spiele():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-
-        page.goto(URL)
-        page.wait_for_selector("table")
-
+    
+        page.goto(URL, wait_until="networkidle")
+    
+        # kurze Sicherheitswartezeit
+        page.wait_for_timeout(3000)
+    
         rows = page.query_selector_all("table tbody tr")
-
+    
+        spiele = []
+    
         for row in rows:
             cols = row.query_selector_all("td")
-
-            # Schutz gegen leere Zeilen
+    
             if len(cols) < 6:
                 continue
-
-            datum = cols[0].inner_text().strip()
-            heim = cols[2].inner_text().strip()
-            gast = cols[4].inner_text().strip()
-            ergebnis = cols[5].inner_text().strip()
-
+    
             spiele.append({
-                "datum": datum,
-                "heim": heim,
-                "gast": gast,
-                "ergebnis": ergebnis
+                "datum": cols[0].inner_text().strip(),
+                "heim": cols[2].inner_text().strip(),
+                "gast": cols[4].inner_text().strip(),
+                "ergebnis": cols[5].inner_text().strip()
             })
-
+    
         browser.close()
 
     return spiele
