@@ -162,12 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
 				const istHeimspiel = spiel.heim.includes("Laudenbach");
 
 				tr.innerHTML = `
+					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
+					<td>${getGegner(spiel.heim, spiel.gast)}</td>
+					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
 					<td>${spiel.datum}</td>
 					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
-					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
-					<td>${spiel.gast}</td>
-					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
-					<td>${spiel.ergebnis}</td>
+					<td>${getErgebnis(spiel)}</td>
 				`;
 
 				tbody.appendChild(tr);
@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Mannschaft bestimmen (Jugend / Herren + Nummer extrahieren)
 	function getMannschaft(heim, gast, klasse) {
 	
-		// Prüfen ob Laudenbach beteiligt ist
 		let team = "";
 	
 		if (heim.includes("Laudenbach")) {
@@ -196,30 +195,38 @@ document.addEventListener("DOMContentLoaded", () => {
 			return "-";
 		}
 	
-		// Nummer extrahieren (z. B. "II", "III", etc.)
-		const teile = team.split(" ");
-		const nummer = teile[teile.length - 1];
+		// Nummer extrahieren (I, II, III...)
+		const match = team.match(/(I|II|III|IV|V)$/);
+		const nummer = match ? match[0] : "I";
 	
 		// Klasse auswerten
-		if (klasse.startsWith("J")) {
-			return "Jugend " + nummer;
+		if (klasse.startsWith("J")) return "Jugend " + nummer;
+		if (klasse.startsWith("E")) return "Herren " + nummer;
+	
+		return nummer;
+	}
+
+	
+	function getGegner(heim, gast) {
+
+		if (heim.includes("Laudenbach")) {
+			return gast;
 		}
 	
-		if (klasse.startsWith("E")) {
-			return "Herren " + nummer;
+		if (gast.includes("Laudenbach")) {
+			return heim;
 		}
 	
-		// Fallback
-		return team;
+		return "-";
 	}
 
 	// Spielort umwandeln (nur bei Heimspielen)
 	function getSpielort(code, istHeimspiel) {
 
-		if(!istHeimspiel) {
-			return code; // Auswärtsspiel → nur Zahl anzeigen
+		if (!istHeimspiel) {
+			return ""; // Auswärts → leer
 		}
-
+	
 		switch (code) {
 			case "1":
 				return "Großsporthalle Weikersheim";
@@ -235,6 +242,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Uhrzeit formatieren (\n entfernen)
 	function formatUhrzeit(uhrzeit) {
 		return uhrzeit.replace("\n", " ");
+	}
+
+	function getErgebnis(spiel) {
+
+		if (spiel.status === "geplant") {
+			return "-:-";
+		}
+	
+		return spiel.ergebnis || "-:-";
 	}
 
 });
