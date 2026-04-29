@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
 					<td>${spiel.gast}</td>
 					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
+					<td>${spiel.ergebnis}</td>
 				`;
 
 				tbody.appendChild(tr);
