@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				tr.innerHTML = `
 					<td>${spiel.datum}</td>
 					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
-					<td>${getMannschaft(spiel.heim, spiel.gast)}</td>
+					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
 					<td>${spiel.gast}</td>
 					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
 				`;
@@ -181,11 +181,35 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== 7. HILFSFUNKTIONEN SPIELE ==========
 	// ==========================================
 
-	// Mannschaft bestimmen (Laudenbach hervorheben)
-	function getMannschaft(heim, gast) {
-		if (heim.includes("Laudenbach")) return heim;
-		if (gast.includes("Laudenbach")) return gast;
-		return "-";
+	// Mannschaft bestimmen (Jugend / Herren + Nummer extrahieren)
+	function getMannschaft(heim, gast, klasse) {
+	
+		// Prüfen ob Laudenbach beteiligt ist
+		let team = "";
+	
+		if (heim.includes("Laudenbach")) {
+			team = heim;
+		} else if (gast.includes("Laudenbach")) {
+			team = gast;
+		} else {
+			return "-";
+		}
+	
+		// Nummer extrahieren (z. B. "II", "III", etc.)
+		const teile = team.split(" ");
+		const nummer = teile[teile.length - 1];
+	
+		// Klasse auswerten
+		if (klasse.startsWith("J")) {
+			return "Jugend " + nummer;
+		}
+	
+		if (klasse.startsWith("E")) {
+			return "Herren " + nummer;
+		}
+	
+		// Fallback
+		return team;
 	}
 
 	// Spielort umwandeln (nur bei Heimspielen)
