@@ -1,50 +1,51 @@
 [
   {
-    "datum": "So., 29.03.2026",
-    "heim": "1",
-    "gast": "TSV Schrozberg II",
-    "ergebnis": "TTF Laudenbach III"
-  },
-  {
     "datum": "Fr., 10.04.2026",
-    "heim": "1",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "SC Buchenbach III"
+    "heim": "20:00",
+    "gast": "1",
+    "ergebnis": "E KLA",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 11.04.2026",
-    "heim": "1",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "SV Bieberehren"
+    "heim": "10:00",
+    "gast": "1",
+    "ergebnis": "J KLE",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 11.04.2026",
-    "heim": "1",
-    "gast": "TTF Laudenbach III",
-    "ergebnis": "SC Buchenbach IV"
+    "heim": "18:45",
+    "gast": "1",
+    "ergebnis": "E KLB",
+    "status": "gespielt"
   },
   {
     "datum": "So., 12.04.2026",
-    "heim": "2",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "SV Morsbach"
+    "heim": "10:30\nv",
+    "gast": "2",
+    "ergebnis": "E KLA",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 17.04.2026",
-    "heim": "1",
-    "gast": "FC Honhardt",
-    "ergebnis": "TTF Laudenbach"
+    "heim": "19:00\nv",
+    "gast": "1",
+    "ergebnis": "E BKB",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 18.04.2026",
-    "heim": "3",
-    "gast": "TSV Gerabronn III",
-    "ergebnis": "TTF Laudenbach II"
+    "heim": "14:00\nv",
+    "gast": "3",
+    "ergebnis": "J KLE",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 18.04.2026",
-    "heim": "1",
-    "gast": "VFB Bad Mergentheim III",
-    "ergebnis": "TTF Laudenbach II"
+    "heim": "18:00",
+    "gast": "1",
+    "ergebnis": "E KLA",
+    "status": "gespielt"
   }
 ]
