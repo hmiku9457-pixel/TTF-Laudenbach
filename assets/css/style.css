@@ -24,8 +24,8 @@ body {
 	--bg-secondary: #1e293b;
 	--bg-navigation: #020617;
 
-	--accent: #ef4444;
-	--accent-hover: #dc2626;
+	--accent: #38bdf8;
+	--accent-hover: #0ea5e9;
    
 	--text-main: #e2e8f0;
 	--text-muted: #64748b;
@@ -43,21 +43,10 @@ body {
 
 /*Farbschema für die Tabelle der Ewigen Rangliste */
 	--bg-table-ewigeTabelle-head: #2c3e50;
-	--bg-table-ewigeTabelle-evenRow: #8a2c2c;
-	--bg-table-ewigeTabelle-oddRow: #b51818;
-	--bg-table-ewigeTabelle-highlight: #96b518;
+	--bg-table-ewigeTabelle-evenRow: #1e3a5f;
+	--bg-table-ewigeTabelle-oddRow: #1a2e4a;
+	--bg-table-ewigeTabelle-highlight: #38bdf8;
 }
-
-/* alternative Themes */
-body.theme-red {
-    --accent: #ef4444;
-    --accent-hover: #dc2626;
-}
-
-body.theme-dark {
-    --accent: #38bdf8;
-    --accent-hover: #0ea5e9;
-}   /* Wird aktuell nicht verwendet */
 
 
 /* =========================================
@@ -84,7 +73,7 @@ header {
     left: var(--space-l);
     top: 50%;
     transform: translateY(-50%);
-    height: 150px;
+    height: 75px;
 }
 
 .header-text {
