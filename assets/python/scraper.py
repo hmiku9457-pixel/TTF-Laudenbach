@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json
 
-URL = "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Bezirksklasse_B_Gr.1/gruppe/494235/spielplan/"
+URL = "https://www.mytischtennis.de/click-tt/TTBW/25--26/verein/07041/TTF_Laudenbach/spielplan?date_start=2026-03-29&date_end=2026-05-29"
 
 def scrape_spiele():
     spiele = []
@@ -10,10 +10,9 @@ def scrape_spiele():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
     
-        page.goto(URL, wait_until="networkidle")
-    
-        # kurze Sicherheitswartezeit
-        page.wait_for_timeout(3000)
+        page.goto(URL)
+        
+        page.wait_for_selector("table", timeout=60000)
     
         rows = page.query_selector_all("table tbody tr")
     
