@@ -24,6 +24,6 @@ jobs:
       - run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add spiele.json
+          git add assets/data/spiele.json
           git commit -m "Update Spiele" || echo "No changes"
           git push
