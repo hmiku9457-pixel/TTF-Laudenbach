@@ -162,11 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				const istHeimspiel = spiel.heim.includes("Laudenbach");
 
 				tr.innerHTML = `
+					<td>${spiel.datum}</td>
+					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
 					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
 					<td>${getGegner(spiel.heim, spiel.gast)}</td>
 					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
-					<td>${spiel.datum}</td>
-					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
 					<td>${getErgebnis(spiel)}</td>
 				`;
 
