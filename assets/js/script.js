@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			.then(res => res.text())
 			.then(html => {
 				headerContainer.innerHTML = html;
+
+				// Theme-Switcher erst initialisieren,
+				// wenn der Header wirklich im DOM ist
 				initThemeSwitcher();
 			});
 	}
@@ -52,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					const div = document.createElement('div');
 					div.classList.add('news-slide');
 
+					// Erstes Element direkt sichtbar machen
 					if(i === 0) div.classList.add('active');
 
 					div.innerHTML = `
@@ -64,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					container.appendChild(div);
 				});
 
+				// Slider + Animation erst starten,
+				// nachdem Inhalte existieren
 				startSlider();
 				initAnimations();
 			});
@@ -100,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			el.classList.add("animate");
 		});
 
-		// Tabelle: jede Zeile separat
+		// Tabellenzeilen einzeln animieren
 		const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
 		rows.forEach((row, index) => {
 			row.style.animationDelay = (index * 0.08) + "s";
@@ -136,57 +142,113 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== 6. SPIELE LADEN (JSON) =============
+	// ===== 6. GENERISCHER JSON LOADER =========
 	// ==========================================
 
-	loadSpiele();
+	// Universelle Funktion zum Laden von JSON-Daten
+	// und Einfügen in eine Tabelle
+	async function loadTable(config) {
 
-	async function loadSpiele() {
+		const tbody = document.getElementById(config.targetId);
 
-		const tbody = document.getElementById("spiele-body");
-
-		// Falls Tabelle nicht existiert → abbrechen
+		// Falls Element nicht existiert → nichts tun
 		if(!tbody) return;
 
 		try {
-			const response = await fetch("/TTF-Laudenbach/assets/data/spiele.json");
-			const spiele = await response.json();
+			const response = await fetch(config.url);
+			const data = await response.json();
 
 			tbody.innerHTML = "";
 
-			spiele.forEach(spiel => {
+			data.forEach(item => {
 
 				const tr = document.createElement("tr");
 
-				// Prüfen ob Heimspiel
-				const istHeimspiel = spiel.heim.includes("Laudenbach");
-
-				tr.innerHTML = `
-					<td>${spiel.datum}</td>
-					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
-					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
-					<td>${getGegner(spiel.heim, spiel.gast)}</td>
-					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
-					<td>${getErgebnis(spiel)}</td>
-				`;
+				// Jede Tabelle definiert selbst,
+				// wie eine Zeile aussehen soll
+				tr.innerHTML = config.render(item);
 
 				tbody.appendChild(tr);
 			});
 
 		} catch (error) {
-			console.error("Fehler beim Laden der Spiele:", error);
+			console.error(`Fehler bei ${config.url}:`, error);
 		}
 	}
 
 	// ==========================================
-	// ===== 7. HILFSFUNKTIONEN SPIELE ==========
+	// ===== 7. SPIELE LADEN ====================
 	// ==========================================
 
-	// Mannschaft bestimmen (Jugend / Herren + Nummer extrahieren)
+	loadTable({
+		targetId: "spiele-body",
+		url: "/TTF-Laudenbach/assets/data/spiele.json",
+
+		render: (spiel) => {
+
+			const istHeimspiel = spiel.heim.includes("Laudenbach");
+
+			return `
+				<td>${spiel.datum}</td>
+				<td>${formatUhrzeit(spiel.uhrzeit)}</td>
+				<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
+				<td>${getGegner(spiel.heim, spiel.gast)}</td>
+				<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
+				<td>${getErgebnis(spiel)}</td>
+			`;
+		}
+	});
+
+	// ==========================================
+	// ===== 8. STANDARD TABELLEN RENDER ========
+	// ==========================================
+
+	// Einheitliche Darstellung für alle Tabellen
+	function renderStandardTabelle(row) {
+		return `
+			<td>${row.rang}</td>
+			<td>${row.mannschaft}</td>
+			<td>${row.partien}</td>
+			<td>${row.siege}</td>
+			<td>${row.unentschieden}</td>
+			<td>${row.niederlagen}</td>
+			<td>${row.spiele}</td>
+			<td>${row.spieleDifferenz}</td>
+			<td>${row.punkte}</td>
+		`;
+	}
+
+	// ==========================================
+	// ===== 9. TABELLEN LADEN ==================
+	// ==========================================
+
+	const tabellenConfigs = [
+
+		{
+			targetId: "tabelle-herren1",
+			url: "/TTF-Laudenbach/assets/data/tabelleHerren1.json",
+			render: renderStandardTabelle
+		},
+
+		{
+			targetId: "tabelle-herren2",
+			url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json",
+			render: renderStandardTabelle
+		}
+
+	];
+
+	// Alle Tabellen automatisch laden
+	tabellenConfigs.forEach(cfg => loadTable(cfg));
+
+	// ==========================================
+	// ===== 10. HILFSFUNKTIONEN SPIELE =========
+	// ==========================================
+
 	function getMannschaft(heim, gast, klasse) {
-	
+
 		let team = "";
-	
+
 		if (heim.includes("Laudenbach")) {
 			team = heim;
 		} else if (gast.includes("Laudenbach")) {
@@ -194,62 +256,40 @@ document.addEventListener("DOMContentLoaded", () => {
 		} else {
 			return "-";
 		}
-	
-		// Nummer extrahieren (I, II, III...)
+
 		const match = team.match(/(I|II|III|IV|V)$/);
 		const nummer = match ? match[0] : "I";
-	
-		// Klasse auswerten
+
 		if (klasse.startsWith("J")) return "Jugend " + nummer;
 		if (klasse.startsWith("E")) return "Herren " + nummer;
-	
+
 		return nummer;
 	}
 
-	
 	function getGegner(heim, gast) {
-
-		if (heim.includes("Laudenbach")) {
-			return gast;
-		}
-	
-		if (gast.includes("Laudenbach")) {
-			return heim;
-		}
-	
+		if (heim.includes("Laudenbach")) return gast;
+		if (gast.includes("Laudenbach")) return heim;
 		return "-";
 	}
 
-	// Spielort umwandeln (nur bei Heimspielen)
 	function getSpielort(code, istHeimspiel) {
 
-		if (!istHeimspiel) {
-			return ""; // Auswärts → leer
-		}
-	
+		if (!istHeimspiel) return "";
+
 		switch (code) {
-			case "1":
-				return "Großsporthalle Weikersheim";
-			case "2":
-				return "Zehntscheune Laudenbach";
-			case "3":
-				return "Ausweichhalle";
-			default:
-				return "-";
+			case "1": return "Großsporthalle Weikersheim";
+			case "2": return "Zehntscheune Laudenbach";
+			case "3": return "Ausweichhalle";
+			default: return "-";
 		}
 	}
 
-	// Uhrzeit formatieren (\n entfernen)
 	function formatUhrzeit(uhrzeit) {
 		return uhrzeit.replace("\n", " ");
 	}
 
 	function getErgebnis(spiel) {
-
-		if (spiel.status === "geplant") {
-			return "-:-";
-		}
-	
+		if (spiel.status === "geplant") return "-:-";
 		return spiel.ergebnis || "-:-";
 	}
 
