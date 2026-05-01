@@ -562,11 +562,12 @@ footer {
 
 
 /* =========================================
-   ===== 13. FOOTER ========================
+   ===== 14. FOOTER ========================
    ========================================= */
 
 .footer {
-    text-align: center;
+    display: grid;
+	text-align: center;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: var(--space-xl);
     color: var(--text-muted);
