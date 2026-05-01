@@ -1,1 +1,101 @@
-
+[
+  {
+    "rang": "1",
+    "mannschaft": "SV Elpersheim III",
+    "partien": "16",
+    "siege": "15",
+    "unentschieden": "1",
+    "niederlagen": "0",
+    "spiele": "143:42",
+    "spieleDifferenz": "+101",
+    "punkte": "31:1"
+  },
+  {
+    "rang": "2",
+    "mannschaft": "TSV Dörzbach II",
+    "partien": "16",
+    "siege": "11",
+    "unentschieden": "3",
+    "niederlagen": "2",
+    "spiele": "127:79",
+    "spieleDifferenz": "+48",
+    "punkte": "25:7"
+  },
+  {
+    "rang": "3",
+    "mannschaft": "VFB Bad Mergentheim IV",
+    "partien": "16",
+    "siege": "8",
+    "unentschieden": "2",
+    "niederlagen": "6",
+    "spiele": "114:99",
+    "spieleDifferenz": "+15",
+    "punkte": "18:14"
+  },
+  {
+    "rang": "4",
+    "mannschaft": "TSV Schrozberg II",
+    "partien": "16",
+    "siege": "7",
+    "unentschieden": "4",
+    "niederlagen": "5",
+    "spiele": "118:109",
+    "spieleDifferenz": "+9",
+    "punkte": "18:14"
+  },
+  {
+    "rang": "5",
+    "mannschaft": "TV Niederstetten",
+    "partien": "16",
+    "siege": "6",
+    "unentschieden": "3",
+    "niederlagen": "7",
+    "spiele": "110:109",
+    "spieleDifferenz": "+1",
+    "punkte": "15:17"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "FC Igersheim III",
+    "partien": "16",
+    "siege": "6",
+    "unentschieden": "2",
+    "niederlagen": "8",
+    "spiele": "107:103",
+    "spieleDifferenz": "+4",
+    "punkte": "14:18"
+  },
+  {
+    "rang": "7",
+    "mannschaft": "TTF Laudenbach III",
+    "partien": "16",
+    "siege": "6",
+    "unentschieden": "2",
+    "niederlagen": "8",
+    "spiele": "98:119",
+    "spieleDifferenz": "-21",
+    "punkte": "14:18"
+  },
+  {
+    "rang": "8",
+    "mannschaft": "SC Buchenbach IV",
+    "partien": "16",
+    "siege": "3",
+    "unentschieden": "1",
+    "niederlagen": "12",
+    "spiele": "64:127",
+    "spieleDifferenz": "-63",
+    "punkte": "7:25"
+  },
+  {
+    "rang": "9",
+    "mannschaft": "VFB Bad Mergentheim V",
+    "partien": "16",
+    "siege": "0",
+    "unentschieden": "2",
+    "niederlagen": "14",
+    "spiele": "48:142",
+    "spieleDifferenz": "-94",
+    "punkte": "2:30"
+  }
+]
