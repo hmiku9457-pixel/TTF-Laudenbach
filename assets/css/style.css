@@ -174,10 +174,25 @@ nav {
     align-items: stretch;
 }
 
-.grid-home {
+.grid-home-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.grid-home-firstLine {
     display: grid;
     grid-template-columns: auto 750px;
     gap: var(--space-m);
+	padding: var(--space-m) var(--space-xl);
+    align-items: stretch;
+}
+
+.grid-home-secondLine {
+    display: grid;
+    grid-template-columns: auto 500px;
+    gap: var(--space-m);
+	padding: var(--space-m) var(--space-xl);
     align-items: stretch;
 }
 
