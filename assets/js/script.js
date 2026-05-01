@@ -1,13 +1,13 @@
 // ==========================================
-// ===== 1. WARTEN BIS DOM GELADEN IST =====
+// ===== DOM READY ==========================
 // ==========================================
 
-// Stellt sicher, dass das HTML komplett geladen ist,
-// bevor wir Elemente auswählen oder verändern
+// Wartet bis das komplette HTML geladen ist,
+// damit alle DOM-Elemente sicher verfügbar sind
 document.addEventListener("DOMContentLoaded", () => {
 
 	// ==========================================
-	// ===== 1A. HEADER & NAVIGATION LADEN =====
+	// ===== HEADER LADEN =======================
 	// ==========================================
 
 	const headerContainer = document.getElementById('header-container');
@@ -18,34 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
 			.then(html => {
 				headerContainer.innerHTML = html;
 
-				// Theme-Switcher erst initialisieren,
-				// wenn der Header wirklich im DOM ist
+				// Theme Switcher erst nach Header-Insert aktivieren
 				initThemeSwitcher();
 			});
 	}
 
 	// ==========================================
-	// ===== 1B. FOOTER LADEN ===================
+	// ===== FOOTER LADEN =======================
 	// ==========================================
-	
+
 	const footerContainer = document.getElementById('footer-container');
-	
+
 	if(footerContainer) {
-	    fetch('/TTF-Laudenbach/components/footer.html')
-	        .then(res => res.text())
-	        .then(html => {
-	            footerContainer.innerHTML = html;
-	        });
+		fetch('/TTF-Laudenbach/components/footer.html')
+			.then(res => res.text())
+			.then(html => {
+				footerContainer.innerHTML = html;
+			});
 	}
 
 	// ==========================================
-	// ===== 2. NEWS SLIDER LADEN (FETCH) =======
+	// ===== NEWS SLIDER ========================
 	// ==========================================
 
-	const container = document.querySelector('.news-slider');
+	const newsContainer = document.querySelector('.news-slider');
 
-	if(container) {
+	if(newsContainer) {
 
+		// News-Daten laden und als Slides rendern
 		fetch('/TTF-Laudenbach/assets/data/news.json')
 			.then(res => res.json())
 			.then(data => {
@@ -55,9 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					const div = document.createElement('div');
 					div.classList.add('news-slide');
 
-					// Erstes Element direkt sichtbar machen
+					// erstes Slide aktiv setzen
 					if(i === 0) div.classList.add('active');
 
+					// Slide-Inhalt
 					div.innerHTML = `
 						<img src="${item.image}" alt="${item.title}">
 						<h3>${item.title}</h3>
@@ -65,18 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
 						<a href="${item.link}" class="read-more">Mehr lesen</a>
 					`;
 
-					container.appendChild(div);
+					newsContainer.appendChild(div);
 				});
 
-				// Slider + Animation erst starten,
-				// nachdem Inhalte existieren
+				// Slider & Animation starten
 				startSlider();
 				initAnimations();
 			});
 	}
 
 	// ==========================================
-	// ===== 3. SLIDER LOGIK ====================
+	// ===== SLIDER LOGIK =======================
 	// ==========================================
 
 	function startSlider() {
@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const slides = document.querySelectorAll('.news-slide');
 		let index = 0;
 
+		// automatischer Wechsel alle 10 Sekunden
 		setInterval(() => {
 
 			slides[index].classList.remove('active');
@@ -94,11 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== 4. BOX ANIMATION ===================
+	// ===== ANIMATIONEN ========================
 	// ==========================================
 
 	function initAnimations() {
 
+		// Boxen, Buttons und Slider animieren
 		const elements = document.querySelectorAll('.box, .team-box, .news-slider, .button');
 
 		elements.forEach((el, index) => {
@@ -108,31 +110,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// Tabellenzeilen einzeln animieren
 		const rows = document.querySelectorAll('.table-ewigeRangliste tbody tr');
+
 		rows.forEach((row, index) => {
 			row.style.animationDelay = (index * 0.08) + "s";
 			row.classList.add("animate");
 		});
 	}
 
-	// ==========================================
-	// ===== 4A. OBSERVER FÜR DYNAMISCHE BOXEN =
-	// ==========================================
-
+	// Observer für dynamisch nachgeladene Inhalte
 	const observer = new MutationObserver(() => {
 		initAnimations();
 	});
 
 	observer.observe(document.body, { childList: true, subtree: true });
+
+	// Initiale Animation beim Laden
 	initAnimations();
-	
+
 	// ==========================================
-	// ===== 5. THEME SWITCHER ==================
+	// ===== THEME SWITCHER =====================
 	// ==========================================
 
 	function initThemeSwitcher() {
 
 		const switcher = document.getElementById("themeSwitcher");
 
+		// Theme-Wechsel über Dropdown
 		if(switcher) {
 			switcher.addEventListener("change", (e) => {
 				document.body.classList.remove("theme-red", "theme-dark");
@@ -142,32 +145,28 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== 6. GENERISCHER JSON LOADER =========
+	// ===== GENERISCHER TABLE LOADER ===========
 	// ==========================================
 
-	// Universelle Funktion zum Laden von JSON-Daten
-	// und Einfügen in eine Tabelle
+	// Lädt JSON und rendert es in Tabellen
 	async function loadTable(config) {
 
 		const tbody = document.getElementById(config.targetId);
 
-		// Falls Element nicht existiert → nichts tun
+		// nur ausführen wenn Tabelle existiert
 		if(!tbody) return;
 
 		try {
 			const response = await fetch(config.url);
 			const data = await response.json();
 
+			// Tabelle leeren
 			tbody.innerHTML = "";
 
+			// jede Zeile rendern
 			data.forEach(item => {
-
 				const tr = document.createElement("tr");
-
-				// Jede Tabelle definiert selbst,
-				// wie eine Zeile aussehen soll
 				tr.innerHTML = config.render(item);
-
 				tbody.appendChild(tr);
 			});
 
@@ -177,33 +176,82 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== 7. SPIELE LADEN ====================
+	// ===== SPIELE KONFIG ======================
 	// ==========================================
 
-	loadTable({
-		targetId: "spiele-startseite",
-		url: "/TTF-Laudenbach/assets/data/spieleStartseite.json",
+	const spieleConfigs = [
 
-		render: (spiel) => {
+		// Startseite Spiele
+		{
+			targetId: "spiele-startseite",
+			url: "/TTF-Laudenbach/assets/data/spieleStartseite.json",
+			render: (spiel) => {
 
-			const istHeimspiel = spiel.heim.includes("Laudenbach");
+				const istHeimspiel = spiel.heim.includes("Laudenbach");
+				const gegner = istHeimspiel ? spiel.gast : spiel.heim;
 
-			return `
-				<td>${spiel.datum}</td>
-				<td>${formatUhrzeit(spiel.uhrzeit)}</td>
-				<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
-				<td>${getGegner(spiel.heim, spiel.gast)}</td>
-				<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
-				<td>${getErgebnis(spiel)}</td>
-			`;
+				return `
+					<td>${spiel.datum}</td>
+					<td>${formatUhrzeit(spiel.uhrzeit)}</td>
+					<td>${getMannschaft(spiel.heim, spiel.gast, spiel.klasse)}</td>
+					<td>${gegner}</td>
+					<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
+					<td>${getErgebnis(spiel)}</td>
+				`;
+			}
+		},
+
+		// Mannschafts-Spiele
+		{
+			targetId: "spiele-herren1",
+			url: "/TTF-Laudenbach/assets/data/spieleHerren1.json",
+			render: renderStandardSpiele
+		},
+		{
+			targetId: "spiele-herren2",
+			url: "/TTF-Laudenbach/assets/data/spieleHerren2.json",
+			render: renderStandardSpiele
+		},
+		{
+			targetId: "spiele-herren3",
+			url: "/TTF-Laudenbach/assets/data/spieleHerren3.json",
+			render: renderStandardSpiele
+		},
+		{
+			targetId: "spiele-jugend1",
+			url: "/TTF-Laudenbach/assets/data/spieleJugend1.json",
+			render: renderStandardSpiele
+		},
+		{
+			targetId: "spiele-jugend2",
+			url: "/TTF-Laudenbach/assets/data/spieleJugend2.json",
+			render: renderStandardSpiele
 		}
-	});
+	];
+
+	// Standard Rendering für Spiele
+	function renderStandardSpiele(row) {
+
+		const istHeimspiel = row.heim.includes("Laudenbach");
+		const gegner = istHeimspiel ? row.gast : row.heim;
+
+		return `
+			<td>${row.datum}</td>
+			<td>${formatUhrzeit(row.uhrzeit)}</td>
+			<td>${row.spielort}</td>
+			<td>${gegner}</td>
+			<td>${row.ergebnis}</td>
+		`;
+	}
+
+	// Spiele laden
+	spieleConfigs.forEach(cfg => loadTable(cfg));
 
 	// ==========================================
-	// ===== 8. STANDARD TABELLEN RENDER ========
+	// ===== TABELLEN KONFIG ====================
 	// ==========================================
 
-	// Einheitliche Darstellung für alle Tabellen
+	// Standard Tabellen Renderer
 	function renderStandardTabelle(row) {
 		return `
 			<td>${row.rang}</td>
@@ -218,10 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		`;
 	}
 
-	// ==========================================
-	// ===== 9. TABELLEN LADEN ==================
-	// ==========================================
-
 	const tabellenConfigs = [
 
 		{
@@ -229,51 +273,43 @@ document.addEventListener("DOMContentLoaded", () => {
 			url: "/TTF-Laudenbach/assets/data/tabelleHerren1.json",
 			render: renderStandardTabelle
 		},
-
 		{
 			targetId: "tabelle-herren2",
 			url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json",
 			render: renderStandardTabelle
 		},
-
 		{
 			targetId: "tabelle-herren3",
 			url: "/TTF-Laudenbach/assets/data/tabelleHerren3.json",
 			render: renderStandardTabelle
 		},
-
 		{
 			targetId: "tabelle-jugend1",
 			url: "/TTF-Laudenbach/assets/data/tabelleJugend1.json",
 			render: renderStandardTabelle
 		},
-
 		{
 			targetId: "tabelle-jugend2",
 			url: "/TTF-Laudenbach/assets/data/tabelleJugend2.json",
 			render: renderStandardTabelle
 		}
-
 	];
 
-	// Alle Tabellen automatisch laden
+	// Tabellen laden
 	tabellenConfigs.forEach(cfg => loadTable(cfg));
 
 	// ==========================================
-	// ===== 10. HILFSFUNKTIONEN SPIELE =========
+	// ===== HILFSFUNKTIONEN ====================
 	// ==========================================
 
+	// Mannschaft bestimmen (Jugend / Herren + Nummer)
 	function getMannschaft(heim, gast, klasse) {
 
 		let team = "";
 
-		if (heim.includes("Laudenbach")) {
-			team = heim;
-		} else if (gast.includes("Laudenbach")) {
-			team = gast;
-		} else {
-			return "-";
-		}
+		if (heim.includes("Laudenbach")) team = heim;
+		else if (gast.includes("Laudenbach")) team = gast;
+		else return "-";
 
 		const match = team.match(/(I|II|III|IV|V)$/);
 		const nummer = match ? match[0] : "I";
@@ -284,12 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		return nummer;
 	}
 
-	function getGegner(heim, gast) {
-		if (heim.includes("Laudenbach")) return gast;
-		if (gast.includes("Laudenbach")) return heim;
-		return "-";
-	}
-
+	// Spielort nur bei Heimspielen anzeigen
 	function getSpielort(code, istHeimspiel) {
 
 		if (!istHeimspiel) return "";
@@ -302,10 +333,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
+	// Uhrzeit formatieren
 	function formatUhrzeit(uhrzeit) {
-		return uhrzeit.replace("\n", " ");
+		return uhrzeit.replace(/\n/g, " ");
 	}
 
+	// Ergebnis oder Platzhalter
 	function getErgebnis(spiel) {
 		if (spiel.status === "geplant") return "-:-";
 		return spiel.ergebnis || "-:-";
