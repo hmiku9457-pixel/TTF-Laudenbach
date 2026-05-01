@@ -285,7 +285,7 @@ nav {
     position: relative;
     overflow: hidden;
     border-radius: var(--space-m);
-    min-width: 100px;
+    min-width: 750px;
     min-height: 250px;
 }
 
