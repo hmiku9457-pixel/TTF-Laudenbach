@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			<td>${formatUhrzeit(row.uhrzeit)}</td>
 			<td>${row.spielort}</td>
 			<td>${gegner}</td>
-			<td>${row.ergebnis}</td>
+			<td>${formatErgebnis(row.heim, row.gast, row.ergebnis)}</td>
 		`;
 	}
 
@@ -335,13 +335,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Uhrzeit formatieren
 	function formatUhrzeit(uhrzeit) {
-		return uhrzeit.replace(/\n/g, " ");
+		return uhrzeit.replace("\n", " ").replace(/\s+v$/, " v");
 	}
 
 	// Ergebnis oder Platzhalter
 	function getErgebnis(spiel) {
 		if (spiel.status === "geplant") return "-:-";
 		return spiel.ergebnis || "-:-";
+	}
+
+	function formatErgebnis(heim, gast, ergebnis) {
+	
+		if (!ergebnis) return "-:-";
+	
+		const [heimPunkte, gastPunkte] = ergebnis.split(":").map(Number);
+	
+		const istHeimspiel = heim.includes("TTF Laudenbach");
+	
+		// Wenn Laudenbach Heim ist → nichts ändern
+		if (istHeimspiel) {
+			return `${heimPunkte}:${gastPunkte}`;
+		}
+	
+		// Wenn Laudenbach Gast ist → drehen
+		return `${gastPunkte}:${heimPunkte}`;
 	}
 
 });
