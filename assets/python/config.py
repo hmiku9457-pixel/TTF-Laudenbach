@@ -25,6 +25,6 @@ TABELLEN = [
     },
     {
         "name": "tabelleJugend2",
-        "url": "https://hmiku9457-pixel.github.io/TTF-Laudenbach/pages/aktiverSpielbetrieb/jugend2.html"
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/tabelle/gesamt"
     }
 ]
