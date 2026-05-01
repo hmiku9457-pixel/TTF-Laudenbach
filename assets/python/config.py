@@ -14,5 +14,17 @@ TABELLEN = [
     {
         "name": "tabelleHerren2",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_A_Gr._2/gruppe/494509/tabelle/gesamt"
+    },
+    {
+        "name": "tabelleHerren3",
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_B_Gr._3/gruppe/494867/tabelle/gesamt"
+    },
+    {
+        "name": "tabelleJugend1",
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/tabelle/gesamt"
+    },
+    {
+        "name": "tabelleJugend2",
+        "url": "https://hmiku9457-pixel.github.io/TTF-Laudenbach/pages/aktiverSpielbetrieb/jugend2.html"
     }
 ]
