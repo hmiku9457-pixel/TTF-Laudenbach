@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		return `
 			<td>${row.datum}</td>
 			<td>${formatUhrzeit(row.uhrzeit)}</td>
-			<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
+			<td>${getSpielort(row.spielort, istHeimspiel)}</td>
 			<td>${gegner}</td>
 			<td>${formatErgebnis(row.heim, row.gast, row.ergebnis)}</td>
 		`;
