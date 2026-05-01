@@ -1,142 +1,242 @@
 [
   {
-    "datum": "Sa., 04.10.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "klasse": "SC Buchenbach III",
-    "heim": "TTF Laudenbach II",
-    "gast": "9:2",
+    "datum": "2.1",
+    "uhrzeit": "Gerhard Wolfert",
+    "spielort": "12",
+    "gegner": "2:10",
+    "ergebnis": "5:7",
+    "status": "gespielt"
+  },
+  {
+    "datum": "2.2",
+    "uhrzeit": "Christian Heer",
+    "spielort": "13",
+    "gegner": "3:10",
+    "ergebnis": "4:8",
+    "status": "gespielt"
+  },
+  {
+    "datum": "2.3",
+    "uhrzeit": "Erik Stiefel",
+    "spielort": "10",
+    "gegner": "0:2",
+    "ergebnis": "1:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "2.4",
+    "uhrzeit": "Günter Friedel",
+    "spielort": "14",
+    "gegner": "0:1",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Fr., 10.10.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "SG Garnberg II",
-    "gast": "2:9",
+    "datum": "2.5",
+    "uhrzeit": "Paul Stumpp",
+    "spielort": "0",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Sa., 11.10.2025",
-    "uhrzeit": "18:45",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "VFB Bad Mergentheim III",
-    "gast": "8:8",
+    "datum": "2.6",
+    "uhrzeit": "Florian Wolfert",
+    "spielort": "9",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Sa., 25.10.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "klasse": "SV Elpersheim II",
-    "heim": "TTF Laudenbach II",
-    "gast": "6:9",
+    "datum": "2.7",
+    "uhrzeit": "Johannes Scherrer",
+    "spielort": "4",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Fr., 14.11.2025",
-    "uhrzeit": "20:00\nt",
-    "spielort": "1",
-    "klasse": "SV Bieberehren",
-    "heim": "TTF Laudenbach II",
-    "gast": "9:7",
+    "datum": "3.1",
+    "uhrzeit": "Melanie Wolfert",
+    "spielort": "12",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Fr., 28.11.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "FC Igersheim II",
-    "gast": "6:9",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 06.12.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "klasse": "SV Morsbach",
-    "heim": "TTF Laudenbach II",
-    "gast": "5:9",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "So., 01.02.2026",
-    "uhrzeit": "14:00",
-    "spielort": "1",
-    "klasse": "FC Igersheim II",
-    "heim": "TTF Laudenbach II",
-    "gast": "4:9",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 28.02.2026",
-    "uhrzeit": "18:30\nv",
+    "datum": "3.2",
+    "uhrzeit": "Stefan Wolfert",
     "spielort": "2",
-    "klasse": "SG Garnberg II",
-    "heim": "TTF Laudenbach II",
-    "gast": "9:5",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Sa., 07.03.2026",
-    "uhrzeit": "18:30\nt",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "SV Bieberehren",
-    "gast": "9:6",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 28.03.2026",
-    "uhrzeit": "18:45\nv",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "SV Elpersheim II",
-    "gast": "8:8",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Fr., 10.04.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "klasse": "TTF Laudenbach II",
-    "heim": "SC Buchenbach III",
-    "gast": "6:9",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "So., 12.04.2026",
-    "uhrzeit": "10:30\nv",
+    "datum": "3.3",
+    "uhrzeit": "Martin Schneider",
     "spielort": "2",
-    "klasse": "TTF Laudenbach II",
-    "heim": "SV Morsbach",
-    "gast": "9:1",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
   },
   {
-    "datum": "Sa., 18.04.2026",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "klasse": "VFB Bad Mergentheim III",
-    "heim": "TTF Laudenbach II",
-    "gast": "9:1",
+    "datum": "3.6",
+    "uhrzeit": "Dominik Huber",
+    "spielort": "3",
+    "gegner": "",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "3.7",
+    "uhrzeit": "Frank Repovs",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "3.9",
+    "uhrzeit": "Adrian Bach",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "3.13",
+    "uhrzeit": "Dietrich Kruth",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Gerhard Wolfert / Christian Heer",
+    "spielort": "11",
+    "gegner": "",
+    "ergebnis": "9:5",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Erik Stiefel / Melanie Wolfert",
+    "spielort": "7",
+    "gegner": "",
+    "ergebnis": "1:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Florian Wolfert",
+    "spielort": "5",
+    "gegner": "",
+    "ergebnis": "5:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Johannes Scherrer",
+    "spielort": "4",
+    "gegner": "",
+    "ergebnis": "1:3",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Florian Wolfert / Melanie Wolfert",
+    "spielort": "2",
+    "gegner": "",
+    "ergebnis": "2:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Christian Heer / Florian Wolfert",
+    "spielort": "2",
+    "gegner": "",
+    "ergebnis": "2:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Erik Stiefel / Dominik Huber",
+    "spielort": "2",
+    "gegner": "",
+    "ergebnis": "1:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Melanie Wolfert",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "1:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Gerhard Wolfert / Günter Friedel",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "1:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Frank Repovs",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "1:0",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Erik Stiefel / Martin Schneider",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Stefan Wolfert / Melanie Wolfert",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Dietrich Kruth",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Günter Friedel / Stefan Wolfert",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Dominik Huber / Adrian Bach",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "",
+    "uhrzeit": "Martin Schneider / Melanie Wolfert",
+    "spielort": "1",
+    "gegner": "",
+    "ergebnis": "0:1",
+    "status": "gespielt"
   }
 ]
