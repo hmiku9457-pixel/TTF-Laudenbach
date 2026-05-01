@@ -41,7 +41,7 @@ def scrape_spielplan_startseite(page, url):
         if len(cols) < 7:
             continue
 
-        ergebnis_raw = safe_text(cols, 5).strip()
+        ergebnis_raw = safe_text(cols, 6).strip()
         ergebnis = ergebnis_raw or None
 
         spiele.append({
