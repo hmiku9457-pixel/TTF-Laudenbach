@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		return `
 			<td>${row.datum}</td>
 			<td>${formatUhrzeit(row.uhrzeit)}</td>
-			<td>${row.spielort}</td>
+			<td>${getSpielort(spiel.spielort, istHeimspiel)}</td>
 			<td>${gegner}</td>
 			<td>${formatErgebnis(row.heim, row.gast, row.ergebnis)}</td>
 		`;
@@ -323,13 +323,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Spielort nur bei Heimspielen anzeigen
 	function getSpielort(code, istHeimspiel) {
 
-		if (!istHeimspiel) return "";
+		if (!istHeimspiel) return "Auswärtsspiel";
 
 		switch (code) {
 			case "1": return "Großsporthalle Weikersheim";
 			case "2": return "Zehntscheune Laudenbach";
 			case "3": return "Ausweichhalle";
-			default: return "-";
+			default: return "Unbekannt";
 		}
 	}
 
