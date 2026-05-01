@@ -168,7 +168,7 @@ nav {
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: var(--space-m);
     padding: var(--space-m) var(--space-xl);
     align-items: stretch;
@@ -213,6 +213,11 @@ nav {
     box-shadow: var(--shadow-light);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box--calendar {
+    width: 400px;
+    justify-self: end;
 }
 
 /* Hover-Effekt */
