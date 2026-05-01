@@ -4,95 +4,95 @@
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TTF Laudenbach",
-    "ergebnis": "TSV Gerabronn II",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 25.10.2025",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TV Niederstetten",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 15.11.2025",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TSG Wolpertshausen",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 22.11.2025",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TTF Laudenbach",
-    "ergebnis": "TSV Ilshofen",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Mi., 26.11.2025",
     "uhrzeit": "18:30\ntv",
     "spielort": "1",
     "gegner": "TSV Schrozberg",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 06.12.2025",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "SV Ingersheim",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 28.02.2026",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "SV Tiefenbach",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 28.02.2026",
     "uhrzeit": "14:15\nhtv",
     "spielort": "H",
     "gegner": "TTF Laudenbach",
-    "ergebnis": "SV Ingersheim",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 07.03.2026",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TTF Laudenbach",
-    "ergebnis": "TV Rot am See",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 14.03.2026",
     "uhrzeit": "10:00",
     "spielort": "1",
     "gegner": "TTF Laudenbach",
-    "ergebnis": "TSV Schrozberg",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Fr., 20.03.2026",
     "uhrzeit": "18:30\nv",
     "spielort": "1",
     "gegner": "TSV Ilshofen",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
     "datum": "Sa., 21.03.2026",
     "uhrzeit": "10:00",
     "spielort": "3",
     "gegner": "TSV Gerabronn II",
-    "ergebnis": "TTF Laudenbach",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
