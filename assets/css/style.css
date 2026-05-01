@@ -488,7 +488,7 @@ footer {
 
 .underline {
     border-bottom: 2px solid currentColor;
-    display: inline;
+    display: inline-block;
 }
 
 .u-text-center {
