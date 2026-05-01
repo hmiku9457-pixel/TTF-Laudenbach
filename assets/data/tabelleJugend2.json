@@ -1,79 +1,68 @@
 [
   {
     "rang": "1",
-    "mannschaft": "TV Niederstetten",
-    "partien": "6",
-    "siege": "5",
+    "mannschaft": "SV Onolzheim III",
+    "partien": "5",
+    "siege": "4",
     "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "36:24",
-    "spieleDifferenz": "+12",
-    "punkte": "11:1"
+    "spiele": "38:12",
+    "spieleDifferenz": "+26",
+    "punkte": "9:1"
   },
   {
     "rang": "2",
-    "mannschaft": "TSV Gerabronn II",
-    "partien": "6",
-    "siege": "5",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "36:24",
-    "spieleDifferenz": "+12",
-    "punkte": "10:2"
+    "mannschaft": "SV Tiefenbach II",
+    "partien": "5",
+    "siege": "4",
+    "unentschieden": "1",
+    "niederlagen": "0",
+    "spiele": "36:14",
+    "spieleDifferenz": "+22",
+    "punkte": "9:1"
   },
   {
     "rang": "3",
-    "mannschaft": "TSV Schrozberg",
-    "partien": "6",
+    "mannschaft": "SV Gründelhardt II",
+    "partien": "5",
     "siege": "3",
     "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "32:28",
-    "spieleDifferenz": "+4",
-    "punkte": "6:6"
+    "niederlagen": "2",
+    "spiele": "25:25",
+    "spieleDifferenz": "0",
+    "punkte": "6:4"
   },
   {
     "rang": "4",
-    "mannschaft": "TTF Laudenbach",
-    "partien": "6",
+    "mannschaft": "TSV Dörzbach II",
+    "partien": "5",
     "siege": "2",
-    "unentschieden": "1",
+    "unentschieden": "0",
     "niederlagen": "3",
-    "spiele": "30:30",
-    "spieleDifferenz": "0",
-    "punkte": "5:7"
+    "spiele": "26:24",
+    "spieleDifferenz": "+2",
+    "punkte": "4:6"
   },
   {
     "rang": "5",
-    "mannschaft": "TSV Ilshofen",
-    "partien": "6",
-    "siege": "2",
+    "mannschaft": "SV Ingersheim II",
+    "partien": "5",
+    "siege": "1",
     "unentschieden": "0",
     "niederlagen": "4",
-    "spiele": "30:30",
-    "spieleDifferenz": "0",
-    "punkte": "4:8"
+    "spiele": "12:38",
+    "spieleDifferenz": "-26",
+    "punkte": "2:8"
   },
   {
     "rang": "6",
-    "mannschaft": "SV Ingersheim",
-    "partien": "6",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "4",
-    "spiele": "25:35",
-    "spieleDifferenz": "-10",
-    "punkte": "4:8"
-  },
-  {
-    "rang": "7",
-    "mannschaft": "TSG Wolpertshausen",
-    "partien": "6",
+    "mannschaft": "TTF Laudenbach II",
+    "partien": "5",
     "siege": "0",
-    "unentschieden": "2",
-    "niederlagen": "4",
-    "spiele": "21:39",
-    "spieleDifferenz": "-18",
-    "punkte": "2:10"
+    "unentschieden": "0",
+    "niederlagen": "5",
+    "spiele": "13:37",
+    "spieleDifferenz": "-24",
+    "punkte": "0:10"
   }
 ]

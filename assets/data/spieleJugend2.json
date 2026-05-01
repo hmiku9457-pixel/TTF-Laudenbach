@@ -1,1 +1,112 @@
-
+[
+  {
+    "datum": "Sa., 04.10.2025",
+    "uhrzeit": "12:30\nv",
+    "spielort": "1",
+    "klasse": "SV Onolzheim III",
+    "heim": "TTF Laudenbach II",
+    "gast": "9:1",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 08.11.2025",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Gründelhardt II",
+    "gast": "2:8",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Mo., 10.11.2025",
+    "uhrzeit": "18:30\nv",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "TSV Dörzbach II",
+    "gast": "4:6",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 21.11.2025",
+    "uhrzeit": "17:45\nv",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Tiefenbach II",
+    "gast": "3:7",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 06.12.2025",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "SV Ingersheim II",
+    "heim": "TTF Laudenbach II",
+    "gast": "7:3",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 31.01.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Ingersheim II",
+    "gast": "5:5",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 06.02.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "SV Bieberehren",
+    "heim": "TTF Laudenbach II",
+    "gast": "4:6",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.02.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "TSV Gerabronn III",
+    "gast": "2:8",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.03.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "SV Ingersheim II",
+    "heim": "TTF Laudenbach II",
+    "gast": "4:6",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 11.04.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Bieberehren",
+    "gast": "5:5",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 18.04.2026",
+    "uhrzeit": "14:00\nv",
+    "spielort": "3",
+    "klasse": "TSV Gerabronn III",
+    "heim": "TTF Laudenbach II",
+    "gast": "8:2",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]

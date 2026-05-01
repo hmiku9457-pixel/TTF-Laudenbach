@@ -1,1 +1,142 @@
-
+[
+  {
+    "datum": "Sa., 04.10.2025",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "SC Buchenbach III",
+    "heim": "TTF Laudenbach II",
+    "gast": "9:2",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 10.10.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SG Garnberg II",
+    "gast": "2:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 11.10.2025",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "VFB Bad Mergentheim III",
+    "gast": "8:8",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 25.10.2025",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "SV Elpersheim II",
+    "heim": "TTF Laudenbach II",
+    "gast": "6:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 14.11.2025",
+    "uhrzeit": "20:00\nt",
+    "spielort": "1",
+    "klasse": "SV Bieberehren",
+    "heim": "TTF Laudenbach II",
+    "gast": "9:7",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 28.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "FC Igersheim II",
+    "gast": "6:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 06.12.2025",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "SV Morsbach",
+    "heim": "TTF Laudenbach II",
+    "gast": "5:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 01.02.2026",
+    "uhrzeit": "14:00",
+    "spielort": "1",
+    "klasse": "FC Igersheim II",
+    "heim": "TTF Laudenbach II",
+    "gast": "4:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.02.2026",
+    "uhrzeit": "18:30\nv",
+    "spielort": "2",
+    "klasse": "SG Garnberg II",
+    "heim": "TTF Laudenbach II",
+    "gast": "9:5",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 07.03.2026",
+    "uhrzeit": "18:30\nt",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Bieberehren",
+    "gast": "9:6",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.03.2026",
+    "uhrzeit": "18:45\nv",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Elpersheim II",
+    "gast": "8:8",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 10.04.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SC Buchenbach III",
+    "gast": "6:9",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 12.04.2026",
+    "uhrzeit": "10:30\nv",
+    "spielort": "2",
+    "klasse": "TTF Laudenbach II",
+    "heim": "SV Morsbach",
+    "gast": "9:1",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 18.04.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "VFB Bad Mergentheim III",
+    "heim": "TTF Laudenbach II",
+    "gast": "9:1",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]
