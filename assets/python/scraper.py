@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json
-from config import SPIELE_URL, TABELLEN
+from config import SPIELPLAENE, TABELLEN
+
 
 # ==========================================
 # ===== HILFSFUNKTION ======================
@@ -14,14 +15,15 @@ def safe_text(cols, i):
 # ===== SPIELE SCRAPEN =====================
 # ==========================================
 
-def scrape_spiele(page):
+def scrape_spiele(page, url):
 
     spiele = []
 
-    page.goto(SPIELE_URL)
+    page.goto(url)
     page.wait_for_selector("table", timeout=60000)
 
-    rows = page.query_selector_all("table tbody tr")
+    table = page.query_selector("table")
+    rows = table.query_selector_all("tbody tr")  # nur erste Tabelle
 
     for row in rows:
         cols = row.query_selector_all("td")
@@ -52,7 +54,7 @@ def scrape_spiele(page):
 
 
 # ==========================================
-# ===== GENERISCHE TABELLEN-FUNKTION =======
+# ===== TABELLEN SCRAPEN ===================
 # ==========================================
 
 def scrape_tabelle(page, url):
@@ -62,7 +64,8 @@ def scrape_tabelle(page, url):
     page.goto(url)
     page.wait_for_selector("table", timeout=60000)
 
-    rows = page.query_selector_all("tbody tr")
+    table = page.query_selector("table")
+    rows = table.query_selector_all("tbody tr")  # nur erste Tabelle
 
     for row in rows:
         cols = row.query_selector_all("td")
@@ -105,19 +108,36 @@ def main():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # ===== Spiele =====
-        spiele = scrape_spiele(page)
-        save_json(spiele, "spiele")
-        print(f"{len(spiele)} Spiele gespeichert.")
+        # ===== SPIELPLÄNE =====
+        for plan in SPIELPLAENE:
 
-        # ===== Tabellen =====
+            print(f"Scrape Spiele: {plan['name']}")
+
+            daten = scrape_spiele(page, plan["url"])
+
+            save_json(daten, plan["name"])
+
+            print(f"{plan['name']} gespeichert ({len(daten)} Spiele)")
+
+
+        # ===== TABELLEN =====
         for tabelle in TABELLEN:
+
+            print(f"Scrape Tabelle: {tabelle['name']}")
+
             daten = scrape_tabelle(page, tabelle["url"])
+
             save_json(daten, tabelle["name"])
+
             print(f"{tabelle['name']} gespeichert ({len(daten)} Einträge)")
+
 
         browser.close()
 
+
+# ==========================================
+# ===== SCRIPT START =======================
+# ==========================================
 
 if __name__ == "__main__":
     main()
