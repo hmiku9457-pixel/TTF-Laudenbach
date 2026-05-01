@@ -176,7 +176,7 @@ nav {
 
 .grid-home {
     display: grid;
-    grid-template-columns: auto 750px auto 500px;
+    grid-template-columns: auto 750px;
     gap: var(--space-m);
     align-items: stretch;
 }
