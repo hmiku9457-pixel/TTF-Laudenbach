@@ -181,8 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ==========================================
 
 	loadTable({
-		targetId: "spiele-body",
-		url: "/TTF-Laudenbach/assets/data/spiele.json",
+		targetId: "spiele-startseite",
+		url: "/TTF-Laudenbach/assets/data/spieleStartseite.json",
 
 		render: (spiel) => {
 
