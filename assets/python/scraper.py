@@ -41,7 +41,7 @@ def scrape_spielplan_startseite(page, url):
         if len(cols) < 7:
             continue
 
-        ergebnis_raw = safe_text(cols, 6).strip()
+        ergebnis_raw = safe_text(cols, 5).strip()
         ergebnis = ergebnis_raw or None
 
         spiele.append({
@@ -72,18 +72,19 @@ def scrape_spielplan_mannschaft(page, url):
     for row in rows:
         cols = row.query_selector_all("td")
 
-        # Mannschaftsseite hat 5 Spalten
-        if len(cols) < 5:
+        # Mannschaftsseite hat 6 Spalten
+        if len(cols) < 6:
             continue
 
-        ergebnis_raw = safe_text(cols, 6).strip()
+        ergebnis_raw = safe_text(cols, 5).strip()
         ergebnis = ergebnis_raw or None
 
         spiele.append({
             "datum": safe_text(cols, 0),
             "uhrzeit": safe_text(cols, 1),
             "spielort": safe_text(cols, 2),
-            "gegner": safe_text(cols, 3),
+            "heim": safe_text(cols, 3),
+            "gast": safe_text(cols, 4),
             "ergebnis": ergebnis,
             "status": "gespielt" if ergebnis_raw else "geplant"
         })
