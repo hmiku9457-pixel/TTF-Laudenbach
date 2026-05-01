@@ -184,7 +184,7 @@ nav {
     display: grid;
     grid-template-columns: auto 750px;
     gap: var(--space-m);
-	padding: var(--space-m) var(--space-xl);
+	padding: 0px var(--space-xl); /*Top-Bottom Padding wird über grid-home-wrapper geregelt*/
     align-items: stretch;
 }
 
@@ -192,7 +192,7 @@ nav {
     display: grid;
     grid-template-columns: auto 500px;
     gap: var(--space-m);
-	padding: var(--space-m) var(--space-xl);
+	padding: 0px var(--space-xl); /*Top-Bottom Padding wird über grid-home-wrapper geregelt*/
     align-items: stretch;
 }
 
