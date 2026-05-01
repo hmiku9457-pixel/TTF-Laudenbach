@@ -567,6 +567,7 @@ footer {
 
 .footer {
     text-align: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: var(--space-xl);
     color: var(--text-muted);
 }
