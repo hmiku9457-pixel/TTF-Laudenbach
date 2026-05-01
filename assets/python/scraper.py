@@ -76,7 +76,7 @@ def scrape_spielplan_mannschaft(page, url):
         if len(cols) < 5:
             continue
 
-        ergebnis_raw = safe_text(cols, 4).strip()
+        ergebnis_raw = safe_text(cols, 6).strip()
         ergebnis = ergebnis_raw or None
 
         spiele.append({
