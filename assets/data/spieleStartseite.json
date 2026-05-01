@@ -6,7 +6,7 @@
     "klasse": "E KLA",
     "heim": "TTF Laudenbach II",
     "gast": "SC Buchenbach III",
-    "ergebnis": "SC Buchenbach III",
+    "ergebnis": "6:9",
     "status": "gespielt"
   },
   {
@@ -16,7 +16,7 @@
     "klasse": "J KLE",
     "heim": "TTF Laudenbach II",
     "gast": "SV Bieberehren",
-    "ergebnis": "SV Bieberehren",
+    "ergebnis": "5:5",
     "status": "gespielt"
   },
   {
@@ -26,7 +26,7 @@
     "klasse": "E KLB",
     "heim": "TTF Laudenbach III",
     "gast": "SC Buchenbach IV",
-    "ergebnis": "SC Buchenbach IV",
+    "ergebnis": "9:4",
     "status": "gespielt"
   },
   {
@@ -36,7 +36,7 @@
     "klasse": "E KLA",
     "heim": "TTF Laudenbach II",
     "gast": "SV Morsbach",
-    "ergebnis": "SV Morsbach",
+    "ergebnis": "9:1",
     "status": "gespielt"
   },
   {
@@ -46,7 +46,7 @@
     "klasse": "E BKB",
     "heim": "FC Honhardt",
     "gast": "TTF Laudenbach",
-    "ergebnis": "TTF Laudenbach",
+    "ergebnis": "9:0",
     "status": "gespielt"
   },
   {
@@ -56,7 +56,7 @@
     "klasse": "J KLE",
     "heim": "TSV Gerabronn III",
     "gast": "TTF Laudenbach II",
-    "ergebnis": "TTF Laudenbach II",
+    "ergebnis": "8:2",
     "status": "gespielt"
   },
   {
@@ -66,7 +66,7 @@
     "klasse": "E KLA",
     "heim": "VFB Bad Mergentheim III",
     "gast": "TTF Laudenbach II",
-    "ergebnis": "TTF Laudenbach II",
+    "ergebnis": "9:1",
     "status": "gespielt"
   }
 ]
