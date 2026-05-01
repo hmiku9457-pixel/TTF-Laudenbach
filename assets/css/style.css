@@ -168,7 +168,7 @@ nav {
 
 .grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-m);
     padding: var(--space-m) var(--space-xl);
     align-items: stretch;
