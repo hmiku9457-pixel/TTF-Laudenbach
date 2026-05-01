@@ -234,6 +234,24 @@ document.addEventListener("DOMContentLoaded", () => {
 			targetId: "tabelle-herren2",
 			url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json",
 			render: renderStandardTabelle
+		},
+
+		{
+			targetId: "tabelle-herren3",
+			url: "/TTF-Laudenbach/assets/data/tabelleHerren3.json",
+			render: renderStandardTabelle
+		},
+
+		{
+			targetId: "tabelle-jugend1",
+			url: "/TTF-Laudenbach/assets/data/tabelleJugend1.json",
+			render: renderStandardTabelle
+		},
+
+		{
+			targetId: "tabelle-jugend2",
+			url: "/TTF-Laudenbach/assets/data/tabelleJugend2.json",
+			render: renderStandardTabelle
 		}
 
 	];
