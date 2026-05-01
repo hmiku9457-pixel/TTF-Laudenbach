@@ -1,4 +1,4 @@
-name: Update Spiele
+name: Auto-Update Daten
 
 on:
   workflow_dispatch:
@@ -24,6 +24,8 @@ jobs:
       - run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add assets/data/spiele.json
-          git commit -m "Update Spiele" || echo "No changes"
+      
+          git add assets/data/*.json
+      
+          git commit -m "Auto-Update Daten" || echo "No changes"
           git push
