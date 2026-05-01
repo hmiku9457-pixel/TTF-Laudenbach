@@ -168,9 +168,16 @@ nav {
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-m);
     padding: var(--space-m) var(--space-xl);
+    align-items: stretch;
+}
+
+.grid-home {
+    display: grid;
+    grid-template-columns: auto 750px auto 500px;
+    gap: var(--space-m);
     align-items: stretch;
 }
 
@@ -213,16 +220,6 @@ nav {
     box-shadow: var(--shadow-light);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.box--calendar {
-    width: 500px;
-    justify-self: end;
-}
-
-.box--flex {
-    width: 100%;
-    min-width: 0;
 }
 
 /* Hover-Effekt */
