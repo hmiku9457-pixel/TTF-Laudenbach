@@ -4,72 +4,108 @@ from config import SPIELPLAENE, TABELLEN
 
 
 # ==========================================
-# ===== HILFSFUNKTION ======================
+# ===== HILFSFUNKTIONEN ====================
 # ==========================================
 
 def safe_text(cols, i):
-    return cols[i].inner_text().strip() if i < len(cols) else ""
+    return cols[i].inner_text().strip() if i < len(cols) else "" # Gibt Zelltext sicher zurück, verhindert Index-Fehler.
+
+
+def load_page(page, url):
+    page.goto(url, wait_until="domcontentloaded")
+    page.wait_for_selector("tbody tr", timeout=60000) #Lädt eine Seite und wartet, bis Tabellenzeilen vorhanden sind.
+
+
+def get_rows(page):
+    table = page.query_selector("table")
+    if not table:
+        return []
+    return table.query_selector_all("tbody tr") #Liefert alle Tabellenzeilen der ersten Tabelle.
 
 
 # ==========================================
-# ===== SPIELE SCRAPEN =====================
+# ===== SPIELPLAN: STARTSEITE =============
 # ==========================================
 
-def scrape_spiele(page, url):
+def scrape_spielplan_startseite(page, url):
 
     spiele = []
+    load_page(page, url)
 
-    page.goto(url)
-    page.wait_for_selector("table", timeout=60000)
-
-    table = page.query_selector("table")
-    rows = table.query_selector_all("tbody tr")  # nur erste Tabelle
+    rows = get_rows(page)
 
     for row in rows:
         cols = row.query_selector_all("td")
 
+        # Startseite hat 7 Spalten
         if len(cols) < 7:
             continue
 
-        datum = safe_text(cols, 0)
-        uhrzeit = safe_text(cols, 1)
-        spielort = safe_text(cols, 2)
-        klasse = safe_text(cols, 3)
-        heim = safe_text(cols, 4)
-        gast = safe_text(cols, 5)
-        ergebnis = safe_text(cols, 6)
+        ergebnis_raw = safe_text(cols, 6).strip()
+        ergebnis = ergebnis_raw or None
 
         spiele.append({
-            "datum": datum,
-            "uhrzeit": uhrzeit,
-            "spielort": spielort,
-            "klasse": klasse,
-            "heim": heim,
-            "gast": gast,
-            "ergebnis": ergebnis if ergebnis else None,
-            "status": "gespielt" if ergebnis else "geplant"
+            "datum": safe_text(cols, 0),
+            "uhrzeit": safe_text(cols, 1),
+            "spielort": safe_text(cols, 2),
+            "klasse": safe_text(cols, 3),
+            "heim": safe_text(cols, 4),
+            "gast": safe_text(cols, 5),
+            "ergebnis": ergebnis,
+            "status": "gespielt" if ergebnis_raw else "geplant"
         })
 
     return spiele
 
 
 # ==========================================
-# ===== TABELLEN SCRAPEN ===================
+# ===== SPIELPLAN: MANNSCHAFT =============
+# ==========================================
+
+def scrape_spielplan_mannschaft(page, url):
+
+    spiele = []
+    load_page(page, url)
+
+    rows = get_rows(page)
+
+    for row in rows:
+        cols = row.query_selector_all("td")
+
+        # Mannschaftsseite hat 5 Spalten
+        if len(cols) < 5:
+            continue
+
+        ergebnis_raw = safe_text(cols, 4).strip()
+        ergebnis = ergebnis_raw or None
+
+        spiele.append({
+            "datum": safe_text(cols, 0),
+            "uhrzeit": safe_text(cols, 1),
+            "spielort": safe_text(cols, 2),
+            "gegner": safe_text(cols, 3),
+            "ergebnis": ergebnis,
+            "status": "gespielt" if ergebnis_raw else "geplant"
+        })
+
+    return spiele
+
+
+# ==========================================
+# ===== TABELLEN ===========================
 # ==========================================
 
 def scrape_tabelle(page, url):
 
     daten = []
+    load_page(page, url)
 
-    page.goto(url)
-    page.wait_for_selector("table", timeout=60000)
-
-    table = page.query_selector("table")
-    rows = table.query_selector_all("tbody tr")  # nur erste Tabelle
+    rows = get_rows(page)
 
     for row in rows:
         cols = row.query_selector_all("td")
 
+        # Tabelle hat 9 Spalten
         if len(cols) < 9:
             continue
 
@@ -93,6 +129,9 @@ def scrape_tabelle(page, url):
 # ==========================================
 
 def save_json(data, filename):
+    """
+    Speichert Daten als JSON-Datei.
+    """
     with open(f"assets/data/{filename}.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -108,19 +147,29 @@ def main():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # ===== SPIELPLÄNE =====
+        # ======================================
+        # ===== SPIELPLÄNE =====================
+        # ======================================
         for plan in SPIELPLAENE:
 
-            print(f"Scrape Spiele: {plan['name']}")
+            print(f"Scrape: {plan['name']}")
 
-            daten = scrape_spiele(page, plan["url"])
+            if plan["type"] == "startseite":
+                daten = scrape_spielplan_startseite(page, plan["url"])
+
+            elif plan["type"] == "mannschaft":
+                daten = scrape_spielplan_mannschaft(page, plan["url"])
+
+            else:
+                continue
 
             save_json(daten, plan["name"])
 
             print(f"{plan['name']} gespeichert ({len(daten)} Spiele)")
 
-
-        # ===== TABELLEN =====
+        # ======================================
+        # ===== TABELLEN =======================
+        # ======================================
         for tabelle in TABELLEN:
 
             print(f"Scrape Tabelle: {tabelle['name']}")
@@ -130,7 +179,6 @@ def main():
             save_json(daten, tabelle["name"])
 
             print(f"{tabelle['name']} gespeichert ({len(daten)} Einträge)")
-
 
         browser.close()
 
