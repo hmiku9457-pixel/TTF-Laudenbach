@@ -450,17 +450,20 @@ document.addEventListener("DOMContentLoaded", () => {
 				container.innerHTML = "";
 	
 				gruppe.links.forEach(link => {
-	
+				
 					const a = document.createElement("a");
-	
+				
 					a.href = link.url;
 					a.target = "_blank";
 					a.rel = "noopener noreferrer";
 					a.className = "button button--card";
-	
-					// name ist jetzt dein Display-Text
+				
+					// Text
 					a.textContent = link.name;
-	
+				
+					// WICHTIG: eindeutige ID setzen um einzelne IDs aus der Gruppe verwenden zu können
+					a.id = `gruppe-link-${link.id}`;
+				
 					container.appendChild(a);
 				});
 			});
