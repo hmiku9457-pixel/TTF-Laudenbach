@@ -409,6 +409,32 @@ document.addEventListener("DOMContentLoaded", () => {
 		try {
 			const response = await fetch('/TTF-Laudenbach/assets/data/links.json');
 			const data = await response.json();
+
+			// =====================================
+			// ===== TABELLEN LINKS ===============
+			// =====================================
+			
+			data.tabellen.forEach(e => {
+			
+				const el = document.getElementById("link-" + e.id);
+			
+				if (el) {
+					el.href = e.url;
+				}
+			});
+
+			// =====================================
+			// ===== SPIELPLAN LINKS ==============
+			// =====================================
+			
+			data.spielplaene.forEach(e => {
+			
+				const el = document.getElementById("link-" + e.id);
+			
+				if (el) {
+					el.href = e.url;
+				}
+			});
 	
 			// =====================================
 			// ===== LINK-GRUPPEN ==================
