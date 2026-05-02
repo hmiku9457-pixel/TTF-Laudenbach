@@ -69,7 +69,7 @@ LINKS = [
                 "url": "https://ttvwh.click-tt.de/"
             },
             {
-                "name": "Tischtennisbezirk Hohenlohe",
+                "name": "Tischtennisbezirk_Hohenlohe",
                 "url": "https://www.ttbw.de/hohenlohe"
             },
             {
@@ -83,23 +83,23 @@ LINKS = [
         ]
     },
     {
-        "gruppe": "Sport allgemein",
+        "gruppe": "Sport_allgemein",
         "links": [
             {
                 "name": "WLSB",
                 "url": "https://www.wlsb.de/"
             },
             {
-                "name": "Sportkreis Mergentheim",
+                "name": "Sportkreis_Mergentheim",
                 "url": "https://sportkreis-mergentheim.de/"
             }
         ]
     },
     {
-        "gruppe": "Dies und das",
+        "gruppe": "Dies_und_das",
         "links": [
             {
-                "name": "Weinort Laudenbach",
+                "name": "Weinort_Laudenbach",
                 "url": "https://weinort-laudenbach.de/"
             }
         ]
@@ -112,11 +112,11 @@ LINKS = [
                 "url": "http://www.jako.com/"
             },
             {
-                "name": "Vier Elemente",
+                "name": "Vier_Elemente",
                 "url": "https://vierelemente2018.de/"
             },
             {
-                "name": "Endin GmbH",
+                "name": "Endin_GmbH",
                 "url": "https://endin.eu/"
             }
         ]
