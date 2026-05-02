@@ -440,6 +440,33 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 
 			// ================================
+			// ===== LINK-GRUPPEN ============
+			// ================================
+			
+			data.links.forEach(gruppe => {
+			
+				const container = document.getElementById("link-gruppe-" + gruppe.gruppe);
+			
+				if(!container) return;
+			
+				container.innerHTML = "";
+			
+				gruppe.links.forEach(e => {
+			
+					const a = document.createElement("a");
+			
+					a.href = e.url;
+					a.target = "_blank";
+					a.rel = "noopener noreferrer";
+					a.className = "button button--card";
+			
+					a.textContent = e.display ?? e.name;
+			
+					container.appendChild(a);
+				});
+			});
+
+			// ================================
 			// ===== SONSTIGE LINKS ==========
 			// ================================
 			
