@@ -59,3 +59,66 @@ TABELLEN = [
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/tabelle/gesamt"
     }
 ]
+
+LINKS = [
+    {
+        "gruppe": "TT-Links",
+        "links": [
+            {
+                "name": "click-tt",
+                "url": "https://ttvwh.click-tt.de/"
+            },
+            {
+                "name": "Tischtennisbezirk Hohenlohe",
+                "url": "https://www.ttbw.de/hohenlohe"
+            },
+            {
+                "name": "TTVWH",
+                "url": "https://www.ttvwh.de/"
+            },
+            {
+                "name": "DTTB",
+                "url": "https://www.tischtennis.de/"
+            }
+        ]
+    },
+    {
+        "gruppe": "Sport allgemein",
+        "links": [
+            {
+                "name": "WLSB",
+                "url": "https://www.wlsb.de/"
+            },
+            {
+                "name": "Sportkreis Mergentheim",
+                "url": "https://sportkreis-mergentheim.de/"
+            }
+        ]
+    },
+    {
+        "gruppe": "Dies und das",
+        "links": [
+            {
+                "name": "Weinort Laudenbach",
+                "url": "https://weinort-laudenbach.de/"
+            }
+        ]
+    },
+    {
+        "gruppe": "Sponsoren",
+        "links": [
+            {
+                "name": "JAKO",
+                "url": "http://www.jako.com/"
+            },
+            {
+                "name": "Vier Elemente",
+                "url": "https://vierelemente2018.de/"
+            },
+            {
+                "name": "Endin GmbH",
+                "url": "https://endin.eu/"
+            }
+        ]
+    }
+]
