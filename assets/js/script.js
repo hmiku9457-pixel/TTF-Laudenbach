@@ -479,7 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			
 					if (!sponsorSlots.includes(link.id)) return;
 			
-					const el = document.getElementById(`footer-${link.id}`);
+					const el = document.getElementById(`link-${link.id}`);
 			
 					if (el) {
 						el.href = link.url;
