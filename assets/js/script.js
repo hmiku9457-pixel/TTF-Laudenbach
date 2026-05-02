@@ -467,6 +467,26 @@ document.addEventListener("DOMContentLoaded", () => {
 					container.appendChild(a);
 				});
 			});
+
+			// =====================================
+			// ===== FOOTER (SPONSOR) LINKS ========
+			// =====================================
+
+			const sponsorSlots = ["sponsor1", "sponsor2", "sponsor3", "sponsor4"];
+
+			data.links.forEach(gruppe => {
+				gruppe.links.forEach(link => {
+			
+					if (!sponsorSlots.includes(link.id)) return;
+			
+					const el = document.getElementById(`footer-${link.id}`);
+			
+					if (el) {
+						el.href = link.url;
+						el.textContent = link.name;
+					}
+				});
+			});
 	
 		} catch (error) {
 			console.error("Fehler beim Laden der links.json:", error);
