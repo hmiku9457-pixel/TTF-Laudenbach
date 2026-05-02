@@ -201,11 +201,11 @@ def main():
         # ======================================
         # ===== LINKS JSON =====================
         # ======================================
-            print("Speichere zentrale Link-JSON...")
+        print("Speichere zentrale Link-JSON...")
     
-            save_links_json()
+        save_links_json()
     
-            print("links.json gespeichert")
+        print("links.json gespeichert")
 
         browser.close()
 
