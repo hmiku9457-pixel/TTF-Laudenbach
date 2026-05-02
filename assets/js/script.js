@@ -451,6 +451,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			
 					if(el) {
 						el.href = e.url;
+					
+						if(e.display) {
+							el.textContent = e.display;
+						} else {
+							el.textContent = e.name;
+						}
 					}
 				});
 			});
