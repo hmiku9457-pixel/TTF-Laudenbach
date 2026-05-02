@@ -1,0 +1,146 @@
+[
+  {
+    "datum": "Mo., 29.09.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "VFB Bad Mergentheim V",
+    "ergebnis": "9:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Mo., 06.10.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TV Niederstetten",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:2",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 18.10.2025",
+    "uhrzeit": "19:00",
+    "spielort": "1",
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:3",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 31.10.2025",
+    "uhrzeit": "20:00\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "SV Elpersheim III",
+    "ergebnis": "3:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 07.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TSV Schrozberg II",
+    "ergebnis": "9:7",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 14.11.2025",
+    "uhrzeit": "20:00\nv",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim IV",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 21.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "FC Igersheim III",
+    "ergebnis": "4:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 28.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "SC Buchenbach IV",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 06.02.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim V",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "3:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 13.02.2026",
+    "uhrzeit": "20:00\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TSV Dörzbach II",
+    "ergebnis": "7:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 21.02.2026",
+    "uhrzeit": "19:30",
+    "spielort": "1",
+    "heim": "FC Igersheim III",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "5:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 28.02.2026",
+    "uhrzeit": "19:45\nv",
+    "spielort": "1",
+    "heim": "SV Elpersheim III",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:2",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 14.03.2026",
+    "uhrzeit": "19:45\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "VFB Bad Mergentheim IV",
+    "ergebnis": "8:8",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 20.03.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TV Niederstetten",
+    "ergebnis": "9:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "So., 29.03.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "TSV Schrozberg II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "8:8",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 11.04.2026",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "SC Buchenbach IV",
+    "ergebnis": "9:4",
+    "status": "gespielt"
+  }
+]

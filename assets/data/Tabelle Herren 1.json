@@ -1,0 +1,112 @@
+[
+  {
+    "rang": "1",
+    "mannschaft": "FC Honhardt",
+    "partien": "18",
+    "siege": "15",
+    "unentschieden": "2",
+    "niederlagen": "1",
+    "spiele": "155:73",
+    "spieleDifferenz": "+82",
+    "punkte": "32:4"
+  },
+  {
+    "rang": "2",
+    "mannschaft": "TSV Schrozberg",
+    "partien": "18",
+    "siege": "12",
+    "unentschieden": "3",
+    "niederlagen": "3",
+    "spiele": "150:95",
+    "spieleDifferenz": "+55",
+    "punkte": "27:9"
+  },
+  {
+    "rang": "3",
+    "mannschaft": "SV Tiefenbach",
+    "partien": "18",
+    "siege": "12",
+    "unentschieden": "0",
+    "niederlagen": "6",
+    "spiele": "138:110",
+    "spieleDifferenz": "+28",
+    "punkte": "24:12"
+  },
+  {
+    "rang": "4",
+    "mannschaft": "TTF Laudenbach",
+    "partien": "18",
+    "siege": "10",
+    "unentschieden": "0",
+    "niederlagen": "8",
+    "spiele": "121:125",
+    "spieleDifferenz": "-4",
+    "punkte": "20:16"
+  },
+  {
+    "rang": "5",
+    "mannschaft": "VFB Bad Mergentheim II",
+    "partien": "18",
+    "siege": "9",
+    "unentschieden": "1",
+    "niederlagen": "8",
+    "spiele": "120:112",
+    "spieleDifferenz": "+8",
+    "punkte": "19:17"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "FC Creglingen",
+    "partien": "18",
+    "siege": "7",
+    "unentschieden": "1",
+    "niederlagen": "10",
+    "spiele": "115:137",
+    "spieleDifferenz": "-22",
+    "punkte": "15:21"
+  },
+  {
+    "rang": "7",
+    "mannschaft": "TSV Gerabronn II",
+    "partien": "18",
+    "siege": "6",
+    "unentschieden": "2",
+    "niederlagen": "10",
+    "spiele": "115:133",
+    "spieleDifferenz": "-18",
+    "punkte": "14:22"
+  },
+  {
+    "rang": "8",
+    "mannschaft": "TSG Kirchberg",
+    "partien": "18",
+    "siege": "6",
+    "unentschieden": "1",
+    "niederlagen": "11",
+    "spiele": "109:122",
+    "spieleDifferenz": "-13",
+    "punkte": "13:23"
+  },
+  {
+    "rang": "9",
+    "mannschaft": "SV Gründelhardt",
+    "partien": "18",
+    "siege": "5",
+    "unentschieden": "0",
+    "niederlagen": "13",
+    "spiele": "92:144",
+    "spieleDifferenz": "-52",
+    "punkte": "10:26"
+  },
+  {
+    "rang": "10",
+    "mannschaft": "KSG Ellrichshausen",
+    "partien": "18",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "15",
+    "spiele": "88:152",
+    "spieleDifferenz": "-64",
+    "punkte": "6:30"
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "rang": "1",
+    "mannschaft": "SG Garnberg II",
+    "partien": "14",
+    "siege": "11",
+    "unentschieden": "2",
+    "niederlagen": "1",
+    "spiele": "121:69",
+    "spieleDifferenz": "+52",
+    "punkte": "24:4"
+  },
+  {
+    "rang": "2",
+    "mannschaft": "SC Buchenbach III",
+    "partien": "14",
+    "siege": "9",
+    "unentschieden": "3",
+    "niederlagen": "2",
+    "spiele": "111:72",
+    "spieleDifferenz": "+39",
+    "punkte": "21:7"
+  },
+  {
+    "rang": "3",
+    "mannschaft": "VFB Bad Mergentheim III",
+    "partien": "14",
+    "siege": "8",
+    "unentschieden": "2",
+    "niederlagen": "4",
+    "spiele": "109:78",
+    "spieleDifferenz": "+31",
+    "punkte": "18:10"
+  },
+  {
+    "rang": "4",
+    "mannschaft": "SV Bieberehren",
+    "partien": "14",
+    "siege": "8",
+    "unentschieden": "0",
+    "niederlagen": "6",
+    "spiele": "92:99",
+    "spieleDifferenz": "-7",
+    "punkte": "16:12"
+  },
+  {
+    "rang": "5",
+    "mannschaft": "FC Igersheim II",
+    "partien": "14",
+    "siege": "6",
+    "unentschieden": "2",
+    "niederlagen": "6",
+    "spiele": "103:100",
+    "spieleDifferenz": "+3",
+    "punkte": "14:14"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "TTF Laudenbach II",
+    "partien": "14",
+    "siege": "5",
+    "unentschieden": "2",
+    "niederlagen": "7",
+    "spiele": "90:101",
+    "spieleDifferenz": "-11",
+    "punkte": "12:16"
+  },
+  {
+    "rang": "7",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "14",
+    "siege": "1",
+    "unentschieden": "3",
+    "niederlagen": "10",
+    "spiele": "68:119",
+    "spieleDifferenz": "-51",
+    "punkte": "5:23"
+  },
+  {
+    "rang": "8",
+    "mannschaft": "SV Morsbach",
+    "partien": "14",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "13",
+    "spiele": "61:117",
+    "spieleDifferenz": "-56",
+    "punkte": "2:26"
+  }
+]
