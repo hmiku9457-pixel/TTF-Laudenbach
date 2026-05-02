@@ -4,124 +4,155 @@ today = datetime.today()
 start_date = (today - timedelta(days=30)).strftime("%Y-%m-%d")
 end_date = (today + timedelta(days=30)).strftime("%Y-%m-%d")
 
+
+# ==========================================
+# ==== SPIELPLÄNE ==========================
+# ==========================================
 SPIELPLAENE = [
     {
-        "name": "spieleStartseite",
+        "id": "spieleStartseite",
+        "name": "Startseite Spiele",
         "url": f"https://www.mytischtennis.de/click-tt/TTBW/25--26/verein/07041/TTF_Laudenbach/spielplan?date_start={start_date}&date_end={end_date}",
         "type": "startseite"
     },
     {
-        "name": "spieleHerren1",
+        "id": "spieleHerren1",
+        "name": "Spiele Herren 1",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Bezirksklasse_B_Gr.1/gruppe/494235/mannschaft/2959945/TTF_Laudenbach/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
-        "name": "spieleHerren2",
+        "id": "spieleHerren2",
+        "name": "Spiele Herren 2",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_A_Gr._2/gruppe/494509/mannschaft/2957619/TTF_Laudenbach_II/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
-        "name": "spieleHerren3",
+        "id": "spieleHerren3",
+        "name": "Spiele Herren 3",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_B_Gr._3/gruppe/494867/mannschaft/2961414/TTF_Laudenbach_III/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
-        "name": "spieleJugend1",
+        "id": "spieleJugend1",
+        "name": "Spiele Jugend 1",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/mannschaft/2958834/TTF_Laudenbach/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
-        "name": "spieleJugend2",
+        "id": "spieleJugend2",
+        "name": "Spiele Jugend 2",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/mannschaft/2991365/TTF_Laudenbach_II/spielerbilanzen/gesamt",
         "type": "mannschaft"
     }
 ]
 
+
+# ==========================================
+# ==== TABELLEN ============================
+# ==========================================
 TABELLEN = [
     {
-        "name": "tabelleHerren1",
+        "id": "tabelleHerren1",
+        "name": "Tabelle Herren 1",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Bezirksklasse_B_Gr.1/gruppe/494235/tabelle/gesamt"
     },
     {
-        "name": "tabelleHerren2",
+        "id": "tabelleHerren2",
+        "name": "Tabelle Herren 2",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_A_Gr._2/gruppe/494509/tabelle/gesamt"
     },
     {
-        "name": "tabelleHerren3",
+        "id": "tabelleHerren3",
+        "name": "Tabelle Herren 3",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/E_Kreisliga_B_Gr._3/gruppe/494867/tabelle/gesamt"
     },
     {
-        "name": "tabelleJugend1",
+        "id": "tabelleJugend1",
+        "name": "Tabelle Jugend 1",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/tabelle/gesamt"
     },
     {
-        "name": "tabelleJugend2",
+        "id": "tabelleJugend2",
+        "name": "Tabelle Jugend 2",
         "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/tabelle/gesamt"
     }
 ]
 
+
+# ==========================================
+# ==== EXTERNE LINKS =======================
+# ==========================================
 LINKS = [
     {
-        "gruppe": "TT-Links",
+        "gruppe": "tt-links",
         "links": [
             {
+                "id": "click-tt",
                 "name": "click-tt",
                 "url": "https://ttvwh.click-tt.de/"
             },
             {
-                "name": "Tischtennisbezirk_Hohenlohe",
+                "id": "tischtennisbezirk_hohenlohe",
+                "name": "Tischtennisbezirk Hohenlohe",
                 "url": "https://www.ttbw.de/hohenlohe"
             },
             {
+                "id": "ttvwh",
                 "name": "TTVWH",
                 "url": "https://www.ttvwh.de/"
             },
             {
+                "id": "dttb",
                 "name": "DTTB",
                 "url": "https://www.tischtennis.de/"
             }
         ]
     },
     {
-        "gruppe": "Sport_allgemein",
+        "gruppe": "sport_allgemein",
         "links": [
             {
+                "id": "wlsb",
                 "name": "WLSB",
                 "url": "https://www.wlsb.de/"
             },
             {
-                "name": "Sportkreis_Mergentheim",
+                "id": "sportkreis_mergentheim",
+                "name": "Sportkreis Mergentheim",
                 "url": "https://sportkreis-mergentheim.de/"
             }
         ]
     },
     {
-        "gruppe": "Dies_und_das",
+        "gruppe": "dies_und_das",
         "links": [
             {
-                "name": "Weinort_Laudenbach",
+                "id": "weinort_laudenbach",
+                "name": "Weinort Laudenbach",
                 "url": "https://weinort-laudenbach.de/"
             }
         ]
     },
     {
-        "gruppe": "Sponsoren",
+        "gruppe": "sponsoren",
         "links": [
-            # Name bezieht sich auf die ID im HTML Code.
-            # Für eine bessere Übersicht sollte der Anzeigename in Display eingetragen werden.
             {
-                "name": "sponsor1",
-                "display": "JAKO",
+                "id": "sponsor1",
+                "name": "JAKO",
+                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
                 "url": "http://www.jako.com/"
             },
             {
-                "name": "sponsor2",
-                "display": "Vier Elemente",
+                "id": "sponsor2",
+                "name": "Vier Elemente",
+                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://vierelemente2018.de/"
             },
             {
-                "name": "sponsor3",
-                "display": "Endin",
+                "id": "sponsor3",
+                "name": "Endin",
+                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://endin.eu/"
             }
         ]
