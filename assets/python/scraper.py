@@ -138,6 +138,23 @@ def save_json(data, filename):
 
 
 # ==========================================
+# ===== LINKS JSON SPEICHERN ===============
+# ==========================================
+
+def save_links_json():
+    """
+    Speichert alle URLs (Spielpläne + Tabellen) zentral in einer JSON.
+    """
+    data = {
+        "spielplaene": SPIELPLAENE,
+        "tabellen": TABELLEN
+    }
+
+    with open("assets/data/links.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+# ==========================================
 # ===== MAIN ===============================
 # ==========================================
 
@@ -180,6 +197,15 @@ def main():
             save_json(daten, tabelle["name"])
 
             print(f"{tabelle['name']} gespeichert ({len(daten)} Einträge)")
+
+        # ======================================
+        # ===== LINKS JSON =====================
+        # ======================================
+            print("Speichere zentrale Link-JSON...")
+    
+            save_links_json()
+    
+            print("links.json gespeichert")
 
         browser.close()
 
