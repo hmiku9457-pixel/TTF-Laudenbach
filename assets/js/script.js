@@ -15,6 +15,7 @@
 // 11 - SPIELE KONFIG
 // 12 - TABELLEN KONFIG
 // 13 - HILFSFUNKTIONEN
+// 14 - LINKS LOADER
 //
 // ==========================================
 
@@ -398,5 +399,52 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Wenn Laudenbach Gast ist → drehen
 		return `${gastPunkte}:${heimPunkte}`;
 	}
+
+	// ==========================================
+	// ===== 14 - LINKS LOADER ==================
+	// ==========================================
+	
+	// Lädt zentrale links.json und setzt alle hrefs automatisch
+	async function loadLinks() {
+	
+		try {
+			const response = await fetch('/TTF-Laudenbach/assets/data/links.json');
+			const data = await response.json();
+	
+			// ================================
+			// ===== TABELLEN LINKS ===========
+			// ================================
+	
+			data.tabellen.forEach(e => {
+	
+				// erwartet: id="link-tabelleHerren1"
+				const el = document.getElementById("link-" + e.name);
+	
+				if(el) {
+					el.href = e.url;
+				}
+			});
+	
+			// ================================
+			// ===== SPIELPLAN LINKS ==========
+			// ================================
+	
+			data.spielplaene.forEach(e => {
+	
+				// erwartet: id="link-spieleHerren1"
+				const el = document.getElementById("link-" + e.name);
+	
+				if(el) {
+					el.href = e.url;
+				}
+			});
+	
+		} catch (error) {
+			console.error("Fehler beim Laden der links.json:", error);
+		}
+	}
+	
+	// Initial ausführen
+	loadLinks();
 
 });
