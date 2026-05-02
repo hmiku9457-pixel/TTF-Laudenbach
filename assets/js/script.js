@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// ===== LINK-GRUPPEN ==================
 			// =====================================
 	
-			data.forEach(gruppe => {
+			data.links.forEach(gruppe => {
 	
 				// WICHTIG: exakt gleiche ID wie HTML
 				const container = document.getElementById("gruppe-" + gruppe.gruppe);
