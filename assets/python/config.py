@@ -107,16 +107,21 @@ LINKS = [
     {
         "gruppe": "Sponsoren",
         "links": [
+            # Name bezieht sich auf die ID im HTML Code.
+            # Für eine bessere Übersicht sollte der Anzeigename in Display eingetragen werden.
             {
-                "name": "JAKO",
+                "name": "sponsor1",
+                "display": "JAKO",
                 "url": "http://www.jako.com/"
             },
             {
-                "name": "Vier_Elemente",
+                "name": "sponsor2",
+                "display": "Vier Elemente",
                 "url": "https://vierelemente2018.de/"
             },
             {
-                "name": "Endin_GmbH",
+                "name": "sponsor3",
+                "display": "Endin",
                 "url": "https://endin.eu/"
             }
         ]
