@@ -487,6 +487,20 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 				});
 			});
+
+			data.links.forEach(gruppe => {
+				gruppe.links.forEach(link => {
+			
+					if (!sponsorSlots.includes(link.id)) return;
+			
+					const el = document.getElementById(`link-${link.id}-main`);
+			
+					if (el) {
+						el.href = link.url;
+						el.textContent = link.name;
+					}
+				});
+			});
 	
 		} catch (error) {
 			console.error("Fehler beim Laden der links.json:", error);
