@@ -443,6 +443,15 @@ table tr:hover {
   font-weight: 500;
 }
 
+.table-search {
+	display: block;
+	margin: 1rem auto;
+	padding: 0.5rem;
+	width: 100%;
+	max-width: 400px;
+	font-size: 1rem;
+}
+
 /* =========================================
    Responsive Anpassung
    ========================================= */
