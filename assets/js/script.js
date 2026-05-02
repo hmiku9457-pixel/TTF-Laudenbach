@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	// Lädt zentrale links.json und setzt alle hrefs automatisch
 	async function loadLinks() {
-	
+
 		try {
 			const response = await fetch('/TTF-Laudenbach/assets/data/links.json');
 			const data = await response.json();
@@ -417,7 +417,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 			data.tabellen.forEach(e => {
 	
-				// erwartet: id="link-tabelleHerren1"
 				const el = document.getElementById("link-" + e.name);
 	
 				if(el) {
@@ -431,60 +430,37 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 			data.spielplaene.forEach(e => {
 	
-				// erwartet: id="link-spieleHerren1"
 				const el = document.getElementById("link-" + e.name);
 	
 				if(el) {
 					el.href = e.url;
 				}
 			});
-
+	
 			// ================================
 			// ===== LINK-GRUPPEN ============
 			// ================================
-			
+	
 			data.links.forEach(gruppe => {
-			
+	
 				const container = document.getElementById("link-gruppe-" + gruppe.gruppe);
-			
+	
 				if(!container) return;
-			
+	
 				container.innerHTML = "";
-			
+	
 				gruppe.links.forEach(e => {
-			
+	
 					const a = document.createElement("a");
-			
+	
 					a.href = e.url;
 					a.target = "_blank";
 					a.rel = "noopener noreferrer";
 					a.className = "button button--card";
-			
+	
 					a.textContent = e.display ?? e.name;
-			
+	
 					container.appendChild(a);
-				});
-			});
-
-			// ================================
-			// ===== SONSTIGE LINKS ==========
-			// ================================
-			
-			data.links.forEach(gruppe => {
-			
-				gruppe.links.forEach(e => {
-			
-					const el = document.getElementById("link-" + e.name);
-			
-					if(el) {
-						el.href = e.url;
-					
-						if(e.display) {
-							el.textContent = e.display;
-						} else {
-							el.textContent = e.name;
-						}
-					}
 				});
 			});
 	
@@ -493,7 +469,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 	
-	// Initial ausführen
 	loadLinks();
-
+	
 });
