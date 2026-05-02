@@ -438,6 +438,22 @@ document.addEventListener("DOMContentLoaded", () => {
 					el.href = e.url;
 				}
 			});
+
+			// ================================
+			// ===== SONSTIGE LINKS ==========
+			// ================================
+			
+			data.links.forEach(gruppe => {
+			
+				gruppe.links.forEach(e => {
+			
+					const el = document.getElementById("link-" + e.name);
+			
+					if(el) {
+						el.href = e.url;
+					}
+				});
+			});
 	
 		} catch (error) {
 			console.error("Fehler beim Laden der links.json:", error);
