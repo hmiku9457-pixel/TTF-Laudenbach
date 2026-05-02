@@ -404,61 +404,36 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== 14 - LINKS LOADER ==================
 	// ==========================================
 	
-	// Lädt zentrale links.json und setzt alle hrefs automatisch
 	async function loadLinks() {
-
+	
 		try {
 			const response = await fetch('/TTF-Laudenbach/assets/data/links.json');
 			const data = await response.json();
 	
-			// ================================
-			// ===== TABELLEN LINKS ===========
-			// ================================
+			// =====================================
+			// ===== LINK-GRUPPEN ==================
+			// =====================================
 	
-			data.tabellen.forEach(e => {
+			data.forEach(gruppe => {
 	
-				const el = document.getElementById("link-" + e.name);
+				// WICHTIG: exakt gleiche ID wie HTML
+				const container = document.getElementById("gruppe-" + gruppe.gruppe);
 	
-				if(el) {
-					el.href = e.url;
-				}
-			});
-	
-			// ================================
-			// ===== SPIELPLAN LINKS ==========
-			// ================================
-	
-			data.spielplaene.forEach(e => {
-	
-				const el = document.getElementById("link-" + e.name);
-	
-				if(el) {
-					el.href = e.url;
-				}
-			});
-	
-			// ================================
-			// ===== LINK-GRUPPEN ============
-			// ================================
-	
-			data.links.forEach(gruppe => {
-	
-				const container = document.getElementById("link-gruppe-" + gruppe.gruppe);
-	
-				if(!container) return;
+				if (!container) return;
 	
 				container.innerHTML = "";
 	
-				gruppe.links.forEach(e => {
+				gruppe.links.forEach(link => {
 	
 					const a = document.createElement("a");
 	
-					a.href = e.url;
+					a.href = link.url;
 					a.target = "_blank";
 					a.rel = "noopener noreferrer";
 					a.className = "button button--card";
 	
-					a.textContent = e.display ?? e.name;
+					// name ist jetzt dein Display-Text
+					a.textContent = link.name;
 	
 					container.appendChild(a);
 				});
