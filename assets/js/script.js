@@ -471,34 +471,29 @@ document.addEventListener("DOMContentLoaded", () => {
 			// =====================================
 			// ===== FOOTER (SPONSOR) LINKS ========
 			// =====================================
-
+			
 			const sponsorSlots = ["sponsor1", "sponsor2", "sponsor3", "sponsor4"];
-
+			
 			data.links.forEach(gruppe => {
 				gruppe.links.forEach(link => {
 			
 					if (!sponsorSlots.includes(link.id)) return;
 			
-					const el = document.getElementById(`link-${link.id}`);
+					// Bugfix damit der Link gleichzeitig in Main und Footer existieren kann
+					const targets = [
+						`link-${link.id}`,
+						`link-${link.id}-main`,
+						`link-${link.id}-footer`
+					];
 			
-					if (el) {
-						el.href = link.url;
-						el.textContent = link.name;
-					}
-				});
-			});
-
-			data.links.forEach(gruppe => {
-				gruppe.links.forEach(link => {
+					targets.forEach(id => {
+						const el = document.getElementById(id);
 			
-					if (!sponsorSlots.includes(link.id)) return;
-			
-					const el = document.getElementById(`link-${link.id}-main`);
-			
-					if (el) {
-						el.href = link.url;
-						el.textContent = link.name;
-					}
+						if (el) {
+							el.href = link.url;
+							el.textContent = link.name;
+						}
+					});
 				});
 			});
 	
