@@ -1,5 +1,26 @@
 // ==========================================
-// ===== DOM READY ==========================
+// ===== INHALTSVERZEICHNIS =================
+// ==========================================
+//
+// 01 - DOM READY
+// 02 - HEADER LADEN
+// 03 - FOOTER LADEN
+// 04 - NEWS SLIDER
+// 05 - SLIDER LOGIK
+// 06 - ANIMATIONEN
+// 07 - TABELLEN SUCHE
+// 08 - THEME SWITCHER
+// 09 - iFRAME CONSENT (DSGVO)
+// 10 - GENERISCHER TABLE LOADER
+// 11 - SPIELE KONFIG
+// 12 - TABELLEN KONFIG
+// 13 - HILFSFUNKTIONEN
+//
+// ==========================================
+
+
+// ==========================================
+// ===== 01 - DOM READY =====================
 // ==========================================
 
 // Wartet bis das komplette HTML geladen ist,
@@ -7,7 +28,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 	// ==========================================
-	// ===== HEADER LADEN =======================
+	// ===== 02 - HEADER LADEN ==================
 	// ==========================================
 
 	const headerContainer = document.getElementById('header-container');
@@ -24,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== FOOTER LADEN =======================
+	// ===== 03 - FOOTER LADEN ==================
 	// ==========================================
 
 	const footerContainer = document.getElementById('footer-container');
@@ -38,13 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== NEWS SLIDER ========================
+	// ===== 04 - NEWS SLIDER ===================
 	// ==========================================
 
 	const newsContainer = document.querySelector('.news-slider');
 
 	if(newsContainer) {
-
 		// News-Daten laden und als Slides rendern
 		fetch('/TTF-Laudenbach/assets/data/news.json')
 			.then(res => res.json())
@@ -76,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== SLIDER LOGIK =======================
+	// ===== 05 - SLIDER LOGIK ==================
 	// ==========================================
 
 	function startSlider() {
@@ -86,16 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// automatischer Wechsel alle 10 Sekunden
 		setInterval(() => {
-
 			slides[index].classList.remove('active');
 			index = (index + 1) % slides.length;
 			slides[index].classList.add('active');
-
 		}, 10000);
 	}
 
 	// ==========================================
-	// ===== ANIMATIONEN ========================
+	// ===== 06 - ANIMATIONEN ===================
 	// ==========================================
 
 	function initAnimations() {
@@ -128,7 +146,31 @@ document.addEventListener("DOMContentLoaded", () => {
 	initAnimations();
 
 	// ==========================================
-	// ===== THEME SWITCHER =====================
+	// ===== 07 - TABELLEN SUCHE ================
+	// ==========================================
+
+	function initTableSearch() {
+
+		const input = document.getElementById("searchInput");
+		const rows = document.querySelectorAll(".table-ewigeRangliste tbody tr");
+
+		if(!input || rows.length === 0) return;
+
+		input.addEventListener("input", () => {
+
+			const search = input.value.toLowerCase();
+
+			rows.forEach(row => {
+				const name = row.children[1].textContent.toLowerCase();
+				row.style.display = name.includes(search) ? "" : "none";
+			});
+		});
+	}
+
+	initTableSearch();
+
+	// ==========================================
+	// ===== 08 - THEME SWITCHER ================
 	// ==========================================
 
 	function initThemeSwitcher() {
@@ -145,52 +187,51 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// ==========================================
-	// ===== iFRAME CONSENT (DSGVO) =============
+	// ===== 09 - iFRAME CONSENT ================
 	// ==========================================
-	
+
 	function createIframe(container, src) {
-	
+
 		const iframe = document.createElement("iframe");
-	
+
 		iframe.src = src;
 		iframe.style.width = "100%";
-		iframe.style.height = "250px"; // WICHTIG
+		iframe.style.height = "250px";
 		iframe.style.border = "0";
 		iframe.loading = "lazy";
 		iframe.referrerPolicy = "no-referrer-when-downgrade";
 		iframe.allowFullscreen = true;
-	
+
 		container.innerHTML = "";
 		container.appendChild(iframe);
 	}
-	
-	// GLOBAL machen (wichtig!)
+
 	window.loadIframe = function(button) {
-	
+
 		const container = button.parentElement;
 		const src = container.getAttribute("data-src");
-	
+
 		localStorage.setItem("externalContentAccepted", "true");
-	
+
 		createIframe(container, src);
 	}
-	
+
 	// Auto-Load bei gespeicherter Zustimmung
 	if (localStorage.getItem("externalContentAccepted") === "true") {
 		document.querySelectorAll(".iframe-consent").forEach(container => {
 			createIframe(container, container.dataset.src);
 		});
 	}
-	
+
 	// ==========================================
-	// ===== GENERISCHER TABLE LOADER ===========
+	// ===== 10 - GENERISCHER TABLE LOADER ======
 	// ==========================================
 
 	// Lädt JSON und rendert es in Tabellen
 	async function loadTable(config) {
 
 		const tbody = document.getElementById(config.targetId);
-
+		
 		// nur ausführen wenn Tabelle existiert
 		if(!tbody) return;
 
@@ -208,18 +249,21 @@ document.addEventListener("DOMContentLoaded", () => {
 				tbody.appendChild(tr);
 			});
 
+			// QoL: Suche nach dynamischem Laden neu initialisieren
+			initTableSearch();
+
 		} catch (error) {
 			console.error(`Fehler bei ${config.url}:`, error);
 		}
 	}
 
 	// ==========================================
-	// ===== SPIELE KONFIG ======================
+	// ===== 11 - SPIELE KONFIG =================
 	// ==========================================
 
+	
 	const spieleConfigs = [
-
-		// Startseite Spiele
+		// Startseite: Spiele des gesamten Vereins
 		{
 			targetId: "spiele-startseite",
 			url: "/TTF-Laudenbach/assets/data/spieleStartseite.json",
@@ -238,33 +282,13 @@ document.addEventListener("DOMContentLoaded", () => {
 				`;
 			}
 		},
-
+		
 		// Mannschafts-Spiele
-		{
-			targetId: "spiele-herren1",
-			url: "/TTF-Laudenbach/assets/data/spieleHerren1.json",
-			render: renderStandardSpiele
-		},
-		{
-			targetId: "spiele-herren2",
-			url: "/TTF-Laudenbach/assets/data/spieleHerren2.json",
-			render: renderStandardSpiele
-		},
-		{
-			targetId: "spiele-herren3",
-			url: "/TTF-Laudenbach/assets/data/spieleHerren3.json",
-			render: renderStandardSpiele
-		},
-		{
-			targetId: "spiele-jugend1",
-			url: "/TTF-Laudenbach/assets/data/spieleJugend1.json",
-			render: renderStandardSpiele
-		},
-		{
-			targetId: "spiele-jugend2",
-			url: "/TTF-Laudenbach/assets/data/spieleJugend2.json",
-			render: renderStandardSpiele
-		}
+		{ targetId: "spiele-herren1", url: "/TTF-Laudenbach/assets/data/spieleHerren1.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren2", url: "/TTF-Laudenbach/assets/data/spieleHerren2.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren3", url: "/TTF-Laudenbach/assets/data/spieleHerren3.json", render: renderStandardSpiele },
+		{ targetId: "spiele-jugend1", url: "/TTF-Laudenbach/assets/data/spieleJugend1.json", render: renderStandardSpiele },
+		{ targetId: "spiele-jugend2", url: "/TTF-Laudenbach/assets/data/spieleJugend2.json", render: renderStandardSpiele }
 	];
 
 	// Standard Rendering für Spiele
@@ -286,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	spieleConfigs.forEach(cfg => loadTable(cfg));
 
 	// ==========================================
-	// ===== TABELLEN KONFIG ====================
+	// ===== 12 - TABELLEN KONFIG ===============
 	// ==========================================
 
 	// Standard Tabellen Renderer
@@ -305,39 +329,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	const tabellenConfigs = [
-
-		{
-			targetId: "tabelle-herren1",
-			url: "/TTF-Laudenbach/assets/data/tabelleHerren1.json",
-			render: renderStandardTabelle
-		},
-		{
-			targetId: "tabelle-herren2",
-			url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json",
-			render: renderStandardTabelle
-		},
-		{
-			targetId: "tabelle-herren3",
-			url: "/TTF-Laudenbach/assets/data/tabelleHerren3.json",
-			render: renderStandardTabelle
-		},
-		{
-			targetId: "tabelle-jugend1",
-			url: "/TTF-Laudenbach/assets/data/tabelleJugend1.json",
-			render: renderStandardTabelle
-		},
-		{
-			targetId: "tabelle-jugend2",
-			url: "/TTF-Laudenbach/assets/data/tabelleJugend2.json",
-			render: renderStandardTabelle
-		}
+		{ targetId: "tabelle-herren1", url: "/TTF-Laudenbach/assets/data/tabelleHerren1.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren2", url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren3", url: "/TTF-Laudenbach/assets/data/tabelleHerren3.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-jugend1", url: "/TTF-Laudenbach/assets/data/tabelleJugend1.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-jugend2", url: "/TTF-Laudenbach/assets/data/tabelleJugend2.json", render: renderStandardTabelle }
 	];
 
 	// Tabellen laden
 	tabellenConfigs.forEach(cfg => loadTable(cfg));
 
 	// ==========================================
-	// ===== HILFSFUNKTIONEN ====================
+	// ===== 13 - HILFSFUNKTIONEN ===============
 	// ==========================================
 
 	// Mannschaft bestimmen (Jugend / Herren + Nummer)
@@ -383,18 +386,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function formatErgebnis(heim, gast, ergebnis) {
-	
+
 		if (!ergebnis) return "-:-";
-	
+
 		const [heimPunkte, gastPunkte] = ergebnis.split(":").map(Number);
-	
 		const istHeimspiel = heim.includes("TTF Laudenbach");
-	
+
 		// Wenn Laudenbach Heim ist → nichts ändern
-		if (istHeimspiel) {
-			return `${heimPunkte}:${gastPunkte}`;
-		}
-	
+		if (istHeimspiel) return `${heimPunkte}:${gastPunkte}`;
+		
 		// Wenn Laudenbach Gast ist → drehen
 		return `${gastPunkte}:${heimPunkte}`;
 	}
