@@ -148,7 +148,7 @@ def save_links_json():
     data = {
         "spielplaene": SPIELPLAENE,
         "tabellen": TABELLEN,
-        "links":LINKS
+        "links": LINKS
     }
 
     with open("assets/data/links.json", "w", encoding="utf-8") as f:
