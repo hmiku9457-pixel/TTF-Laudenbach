@@ -148,42 +148,35 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== iFRAME CONSENT (DSGVO) =============
 	// ==========================================
 	
-	// Erstellt ein iFrame dynamisch nach Nutzer-Einwilligung
-	// → externe Inhalte werden erst nach Zustimmung geladen
 	function createIframe(container, src) {
 	
 		const iframe = document.createElement("iframe");
 	
 		iframe.src = src;
 		iframe.style.width = "100%";
-		iframe.style.height = "100%";
+		iframe.style.height = "250px"; // WICHTIG
 		iframe.style.border = "0";
 		iframe.loading = "lazy";
 		iframe.referrerPolicy = "no-referrer-when-downgrade";
 		iframe.allowFullscreen = true;
 	
-		// Platzhalter entfernen und iFrame einsetzen
 		container.innerHTML = "";
 		container.appendChild(iframe);
 	}
 	
-	// Wird durch Klick auf den "Laden"-Button ausgelöst
-	function loadIframe(button) {
+	// GLOBAL machen (wichtig!)
+	window.loadIframe = function(button) {
 	
 		const container = button.parentElement;
 		const src = container.getAttribute("data-src");
 	
-		// Zustimmung speichern (für zukünftige Seitenaufrufe)
 		localStorage.setItem("externalContentAccepted", "true");
 	
 		createIframe(container, src);
 	}
 	
-	// Prüft beim Laden der Seite,
-	// ob bereits eine Zustimmung vorliegt
+	// Auto-Load bei gespeicherter Zustimmung
 	if (localStorage.getItem("externalContentAccepted") === "true") {
-	
-		// Alle iFrame-Platzhalter automatisch laden
 		document.querySelectorAll(".iframe-consent").forEach(container => {
 			createIframe(container, container.dataset.src);
 		});
