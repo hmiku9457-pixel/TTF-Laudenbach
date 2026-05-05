@@ -1,137 +1,146 @@
 [
   {
-    "datum": "3.1",
-    "uhrzeit": "Melanie Wolfert",
-    "spielort": "4",
-    "heim": "3:1",
-    "gast": "4:0",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.2",
-    "uhrzeit": "Stefan Wolfert",
-    "spielort": "16",
-    "heim": "7:9",
-    "gast": "5:11",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.3",
-    "uhrzeit": "Martin Schneider",
-    "spielort": "12",
-    "heim": "2:7",
-    "gast": "3:5",
-    "ergebnis": "2:1",
-    "status": "gespielt"
-  },
-  {
-    "datum": "3.4",
-    "uhrzeit": "Manfred Litwitz",
-    "spielort": "0",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.5",
-    "uhrzeit": "Erwin Mezger",
-    "spielort": "9",
-    "heim": "0:1",
-    "gast": "0:1",
-    "ergebnis": "3:2",
-    "status": "gespielt"
-  },
-  {
-    "datum": "3.6",
-    "uhrzeit": "Dominik Huber",
-    "spielort": "15",
-    "heim": "0:2",
-    "gast": "1:1",
-    "ergebnis": "1:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "3.7",
-    "uhrzeit": "Frank Repovs",
-    "spielort": "16",
-    "heim": "",
-    "gast": "",
-    "ergebnis": "4:6",
-    "status": "gespielt"
-  },
-  {
-    "datum": "3.8",
-    "uhrzeit": "Christopher Wolfert",
-    "spielort": "10",
-    "heim": "",
-    "gast": "",
-    "ergebnis": "1:0",
-    "status": "gespielt"
-  },
-  {
-    "datum": "3.9",
-    "uhrzeit": "Adrian Bach",
+    "datum": "Mo., 29.09.2025",
+    "uhrzeit": "20:00",
     "spielort": "1",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
+    "heim": "TTF Laudenbach III",
+    "gast": "VFB Bad Mergentheim V",
+    "ergebnis": "9:6",
+    "status": "gespielt"
   },
   {
-    "datum": "3.10",
-    "uhrzeit": "Carl Klärle",
-    "spielort": "2",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.11",
-    "uhrzeit": "Armin Ulshöfer",
-    "spielort": "4",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.12",
-    "uhrzeit": "Steffen Wolfert",
-    "spielort": "4",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "3.13",
-    "uhrzeit": "Dietrich Kruth",
+    "datum": "Mo., 06.10.2025",
+    "uhrzeit": "20:00",
     "spielort": "1",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
+    "heim": "TV Niederstetten",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:2",
+    "status": "gespielt"
   },
   {
-    "datum": "3.14",
-    "uhrzeit": "Svea Täubert",
+    "datum": "Sa., 18.10.2025",
+    "uhrzeit": "19:00",
     "spielort": "1",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:3",
+    "status": "gespielt"
   },
   {
-    "datum": "3.18",
-    "uhrzeit": "Tobias Kimmelmann",
+    "datum": "Fr., 31.10.2025",
+    "uhrzeit": "20:00\nv",
     "spielort": "1",
-    "heim": "",
-    "gast": "",
-    "ergebnis": null,
-    "status": "geplant"
+    "heim": "TTF Laudenbach III",
+    "gast": "SV Elpersheim III",
+    "ergebnis": "3:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 07.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TSV Schrozberg II",
+    "ergebnis": "9:7",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 14.11.2025",
+    "uhrzeit": "20:00\nv",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim IV",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:1",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 21.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "FC Igersheim III",
+    "ergebnis": "4:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 28.11.2025",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "SC Buchenbach IV",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 06.02.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim V",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "3:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 13.02.2026",
+    "uhrzeit": "20:00\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TSV Dörzbach II",
+    "ergebnis": "7:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 21.02.2026",
+    "uhrzeit": "19:30",
+    "spielort": "1",
+    "heim": "FC Igersheim III",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "5:9",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 28.02.2026",
+    "uhrzeit": "19:45\nv",
+    "spielort": "1",
+    "heim": "SV Elpersheim III",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "9:2",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 14.03.2026",
+    "uhrzeit": "19:45\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "VFB Bad Mergentheim IV",
+    "ergebnis": "8:8",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Fr., 20.03.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TV Niederstetten",
+    "ergebnis": "9:6",
+    "status": "gespielt"
+  },
+  {
+    "datum": "So., 29.03.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "TSV Schrozberg II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": "8:8",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 11.04.2026",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "SC Buchenbach IV",
+    "ergebnis": "9:4",
+    "status": "gespielt"
   }
 ]
