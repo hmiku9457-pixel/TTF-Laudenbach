@@ -1,25 +1,5 @@
 [
   {
-    "datum": "Sa., 11.04.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "klasse": "J KLE",
-    "heim": "TTF Laudenbach II",
-    "gast": "SV Bieberehren",
-    "ergebnis": "5:5",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 11.04.2026",
-    "uhrzeit": "18:45",
-    "spielort": "1",
-    "klasse": "E KLB",
-    "heim": "TTF Laudenbach III",
-    "gast": "SC Buchenbach IV",
-    "ergebnis": "9:4",
-    "status": "gespielt"
-  },
-  {
     "datum": "So., 12.04.2026",
     "uhrzeit": "10:30\nv",
     "spielort": "2",
