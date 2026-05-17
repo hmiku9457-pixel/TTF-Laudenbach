@@ -1,128 +1,128 @@
 [
   {
-    "datum": "Sa., 04.10.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "heim": "SC Buchenbach III",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "9:2",
+    "datum": "2.1",
+    "uhrzeit": "Gerhard Wolfert",
+    "spielort": "12",
+    "heim": "2:10",
+    "gast": "5:7",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "2.2",
+    "uhrzeit": "Christian Heer",
+    "spielort": "13",
+    "heim": "3:10",
+    "gast": "4:8",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "2.3",
+    "uhrzeit": "Erik Stiefel",
+    "spielort": "10",
+    "heim": "0:2",
+    "gast": "1:1",
+    "ergebnis": "5:3",
     "status": "gespielt"
   },
   {
-    "datum": "Fr., 10.10.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SG Garnberg II",
-    "ergebnis": "2:9",
+    "datum": "2.4",
+    "uhrzeit": "Günter Friedel",
+    "spielort": "14",
+    "heim": "0:1",
+    "gast": "",
+    "ergebnis": "6:4",
     "status": "gespielt"
   },
   {
-    "datum": "Sa., 11.10.2025",
-    "uhrzeit": "18:45",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "VFB Bad Mergentheim III",
-    "ergebnis": "8:8",
+    "datum": "2.5",
+    "uhrzeit": "Paul Stumpp",
+    "spielort": "0",
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "2.6",
+    "uhrzeit": "Florian Wolfert",
+    "spielort": "9",
+    "heim": "",
+    "gast": "",
+    "ergebnis": "3:1",
     "status": "gespielt"
   },
   {
-    "datum": "Sa., 25.10.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "heim": "SV Elpersheim II",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "6:9",
+    "datum": "2.7",
+    "uhrzeit": "Johannes Scherrer",
+    "spielort": "4",
+    "heim": "",
+    "gast": "",
+    "ergebnis": "0:1",
     "status": "gespielt"
   },
   {
-    "datum": "Fr., 14.11.2025",
-    "uhrzeit": "20:00\nt",
-    "spielort": "1",
-    "heim": "SV Bieberehren",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "9:7",
-    "status": "gespielt"
+    "datum": "3.1",
+    "uhrzeit": "Melanie Wolfert",
+    "spielort": "12",
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Fr., 28.11.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "FC Igersheim II",
-    "ergebnis": "6:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 06.12.2025",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "heim": "SV Morsbach",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "5:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "So., 01.02.2026",
-    "uhrzeit": "14:00",
-    "spielort": "1",
-    "heim": "FC Igersheim II",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "4:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 28.02.2026",
-    "uhrzeit": "18:30\nv",
+    "datum": "3.2",
+    "uhrzeit": "Stefan Wolfert",
     "spielort": "2",
-    "heim": "SG Garnberg II",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "9:5",
-    "status": "gespielt"
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Sa., 07.03.2026",
-    "uhrzeit": "18:30\nt",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SV Bieberehren",
-    "ergebnis": "9:6",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 28.03.2026",
-    "uhrzeit": "18:45\nv",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SV Elpersheim II",
-    "ergebnis": "8:8",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 10.04.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SC Buchenbach III",
-    "ergebnis": "6:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "So., 12.04.2026",
-    "uhrzeit": "10:30\nv",
+    "datum": "3.3",
+    "uhrzeit": "Martin Schneider",
     "spielort": "2",
-    "heim": "TTF Laudenbach II",
-    "gast": "SV Morsbach",
-    "ergebnis": "9:1",
+    "heim": "",
+    "gast": "",
+    "ergebnis": "0:1",
     "status": "gespielt"
   },
   {
-    "datum": "Sa., 18.04.2026",
-    "uhrzeit": "18:00",
+    "datum": "3.6",
+    "uhrzeit": "Dominik Huber",
+    "spielort": "3",
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "3.7",
+    "uhrzeit": "Frank Repovs",
     "spielort": "1",
-    "heim": "VFB Bad Mergentheim III",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": "9:1",
-    "status": "gespielt"
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "3.9",
+    "uhrzeit": "Adrian Bach",
+    "spielort": "1",
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "3.13",
+    "uhrzeit": "Dietrich Kruth",
+    "spielort": "1",
+    "heim": "",
+    "gast": "",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
