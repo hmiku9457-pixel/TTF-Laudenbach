@@ -194,6 +194,7 @@ nav {
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: var(--space-xl);
     padding: var(--space-m);
 }
@@ -798,6 +799,14 @@ footer {
     .grid-home-secondLine {
         grid-template-columns: 1fr;
     }
+    
+    .menu {
+        gap: var(--space-m);
+    }
+
+    .menu a {
+        font-size: 0.95rem;
+    }
 }
 
 /* Tablet / kleine Bildschirme */
@@ -815,9 +824,10 @@ footer {
     }
 
     .menu {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        gap: var(--space-m);
+        gap: var(--space-s) var(--space-m);
     }
 
     .submenu {
