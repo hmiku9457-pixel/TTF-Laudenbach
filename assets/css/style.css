@@ -196,12 +196,6 @@ nav {
     align-items: stretch;
 }
 
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /*.sub-grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -453,21 +447,6 @@ table tr:hover {
 }
 
 /* =========================================
-   Responsive Anpassung
-   ========================================= */
-
-@media (max-width: 600px) {
-  .table-ewigeRangliste {
-    font-size: 0.85rem;
-  }
-
-  .table-ewigeRangliste th,
-  .table-ewigeRangliste td {
-    padding: var(--space-m);
-  }
-}
-
-/* =========================================
    ==== 10A-I EWIGE RANGLISTE ANIMATION ====
    ========================================= */
 
@@ -701,4 +680,56 @@ footer {
 
 .form-status.error {
     color: #ef4444;
+}
+
+/* =========================================
+   17. RESPONSIVE / MOBILE
+   ========================================= */
+
+/* Tablet / kleine Bildschirme */
+@media (max-width: 768px) {
+  .grid,
+  .grid-home-firstLine,
+  .grid-home-secondLine {
+    grid-template-columns: 1fr;
+    padding: var(--space-m);
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    height: 60px;
+    margin-bottom: var(--space-s);
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+  }
+}
+
+/* Handy */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .box,
+  .team-box {
+    padding: var(--space-l);
+  }
+
+  .grid-button {
+    grid-template-columns: 1fr;
+    padding: var(--space-m);
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
 }
