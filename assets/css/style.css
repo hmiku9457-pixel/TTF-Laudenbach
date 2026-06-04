@@ -862,7 +862,7 @@ footer {
 /* Kleine Handys */
 @media (max-width: 600px) {
     .table-ewigeRangliste {
-        font-size: 0.85rem;
+        /*font-size: 0.85rem;*/
     }
 
     .table-ewigeRangliste th,
@@ -878,7 +878,7 @@ footer {
 /* Sehr kleine Handys */
 @media (max-width: 480px) {
     body {
-        font-size: 0.95rem;
+        /*font-size: 0.95rem;*/
     }
 
     .box,
