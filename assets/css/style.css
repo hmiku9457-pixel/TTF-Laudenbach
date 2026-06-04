@@ -794,14 +794,40 @@ footer {
 
 /* Große Tablets / kleinere Laptops */
 @media (max-width: 1024px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .menu {
+        gap: var(--space-l);
+    }
+
+    .menu a {
+        font-size: 0.95rem;
+    }
+
     .grid-home-firstLine,
     .grid-home-secondLine {
         grid-template-columns: 1fr;
+    }
+
+    .grid,
+    .grid-home-firstLine,
+    .grid-home-secondLine,
+    .full-width,
+    .grid-button,
+    .teams-grid {
+        padding-left: var(--space-m);
+        padding-right: var(--space-m);
     }
 }
 
 /* Tablet / kleine Bildschirme */
 @media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
     #header-container,
     header {
         padding: var(--space-l) var(--space-m);
@@ -859,10 +885,10 @@ footer {
     }
 }
 
-/* Kleine Handys */
+/* Kleine Tablets / große Handys */
 @media (max-width: 600px) {
-    .table-ewigeRangliste {
-        /*font-size: 0.85rem;*/
+    body {
+        font-size: 0.875rem;
     }
 
     .table-ewigeRangliste th,
@@ -873,12 +899,17 @@ footer {
     .table-search {
         max-width: 100%;
     }
+
+    td,
+    th {
+        padding: var(--space-s);
+    }
 }
 
-/* Sehr kleine Handys */
+/* Kleine Handys */
 @media (max-width: 480px) {
     body {
-        /*font-size: 0.95rem;*/
+        font-size: 0.85rem;
     }
 
     .box,
@@ -895,16 +926,28 @@ footer {
         font-size: 0.85rem;
     }
 
-    td,
-    th {
-        padding: var(--space-s);
-    }
-
     .button--card {
         padding: var(--space-l);
     }
 
     .map-container iframe {
         height: 220px;
+    }
+}
+
+/* Sehr kleine Handys */
+@media (max-width: 380px) {
+    body {
+        font-size: 0.8rem;
+    }
+
+    .menu a {
+        font-size: 0.95em;
+    }
+
+    .box,
+    .team-box,
+    .contact-form {
+        padding: var(--space-m);
     }
 }
