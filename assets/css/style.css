@@ -827,21 +827,23 @@ footer {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         gap: var(--space-s) var(--space-m);
     }
 
     .submenu {
-        position: static;
-        left: auto;
-        transform: none;
-        margin-top: var(--space-s);
-        white-space: normal;
-        box-shadow: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        white-space: nowrap;
+        box-shadow: var(--shadow-heavy);
+        z-index: 2000;
     }
 
     .dropdown:hover .submenu,
     .dropdown:focus-within .submenu {
-        transform: none;
+        transform: translateX(-50%) translateY(0);
     }
 
     .grid,
