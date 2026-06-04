@@ -1,3 +1,93 @@
+/* =====================================================
+   Inhaltsverzeichnis
+   =====================================================
+
+   1. RESET & BASIS
+      - Globale Resets
+      - Body
+
+   2. THEME (Farben & Variablen)
+      - Farbvariablen
+      - Spacing
+      - Shadows
+      - Tabellenfarben
+
+   3. HEADER
+      - Top-Bar
+      - Logo
+      - Header-Text
+
+   4. NAVIGATION
+      - Menü
+      - Dropdown-Menü
+      - Submenu
+
+   5. GRID LAYOUT
+      - Standard Grid
+      - Home Grid
+      - Button Grid
+      - Full Width Layouts
+
+   6. BOXEN
+      - Box
+      - Team-Box
+      - Column Layout
+
+   7. ANIMATIONEN
+      - FadeInUp
+      - Animate-Klasse
+
+   8. NEWS SLIDER
+      - Slider Container
+      - Slides
+      - Bilder
+      - Links
+
+   9. TEAMS GRID
+      - Teamübersicht
+
+   10. TABELLEN
+       - Standard Tabellen
+
+   10A. EWIGE RANGLISTE
+       - Tabelle
+       - Suche
+       - Hover-Effekte
+       - Animationen
+
+   11. UI ELEMENTE
+       - HR
+       - Footer Text
+       - Utility Klassen
+
+   12. BUTTONS
+       - Standard Button
+       - Card Button
+       - Focus / Active
+
+   13. MAP DESIGN
+       - Kartencontainer
+       - Iframe
+
+   14. DSGVO / IFRAME CONSENT
+       - Platzhalter
+       - Freigabe-Button
+
+   15. FOOTER
+       - Footer Grid
+       - Footer Links
+
+   16. KONTAKTFORMULAR
+       - Formular Layout
+       - Form Groups
+       - Statusmeldungen
+
+   17. RESPONSIVE
+       - Tablet (≤768px)
+       - Smartphone (≤480px)
+
+   ===================================================== */
+
 /* =========================================
    ===== 1. RESET & BASIS ==================
    ========================================= */
@@ -385,7 +475,7 @@ table tr:hover {
 
 
 /* =========================================
-   ===== 10A TABELLE: EWIGE RANGLISTE ======
+   ===== 10.1 TABELLE: EWIGE RANGLISTE =====
    ========================================= */
 
 .table-ewigeRangliste {
@@ -459,7 +549,7 @@ table tr:hover {
 
 
 /* =========================================
-   ==== 10A-I EWIGE RANGLISTE ANIMATION ====
+   ==== 10.2 EWIGE RANGLISTE ANIMATION =====
    ========================================= */
 
 .table-ewigeRangliste tbody tr.animate {
