@@ -96,15 +96,50 @@
 						</table>
 					</div>
 				</div>
-				<div class="box box--calendar">
-					<iframe 
-						src="https://calendar.google.com/calendar/embed?src=hmiku9457%40gmail.com&ctz=Europe%2FBerlin"
-							style="border: 0"
-							width=auto
-							height="500"
-							frameborder="0"
-							scrolling="no">
-					</iframe>
+				<div class="box">
+					<section class="contact-section full-width">
+					
+						<form id="contactForm" class="contact-form">
+					
+							<h2>Kontakt</h2>
+					
+							<!-- Name -->
+							<div class="form-group">
+								<label for="name">Name *</label>
+								<input type="text" id="name" name="name" required>
+							</div>
+					
+							<!-- E-Mail -->
+							<div class="form-group">
+								<label for="email">E-Mail *</label>
+								<input type="email" id="email" name="email" required>
+							</div>
+					
+							<!-- Nachricht -->
+							<div class="form-group">
+								<label for="message">Nachricht *</label>
+								<textarea id="message" name="message" rows="5" required></textarea>
+							</div>
+					
+							<!-- Consent (DSGVO) -->
+							<div class="form-group form-consent">
+								<input type="checkbox" id="consent" required>
+								<label for="consent">
+									Ich stimme der Verarbeitung meiner Daten gemäß der <a href="/TTF-Laudenbach/pages/footer/datenschutz.html">Datenschutzerklärung</a> zu. *
+								</label>
+							</div>
+					
+							<!-- Submit -->
+							<button type="submit" class="button">
+								Nachricht senden
+							</button>
+					
+							<!-- Status -->
+							<p id="formStatus" class="form-status"></p>
+					
+						</form>
+					
+					</section>
 				</div>
 			</div>
 		</div>
