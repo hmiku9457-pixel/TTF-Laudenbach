@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TTF Laudenbach</title>
+		<!-- externes CSS -->
+		<link rel="stylesheet" href="/TTF-Laudenbach/assets/css/style.css">
+	</head>
+	
+	<body>
+		<div id="header-container"></div>
+
+		<div class="grid">
+			<div class="box full-width">
+				<h1 class="u-text-center">Herren V</h1>
+			</div>
+			
+			<div class="box">
+				<h2 class="underline">Aufstellung:</h4>
+				<table>
+					<thead>
+						<tr>
+							<td>Pos.</td>
+							<td>Name</td>
+							<td>QTTR</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1.</td>
+							<td>Thomas Ruske</td>
+							<td>1488</td>
+						</tr>
+						<tr>
+							<td>2.</td>
+							<td>Manuel Ilzhöfer</td>
+							<td>1443</td>
+						</tr>
+						<tr>
+							<td>3.</td>
+							<td>Ludwig Moll</td>
+							<td>1371</td>
+						</tr>
+						<tr>
+							<td>4.</td>
+							<td>Stefan Gölz</td>
+							<td>1418</td>
+						</tr>
+						<tr>
+							<td>5.</td>
+							<td>Jörg Hever</td>
+							<td>1417</td>
+						</tr>
+						<tr>
+							<td>6.</td>
+							<td>Hubert Kraft</td>
+							<td>1392</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+		        <p>Mannschaftsführer: Hubert Kraft</p>
+			</div>
+			
+			<div class="box">
+				<h2 class="underline">Tabelle:</h2>
+				<table>
+					<thead>
+						<tr>
+							<td>Rang</td>
+							<td>Mannschaft</td>
+							<td>Partien</td>
+							<td>S</td>
+							<td>U</td>
+							<td>N</td>
+							<td>Spiele</td>
+							<td>+/-</td>
+							<td>Punkte</td>
+						</tr>
+					</thead>
+					<tbody id="tabelle-herren5">
+						<!-- Wird per JS gefüllt -->
+					</tbody>
+				</table>
+				<a id="link-tabelleHerren5" target="_blank" rel="noopener noreferrer" class="button button--card">Hier gehts zur Tabelle der 5. Herrenmannschaft</a>
+			</div>
+			
+			<div class="box full-width">
+				<h2 class="underline">Kompletter Spielplan:</h2>
+				<table>
+					<thead>
+						<tr>
+							<td>Datum</td>
+							<td>Uhrzeit</td>
+							<td>Spielort</td>
+							<td>Gegner</td>
+							<td>Ergebnis</td>
+						</tr>
+					</thead>
+					<tbody id="spiele-herren5">
+						<!-- Wird per JS gefüllt -->
+					</tbody>
+				</table>
+				<a id="link-spieleHerren5" target="_blank" rel="noopener noreferrer" class="button button--card">Hier gehts zum Spielplan der 5. Herrenmannschaft</a>
+			</div>
+		</div>
+
+		<div id="footer-container"></div>
+
+		<!-- externes JS -->
+		<script src="/TTF-Laudenbach/assets/js/script.js" defer></script>
+	</body>
+</html>
