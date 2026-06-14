@@ -17,6 +17,7 @@
 // 13 - HILFSFUNKTIONEN
 // 14 - LINKS LOADER
 // 15 - KONTAKTFORMULAR
+// 16 - HISTORISCHE FOTOS
 //
 // ==========================================
 
@@ -620,6 +621,104 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	}
+
+	// ==========================================
+	// ===== 16 - HISTORISCHE FOTOS =============
+	// ==========================================
+	
+	async function initHistoricalImages() {
+	
+		const galleryContainer = document.getElementById("images-gallery-container");
+		const eventList = document.getElementById("images-event-list");
+		const loadingBox = document.getElementById("images-loading");
+	
+		if (!galleryContainer || !eventList) return;
+	
+		try {
+			const response = await fetch("/TTF-Laudenbach/assets/data/gallerie.json");
+			const data = await response.json();
+	
+			const galleries = data.galleries || [];
+			const defaultGalleryId = data.defaultGallery || "general";
+	
+			if (galleries.length === 0) {
+				galleryContainer.innerHTML = `
+					<div class="box">
+						<p class="u-text-center">Keine Bilder gefunden.</p>
+					</div>
+				`;
+				eventList.innerHTML = "";
+				if (loadingBox) loadingBox.style.display = "none";
+				return;
+			}
+	
+			function renderGallery(galleryId) {
+	
+				const gallery = galleries.find(item => item.id === galleryId);
+	
+				if (!gallery) return;
+	
+				galleryContainer.innerHTML = `
+					<section class="box images-gallery is-active" data-gallery="${gallery.id}">
+						<h3 class="u-text-center">${gallery.title}</h3>
+	
+						<div class="masonry-gallery">
+							${gallery.images.map((image, index) => `
+								<img src="${image}" alt="${gallery.title} Bild ${index + 1}" loading="lazy">
+							`).join("")}
+						</div>
+					</section>
+				`;
+	
+				document.querySelectorAll(".images-event-button").forEach(button => {
+					button.classList.toggle(
+						"is-active",
+						button.dataset.target === gallery.id
+					);
+				});
+	
+				if (loadingBox) loadingBox.style.display = "none";
+			}
+	
+			eventList.innerHTML = "";
+	
+			galleries.forEach(gallery => {
+	
+				const button = document.createElement("button");
+	
+				button.type = "button";
+				button.className = "images-event-button";
+				button.dataset.target = gallery.id;
+				button.textContent = gallery.title;
+	
+				if (gallery.id === defaultGalleryId) {
+					button.classList.add("is-active");
+				}
+	
+				button.addEventListener("click", () => {
+					renderGallery(gallery.id);
+				});
+	
+				eventList.appendChild(button);
+			});
+	
+			renderGallery(defaultGalleryId);
+	
+		} catch (error) {
+			console.error("Fehler beim Laden der gallerie.json:", error);
+	
+			galleryContainer.innerHTML = `
+				<div class="box">
+					<p class="u-text-center">Die Bilder konnten nicht geladen werden.</p>
+				</div>
+			`;
+	
+			eventList.innerHTML = "";
+			if (loadingBox) loadingBox.style.display = "none";
+		}
+	}
+	
+	initHistoricalImages();
 	
 	initContactForm();
 
