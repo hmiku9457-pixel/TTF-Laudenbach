@@ -140,20 +140,26 @@ LINKS = [
             {
                 "id": "sponsor1",
                 "name": "JAKO",
-                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
+                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "http://www.jako.com/"
             },
             {
                 "id": "sponsor2",
                 "name": "Vier Elemente",
-                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
+                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://vierelemente2018.de/"
             },
             {
                 "id": "sponsor3",
                 "name": "Endin",
-                "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
+                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://endin.eu/"
+            },
+            {
+                "id": "sponsor4",
+                "name": "Tuwa",
+                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
+                "url": "https://www.instagram.com/tuwa_feinkost/"
             }
         ]
     }
