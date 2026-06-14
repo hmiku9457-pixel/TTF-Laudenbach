@@ -957,23 +957,28 @@ footer {
    ===== 18. HISTORISCHE FOTOS =============
    ========================================= */
 
-.images-event {
+.content {
+    padding: var(--space-m) var(--space-xl);
+}
+
+.images-event,
+.images-general {
     margin-top: var(--space-xl);
 }
 
-.images-event h3 {
-    margin-bottom: var(--space-m);
+.images-event h3,
+.images-general h3 {
+    margin-bottom: var(--space-l);
 }
 
-.images-general {
+.masonry-gallery {
     column-count: 3;
     column-gap: var(--space-m);
 }
 
-.images-general img {
+.masonry-gallery img {
     width: 100%;
     display: block;
-
     margin-bottom: var(--space-m);
 
     border-radius: var(--space-m);
@@ -982,11 +987,10 @@ footer {
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
 
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.images-general img:hover {
+.masonry-gallery img:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-heavy);
     cursor: pointer;
