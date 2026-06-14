@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const headerContainer = document.getElementById('header-container');
 
 	if(headerContainer) {
-		fetch('/TTF-Laudenbach/components/header.html')
+		fetch('/components/header.html')
 			.then(res => res.text())
 			.then(html => {
 				headerContainer.innerHTML = html;
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const footerContainer = document.getElementById('footer-container');
 
 	if(footerContainer) {
-		fetch('/TTF-Laudenbach/components/footer.html')
+		fetch('/components/footer.html')
 			.then(res => res.text())
 			.then(html => {
 				footerContainer.innerHTML = html;
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	if(newsContainer) {
 		// News-Daten laden und als Slides rendern
-		fetch('/TTF-Laudenbach/assets/data/news.json')
+		fetch('/assets/data/news.json')
 			.then(res => res.json())
 			.then(data => {
 
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Startseite: Spiele des gesamten Vereins
 		{
 			targetId: "spiele-startseite",
-			url: "/TTF-Laudenbach/assets/data/spieleStartseite.json",
+			url: "/assets/data/spieleStartseite.json",
 			render: (spiel) => {
 
 				const istHeimspiel = spiel.heim.includes("Laudenbach");
@@ -287,11 +287,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		},
 		
 		// Mannschafts-Spiele
-		{ targetId: "spiele-herren1", url: "/TTF-Laudenbach/assets/data/spieleHerren1.json", render: renderStandardSpiele },
-		{ targetId: "spiele-herren2", url: "/TTF-Laudenbach/assets/data/spieleHerren2.json", render: renderStandardSpiele },
-		{ targetId: "spiele-herren3", url: "/TTF-Laudenbach/assets/data/spieleHerren3.json", render: renderStandardSpiele },
-		{ targetId: "spiele-jugend1", url: "/TTF-Laudenbach/assets/data/spieleJugend1.json", render: renderStandardSpiele },
-		{ targetId: "spiele-jugend2", url: "/TTF-Laudenbach/assets/data/spieleJugend2.json", render: renderStandardSpiele }
+		{ targetId: "spiele-herren1", url: "/assets/data/spieleHerren1.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren2", url: "/assets/data/spieleHerren2.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren3", url: "/assets/data/spieleHerren3.json", render: renderStandardSpiele },
+		{ targetId: "spiele-jugend1", url: "/assets/data/spieleJugend1.json", render: renderStandardSpiele },
+		{ targetId: "spiele-jugend2", url: "/assets/data/spieleJugend2.json", render: renderStandardSpiele }
 	];
 
 	// Standard Rendering für Spiele
@@ -332,11 +332,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	const tabellenConfigs = [
-		{ targetId: "tabelle-herren1", url: "/TTF-Laudenbach/assets/data/tabelleHerren1.json", render: renderStandardTabelle },
-		{ targetId: "tabelle-herren2", url: "/TTF-Laudenbach/assets/data/tabelleHerren2.json", render: renderStandardTabelle },
-		{ targetId: "tabelle-herren3", url: "/TTF-Laudenbach/assets/data/tabelleHerren3.json", render: renderStandardTabelle },
-		{ targetId: "tabelle-jugend1", url: "/TTF-Laudenbach/assets/data/tabelleJugend1.json", render: renderStandardTabelle },
-		{ targetId: "tabelle-jugend2", url: "/TTF-Laudenbach/assets/data/tabelleJugend2.json", render: renderStandardTabelle }
+		{ targetId: "tabelle-herren1", url: "/assets/data/tabelleHerren1.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren2", url: "/assets/data/tabelleHerren2.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren3", url: "/assets/data/tabelleHerren3.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-jugend1", url: "/assets/data/tabelleJugend1.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-jugend2", url: "/assets/data/tabelleJugend2.json", render: renderStandardTabelle }
 	];
 
 	// Tabellen laden
@@ -409,7 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	async function loadLinks() {
 	
 		try {
-			const response = await fetch('/TTF-Laudenbach/assets/data/links.json');
+			const response = await fetch('/assets/data/links.json');
 			const data = await response.json();
 
 			// =====================================
@@ -635,7 +635,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!galleryContainer || !eventList) return;
 	
 		try {
-			const response = await fetch("/TTF-Laudenbach/assets/data/gallerie.json");
+			const response = await fetch("/assets/data/gallerie.json");
 			const data = await response.json();
 	
 			const galleries = data.galleries || [];
