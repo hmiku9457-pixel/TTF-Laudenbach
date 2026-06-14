@@ -146,6 +146,11 @@ iframe {
     --bg-table-ewigeTabelle-evenRow: #1e3a5f;
     --bg-table-ewigeTabelle-oddRow: #1a2e4a;
     --bg-table-ewigeTabelle-highlight: #38bdf8;
+
+   /* Generelle (Fehler-)Farbcodes */
+   --success: #2e7d32;
+   --warning: #f4c542;
+   --error: #c62828;
 }
 
 
@@ -729,6 +734,21 @@ footer {
 
 .contact-form h2 {
     text-align: center;
+}
+
+.contact-submit-button.is-sending {
+    background-color: var(--warning);
+    color: #222;
+}
+
+.contact-submit-button.is-success {
+    background-color: var(--success);
+    color: white;
+}
+
+.contact-submit-button.is-error {
+    background-color: var(--error);
+    color: white;
 }
 
 .form-group {
