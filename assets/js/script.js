@@ -521,7 +521,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			return window.matchMedia("(max-width: 768px)").matches;
 		}
 	
-		function resetSubmitButton() {
+		function resetContactForm() {
+			contactForm.reset();
 	
 			submitButton.classList.remove(
 				"is-sending",
@@ -533,21 +534,18 @@ document.addEventListener("DOMContentLoaded", () => {
 			submitButton.disabled = false;
 		}
 	
-		// Button automatisch zurücksetzen,
-		// sobald der Benutzer etwas verändert
-		contactForm.addEventListener("input", () => {
+		contactForm.addEventListener("submit", async (event) => {
 	
+			event.preventDefault();
+	
+			// Nach Erfolg/Fehler: nächster Klick setzt Formular zurück
 			if (
 				submitButton.classList.contains("is-success") ||
 				submitButton.classList.contains("is-error")
 			) {
-				resetSubmitButton();
+				resetContactForm();
+				return;
 			}
-		});
-	
-		contactForm.addEventListener("submit", async (event) => {
-	
-			event.preventDefault();
 	
 			const formData = new FormData(contactForm);
 	
@@ -574,32 +572,25 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 				if (response.ok) {
 	
-					contactForm.reset();
-	
 					if (isMobileView()) {
-	
 						alert("Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.");
-						resetSubmitButton();
-	
+						resetContactForm();
 					} else {
-	
 						submitButton.classList.add("is-success");
-						submitButton.textContent = "✓ Nachricht gesendet";
+						submitButton.textContent = "✓ Gesendet – Formular zurücksetzen";
 						submitButton.disabled = false;
 					}
 	
 				} else {
 	
 					if (isMobileView()) {
-	
 						alert("Beim Senden ist ein Fehler aufgetreten.");
-	
-						resetSubmitButton();
-	
+						submitButton.classList.remove("is-error");
+						submitButton.textContent = "Nachricht senden";
+						submitButton.disabled = false;
 					} else {
-	
 						submitButton.classList.add("is-error");
-						submitButton.textContent = "✗ Fehler beim Senden";
+						submitButton.textContent = "✗ Fehler – zurücksetzen";
 						submitButton.disabled = false;
 					}
 				}
@@ -611,15 +602,12 @@ document.addEventListener("DOMContentLoaded", () => {
 				submitButton.classList.remove("is-sending");
 	
 				if (isMobileView()) {
-	
 					alert("Es konnte keine Verbindung hergestellt werden.");
-	
-					resetSubmitButton();
-	
+					submitButton.textContent = "Nachricht senden";
+					submitButton.disabled = false;
 				} else {
-	
 					submitButton.classList.add("is-error");
-					submitButton.textContent = "✗ Verbindungsfehler";
+					submitButton.textContent = "✗ Verbindungsfehler – zurücksetzen";
 					submitButton.disabled = false;
 				}
 			}
