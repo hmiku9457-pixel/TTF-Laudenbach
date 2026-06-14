@@ -16,6 +16,7 @@
 // 12 - TABELLEN KONFIG
 // 13 - HILFSFUNKTIONEN
 // 14 - LINKS LOADER
+// 15 - KONTAKTFORMULAR
 //
 // ==========================================
 
@@ -501,7 +502,132 @@ document.addEventListener("DOMContentLoaded", () => {
 			console.error("Fehler beim Laden der links.json:", error);
 		}
 	}
+
+	// ==========================================
+	// ===== 15 - KONTAKTFORMULAR ===============
+	// ==========================================
 	
+	function initContactForm() {
+	
+		const contactForm = document.getElementById("contactForm");
+	
+		if (!contactForm) return;
+	
+		const submitButton = document.getElementById("contactSubmitButton");
+	
+		if (!submitButton) return;
+	
+		function isMobileView() {
+			return window.matchMedia("(max-width: 768px)").matches;
+		}
+	
+		function resetSubmitButton() {
+	
+			submitButton.classList.remove(
+				"is-sending",
+				"is-success",
+				"is-error"
+			);
+	
+			submitButton.textContent = "Nachricht senden";
+			submitButton.disabled = false;
+		}
+	
+		// Button automatisch zurücksetzen,
+		// sobald der Benutzer etwas verändert
+		contactForm.addEventListener("input", () => {
+	
+			if (
+				submitButton.classList.contains("is-success") ||
+				submitButton.classList.contains("is-error")
+			) {
+				resetSubmitButton();
+			}
+		});
+	
+		contactForm.addEventListener("submit", async (event) => {
+	
+			event.preventDefault();
+	
+			const formData = new FormData(contactForm);
+	
+			submitButton.disabled = true;
+			submitButton.classList.remove(
+				"is-success",
+				"is-error"
+			);
+	
+			submitButton.classList.add("is-sending");
+			submitButton.textContent = "Wird gesendet...";
+	
+			try {
+	
+				const response = await fetch(contactForm.action, {
+					method: contactForm.method,
+					body: formData,
+					headers: {
+						"Accept": "application/json"
+					}
+				});
+	
+				submitButton.classList.remove("is-sending");
+	
+				if (response.ok) {
+	
+					contactForm.reset();
+	
+					if (isMobileView()) {
+	
+						alert("Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.");
+						resetSubmitButton();
+	
+					} else {
+	
+						submitButton.classList.add("is-success");
+						submitButton.textContent = "✓ Nachricht gesendet";
+						submitButton.disabled = false;
+					}
+	
+				} else {
+	
+					if (isMobileView()) {
+	
+						alert("Beim Senden ist ein Fehler aufgetreten.");
+	
+						resetSubmitButton();
+	
+					} else {
+	
+						submitButton.classList.add("is-error");
+						submitButton.textContent = "✗ Fehler beim Senden";
+						submitButton.disabled = false;
+					}
+				}
+	
+			} catch (error) {
+	
+				console.error(error);
+	
+				submitButton.classList.remove("is-sending");
+	
+				if (isMobileView()) {
+	
+					alert("Es konnte keine Verbindung hergestellt werden.");
+	
+					resetSubmitButton();
+	
+				} else {
+	
+					submitButton.classList.add("is-error");
+					submitButton.textContent = "✗ Verbindungsfehler";
+					submitButton.disabled = false;
+				}
+			}
+		});
+	}
+	
+	initContactForm();
+
 	loadLinks();
 	
 });
