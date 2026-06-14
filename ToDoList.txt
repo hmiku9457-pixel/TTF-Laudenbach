@@ -1,0 +1,9 @@
+- In der Galerie, der "Galerien"-Block schwebt wenn man nach unten scrollt. Sollte dann nach oben rutschen.
+- Ewige Rangliste aktuallisieren (und eventuell automatisieren)
+- Ewige Rangliste etwas verbessern
+- Unser Verein, leichte Desing-Bugs
+- Kontakt-Form auf Startseite ist eine Box in der Box
+- News Seiten Layout
+- CMS Anbindung
+- User-Doku
+- Admin-Doku
