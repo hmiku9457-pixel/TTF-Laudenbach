@@ -86,6 +86,10 @@
        - Tablet (≤768px)
        - Smartphone (≤480px)
 
+   18. Gallerie
+      - Bilder Anordnung
+      - Bilder anzeige
+
    ===================================================== */
 
 /* =========================================
@@ -889,6 +893,10 @@ footer {
     .footer-links {
         flex-wrap: wrap;
     }
+   
+    .images-general {
+        column-count: 2;
+    }
 }
 
 /* Kleine Handys */
@@ -939,4 +947,47 @@ footer {
     .map-container iframe {
         height: 220px;
     }
+
+    .images-general {
+        column-count: 1;
+    }
+}
+
+/* =========================================
+   ===== 18. HISTORISCHE FOTOS =============
+   ========================================= */
+
+.images-event {
+    margin-top: var(--space-xl);
+}
+
+.images-event h3 {
+    margin-bottom: var(--space-m);
+}
+
+.images-general {
+    column-count: 3;
+    column-gap: var(--space-m);
+}
+
+.images-general img {
+    width: 100%;
+    display: block;
+
+    margin-bottom: var(--space-m);
+
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.images-general img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-heavy);
+    cursor: pointer;
 }
