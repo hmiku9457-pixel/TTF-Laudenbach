@@ -135,6 +135,12 @@
           "name": "Endin",
           "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
           "url": "https://endin.eu/"
+        },
+        {
+          "id": "sponsor4",
+          "name": "Tuwa",
+          "bild": "./ttf-laudenbach/assets/images/TTF-Laudenbach_Logo.png",
+          "url": "https://www.instagram.com/tuwa_feinkost/"
         }
       ]
     }
