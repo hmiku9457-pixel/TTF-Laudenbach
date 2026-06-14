@@ -1,0 +1,125 @@
+name: Generate Gallery JSON
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/images/**"
+      - ".github/workflows/generate-gallery-json.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-gallery-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Galerie JSON erzeugen
+        run: |
+          python3 <<'PY'
+          import json
+          import re
+          from pathlib import Path
+          from urllib.parse import quote
+
+          repo_base = "/TTF-Laudenbach"
+          images_dir = Path("assets/images")
+          output_file = Path("assets/data/gallerie.json")
+
+          image_extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+
+          def slugify(text):
+              text = text.lower()
+              text = text.replace("ä", "ae")
+              text = text.replace("ö", "oe")
+              text = text.replace("ü", "ue")
+              text = text.replace("ß", "ss")
+              text = re.sub(r"[^a-z0-9]+", "-", text)
+              return text.strip("-")
+
+          def url_for(path):
+              return repo_base + "/" + quote(str(path).replace("\\", "/"))
+
+          galleries = []
+
+          # Bilder direkt in assets/images/
+          general_images = sorted(
+              [
+                  file for file in images_dir.iterdir()
+                  if file.is_file()
+                  and file.suffix.lower() in image_extensions
+              ],
+              key=lambda p: p.name.lower()
+          )
+
+          galleries.append({
+              "id": "general",
+              "title": "Generelle Bilder",
+              "images": [url_for(file) for file in general_images]
+          })
+
+          # Unterordner = Events
+          event_dirs = sorted(
+              [
+                  folder for folder in images_dir.iterdir()
+                  if folder.is_dir()
+              ],
+              key=lambda p: p.name.lower()
+          )
+
+          for folder in event_dirs:
+              images = sorted(
+                  [
+                      file for file in folder.iterdir()
+                      if file.is_file()
+                      and file.suffix.lower() in image_extensions
+                  ],
+                  key=lambda p: p.name.lower()
+              )
+
+              if not images:
+                  continue
+
+              galleries.append({
+                  "id": slugify(folder.name),
+                  "title": folder.name,
+                  "images": [url_for(file) for file in images]
+              })
+
+          data = {
+              "defaultGallery": "general",
+              "galleries": galleries
+          }
+
+          output_file.parent.mkdir(parents=True, exist_ok=True)
+
+          output_file.write_text(
+              json.dumps(data, ensure_ascii=False, indent=2),
+              encoding="utf-8"
+          )
+
+          print(f"Generated {output_file}")
+          PY
+
+      - name: Git konfigurieren
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Änderungen committen
+        run: |
+          git add assets/data/gallerie.json
+
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen gefunden."
+          else
+            git commit -m "Galerie JSON automatisch aktualisieren"
+            git push
+          fi
