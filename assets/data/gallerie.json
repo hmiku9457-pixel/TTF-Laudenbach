@@ -1,0 +1,36 @@
+{
+  "defaultGallery": "general",
+  "galleries": [
+    {
+      "id": "general",
+      "title": "Generelle Bilder",
+      "images": [
+        "/TTF-Laudenbach/assets/images/LustAufTischtennis.png",
+        "/TTF-Laudenbach/assets/images/TTF-Laudenbach_Logo.png",
+        "/TTF-Laudenbach/assets/images/VierElemente_TTFLaudenbach.jpg"
+      ]
+    },
+    {
+      "id": "49-ttf-hauptversammlung",
+      "title": "49. TTF Hauptversammlung",
+      "images": [
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung1.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung10.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung11.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung12.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung13.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung14.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung15.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung16.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung2.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung3.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung4.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung5.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung6.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung7.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung8.jpg",
+        "/TTF-Laudenbach/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung9.jpg"
+      ]
+    }
+  ]
+}
