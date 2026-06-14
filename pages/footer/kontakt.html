@@ -61,3 +61,31 @@
 		<script src="/TTF-Laudenbach/assets/js/script.js" defer></script>
 	</body>
 </html>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (response.ok) {
+      alert("Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.");
+      form.reset();
+    } else {
+      alert("Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.");
+    }
+  } catch (error) {
+    alert("Es konnte keine Verbindung hergestellt werden. Bitte versuchen Sie es später erneut.");
+  }
+});
+</script>
