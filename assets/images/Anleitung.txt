@@ -1,0 +1,84 @@
+=========================================
+BILDER HOCHLADEN
+=========================================
+
+Um neue Bilder hochzuladen, einfach auf "Add file"
+und anschließend auf "Upload files" klicken.
+
+Dann entweder:
+
+- auf "Choose your files" klicken und die gewünschten
+  Bilder auswählen
+
+oder
+
+- die Bilder per Drag & Drop in das Upload-Feld ziehen
+
+Wenn alle Bilder hochgeladen wurden, unten auf
+"Commit changes" klicken.
+
+Nach wenigen Minuten erscheinen die Bilder automatisch
+auf der Webseite.
+
+
+=========================================
+NEUE GALERIE ANLEGEN
+=========================================
+
+Um eine neue Galerie anzulegen, zuerst auf
+"Add file" und anschließend auf
+"Create new file" klicken.
+
+Im Feld für den Dateinamen zunächst den gewünschten
+Ordnernamen eingeben und mit einem "/" abschließen.
+
+Beispiel:
+
+50. TTF Hauptversammlung/
+
+Da GitHub keine leeren Ordner speichern kann,
+muss zusätzlich eine Datei angelegt werden.
+
+Dazu einfach hinter dem Schrägstrich einen
+Dateinamen ergänzen, z.B.:
+
+50. TTF Hauptversammlung/Datei.txt
+
+Anschließend unten auf "Commit changes" klicken.
+
+Der neue Ordner ist nun angelegt.
+
+
+=========================================
+BILDER ZU EINER GALERIE HINZUFÜGEN
+=========================================
+
+Nachdem der Ordner erstellt wurde, kann er geöffnet
+werden.
+
+Dort können wie gewohnt über
+
+"Add file" -> "Upload files"
+
+beliebig viele Bilder hochgeladen werden.
+
+Sobald mindestens ein Bild im Ordner vorhanden ist,
+erscheint die Galerie nach wenigen Minuten automatisch
+als neue Auswahlmöglichkeit auf der Webseite.
+
+
+=========================================
+WICHTIGE HINWEISE
+=========================================
+
+- Der Name des Ordners wird später als Titel der
+  Galerie auf der Webseite angezeigt.
+
+- Leerzeichen und Umlaute dürfen im Ordnernamen
+  verwendet werden.
+
+- Innerhalb einer Galerie dürfen keine weiteren
+  Unterordner angelegt werden.
+
+- Eine Galerie erscheint erst auf der Webseite,
+  wenn mindestens ein Bild hochgeladen wurde.
