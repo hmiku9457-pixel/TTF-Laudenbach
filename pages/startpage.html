@@ -88,14 +88,48 @@
 				</div>
 			</div>
 			<div class="box">
-				<iframe 
-					src="https://calendar.google.com/calendar/u/0?cid=aG1pa3U5NDU3QGdtYWlsLmNvbQ"
-					style="border: 0"
-					width="100%"
-					height="300"
-					frameborder="0"
-					scrolling="no">
-				</iframe>
+					<section class="contact-section full-width">
+					
+						<form
+						  id="contactForm"
+						  class="contact-form"
+						  action="https://formspree.io/f/xdavygne"
+						  method="POST">
+							
+						  <h2>Kontakt</h2>
+						
+						  <input type="hidden" name="_subject" value="Neue Nachricht über ttf-laudenbach.de">
+						
+						  <div class="form-group">
+						    <label for="name">Dein Name *</label>
+						    <input type="text" id="name" name="name" required>
+						  </div>
+						
+						  <div class="form-group">
+						    <label for="email">Deine E-Mail *</label>
+						    <input type="email" id="email" name="email" required>
+						  </div>
+						
+						  <div class="form-group">
+						    <label for="message">Deine Nachricht an uns *</label>
+						    <textarea id="message" name="message" rows="5" required></textarea>
+						  </div>
+						
+						  <div class="form-group form-consent">
+						    <input type="checkbox" id="consent" name="consent" required>
+						    <label for="consent">
+						      Ich stimme der Verarbeitung meiner Daten gemäß der
+						      <a href="/TTF-Laudenbach/pages/footer/datenschutz.html">Datenschutzerklärung</a>
+						      zu. *
+						    </label>
+						  </div>
+						
+						  <button id="contactSubmitButton" type="submit" class="button contact-submit-button">
+							  Nachricht senden
+						  </button>
+						</form>
+					
+					</section>
 			</div>
 		</div>
 		
