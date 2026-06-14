@@ -538,13 +538,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 			event.preventDefault();
 	
-			// Nach Erfolg/Fehler: nächster Klick setzt Formular zurück
-			if (
-				submitButton.classList.contains("is-success") ||
-				submitButton.classList.contains("is-error")
-			) {
+			// Erfolg -> Formular zurücksetzen
+			if (submitButton.classList.contains("is-success")) {
 				resetContactForm();
 				return;
+			}
+			
+			// Fehler -> Status entfernen und erneut senden
+			if (submitButton.classList.contains("is-error")) {
+			
+				submitButton.classList.remove("is-error");
+				submitButton.textContent = "Nachricht senden";
+			
+				// kein return!
+				// Formular wird direkt erneut gesendet
 			}
 	
 			const formData = new FormData(contactForm);
@@ -577,7 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						resetContactForm();
 					} else {
 						submitButton.classList.add("is-success");
-						submitButton.textContent = "✓ Gesendet – Formular zurücksetzen";
+						submitButton.textContent = "✓ Gesendet – Weitere Nachricht senden?";
 						submitButton.disabled = false;
 					}
 	
@@ -590,7 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						submitButton.disabled = false;
 					} else {
 						submitButton.classList.add("is-error");
-						submitButton.textContent = "✗ Fehler – zurücksetzen";
+						submitButton.textContent = "✗ Fehler – Erneut versuchen?";
 						submitButton.disabled = false;
 					}
 				}
@@ -607,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					submitButton.disabled = false;
 				} else {
 					submitButton.classList.add("is-error");
-					submitButton.textContent = "✗ Verbindungsfehler – zurücksetzen";
+					submitButton.textContent = "✗ Verbindungsfehler – Erneut versuchen?";
 					submitButton.disabled = false;
 				}
 			}
