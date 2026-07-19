@@ -103,6 +103,18 @@ TABELLEN = [
 
 
 # ==========================================
+# ==== SPIELERLISTE ========================
+# ==========================================
+SPIELERLISTEN = [
+    {
+        "name": "Spieler Herren",
+        "bereich": "Herren",
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
+    }
+]
+
+
+# ==========================================
 # ==== EXTERNE LINKS =======================
 # ==========================================
 LINKS = [
