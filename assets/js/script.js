@@ -18,6 +18,7 @@
 // 14 - LINKS LOADER
 // 15 - KONTAKTFORMULAR
 // 16 - HISTORISCHE FOTOS
+// 17 - SPIELERLISTEN
 //
 // ==========================================
 
@@ -717,6 +718,128 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (loadingBox) loadingBox.style.display = "none";
 		}
 	}
+	
+	// ==========================================
+	// ===== 17 - SPIELERLISTEN =================
+	// ==========================================
+
+	async function initSpielerliste() {
+	    const tbody = document.getElementById("spieler-mannschaft");
+	
+	    // Auf Seiten ohne Spielerliste nichts ausführen
+	    if (!tbody) {
+	        return;
+	    }
+	
+	    const datei = tbody.dataset.datei;
+	    const mannschaft = tbody.dataset.mannschaft;
+	
+	    if (!datei || !mannschaft) {
+	        console.error(
+	            "Spielerliste kann nicht geladen werden: " +
+	            "data-datei oder data-mannschaft fehlt."
+	        );
+	
+	        showSpielerlisteError(
+	            tbody,
+	            "Die Spielerliste ist nicht korrekt konfiguriert."
+	        );
+	
+	        return;
+	    }
+	
+	    try {
+	        const response = await fetch(datei);
+	
+	        if (!response.ok) {
+	            throw new Error(
+	                `HTTP-Fehler ${response.status}: ${response.statusText}`
+	            );
+	        }
+	
+	        const spielerlisten = await response.json();
+	        const spieler = spielerlisten[mannschaft];
+	
+	        if (!Array.isArray(spieler)) {
+	            throw new Error(
+	                `Mannschaft "${mannschaft}" wurde in ${datei} nicht gefunden.`
+	            );
+	        }
+	
+	        renderSpielerliste(tbody, spieler);
+	
+	    } catch (error) {
+	        console.error(
+	            `Fehler beim Laden der Spielerliste "${mannschaft}":`,
+	            error
+	        );
+	
+	        showSpielerlisteError(
+	            tbody,
+	            "Die Spielerliste konnte nicht geladen werden."
+	        );
+	    }
+	}
+	
+	
+	function renderSpielerliste(tbody, spieler) {
+	    tbody.innerHTML = "";
+	
+	    if (spieler.length === 0) {
+	        const row = document.createElement("tr");
+	
+	        row.innerHTML = `
+	            <td colspan="3">
+	                Für diese Mannschaft sind aktuell keine Spieler eingetragen.
+	            </td>
+	        `;
+	
+	        tbody.appendChild(row);
+	        return;
+	    }
+	
+	    const sortierteSpieler = [...spieler].sort((a, b) => {
+	        return Number(a.position) - Number(b.position);
+	    });
+	
+	    for (const eintrag of sortierteSpieler) {
+	        const row = document.createElement("tr");
+	
+	        const positionCell = document.createElement("td");
+	        const nameCell = document.createElement("td");
+	        const qttrCell = document.createElement("td");
+	
+	        positionCell.textContent = eintrag.position
+	            ? `${eintrag.position}.`
+	            : "–";
+	
+	        nameCell.textContent = eintrag.name || "Unbekannt";
+	        qttrCell.textContent = eintrag.qttr || "–";
+	
+	        row.appendChild(positionCell);
+	        row.appendChild(nameCell);
+	        row.appendChild(qttrCell);
+	
+	        tbody.appendChild(row);
+	    }
+	}
+	
+	
+	function showSpielerlisteError(tbody, meldung) {
+	    tbody.innerHTML = "";
+	
+	    const row = document.createElement("tr");
+	    const cell = document.createElement("td");
+	
+	    cell.colSpan = 3;
+	    cell.textContent = meldung;
+	
+	    row.appendChild(cell);
+	    tbody.appendChild(row);
+	}
+	
+	
+	initSpielerliste();
 	
 	initHistoricalImages();
 	
