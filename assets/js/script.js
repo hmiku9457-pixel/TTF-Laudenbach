@@ -291,6 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ targetId: "spiele-herren1", url: "/assets/data/spieleHerren1.json", render: renderStandardSpiele },
 		{ targetId: "spiele-herren2", url: "/assets/data/spieleHerren2.json", render: renderStandardSpiele },
 		{ targetId: "spiele-herren3", url: "/assets/data/spieleHerren3.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren4", url: "/assets/data/spieleHerren4.json", render: renderStandardSpiele },
+		{ targetId: "spiele-herren5", url: "/assets/data/spieleHerren5.json", render: renderStandardSpiele },
 		{ targetId: "spiele-jugend1", url: "/assets/data/spieleJugend1.json", render: renderStandardSpiele },
 		{ targetId: "spiele-jugend2", url: "/assets/data/spieleJugend2.json", render: renderStandardSpiele }
 	];
@@ -336,6 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ targetId: "tabelle-herren1", url: "/assets/data/tabelleHerren1.json", render: renderStandardTabelle },
 		{ targetId: "tabelle-herren2", url: "/assets/data/tabelleHerren2.json", render: renderStandardTabelle },
 		{ targetId: "tabelle-herren3", url: "/assets/data/tabelleHerren3.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren4", url: "/assets/data/tabelleHerren4.json", render: renderStandardTabelle },
+		{ targetId: "tabelle-herren5", url: "/assets/data/tabelleHerren5.json", render: renderStandardTabelle },
 		{ targetId: "tabelle-jugend1", url: "/assets/data/tabelleJugend1.json", render: renderStandardTabelle },
 		{ targetId: "tabelle-jugend2", url: "/assets/data/tabelleJugend2.json", render: renderStandardTabelle }
 	];
