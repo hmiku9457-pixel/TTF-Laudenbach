@@ -1,0 +1,164 @@
+[
+  {
+    "datum": "Fr., 18.09.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "TSV Rossfeld V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 27.09.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach IV",
+    "gast": "FC Igersheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 02.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "3",
+    "heim": "TSV Gerabronn III",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 16.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "SC Buchenbach IV",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 23.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "KSG Ellrichshausen III",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 13.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "SV Elpersheim III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "TV Niederstetten",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 05.12.2026",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "FC Langenburg II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 11.12.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "SV Bieberehren",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 30.01.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "TSV Rossfeld V",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 13.02.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "SV Elpersheim III",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 19.02.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "TV Niederstetten",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 27.02.2027",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "SC Buchenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 12.03.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "SV Bieberehren",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 19.03.2027",
+    "uhrzeit": "19:00",
+    "spielort": "1",
+    "heim": "FC Igersheim II",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 09.04.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "KSG Ellrichshausen III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 16.04.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "FC Langenburg II",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.04.2027",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "TSV Gerabronn III",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]
