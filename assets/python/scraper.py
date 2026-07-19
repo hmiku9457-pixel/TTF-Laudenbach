@@ -7,18 +7,38 @@ from datetime import datetime
 import json
 import re
 
-from config import SPIELPLAENE, TABELLEN, LINKS
+from config import (
+    SPIELPLAENE,
+    TABELLEN,
+    SPIELERLISTEN,
+    LINKS
+)
 
 
 # ==========================================
 # ===== HILFSFUNKTIONEN ====================
 # ==========================================
 
-def safe_text(cols, i):
+def safe_text(cols, index):
     """
-    Gibt Zelltext sicher zurück und verhindert Index-Fehler.
+    Gibt den Text einer Tabellenzelle sicher zurück.
+    Verhindert Index-Fehler bei fehlenden Spalten.
     """
-    return cols[i].inner_text().strip() if i < len(cols) else ""
+    if index is None or index >= len(cols):
+        return ""
+
+    return cols[index].inner_text().strip()
+
+
+def normalize_header(text):
+    """
+    Vereinheitlicht Tabellenüberschriften für die spätere Zuordnung.
+
+    Beispiele:
+    ' QTTR ' -> 'qttr'
+    'Name'    -> 'name'
+    """
+    return " ".join(text.lower().split())
 
 
 def create_filename(name):
@@ -26,19 +46,26 @@ def create_filename(name):
     Wandelt einen lesbaren Namen in lowerCamelCase um.
 
     Beispiele:
-    'Spiele Herren 1'  -> 'spieleHerren1'
-    'Tabelle Damen 1'  -> 'tabelleDamen1'
-    'Jugend U19'       -> 'jugendU19'
+    'Spiele Herren 1'   -> 'spieleHerren1'
+    'Tabelle Herren 1'  -> 'tabelleHerren1'
+    'Spieler Jugend 19' -> 'spielerJugend19'
     """
-    parts = re.findall(r"[A-Za-zÄÖÜäöüß0-9]+", name)
+    parts = re.findall(
+        r"[A-Za-zÄÖÜäöüß0-9]+",
+        name
+    )
 
     if not parts:
         return "daten"
 
-    return parts[0].lower() + "".join(
+    first_part = parts[0].lower()
+
+    remaining_parts = "".join(
         part[:1].upper() + part[1:]
         for part in parts[1:]
     )
+
+    return first_part + remaining_parts
 
 
 def create_debug_files(page, name):
@@ -47,10 +74,15 @@ def create_debug_files(page, name):
     der aktuell geladenen Seite.
     """
     debug_dir = Path("debug")
-    debug_dir.mkdir(exist_ok=True)
+    debug_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     safe_name = create_filename(name)
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime(
+        "%Y-%m-%d_%H-%M-%S"
+    )
 
     base_path = debug_dir / f"{safe_name}_{timestamp}"
 
@@ -63,10 +95,16 @@ def create_debug_files(page, name):
             full_page=True
         )
 
-        print(f"Debug-Screenshot gespeichert: {screenshot_path}")
+        print(
+            f"Debug-Screenshot gespeichert: "
+            f"{screenshot_path}"
+        )
 
     except Exception as error:
-        print(f"Screenshot konnte nicht gespeichert werden: {error}")
+        print(
+            f"Screenshot konnte nicht gespeichert werden: "
+            f"{error}"
+        )
 
     try:
         html_path.write_text(
@@ -74,19 +112,30 @@ def create_debug_files(page, name):
             encoding="utf-8"
         )
 
-        print(f"Debug-HTML gespeichert: {html_path}")
+        print(
+            f"Debug-HTML gespeichert: "
+            f"{html_path}"
+        )
 
     except Exception as error:
-        print(f"HTML konnte nicht gespeichert werden: {error}")
+        print(
+            f"HTML konnte nicht gespeichert werden: "
+            f"{error}"
+        )
 
 
-def print_page_debug_info(page, url, response, error):
+def print_page_debug_info(
+    page,
+    url,
+    response,
+    error
+):
     """
     Gibt möglichst genaue Informationen zur fehlerhaften Seite aus.
     """
     print()
     print("==========================================")
-    print("FEHLER BEIM LADEN DER TABELLE")
+    print("FEHLER BEIM LADEN DER SEITE")
     print("==========================================")
 
     print(f"Aufgerufene URL: {url}")
@@ -103,24 +152,49 @@ def print_page_debug_info(page, url, response, error):
         print("Seitentitel:     nicht verfügbar")
 
     try:
-        print(f"Tabellen:        {page.locator('table').count()}")
-        print(f"tbody-Elemente:  {page.locator('tbody').count()}")
-        print(f"Tabellenzeilen:  {page.locator('tbody tr').count()}")
+        print(
+            f"Tabellen:        "
+            f"{page.locator('table').count()}"
+        )
+
+        print(
+            f"tbody-Elemente:  "
+            f"{page.locator('tbody').count()}"
+        )
+
+        print(
+            f"Tabellenzeilen:  "
+            f"{page.locator('tbody tr').count()}"
+        )
 
     except Exception:
-        print("DOM-Informationen konnten nicht ermittelt werden.")
+        print(
+            "DOM-Informationen konnten nicht "
+            "ermittelt werden."
+        )
 
     try:
-        body_text = page.locator("body").inner_text(timeout=5000)
-        body_text = " ".join(body_text.split())
+        body_text = page.locator("body").inner_text(
+            timeout=5000
+        )
+
+        body_text = " ".join(
+            body_text.split()
+        )
 
         if body_text:
-            print(f"Seiteninhalt:    {body_text[:500]}")
+            print(
+                f"Seiteninhalt:    "
+                f"{body_text[:500]}"
+            )
         else:
             print("Seiteninhalt:    leer")
 
     except Exception:
-        print("Seiteninhalt:    konnte nicht ausgelesen werden")
+        print(
+            "Seiteninhalt:    "
+            "konnte nicht ausgelesen werden"
+        )
 
     print(f"Fehlertyp:       {type(error).__name__}")
     print(f"Fehlermeldung:   {error}")
@@ -129,11 +203,20 @@ def print_page_debug_info(page, url, response, error):
     print()
 
 
-def load_page(page, url, name):
+def load_page(
+    page,
+    url,
+    name,
+    table_type="standard"
+):
     """
-    Lädt eine Seite und wartet auf Tabellenzeilen.
+    Lädt eine Seite und wartet auf die benötigte Tabelle.
 
-    Gibt True zurück, wenn eine Tabellenzeile gefunden wurde.
+    table_type:
+    - standard: normale Spielplan- oder Ligatabelle
+    - spieler: Meldungstabelle mit Rang, QTTR und Name
+
+    Gibt True zurück, wenn die Tabelle gefunden wurde.
     Gibt False zurück, wenn ein Fehler aufgetreten ist.
     """
     response = None
@@ -145,13 +228,57 @@ def load_page(page, url, name):
             timeout=60000
         )
 
-        # Die Tabellenzeile muss im DOM vorhanden sein,
-        # aber nicht zwingend sichtbar dargestellt werden.
-        page.wait_for_selector(
-            "table tbody tr",
-            state="attached",
-            timeout=60000
-        )
+        if response and response.status >= 400:
+            raise RuntimeError(
+                f"Die Seite antwortete mit HTTP-Status "
+                f"{response.status}."
+            )
+
+        if table_type == "spieler":
+            page.wait_for_function(
+                """
+                () => {
+                    const tables =
+                        Array.from(
+                            document.querySelectorAll("table")
+                        );
+
+                    return tables.some((table) => {
+                        const headers =
+                            Array.from(
+                                table.querySelectorAll(
+                                    "thead th, tr th"
+                                )
+                            ).map((header) =>
+                                header.textContent
+                                    .trim()
+                                    .toLowerCase()
+                            );
+
+                        const hasRequiredHeaders =
+                            headers.includes("rang") &&
+                            headers.includes("qttr") &&
+                            headers.includes("name");
+
+                        const hasRows =
+                            table.querySelector("tbody tr") !== null;
+
+                        return (
+                            hasRequiredHeaders &&
+                            hasRows
+                        );
+                    });
+                }
+                """,
+                timeout=60000
+            )
+
+        else:
+            page.wait_for_selector(
+                "table tbody tr",
+                state="attached",
+                timeout=60000
+            )
 
         return True
 
@@ -194,7 +321,9 @@ def get_rows(page):
     tables = page.query_selector_all("table")
 
     for table in tables:
-        rows = table.query_selector_all("tbody tr")
+        rows = table.query_selector_all(
+            "tbody tr"
+        )
 
         if rows:
             return rows
@@ -202,15 +331,78 @@ def get_rows(page):
     return []
 
 
+def get_player_table(page):
+    """
+    Sucht gezielt nach der Meldungstabelle mit den Spalten:
+
+    - Rang
+    - QTTR
+    - Name
+
+    Gibt die Zeilen und die zugehörigen Spaltenpositionen zurück.
+    """
+    tables = page.query_selector_all("table")
+
+    for table in tables:
+        headers = table.query_selector_all(
+            "thead th"
+        )
+
+        if not headers:
+            headers = table.query_selector_all(
+                "tr th"
+            )
+
+        header_names = [
+            normalize_header(
+                header.inner_text()
+            )
+            for header in headers
+        ]
+
+        required_headers = {
+            "rang",
+            "qttr",
+            "name"
+        }
+
+        if not required_headers.issubset(
+            set(header_names)
+        ):
+            continue
+
+        column_indexes = {
+            header_name: index
+            for index, header_name
+            in enumerate(header_names)
+        }
+
+        rows = table.query_selector_all(
+            "tbody tr"
+        )
+
+        if rows:
+            return rows, column_indexes
+
+    return [], {}
+
+
 # ==========================================
 # ===== SPIELPLAN: STARTSEITE =============
 # ==========================================
 
-def scrape_spielplan_startseite(page, url, name):
-
+def scrape_spielplan_startseite(
+    page,
+    url,
+    name
+):
     spiele = []
 
-    if not load_page(page, url, name):
+    if not load_page(
+        page,
+        url,
+        name
+    ):
         return None
 
     rows = get_rows(page)
@@ -222,7 +414,11 @@ def scrape_spielplan_startseite(page, url, name):
         if len(cols) < 7:
             continue
 
-        ergebnis_raw = safe_text(cols, 6)
+        ergebnis_raw = safe_text(
+            cols,
+            6
+        )
+
         ergebnis = ergebnis_raw or None
 
         spiele.append({
@@ -233,7 +429,11 @@ def scrape_spielplan_startseite(page, url, name):
             "heim": safe_text(cols, 4),
             "gast": safe_text(cols, 5),
             "ergebnis": ergebnis,
-            "status": "gespielt" if ergebnis_raw else "geplant"
+            "status": (
+                "gespielt"
+                if ergebnis_raw
+                else "geplant"
+            )
         })
 
     return spiele
@@ -243,11 +443,18 @@ def scrape_spielplan_startseite(page, url, name):
 # ===== SPIELPLAN: MANNSCHAFT =============
 # ==========================================
 
-def scrape_spielplan_mannschaft(page, url, name):
-
+def scrape_spielplan_mannschaft(
+    page,
+    url,
+    name
+):
     spiele = []
 
-    if not load_page(page, url, name):
+    if not load_page(
+        page,
+        url,
+        name
+    ):
         return None
 
     rows = get_rows(page)
@@ -259,7 +466,11 @@ def scrape_spielplan_mannschaft(page, url, name):
         if len(cols) < 6:
             continue
 
-        ergebnis_raw = safe_text(cols, 5)
+        ergebnis_raw = safe_text(
+            cols,
+            5
+        )
+
         ergebnis = ergebnis_raw or None
 
         spiele.append({
@@ -269,7 +480,11 @@ def scrape_spielplan_mannschaft(page, url, name):
             "heim": safe_text(cols, 3),
             "gast": safe_text(cols, 4),
             "ergebnis": ergebnis,
-            "status": "gespielt" if ergebnis_raw else "geplant"
+            "status": (
+                "gespielt"
+                if ergebnis_raw
+                else "geplant"
+            )
         })
 
     return spiele
@@ -279,11 +494,18 @@ def scrape_spielplan_mannschaft(page, url, name):
 # ===== TABELLEN ===========================
 # ==========================================
 
-def scrape_tabelle(page, url, name):
-
+def scrape_tabelle(
+    page,
+    url,
+    name
+):
     daten = []
 
-    if not load_page(page, url, name):
+    if not load_page(
+        page,
+        url,
+        name
+    ):
         return None
 
     rows = get_rows(page)
@@ -311,6 +533,141 @@ def scrape_tabelle(page, url, name):
 
 
 # ==========================================
+# ===== SPIELERLISTEN ======================
+# ==========================================
+
+def scrape_spielerliste(
+    page,
+    url,
+    name,
+    bereich
+):
+    """
+    Liest die Meldungstabelle aus und gruppiert die Spieler
+    anhand ihres Rangs nach Mannschaften.
+
+    Beispiele:
+
+    Rang 1.1 -> Herren 1, Position 1
+    Rang 2.4 -> Herren 2, Position 4
+
+    Bei der Jugend:
+
+    Rang 1.1 -> Jugend 19 1, Position 1
+    Rang 2.3 -> Jugend 19 2, Position 3
+    """
+    if not load_page(
+        page,
+        url,
+        name,
+        table_type="spieler"
+    ):
+        return None
+
+    rows, columns = get_player_table(page)
+
+    if not rows:
+        print(
+            f"Keine Meldungstabelle für "
+            f"{name} gefunden."
+        )
+
+        return None
+
+    rang_index = columns.get("rang")
+    qttr_index = columns.get("qttr")
+    name_index = columns.get("name")
+    a_index = columns.get("a")
+    status_index = columns.get("status")
+
+    if (
+        rang_index is None or
+        qttr_index is None or
+        name_index is None
+    ):
+        print(
+            f"Die benötigten Spalten für "
+            f"{name} wurden nicht gefunden."
+        )
+
+        return None
+
+    mannschaften = {}
+
+    for row in rows:
+        cols = row.query_selector_all("td")
+
+        rang = safe_text(
+            cols,
+            rang_index
+        )
+
+        qttr = safe_text(
+            cols,
+            qttr_index
+        )
+
+        spieler_name = safe_text(
+            cols,
+            name_index
+        )
+
+        a_vermerk = safe_text(
+            cols,
+            a_index
+        )
+
+        status = safe_text(
+            cols,
+            status_index
+        )
+
+        if not rang or not spieler_name:
+            continue
+
+        # Sucht zum Beispiel:
+        # 1.1, 1.2, 2.1, 3.4
+        rang_match = re.search(
+            r"(\d+)\s*\.\s*(\d+)",
+            rang
+        )
+
+        if not rang_match:
+            print(
+                f"Ungültiger Rang übersprungen: "
+                f"{rang} ({spieler_name})"
+            )
+
+            continue
+
+        mannschaft_nummer = rang_match.group(1)
+        position = rang_match.group(2)
+
+        mannschaft_name = (
+            f"{bereich} "
+            f"{mannschaft_nummer}"
+        )
+
+        spieler = {
+            "rang": rang,
+            "position": position,
+            "name": spieler_name,
+            "qttr": qttr or None,
+            "a": a_vermerk or None,
+            "status": status or None
+        }
+
+        if mannschaft_name not in mannschaften:
+            mannschaften[mannschaft_name] = []
+
+        mannschaften[mannschaft_name].append(
+            spieler
+        )
+
+    return mannschaften
+
+
+# ==========================================
 # ===== JSON SPEICHERN =====================
 # ==========================================
 
@@ -321,13 +678,23 @@ def save_json(data, filename):
     Der Dateiname wird automatisch in lowerCamelCase umgewandelt.
 
     Beispiel:
-    'Spiele Herren 1' -> 'spieleHerren1.json'
+    'Spieler Jugend 19' -> 'spielerJugend19.json'
     """
     output_dir = Path("assets/data")
-    output_dir.mkdir(parents=True, exist_ok=True)
 
-    formatted_filename = create_filename(filename)
-    file_path = output_dir / f"{formatted_filename}.json"
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    formatted_filename = create_filename(
+        filename
+    )
+
+    file_path = (
+        output_dir /
+        f"{formatted_filename}.json"
+    )
 
     with open(
         file_path,
@@ -350,16 +717,21 @@ def save_json(data, filename):
 
 def save_links_json():
     """
-    Speichert alle URLs zentral in einer JSON-Datei.
+    Speichert alle URLs zentral in der links.json.
     """
     data = {
         "spielplaene": SPIELPLAENE,
         "tabellen": TABELLEN,
+        "spielerlisten": SPIELERLISTEN,
         "links": LINKS
     }
 
     output_dir = Path("assets/data")
-    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     file_path = output_dir / "links.json"
 
@@ -375,13 +747,14 @@ def save_links_json():
             indent=2
         )
 
+    return file_path
+
 
 # ==========================================
 # ===== MAIN ===============================
 # ==========================================
 
 def main():
-
     with sync_playwright() as playwright:
 
         browser = playwright.chromium.launch(
@@ -400,12 +773,12 @@ def main():
         # ======================================
 
         for plan in SPIELPLAENE:
-
             name = plan["name"]
             url = plan["url"]
             plan_type = plan["type"]
 
-            print(f"Scrape: {name}")
+            print()
+            print(f"Scrape Spielplan: {name}")
 
             if plan_type == "startseite":
                 daten = scrape_spielplan_startseite(
@@ -432,7 +805,8 @@ def main():
             if daten is None:
                 print(
                     f"{name} konnte nicht geladen werden. "
-                    f"Vorhandene JSON-Datei bleibt unverändert."
+                    f"Vorhandene JSON-Datei bleibt "
+                    f"unverändert."
                 )
 
                 continue
@@ -452,10 +826,10 @@ def main():
         # ======================================
 
         for tabelle in TABELLEN:
-
             name = tabelle["name"]
             url = tabelle["url"]
 
+            print()
             print(f"Scrape Tabelle: {name}")
 
             daten = scrape_tabelle(
@@ -467,7 +841,8 @@ def main():
             if daten is None:
                 print(
                     f"{name} konnte nicht geladen werden. "
-                    f"Vorhandene JSON-Datei bleibt unverändert."
+                    f"Vorhandene JSON-Datei bleibt "
+                    f"unverändert."
                 )
 
                 continue
@@ -483,16 +858,75 @@ def main():
             )
 
         # ======================================
+        # ===== SPIELERLISTEN ==================
+        # ======================================
+
+        for spielerliste in SPIELERLISTEN:
+            name = spielerliste["name"]
+            url = spielerliste["url"]
+            bereich = spielerliste["bereich"]
+
+            print()
+            print(f"Scrape Spielerliste: {name}")
+
+            daten = scrape_spielerliste(
+                page,
+                url,
+                name,
+                bereich
+            )
+
+            if daten is None:
+                print(
+                    f"{name} konnte nicht geladen werden. "
+                    f"Vorhandene JSON-Datei bleibt "
+                    f"unverändert."
+                )
+
+                continue
+
+            if not daten:
+                print(
+                    f"{name} enthält keine Spieler. "
+                    f"Vorhandene JSON-Datei bleibt "
+                    f"unverändert."
+                )
+
+                continue
+
+            file_path = save_json(
+                daten,
+                name
+            )
+
+            spieler_anzahl = sum(
+                len(spieler)
+                for spieler in daten.values()
+            )
+
+            print(
+                f"{file_path.name} gespeichert "
+                f"({len(daten)} Mannschaften, "
+                f"{spieler_anzahl} Spieler)"
+            )
+
+        # ======================================
         # ===== LINKS JSON =====================
         # ======================================
 
+        print()
         print("Speichere zentrale Link-JSON...")
 
-        save_links_json()
+        links_path = save_links_json()
 
-        print("links.json gespeichert")
+        print(
+            f"{links_path.name} gespeichert"
+        )
 
         browser.close()
+
+        print()
+        print("Scraping vollständig abgeschlossen.")
 
 
 # ==========================================
