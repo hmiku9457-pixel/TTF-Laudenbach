@@ -5,6 +5,7 @@ from playwright.sync_api import (
 from pathlib import Path
 from datetime import datetime
 import json
+import re
 
 from config import SPIELPLAENE, TABELLEN, LINKS
 
@@ -20,6 +21,26 @@ def safe_text(cols, i):
     return cols[i].inner_text().strip() if i < len(cols) else ""
 
 
+def create_filename(name):
+    """
+    Wandelt einen lesbaren Namen in lowerCamelCase um.
+
+    Beispiele:
+    'Spiele Herren 1'  -> 'spieleHerren1'
+    'Tabelle Damen 1'  -> 'tabelleDamen1'
+    'Jugend U19'       -> 'jugendU19'
+    """
+    parts = re.findall(r"[A-Za-zÄÖÜäöüß0-9]+", name)
+
+    if not parts:
+        return "daten"
+
+    return parts[0].lower() + "".join(
+        part[:1].upper() + part[1:]
+        for part in parts[1:]
+    )
+
+
 def create_debug_files(page, name):
     """
     Speichert bei einem Fehler einen Screenshot und den HTML-Inhalt
@@ -28,38 +49,32 @@ def create_debug_files(page, name):
     debug_dir = Path("debug")
     debug_dir.mkdir(exist_ok=True)
 
-    safe_name = "".join(
-        char if char.isalnum() or char in "-_" else "_"
-        for char in name
-    )
-
+    safe_name = create_filename(name)
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
     base_path = debug_dir / f"{safe_name}_{timestamp}"
+
+    screenshot_path = base_path.with_suffix(".png")
+    html_path = base_path.with_suffix(".html")
 
     try:
         page.screenshot(
-            path=str(base_path.with_suffix(".png")),
+            path=str(screenshot_path),
             full_page=True
         )
 
-        print(
-            f"Debug-Screenshot gespeichert: "
-            f"{base_path.with_suffix('.png')}"
-        )
+        print(f"Debug-Screenshot gespeichert: {screenshot_path}")
 
     except Exception as error:
         print(f"Screenshot konnte nicht gespeichert werden: {error}")
 
     try:
-        base_path.with_suffix(".html").write_text(
+        html_path.write_text(
             page.content(),
             encoding="utf-8"
         )
 
-        print(
-            f"Debug-HTML gespeichert: "
-            f"{base_path.with_suffix('.html')}"
-        )
+        print(f"Debug-HTML gespeichert: {html_path}")
 
     except Exception as error:
         print(f"HTML konnte nicht gespeichert werden: {error}")
@@ -69,7 +84,8 @@ def print_page_debug_info(page, url, response, error):
     """
     Gibt möglichst genaue Informationen zur fehlerhaften Seite aus.
     """
-    print("\n==========================================")
+    print()
+    print("==========================================")
     print("FEHLER BEIM LADEN DER TABELLE")
     print("==========================================")
 
@@ -90,6 +106,7 @@ def print_page_debug_info(page, url, response, error):
         print(f"Tabellen:        {page.locator('table').count()}")
         print(f"tbody-Elemente:  {page.locator('tbody').count()}")
         print(f"Tabellenzeilen:  {page.locator('tbody tr').count()}")
+
     except Exception:
         print("DOM-Informationen konnten nicht ermittelt werden.")
 
@@ -107,14 +124,16 @@ def print_page_debug_info(page, url, response, error):
 
     print(f"Fehlertyp:       {type(error).__name__}")
     print(f"Fehlermeldung:   {error}")
-    print("==========================================\n")
+
+    print("==========================================")
+    print()
 
 
 def load_page(page, url, name):
     """
     Lädt eine Seite und wartet auf Tabellenzeilen.
 
-    Gibt True zurück, wenn die Tabelle gefunden wurde.
+    Gibt True zurück, wenn eine Tabellenzeile gefunden wurde.
     Gibt False zurück, wenn ein Fehler aufgetreten ist.
     """
     response = None
@@ -126,7 +145,6 @@ def load_page(page, url, name):
             timeout=60000
         )
 
-        # "attached" bedeutet:
         # Die Tabellenzeile muss im DOM vorhanden sein,
         # aber nicht zwingend sichtbar dargestellt werden.
         page.wait_for_selector(
@@ -138,13 +156,33 @@ def load_page(page, url, name):
         return True
 
     except PlaywrightTimeoutError as error:
-        print_page_debug_info(page, url, response, error)
-        create_debug_files(page, name)
+        print_page_debug_info(
+            page,
+            url,
+            response,
+            error
+        )
+
+        create_debug_files(
+            page,
+            name
+        )
+
         return False
 
     except Exception as error:
-        print_page_debug_info(page, url, response, error)
-        create_debug_files(page, name)
+        print_page_debug_info(
+            page,
+            url,
+            response,
+            error
+        )
+
+        create_debug_files(
+            page,
+            name
+        )
+
         return False
 
 
@@ -184,7 +222,7 @@ def scrape_spielplan_startseite(page, url, name):
         if len(cols) < 7:
             continue
 
-        ergebnis_raw = safe_text(cols, 6).strip()
+        ergebnis_raw = safe_text(cols, 6)
         ergebnis = ergebnis_raw or None
 
         spiele.append({
@@ -221,7 +259,7 @@ def scrape_spielplan_mannschaft(page, url, name):
         if len(cols) < 6:
             continue
 
-        ergebnis_raw = safe_text(cols, 5).strip()
+        ergebnis_raw = safe_text(cols, 5)
         ergebnis = ergebnis_raw or None
 
         spiele.append({
@@ -279,16 +317,31 @@ def scrape_tabelle(page, url, name):
 def save_json(data, filename):
     """
     Speichert Daten als JSON-Datei.
+
+    Der Dateiname wird automatisch in lowerCamelCase umgewandelt.
+
+    Beispiel:
+    'Spiele Herren 1' -> 'spieleHerren1.json'
     """
     output_dir = Path("assets/data")
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    formatted_filename = create_filename(filename)
+    file_path = output_dir / f"{formatted_filename}.json"
+
     with open(
-        output_dir / f"{filename}.json",
+        file_path,
         "w",
         encoding="utf-8"
     ) as file:
-        json.dump(data, file, ensure_ascii=False, indent=2)
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2
+        )
+
+    return file_path
 
 
 # ==========================================
@@ -308,12 +361,19 @@ def save_links_json():
     output_dir = Path("assets/data")
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    file_path = output_dir / "links.json"
+
     with open(
-        output_dir / "links.json",
+        file_path,
         "w",
         encoding="utf-8"
     ) as file:
-        json.dump(data, file, ensure_ascii=False, indent=2)
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2
+        )
 
 
 # ==========================================
@@ -324,7 +384,9 @@ def main():
 
     with sync_playwright() as playwright:
 
-        browser = playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.launch(
+            headless=True
+        )
 
         page = browser.new_page(
             viewport={
@@ -341,17 +403,18 @@ def main():
 
             name = plan["name"]
             url = plan["url"]
+            plan_type = plan["type"]
 
             print(f"Scrape: {name}")
 
-            if plan["type"] == "startseite":
+            if plan_type == "startseite":
                 daten = scrape_spielplan_startseite(
                     page,
                     url,
                     name
                 )
 
-            elif plan["type"] == "mannschaft":
+            elif plan_type == "mannschaft":
                 daten = scrape_spielplan_mannschaft(
                     page,
                     url,
@@ -361,8 +424,9 @@ def main():
             else:
                 print(
                     f"Unbekannter Spielplan-Typ: "
-                    f"{plan.get('type')}"
+                    f"{plan_type}"
                 )
+
                 continue
 
             if daten is None:
@@ -370,12 +434,16 @@ def main():
                     f"{name} konnte nicht geladen werden. "
                     f"Vorhandene JSON-Datei bleibt unverändert."
                 )
+
                 continue
 
-            save_json(daten, name)
+            file_path = save_json(
+                daten,
+                name
+            )
 
             print(
-                f"{name} gespeichert "
+                f"{file_path.name} gespeichert "
                 f"({len(daten)} Spiele)"
             )
 
@@ -401,12 +469,16 @@ def main():
                     f"{name} konnte nicht geladen werden. "
                     f"Vorhandene JSON-Datei bleibt unverändert."
                 )
+
                 continue
 
-            save_json(daten, name)
+            file_path = save_json(
+                daten,
+                name
+            )
 
             print(
-                f"{name} gespeichert "
+                f"{file_path.name} gespeichert "
                 f"({len(daten)} Einträge)"
             )
 
