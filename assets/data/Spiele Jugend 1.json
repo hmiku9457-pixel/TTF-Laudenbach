@@ -52,59 +52,5 @@
     "gast": "TTF Laudenbach",
     "ergebnis": "6:4",
     "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 28.02.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "SV Tiefenbach",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "3:7",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 28.02.2026",
-    "uhrzeit": "14:15\nhtv",
-    "spielort": "H",
-    "heim": "TTF Laudenbach",
-    "gast": "SV Ingersheim",
-    "ergebnis": "8:2",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 07.03.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "TV Rot am See",
-    "ergebnis": "5:5",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 14.03.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "TSV Schrozberg",
-    "ergebnis": "7:3",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 20.03.2026",
-    "uhrzeit": "18:30\nv",
-    "spielort": "1",
-    "heim": "TSV Ilshofen",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "2:8",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 21.03.2026",
-    "uhrzeit": "10:00",
-    "spielort": "3",
-    "heim": "TSV Gerabronn II",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "3:7",
-    "status": "gespielt"
   }
 ]

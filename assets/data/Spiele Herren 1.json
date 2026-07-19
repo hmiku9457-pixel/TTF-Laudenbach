@@ -1,164 +1,182 @@
 [
   {
-    "datum": "Fr., 24.10.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "VFB Bad Mergentheim II",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "9:4",
-    "status": "gespielt"
-  },
-  {
-    "datum": "So., 26.10.2025",
+    "datum": "So., 20.09.2026",
     "uhrzeit": "10:30",
-    "spielort": "1",
+    "spielort": "2",
     "heim": "TTF Laudenbach",
-    "gast": "TSV Gerabronn II",
-    "ergebnis": "9:4",
-    "status": "gespielt"
+    "gast": "TSV Dörzbach",
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "So., 02.11.2025",
+    "datum": "So., 27.09.2026",
     "uhrzeit": "10:30",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "FC Honhardt",
-    "ergebnis": "3:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 07.11.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "TSG Kirchberg",
-    "ergebnis": "9:6",
-    "status": "gespielt"
-  },
-  {
-    "datum": "So., 09.11.2025",
-    "uhrzeit": "10:00\nv",
-    "spielort": "1",
-    "heim": "TSV Schrozberg",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "9:4",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Sa., 15.11.2025",
-    "uhrzeit": "15:30",
-    "spielort": "1",
-    "heim": "KSG Ellrichshausen",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "9:7",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 21.11.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "SV Gründelhardt",
-    "ergebnis": "9:5",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Mo., 24.11.2025",
-    "uhrzeit": "20:00\nv",
-    "spielort": "1",
-    "heim": "SV Tiefenbach",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "9:3",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 05.12.2025",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "FC Creglingen",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "5:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 30.01.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "SV Tiefenbach",
-    "ergebnis": "9:6",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 06.02.2026",
-    "uhrzeit": "20:00\nv",
-    "spielort": "1",
-    "heim": "SV Gründelhardt",
-    "gast": "TTF Laudenbach",
-    "ergebnis": "4:9",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 13.02.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
+    "spielort": "2",
     "heim": "TTF Laudenbach",
     "gast": "FC Creglingen",
-    "ergebnis": "7:9",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Fr., 20.02.2026",
+    "datum": "Fr., 09.10.2026",
     "uhrzeit": "20:00",
     "spielort": "1",
     "heim": "TSV Gerabronn II",
     "gast": "TTF Laudenbach",
-    "ergebnis": "7:9",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Fr., 27.02.2026",
-    "uhrzeit": "20:00",
+    "datum": "Sa., 17.10.2026",
+    "uhrzeit": "18:00",
     "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "KSG Ellrichshausen",
-    "ergebnis": "9:4",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 06.03.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "TSV Schrozberg",
-    "ergebnis": "9:7",
-    "status": "gespielt"
-  },
-  {
-    "datum": "Fr., 13.03.2026",
-    "uhrzeit": "20:00\nv",
-    "spielort": "1",
-    "heim": "TSG Kirchberg",
+    "heim": "TSV Rossfeld III",
     "gast": "TTF Laudenbach",
-    "ergebnis": "5:9",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Fr., 20.03.2026",
+    "datum": "Fr., 06.11.2026",
     "uhrzeit": "20:00",
     "spielort": "1",
     "heim": "TTF Laudenbach",
     "gast": "VFB Bad Mergentheim II",
-    "ergebnis": "3:9",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
   },
   {
-    "datum": "Fr., 17.04.2026",
-    "uhrzeit": "19:00\nv",
+    "datum": "So., 15.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "TSV Schrozberg",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "18:00",
     "spielort": "1",
-    "heim": "FC Honhardt",
+    "heim": "SV Tiefenbach",
     "gast": "TTF Laudenbach",
-    "ergebnis": "9:0",
-    "status": "gespielt"
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "TSG Kirchberg",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 29.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "SG Garnberg II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 12.12.2026",
+    "uhrzeit": "19:00",
+    "spielort": "1",
+    "heim": "SpVgg Gröningen-Satteldorf IV",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 30.01.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "TSV Dörzbach",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 13.02.2027",
+    "uhrzeit": "18:30",
+    "spielort": "2",
+    "heim": "SG Garnberg II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 28.02.2027",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "SpVgg Gröningen-Satteldorf IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 05.03.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TSV Schrozberg",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 12.03.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "FC Creglingen",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 04.04.2027",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "SV Tiefenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 10.04.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 18.04.2027",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "TSV Gerabronn II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 23.04.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "TSG Kirchberg",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 25.04.2027",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "TSV Rossfeld III",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
