@@ -86,6 +86,18 @@
       "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/tabelle/gesamt"
     }
   ],
+  "spielerlisten": [
+    {
+      "name": "Spieler Herren",
+      "bereich": "Herren",
+      "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
+    },
+    {
+      "name": "Spieler Jugend 19",
+      "bereich": "Jugend 19",
+      "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/J%2019/vr"
+    }
+  ],
   "links": [
     {
       "gruppe": "tt-links",

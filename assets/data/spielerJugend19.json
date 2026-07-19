@@ -1,0 +1,86 @@
+{
+  "Jugend 19 1": [
+    {
+      "rang": "1.1",
+      "position": "1",
+      "name": "Adrian Bach",
+      "qttr": "1026",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.2",
+      "position": "2",
+      "name": "Nico Wolfert",
+      "qttr": "915",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.3",
+      "position": "3",
+      "name": "Mateo Euring",
+      "qttr": null,
+      "a": null,
+      "status": null
+    }
+  ],
+  "Jugend 19 2": [
+    {
+      "rang": "2.1",
+      "position": "1",
+      "name": "Lukas Rahn",
+      "qttr": "877",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.2",
+      "position": "2",
+      "name": "Tim Tippl",
+      "qttr": "809",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.3",
+      "position": "3",
+      "name": "Oskar Metzger",
+      "qttr": "705",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.4",
+      "position": "4",
+      "name": "Xaver Kirchberger",
+      "qttr": "696",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.5",
+      "position": "5",
+      "name": "Emil Metzger",
+      "qttr": null,
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.6",
+      "position": "6",
+      "name": "Lina Huber",
+      "qttr": "693",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.7",
+      "position": "7",
+      "name": "Emma Graßer",
+      "qttr": "614",
+      "a": null,
+      "status": null
+    }
+  ]
+}

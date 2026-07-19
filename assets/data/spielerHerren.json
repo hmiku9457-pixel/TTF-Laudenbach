@@ -1,0 +1,332 @@
+{
+  "Herren 1": [
+    {
+      "rang": "1.1",
+      "position": "1",
+      "name": "Peter Pflüger",
+      "qttr": "1512",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.2",
+      "position": "2",
+      "name": "Oleksandr Pochereniuk",
+      "qttr": "1486",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.3",
+      "position": "3",
+      "name": "Thomas Ruske",
+      "qttr": "1488",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.4",
+      "position": "4",
+      "name": "Manuel Ilzhöfer",
+      "qttr": "1450",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.5",
+      "position": "5",
+      "name": "Hubert Kraft",
+      "qttr": "1424",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "1.6",
+      "position": "6",
+      "name": "Ludwig Moll",
+      "qttr": "1405",
+      "a": null,
+      "status": null
+    }
+  ],
+  "Herren 2": [
+    {
+      "rang": "2.1",
+      "position": "1",
+      "name": "Stefan Gölz",
+      "qttr": "1418",
+      "a": null,
+      "status": "RES"
+    },
+    {
+      "rang": "2.2",
+      "position": "2",
+      "name": "Jörg Hever",
+      "qttr": "1397",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.3",
+      "position": "3",
+      "name": "Gerhard Wolfert",
+      "qttr": "1318",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.4",
+      "position": "4",
+      "name": "Christian Heer",
+      "qttr": "1315",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.5",
+      "position": "5",
+      "name": "Günter Friedel",
+      "qttr": "1306",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.6",
+      "position": "6",
+      "name": "Erik Stiefel",
+      "qttr": "1283",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "2.7",
+      "position": "7",
+      "name": "Andre Metzger",
+      "qttr": null,
+      "a": null,
+      "status": null
+    }
+  ],
+  "Herren 3": [
+    {
+      "rang": "3.1",
+      "position": "1",
+      "name": "Florian Wolfert",
+      "qttr": "1215",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "3.2",
+      "position": "2",
+      "name": "Paul Stumpp",
+      "qttr": "1246",
+      "a": null,
+      "status": "RES"
+    },
+    {
+      "rang": "3.3",
+      "position": "3",
+      "name": "Melanie Wolfert",
+      "qttr": "1197",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "3.4",
+      "position": "4",
+      "name": "Stefan Wolfert",
+      "qttr": "1139",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "3.5",
+      "position": "5",
+      "name": "Johannes Scherrer",
+      "qttr": "1143",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "3.6",
+      "position": "6",
+      "name": "Martin Schneider",
+      "qttr": "1106",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "3.7",
+      "position": "7",
+      "name": "Manfred Litwitz",
+      "qttr": "1105",
+      "a": null,
+      "status": null
+    }
+  ],
+  "Herren 4": [
+    {
+      "rang": "4.1",
+      "position": "1",
+      "name": "Dietrich Kruth",
+      "qttr": "1058*",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "4.2",
+      "position": "2",
+      "name": "Erwin Mezger",
+      "qttr": "1055",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "4.3",
+      "position": "3",
+      "name": "Frank Repovs",
+      "qttr": "1054",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "4.4",
+      "position": "4",
+      "name": "Christopher Wolfert",
+      "qttr": "1034",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "4.5",
+      "position": "5",
+      "name": "Dominik Huber",
+      "qttr": "1029",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "4.6",
+      "position": "6",
+      "name": "Adrian Bach",
+      "qttr": "1026",
+      "a": null,
+      "status": "SBEM"
+    }
+  ],
+  "Herren 5": [
+    {
+      "rang": "5.1",
+      "position": "1",
+      "name": "Armin Ulshöfer",
+      "qttr": "983*",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.2",
+      "position": "2",
+      "name": "Carl Klärle",
+      "qttr": "985",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.3",
+      "position": "3",
+      "name": "Linda Ilzhöfer",
+      "qttr": "960",
+      "a": null,
+      "status": "RES"
+    },
+    {
+      "rang": "5.4",
+      "position": "4",
+      "name": "Steffen Wolfert",
+      "qttr": "922",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.5",
+      "position": "5",
+      "name": "Sascha Warth",
+      "qttr": "886",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.6",
+      "position": "6",
+      "name": "Tobias Kimmelmann",
+      "qttr": "1008*",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.7",
+      "position": "7",
+      "name": "Svea Täubert",
+      "qttr": "881",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.8",
+      "position": "8",
+      "name": "Christian Bätzel",
+      "qttr": null,
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.9",
+      "position": "9",
+      "name": "Tobias Sturm",
+      "qttr": null,
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.10",
+      "position": "10",
+      "name": "Markus Rahn",
+      "qttr": null,
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.11",
+      "position": "11",
+      "name": "Tim Tippl",
+      "qttr": "809",
+      "a": null,
+      "status": "SBEM"
+    },
+    {
+      "rang": "5.12",
+      "position": "12",
+      "name": "Jona Schammann",
+      "qttr": "814",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.13",
+      "position": "13",
+      "name": "Bastian Schwallach",
+      "qttr": "707",
+      "a": null,
+      "status": null
+    },
+    {
+      "rang": "5.14",
+      "position": "14",
+      "name": "Lukas Oswald",
+      "qttr": "686",
+      "a": null,
+      "status": null
+    }
+  ]
+}
