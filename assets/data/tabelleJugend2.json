@@ -1,68 +1,68 @@
 [
   {
     "rang": "1",
-    "mannschaft": "SV Onolzheim III",
-    "partien": "5",
-    "siege": "4",
-    "unentschieden": "1",
+    "mannschaft": "TTF Laudenbach II",
+    "partien": "0",
+    "siege": "0",
+    "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "38:12",
-    "spieleDifferenz": "+26",
-    "punkte": "9:1"
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
   },
   {
     "rang": "2",
-    "mannschaft": "SV Tiefenbach II",
-    "partien": "5",
-    "siege": "4",
-    "unentschieden": "1",
+    "mannschaft": "TV Niederstetten II",
+    "partien": "0",
+    "siege": "0",
+    "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "36:14",
-    "spieleDifferenz": "+22",
-    "punkte": "9:1"
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
   },
   {
     "rang": "3",
-    "mannschaft": "SV Gründelhardt II",
-    "partien": "5",
-    "siege": "3",
+    "mannschaft": "TSV Gerabronn IV",
+    "partien": "0",
+    "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "25:25",
+    "niederlagen": "0",
+    "spiele": "0:0",
     "spieleDifferenz": "0",
-    "punkte": "6:4"
+    "punkte": "0:0"
   },
   {
     "rang": "4",
-    "mannschaft": "TSV Dörzbach II",
-    "partien": "5",
-    "siege": "2",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "0",
+    "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "26:24",
-    "spieleDifferenz": "+2",
-    "punkte": "4:6"
+    "niederlagen": "0",
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
   },
   {
     "rang": "5",
-    "mannschaft": "SV Ingersheim II",
-    "partien": "5",
-    "siege": "1",
+    "mannschaft": "TSV Dörzbach II",
+    "partien": "0",
+    "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "4",
-    "spiele": "12:38",
-    "spieleDifferenz": "-26",
-    "punkte": "2:8"
+    "niederlagen": "0",
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
   },
   {
     "rang": "6",
-    "mannschaft": "TTF Laudenbach II",
-    "partien": "5",
+    "mannschaft": "SC Buchenbach II",
+    "partien": "0",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "5",
-    "spiele": "13:37",
-    "spieleDifferenz": "-24",
-    "punkte": "0:10"
+    "niederlagen": "0",
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
   }
 ]
