@@ -109,7 +109,16 @@ SPIELERLISTEN = [
     {
         "name": "Spieler Herren",
         "bereich": "Herren",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
+        "url": (
+            "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
+        )
+    },
+    {
+        "name": "Spieler Jugend 19",
+        "bereich": "Jugend 19",
+        "url": (
+            "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/J%2019/vr"
+        )
     }
 ]
 
