@@ -48,13 +48,13 @@ SPIELPLAENE = [
     {
         "id": "spieleJugend1",
         "name": "Spiele Jugend 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/mannschaft/2958834/TTF_Laudenbach/spielerbilanzen/gesamt",
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/mannschaft/3094009/Jugend_19/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleJugend2",
         "name": "Spiele Jugend 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/mannschaft/2991365/TTF_Laudenbach_II/spielerbilanzen/gesamt",
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/mannschaft/3095060/Jugend_19_II/spielerbilanzen/gesamt",
         "type": "mannschaft"
     }
 ]
@@ -92,12 +92,12 @@ TABELLEN = [
     {
         "id": "tabelleJugend1",
         "name": "Tabelle Jugend 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_C_Ost/gruppe/494792/tabelle/gesamt"
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/tabelle/gesamt"
     },
     {
         "id": "tabelleJugend2",
         "name": "Tabelle Jugend 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/25--26/ligen/Kreisliga_E2_Ost/gruppe/494250/tabelle/gesamt"
+        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/tabelle/gesamt"
     }
 ]
 
