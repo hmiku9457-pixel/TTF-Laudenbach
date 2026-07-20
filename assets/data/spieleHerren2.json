@@ -1,1 +1,164 @@
-[]
+[
+  {
+    "datum": "Sa., 19.09.2026",
+    "uhrzeit": "19:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "SV Elpersheim II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 10.10.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "SV Tiefenbach II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 16.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "FC Igersheim",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 08.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach II",
+    "gast": "TSV Schrozberg II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 20.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 27.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TSG Kirchberg II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 06.12.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "SpVgg Gröningen-Satteldorf VI",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 11.12.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "VFB Bad Mergentheim III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 22.01.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 29.01.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "TSG Kirchberg II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 20.02.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "FC Igersheim",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 05.03.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SV Elpersheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 12.03.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 13.03.2027",
+    "uhrzeit": "18:00",
+    "spielort": "2",
+    "heim": "TSV Schrozberg II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 20.03.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "SC Buchenbach III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 09.04.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SpVgg Gröningen-Satteldorf VI",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.04.2027",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SV Tiefenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]
