@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "datum": "Sa., 24.10.2026",
+    "uhrzeit": "12:30",
+    "spielort": "3",
+    "heim": "TSV Gerabronn II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 31.10.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "TSG Kirchberg",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 14.11.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "VFB Jagstheim",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "12:15",
+    "spielort": "1",
+    "heim": "FC Langenburg II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "SV Onolzheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 05.12.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "SV Onolzheim III",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]

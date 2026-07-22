@@ -1,1 +1,128 @@
-[]
+[
+  {
+    "datum": "Sa., 19.09.2026",
+    "uhrzeit": "18:00",
+    "spielort": "",
+    "heim": "spielfrei*",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 09.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "SC Buchenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 14.11.2026",
+    "uhrzeit": "14:00",
+    "spielort": "1",
+    "heim": "VFB Bad Mergentheim IV",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "17:30",
+    "spielort": "1",
+    "heim": "SV Elpersheim IV",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "TSV Markelsheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 04.12.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "FC Creglingen II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 30.01.2027",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "TSV Dörzbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 12.02.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "VFB Bad Mergentheim IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 20.02.2027",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "heim": "TTF Laudenbach V",
+    "gast": "SV Elpersheim IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 21.02.2027",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "heim": "SC Buchenbach V",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 26.02.2027",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TSV Markelsheim II",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 20.03.2027",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "heim": "FC Creglingen II",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.04.2027",
+    "uhrzeit": "18:00",
+    "spielort": "",
+    "heim": "TTF Laudenbach V",
+    "gast": "spielfrei*",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]
