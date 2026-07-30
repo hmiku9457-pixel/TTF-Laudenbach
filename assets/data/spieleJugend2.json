@@ -18,20 +18,20 @@
     "status": "geplant"
   },
   {
-    "datum": "Sa., 31.10.2026",
-    "uhrzeit": "14:30",
-    "spielort": "1",
-    "heim": "TSV Dörzbach II",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "Sa., 14.11.2026",
     "uhrzeit": "10:00",
     "spielort": "1",
     "heim": "TTF Laudenbach II",
     "gast": "TSV Gerabronn IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "14:30\nv",
+    "spielort": "1",
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
   },

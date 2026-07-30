@@ -1,19 +1,19 @@
 [
   {
+    "datum": "Sa., 19.09.2026",
+    "uhrzeit": "10:00\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "TSG Kirchberg",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
     "datum": "Sa., 24.10.2026",
     "uhrzeit": "12:30",
     "spielort": "3",
     "heim": "TSV Gerabronn II",
     "gast": "TTF Laudenbach",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 31.10.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach",
-    "gast": "TSG Kirchberg",
     "ergebnis": null,
     "status": "geplant"
   },
