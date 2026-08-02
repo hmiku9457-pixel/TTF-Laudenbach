@@ -1,0 +1,54 @@
+/* News-Slider. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 8. NEWS SLIDER ====================
+   ========================================= */
+
+.news-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--space-m);
+    min-width: 100px;
+    min-height: 250px;
+}
+
+.news-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    background: var(--bg-secondary);
+    padding: var(--space-l);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: opacity 0.6s ease;
+}
+
+.news-slide.active {
+    opacity: 1;
+}
+
+.news-slide img {
+    width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    border-radius: var(--space-m);
+}
+
+.news-slide a {
+    margin-top: auto;
+    padding: 8px 12px;
+    background: var(--accent);
+    border-radius: var(--space-m);
+    text-decoration: none;
+    width: fit-content;
+    color: var(--text-on-newsSlide);
+}
+
+.news-slide a:hover {
+    background: var(--accent-hover);
+}
+
+

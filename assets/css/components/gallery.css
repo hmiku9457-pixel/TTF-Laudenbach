@@ -1,0 +1,103 @@
+/* Historische Fotos und Galerie. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 18. HISTORISCHE FOTOS =============
+   ========================================= */
+
+.content.images-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-xl);
+    padding: var(--space-m) var(--space-xl);
+    align-items: start;
+}
+
+.images-content {
+    min-width: 0;
+}
+
+.images-loading {
+    margin-top: 0;
+}
+
+.images-gallery h3 {
+    margin-bottom: var(--space-l);
+}
+
+.images-event-list {
+    position: sticky;
+    top: 140px;
+}
+
+.images-event-list h2 {
+    margin-bottom: var(--space-l);
+}
+
+.images-event-button {
+    width: 100%;
+    display: block;
+
+    margin-bottom: var(--space-s);
+    padding: var(--space-m);
+
+    border: none;
+    border-radius: var(--space-m);
+
+    background: var(--bg-main);
+    color: var(--text-main);
+
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    box-shadow: var(--shadow-light);
+
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.images-event-button:hover {
+    background: var(--accent-hover);
+    color: var(--text-on-newsSlide);
+    transform: translateX(3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.images-event-button.is-active {
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+}
+
+.images-event-button:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.masonry-gallery {
+    column-count: 3;
+    column-gap: var(--space-m);
+}
+
+.masonry-gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: var(--space-m);
+
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.masonry-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-heavy);
+    cursor: pointer;
+}
+

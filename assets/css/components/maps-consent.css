@@ -1,0 +1,45 @@
+/* Karten und Einwilligung für externe Inhalte. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 13. MAP DESIGN ====================
+   ========================================= */
+
+.map-container {
+    margin-top: var(--space-m);
+    border-radius: var(--space-m);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    display: block;
+}
+
+
+/* =========================================
+   ===== 14. BUTTON FUER DSGVO =============
+   ========================================= */
+
+.iframe-consent {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--bg-secondary);
+    text-align: center;
+    padding: var(--space-m);
+}
+
+.iframe-consent button {
+    margin-top: var(--space-s);
+}
+
+

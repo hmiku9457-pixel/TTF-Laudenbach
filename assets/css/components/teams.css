@@ -1,0 +1,14 @@
+/* Mannschaftsübersicht. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 9. TEAMS GRID =====================
+   ========================================= */
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    padding: var(--space-m) var(--space-xl);
+}
+
+
