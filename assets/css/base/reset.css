@@ -1,0 +1,27 @@
+/* Reset und globale Basiseinstellungen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 1. RESET & BASIS ==================
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
