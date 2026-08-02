@@ -1,0 +1,44 @@
+name: Phase 3 SEO anwenden
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase-3-seo
+  cancel-in-progress: true
+
+jobs:
+  apply-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v7
+
+      - name: Python einrichten
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: SEO-Metadaten anwenden
+        run: python tools/apply_phase3_seo.py
+
+      - name: Ergebnis prüfen
+        run: python tools/check_phase3_seo.py
+
+      - name: Änderungen committen
+        run: |
+          if git diff --quiet; then
+            echo "Keine Änderungen notwendig."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "SEO-Metadaten, Sitemap und robots.txt aktualisieren"
+          git push
