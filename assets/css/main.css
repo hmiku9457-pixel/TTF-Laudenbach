@@ -1,0 +1,22 @@
+/*
+ * Modularer CSS-Einstiegspunkt für Phase 4.
+ * In Schritt 1 noch nicht von den HTML-Seiten referenziert.
+ * Die Importreihenfolge entspricht exakt der bisherigen style.css.
+ */
+
+@import url("./base/reset.css");
+@import url("./base/theme.css");
+@import url("./layout/header-navigation.css");
+@import url("./layout/grid-boxes.css");
+@import url("./components/animations.css");
+@import url("./components/news-slider.css");
+@import url("./components/teams.css");
+@import url("./components/tables.css");
+@import url("./components/ui-buttons.css");
+@import url("./components/maps-consent.css");
+@import url("./layout/footer.css");
+@import url("./components/contact-form.css");
+@import url("./responsive.css");
+@import url("./components/gallery.css");
+@import url("./components/robustness.css");
+@import url("./components/accessibility.css");
