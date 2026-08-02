@@ -1,0 +1,42 @@
+name: Website-Qualität manuell prüfen
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: HTML, JSON, Links und Imports prüfen
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python tools/quality/check_site.py
+
+      - name: JavaScript-Syntax prüfen
+        shell: bash
+        run: |
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done < <(find assets/js -type f -name '*.js' -print0)
