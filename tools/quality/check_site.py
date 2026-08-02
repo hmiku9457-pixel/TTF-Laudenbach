@@ -19,6 +19,7 @@ EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript"}
 class PageParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
+        self.is_html_document = False
         self.title_count = 0
         self.in_title = False
         self.title_text: list[str] = []
@@ -31,6 +32,9 @@ class PageParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {name.lower(): value for name, value in attrs}
         line = self.getpos()[0]
+
+        if tag == "html":
+            self.is_html_document = True
 
         if tag == "title":
             self.title_count += 1
@@ -100,18 +104,21 @@ def check_html(errors: list[str], warnings: list[str]) -> None:
         parser.feed(path.read_text(encoding="utf-8"))
         rel = path.relative_to(ROOT)
 
-        if parser.title_count != 1:
-            errors.append(f"{rel}: erwartet genau einen <title>, gefunden {parser.title_count}")
-        elif not "".join(parser.title_text).strip():
-            errors.append(f"{rel}: leerer <title>")
+        # Header und Footer sind bewusst HTML-Fragmente ohne <html>/<head>.
+        # SEO-Pflichtfelder werden deshalb nur bei vollständigen Dokumenten geprüft.
+        if parser.is_html_document:
+            if parser.title_count != 1:
+                errors.append(f"{rel}: erwartet genau einen <title>, gefunden {parser.title_count}")
+            elif not "".join(parser.title_text).strip():
+                errors.append(f"{rel}: leerer <title>")
 
-        if parser.meta_description_count != 1:
-            errors.append(
-                f"{rel}: erwartet genau eine Meta-Description, gefunden {parser.meta_description_count}"
-            )
+            if parser.meta_description_count != 1:
+                errors.append(
+                    f"{rel}: erwartet genau eine Meta-Description, gefunden {parser.meta_description_count}"
+                )
 
-        if parser.canonical_count != 1:
-            errors.append(f"{rel}: erwartet genau einen Canonical-Link, gefunden {parser.canonical_count}")
+            if parser.canonical_count != 1:
+                errors.append(f"{rel}: erwartet genau einen Canonical-Link, gefunden {parser.canonical_count}")
 
         duplicates = sorted({value for value in parser.ids if parser.ids.count(value) > 1})
         if duplicates:
@@ -196,6 +203,23 @@ def check_sitemap(errors: list[str]) -> None:
             errors.append(f"sitemap.xml verweist auf fehlende Seite: {location}")
 
 
+def check_asset_locations(errors: list[str]) -> None:
+    css_root = ROOT / "assets" / "css"
+    js_root = ROOT / "assets" / "js"
+
+    if css_root.exists():
+        for path in css_root.rglob("*.js"):
+            errors.append(
+                f"{path.relative_to(ROOT)}: JavaScript-Datei liegt versehentlich im CSS-Ordner"
+            )
+
+    if js_root.exists():
+        for path in js_root.rglob("*.css"):
+            errors.append(
+                f"{path.relative_to(ROOT)}: CSS-Datei liegt versehentlich im JavaScript-Ordner"
+            )
+
+
 def check_repository_hygiene(errors: list[str]) -> None:
     forbidden = [*iter_files("*.pyc")]
     forbidden.extend(path for path in ROOT.rglob("__pycache__") if path.is_dir())
@@ -212,6 +236,7 @@ def main() -> int:
     check_css_imports(errors)
     check_js_imports(errors)
     check_sitemap(errors)
+    check_asset_locations(errors)
     check_repository_hygiene(errors)
 
     for warning in warnings:
