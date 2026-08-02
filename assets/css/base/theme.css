@@ -1,0 +1,39 @@
+/* Farben, Abstände und Design-Variablen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 2. THEME (Farben) =================
+   ========================================= */
+
+:root {
+    --bg-main: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-navigation: #020617;
+
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+
+    --text-main: #e2e8f0;
+    --text-muted: #64748b;
+    --text-on-newsSlide: #020617;
+
+    /* Einheitliches Spacing */
+    --space-s: 5px;
+    --space-m: 10px;
+    --space-l: 15px;
+    --space-xl: 20px;
+
+    /* Einheitliche Shadows */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+    /* Farbschema für die Tabelle der Ewigen Rangliste */
+    --bg-table-ewigeTabelle-head: #2c3e50;
+    --bg-table-ewigeTabelle-evenRow: #1e3a5f;
+    --bg-table-ewigeTabelle-oddRow: #1a2e4a;
+    --bg-table-ewigeTabelle-highlight: #38bdf8;
+
+   /* Generelle (Fehler-)Farbcodes */
+   --success: #2e7d32;
+   --warning: #f4c542;
+   --error: #c62828;
+}
