@@ -1,0 +1,105 @@
+/* Grid-Layouts und Box-Komponenten. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 5. GRID LAYOUT ====================
+   ========================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-m);
+    padding: var(--space-m) var(--space-xl);
+    align-items: stretch;
+}
+
+.grid-home-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.grid-home-firstLine {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 750px;
+    gap: var(--space-m);
+    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    align-items: stretch;
+}
+
+.grid-home-secondLine {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 500px;
+    gap: var(--space-m);
+    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    align-items: stretch;
+}
+
+/*.sub-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+}*/ /* Erstmal wieder rausgenommen, da ich erstmal einen Workaround nehme */
+
+.full-width {
+    grid-column: 1 / -1;
+    padding: var(--space-m) var(--space-xl);
+}
+
+.grid-button {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-l);
+    padding: var(--space-m) var(--space-xl);
+    margin-top: auto;
+}
+
+
+/* =========================================
+   ===== 6. BOXEN ==========================
+   ========================================= */
+
+.box,
+.team-box {
+    background: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover-Effekt */
+.box:hover,
+.team-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/*.team-box {
+    background: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Fix für Textabstände */
+/*    line-height: 1.6;
+    overflow-wrap: break-word;
+}*/
+
+.team-box ul,
+.team-box ol {
+    padding-left: 1.2em; /* Abstand für Nummerierung/Bullet */
+    margin: 0 0 var(--space-m) 0; /* unten Abstand */
+}
+
+.team-box li {
+    margin-bottom: 0; /* Abstand zwischen Listenelementen */
+}
+
+.column {
+    display: grid;
+    gap: var(--space-m);
+}
+
+

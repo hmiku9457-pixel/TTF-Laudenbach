@@ -1,0 +1,117 @@
+/* Header und Hauptnavigation. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 3. HEADER =========================
+   ========================================= */
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header-container,
+header {
+    position: relative;
+    background: var(--bg-main);
+    text-align: center;
+    padding: var(--space-m);
+}
+
+/* Logo links, Text bleibt zentriert */
+.logo {
+    position: absolute;
+    left: var(--space-l);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 75px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+
+/* =========================================
+   ===== 4. NAVIGATION =====================
+   ========================================= */
+
+nav {
+    background: var(--bg-navigation);
+    text-align: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    padding: var(--space-m);
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* Dropdown Menü */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1001;
+
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-heavy);
+    border-radius: var(--space-m);
+    list-style: none;
+    padding: var(--space-s);
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu li + li {
+    margin-top: 4px;
+}
+
+.submenu a {
+    display: block;
+    padding: var(--space-s) var(--space-l);
+    border-radius: var(--space-s);
+    color: var(--text-main);
+    text-decoration: none;
+
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.submenu a:hover {
+    background: var(--bg-main);
+    transform: translateX(3px); /* leichtes "Reinsliden" */
+}
+
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
