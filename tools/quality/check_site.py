@@ -28,6 +28,8 @@ class PageParser(HTMLParser):
         self.images_without_alt: list[int] = []
         self.meta_description_count = 0
         self.canonical_count = 0
+        self.stylesheets: list[str] = []
+        self.scripts: list[tuple[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {name.lower(): value for name, value in attrs}
@@ -47,8 +49,16 @@ class PageParser(HTMLParser):
         if tag == "meta" and values.get("name", "").lower() == "description":
             self.meta_description_count += 1
 
-        if tag == "link" and values.get("rel", "").lower() == "canonical":
+        link_rel = (values.get("rel") or "").lower().split()
+
+        if tag == "link" and "canonical" in link_rel:
             self.canonical_count += 1
+
+        if tag == "link" and "stylesheet" in link_rel and values.get("href"):
+            self.stylesheets.append(values["href"] or "")
+
+        if tag == "script" and values.get("src"):
+            self.scripts.append((values["src"] or "", (values.get("type") or "").lower()))
 
         if tag == "img" and "alt" not in values:
             self.images_without_alt.append(line)
@@ -100,9 +110,13 @@ def resolve_local_reference(html_file: Path, reference: str) -> Path | None:
 
 def check_html(errors: list[str], warnings: list[str]) -> None:
     for path in iter_files("*.html"):
+        source = path.read_text(encoding="utf-8")
         parser = PageParser()
-        parser.feed(path.read_text(encoding="utf-8"))
+        parser.feed(source)
         rel = path.relative_to(ROOT)
+
+        if re.search(r"class\s*=\s*['\"][^'\"]*\bhref\s*=", source, re.IGNORECASE):
+            errors.append(f"{rel}: vermutlich fehlerhaftes href innerhalb eines class-Attributs")
 
         # Header und Footer sind bewusst HTML-Fragmente ohne <html>/<head>.
         # SEO-Pflichtfelder werden deshalb nur bei vollständigen Dokumenten geprüft.
@@ -119,6 +133,41 @@ def check_html(errors: list[str], warnings: list[str]) -> None:
 
             if parser.canonical_count != 1:
                 errors.append(f"{rel}: erwartet genau einen Canonical-Link, gefunden {parser.canonical_count}")
+
+            main_stylesheets = [
+                href for href in parser.stylesheets
+                if urlsplit(href).path == "/assets/css/main.css"
+            ]
+            main_scripts = [
+                src for src, script_type in parser.scripts
+                if urlsplit(src).path == "/assets/js/main.js" and script_type == "module"
+            ]
+            legacy_stylesheets = [
+                href for href in parser.stylesheets
+                if urlsplit(href).path.endswith("/assets/css/style.css")
+            ]
+            legacy_scripts = [
+                src for src, _ in parser.scripts
+                if urlsplit(src).path.endswith("/assets/js/script.js")
+            ]
+
+            if len(main_stylesheets) != 1:
+                errors.append(
+                    f"{rel}: erwartet genau eine /assets/css/main.css-Referenz, "
+                    f"gefunden {len(main_stylesheets)}"
+                )
+
+            if len(main_scripts) != 1:
+                errors.append(
+                    f"{rel}: erwartet genau ein Modul /assets/js/main.js, "
+                    f"gefunden {len(main_scripts)}"
+                )
+
+            if legacy_stylesheets:
+                errors.append(f"{rel}: veraltete style.css-Referenz vorhanden")
+
+            if legacy_scripts:
+                errors.append(f"{rel}: veraltete script.js-Referenz vorhanden")
 
         duplicates = sorted({value for value in parser.ids if parser.ids.count(value) > 1})
         if duplicates:
