@@ -6,7 +6,6 @@
       "title": "Generelle Bilder",
       "images": [
         "/assets/images/LustAufTischtennis.png",
-        "/assets/images/ttf-laudenbach-social.png",
         "/assets/images/TTF-Laudenbach_Logo.png",
         "/assets/images/VierElemente_TTFLaudenbach.jpg"
       ]
@@ -31,6 +30,13 @@
         "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung7.jpg",
         "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung8.jpg",
         "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung9.jpg"
+      ]
+    },
+    {
+      "id": "seo",
+      "title": "seo",
+      "images": [
+        "/assets/images/seo/ttf-laudenbach-social.png"
       ]
     }
   ]
