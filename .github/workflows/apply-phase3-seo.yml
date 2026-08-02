@@ -1,5 +1,8 @@
 name: Phase 3 SEO anwenden
 
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
 on:
   workflow_dispatch:
 
