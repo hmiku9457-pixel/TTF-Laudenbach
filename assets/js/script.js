@@ -5,7 +5,8 @@
 // 01 - DOM READY & INITIALISIERUNG
 // 02 - FETCH-HILFSFUNKTIONEN
 // 03 - HEADER & FOOTER
-// 04 - STATUSMELDUNGEN
+// 04 - SEITENSTRUKTUR & SEMANTIK
+// 04A - STATUSMELDUNGEN
 // 05 - NEWS-SLIDER
 // 06 - ANIMATIONEN
 // 07 - TABELLEN-SCROLL & SUCHE
@@ -30,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function initializePage() {
         // Statische Inhalte sofort initialisieren.
+        initPageStructure();
+        initTableSemantics();
         initTableScrollContainers();
         initTableSearch();
         initIframeConsent();
@@ -55,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (headerLoaded) {
             initThemeSwitcher();
+            initHeaderAccessibility();
         }
 
         await loadLinks();
@@ -68,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
             initSpielerliste()
         ]);
 
-        // Falls später doch eine Tabelle dynamisch ergänzt wurde.
+        // Falls später doch Inhalte dynamisch ergänzt wurden.
+        initTableSemantics();
         initTableScrollContainers();
         initAnimations();
     }
@@ -130,7 +135,162 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // ===== 04 - STATUSMELDUNGEN ===============
+    // ===== 04 - SEITENSTRUKTUR & SEMANTIK =====
+    // ==========================================
+
+    function initPageStructure() {
+        ensureMainLandmark();
+        ensureSkipLink();
+        ensurePageHeading();
+    }
+
+    function ensureMainLandmark() {
+        const existingMain = document.querySelector("main");
+
+        if (existingMain) {
+            if (!existingMain.id) {
+                existingMain.id = "main-content";
+            }
+
+            if (!existingMain.hasAttribute("tabindex")) {
+                existingMain.tabIndex = -1;
+            }
+
+            return existingMain;
+        }
+
+        const headerContainer = document.getElementById("header-container");
+        const footerContainer = document.getElementById("footer-container");
+
+        if (!headerContainer || !footerContainer) {
+            return null;
+        }
+
+        const main = document.createElement("main");
+        main.id = "main-content";
+        main.tabIndex = -1;
+
+        headerContainer.insertAdjacentElement("afterend", main);
+
+        let currentNode = main.nextSibling;
+
+        while (currentNode && currentNode !== footerContainer) {
+            const nextNode = currentNode.nextSibling;
+            main.appendChild(currentNode);
+            currentNode = nextNode;
+        }
+
+        return main;
+    }
+
+    function ensureSkipLink() {
+        const main = document.getElementById("main-content");
+
+        if (!main || document.querySelector(".skip-link")) {
+            return;
+        }
+
+        const skipLink = document.createElement("a");
+        skipLink.className = "skip-link";
+        skipLink.href = "#main-content";
+        skipLink.textContent = "Direkt zum Inhalt";
+
+        document.body.insertBefore(skipLink, document.body.firstChild);
+    }
+
+    function ensurePageHeading() {
+        const main = document.getElementById("main-content");
+
+        if (!main || main.querySelector("h1")) {
+            return;
+        }
+
+        const pathname = normalizePagePath(window.location.pathname);
+        const firstHeading = main.querySelector("h2, h3");
+        const headingText = pathname === "/"
+            ? "Tischtennis-Freunde Laudenbach"
+            : firstHeading?.textContent?.trim() || document.title || "TTF Laudenbach";
+
+        const heading = document.createElement("h1");
+        heading.className = "visually-hidden page-heading";
+        heading.textContent = headingText;
+        main.insertBefore(heading, main.firstChild);
+    }
+
+    function initHeaderAccessibility() {
+        const navigation = document.querySelector("#header-container nav");
+
+        if (!navigation) {
+            return;
+        }
+
+        const currentPath = normalizePagePath(window.location.pathname);
+
+        navigation.querySelectorAll('a[href]').forEach(link => {
+            link.removeAttribute("aria-current");
+
+            let linkPath;
+
+            try {
+                linkPath = normalizePagePath(
+                    new URL(link.href, window.location.origin).pathname
+                );
+            } catch (error) {
+                return;
+            }
+
+            if (linkPath === currentPath) {
+                link.setAttribute("aria-current", "page");
+            }
+        });
+    }
+
+    function normalizePagePath(pathname) {
+        const normalized = String(pathname || "/")
+            .replace(/\/index\.html$/i, "/")
+            .replace(/\/+$/, "");
+
+        return normalized || "/";
+    }
+
+    function initTableSemantics(root = document) {
+        const tables = root.querySelectorAll("table");
+
+        tables.forEach(table => {
+            table.querySelectorAll("thead tr").forEach(row => {
+                Array.from(row.children).forEach(cell => {
+                    let headerCell = cell;
+
+                    if (cell.tagName === "TD") {
+                        headerCell = replaceElementTag(cell, "th");
+                    }
+
+                    if (headerCell.tagName === "TH" && !headerCell.hasAttribute("scope")) {
+                        headerCell.setAttribute("scope", "col");
+                    }
+                });
+            });
+        });
+    }
+
+    function replaceElementTag(element, tagName) {
+        const replacement = document.createElement(tagName);
+
+        Array.from(element.attributes).forEach(attribute => {
+            replacement.setAttribute(attribute.name, attribute.value);
+        });
+
+        while (element.firstChild) {
+            replacement.appendChild(element.firstChild);
+        }
+
+        element.replaceWith(replacement);
+        return replacement;
+    }
+
+
+    // ==========================================
+    // ===== 04A - STATUSMELDUNGEN ==============
     // ==========================================
 
     function showContainerStatus(container, message, type = "error") {
@@ -267,23 +427,185 @@ document.addEventListener("DOMContentLoaded", () => {
             newsContainer.querySelectorAll(".news-slide")
         );
 
-        // Bei null oder einem Eintrag ist kein automatischer Wechsel nötig.
-        if (slides.length <= 1) {
+        if (slides.length === 0) {
             return;
         }
 
-        let index = 0;
+        newsContainer.setAttribute("role", "region");
+        newsContainer.setAttribute("aria-roledescription", "Karussell");
+        newsContainer.setAttribute("aria-label", "Neuigkeiten");
 
-        window.setInterval(() => {
-            // Sicherheitsprüfung, falls Slides später aus dem DOM entfernt wurden.
-            if (!slides[index]?.isConnected) {
+        slides.forEach((slide, slideIndex) => {
+            slide.setAttribute("role", "group");
+            slide.setAttribute("aria-roledescription", "Folie");
+            slide.setAttribute(
+                "aria-label",
+                `${slideIndex + 1} von ${slides.length}`
+            );
+        });
+
+        // Bei einem Eintrag sind keine Steuerelemente nötig.
+        if (slides.length === 1) {
+            setSlideAccessibility(slides[0], true);
+            return;
+        }
+
+        newsContainer.classList.add("news-slider--controlled");
+
+        const controls = document.createElement("div");
+        controls.className = "news-slider__controls";
+        controls.setAttribute("aria-label", "Neuigkeiten steuern");
+
+        const previousButton = createSliderButton(
+            "‹",
+            "Vorherige Neuigkeit",
+            "news-slider__button news-slider__button--previous"
+        );
+        const toggleButton = createSliderButton(
+            "Pause",
+            "Automatischen Wechsel pausieren",
+            "news-slider__button news-slider__button--toggle"
+        );
+        const status = document.createElement("span");
+        status.className = "news-slider__status";
+        status.setAttribute("aria-live", "off");
+        status.setAttribute("aria-atomic", "true");
+
+        const nextButton = createSliderButton(
+            "›",
+            "Nächste Neuigkeit",
+            "news-slider__button news-slider__button--next"
+        );
+
+        controls.append(previousButton, toggleButton, status, nextButton);
+        newsContainer.appendChild(controls);
+
+        const reducedMotionQuery = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+        let index = 0;
+        let intervalId = null;
+        let userPaused = reducedMotionQuery.matches;
+        let temporarilyPaused = false;
+
+        function setSlideAccessibility(slide, isActive) {
+            slide.classList.toggle("active", isActive);
+            slide.setAttribute("aria-hidden", String(!isActive));
+            slide.toggleAttribute("inert", !isActive);
+        }
+
+        function showSlide(nextIndex, announce = false) {
+            index = (nextIndex + slides.length) % slides.length;
+
+            slides.forEach((slide, slideIndex) => {
+                setSlideAccessibility(slide, slideIndex === index);
+            });
+
+            status.setAttribute("aria-live", announce ? "polite" : "off");
+            status.textContent = `${index + 1} / ${slides.length}`;
+
+            if (announce) {
+                window.setTimeout(() => {
+                    status.setAttribute("aria-live", "off");
+                }, 250);
+            }
+        }
+
+        function stopAutomaticChange() {
+            if (intervalId !== null) {
+                window.clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        function syncAutomaticChange() {
+            stopAutomaticChange();
+
+            if (userPaused || temporarilyPaused || document.hidden) {
                 return;
             }
 
-            slides[index].classList.remove("active");
-            index = (index + 1) % slides.length;
-            slides[index].classList.add("active");
-        }, 10000);
+            intervalId = window.setInterval(() => {
+                if (!newsContainer.isConnected) {
+                    stopAutomaticChange();
+                    return;
+                }
+
+                showSlide(index + 1, false);
+            }, 10000);
+        }
+
+        function updateToggleButton() {
+            toggleButton.textContent = userPaused ? "Abspielen" : "Pause";
+            toggleButton.setAttribute(
+                "aria-label",
+                userPaused
+                    ? "Automatischen Wechsel starten"
+                    : "Automatischen Wechsel pausieren"
+            );
+        }
+
+        previousButton.addEventListener("click", () => {
+            showSlide(index - 1, true);
+            syncAutomaticChange();
+        });
+
+        nextButton.addEventListener("click", () => {
+            showSlide(index + 1, true);
+            syncAutomaticChange();
+        });
+
+        toggleButton.addEventListener("click", () => {
+            userPaused = !userPaused;
+            updateToggleButton();
+            syncAutomaticChange();
+        });
+
+        newsContainer.addEventListener("mouseenter", () => {
+            temporarilyPaused = true;
+            syncAutomaticChange();
+        });
+
+        newsContainer.addEventListener("mouseleave", () => {
+            temporarilyPaused = false;
+            syncAutomaticChange();
+        });
+
+        newsContainer.addEventListener("focusin", () => {
+            temporarilyPaused = true;
+            syncAutomaticChange();
+        });
+
+        newsContainer.addEventListener("focusout", event => {
+            if (!newsContainer.contains(event.relatedTarget)) {
+                temporarilyPaused = false;
+                syncAutomaticChange();
+            }
+        });
+
+        document.addEventListener("visibilitychange", syncAutomaticChange);
+
+        reducedMotionQuery.addEventListener?.("change", event => {
+            if (event.matches) {
+                userPaused = true;
+                updateToggleButton();
+                syncAutomaticChange();
+            }
+        });
+
+        showSlide(0, false);
+        updateToggleButton();
+        syncAutomaticChange();
+    }
+
+    function createSliderButton(text, label, className) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = className;
+        button.textContent = text;
+        button.setAttribute("aria-label", label);
+        return button;
     }
 
 
@@ -332,6 +654,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     initAnimations(node);
+                    initTableSemantics(node);
+                    initTableScrollContainers(node);
                 });
             });
         });
@@ -433,9 +757,71 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===== 09 - iFRAME CONSENT ================
     // ==========================================
 
+    const iframePlaceholders = new WeakMap();
+
+    function rememberIframePlaceholder(container) {
+        if (!iframePlaceholders.has(container)) {
+            iframePlaceholders.set(container, container.innerHTML);
+        }
+    }
+
+    function getIframeProvider(container, src) {
+        let hostname = "externer-inhalt";
+
+        try {
+            hostname = new URL(src, window.location.href).hostname.toLowerCase();
+        } catch (error) {
+            console.warn("Die Iframe-URL konnte nicht ausgewertet werden:", src);
+        }
+
+        const explicitProvider = container.dataset.provider?.trim();
+
+        if (explicitProvider) {
+            return {
+                id: explicitProvider.toLowerCase().replace(/[^a-z0-9-]/g, "-"),
+                name: container.dataset.providerName || explicitProvider
+            };
+        }
+
+        if (hostname.includes("google")) {
+            return { id: "google-maps", name: "Google Maps" };
+        }
+
+        if (hostname.includes("youtube") || hostname.includes("youtu.be")) {
+            return { id: "youtube", name: "YouTube" };
+        }
+
+        return {
+            id: hostname.replace(/[^a-z0-9-]/g, "-"),
+            name: hostname
+        };
+    }
+
+    function getIframeStorageKey(providerId) {
+        return `externalContentAccepted:${providerId}`;
+    }
+
+    function getIframeTitle(container, provider) {
+        if (container.dataset.iframeTitle) {
+            return container.dataset.iframeTitle;
+        }
+
+        const section = container.closest("section, .box, .team-box");
+        const heading = section?.querySelector("h1, h2, h3, h4");
+        const context = heading?.textContent?.trim();
+
+        return context
+            ? `${provider.name} – ${context}`
+            : `${provider.name} – externer Inhalt`;
+    }
+
     function createIframe(container, src) {
+        rememberIframePlaceholder(container);
+
+        const provider = getIframeProvider(container, src);
         const iframe = document.createElement("iframe");
         iframe.src = src;
+        iframe.title = getIframeTitle(container, provider);
         iframe.style.width = "100%";
         iframe.style.height = "250px";
         iframe.style.border = "0";
@@ -443,32 +829,121 @@ document.addEventListener("DOMContentLoaded", () => {
         iframe.referrerPolicy = "no-referrer-when-downgrade";
         iframe.allowFullscreen = true;
 
+        const controls = document.createElement("div");
+        controls.className = "iframe-embed__controls";
+
+        const status = document.createElement("span");
+        status.textContent = `Externer Inhalt von ${provider.name} ist aktiviert.`;
+
+        const revokeButton = document.createElement("button");
+        revokeButton.type = "button";
+        revokeButton.className = "iframe-revoke-button";
+        revokeButton.textContent = "Externe Inhalte deaktivieren";
+        revokeButton.addEventListener("click", () => {
+            revokeIframeConsent(provider.id);
+        });
+
+        controls.append(status, revokeButton);
+
         container.innerHTML = "";
-        container.appendChild(iframe);
+        container.dataset.providerId = provider.id;
+        container.dataset.iframeLoaded = "true";
+        container.append(iframe, controls);
+    }
+
+    function restoreIframePlaceholder(container) {
+        const placeholderHtml = iframePlaceholders.get(container);
+
+        if (typeof placeholderHtml !== "string") {
+            return;
+        }
+
+        container.innerHTML = placeholderHtml;
+        delete container.dataset.iframeLoaded;
+    }
+
+    function loadAcceptedIframes(providerId) {
+        document.querySelectorAll(".iframe-consent").forEach(container => {
+            const src = container.dataset.src;
+
+            if (!src) {
+                return;
+            }
+
+            const provider = getIframeProvider(container, src);
+
+            if (provider.id === providerId) {
+                createIframe(container, src);
+            }
+        });
+    }
+
+    function revokeIframeConsent(providerId) {
+        removeStorageValue(getIframeStorageKey(providerId));
+
+        document.querySelectorAll(".iframe-consent").forEach(container => {
+            const src = container.dataset.src;
+
+            if (!src) {
+                return;
+            }
+
+            const provider = getIframeProvider(container, src);
+
+            if (provider.id === providerId) {
+                restoreIframePlaceholder(container);
+            }
+        });
     }
 
     function initIframeConsent() {
+        const containers = Array.from(
+            document.querySelectorAll(".iframe-consent")
+        );
+
+        if (containers.length === 0) {
+            return;
+        }
+
+        const legacyConsent = getStorageValue("externalContentAccepted") === "true";
+
+        containers.forEach(container => {
+            rememberIframePlaceholder(container);
+
+            const src = container.dataset.src;
+
+            if (!src) {
+                return;
+            }
+
+            const provider = getIframeProvider(container, src);
+            container.dataset.providerId = provider.id;
+
+            if (legacyConsent) {
+                setStorageValue(getIframeStorageKey(provider.id), "true");
+            }
+
+            if (getStorageValue(getIframeStorageKey(provider.id)) === "true") {
+                createIframe(container, src);
+            }
+        });
+
+        if (legacyConsent) {
+            removeStorageValue("externalContentAccepted");
+        }
+
         window.loadIframe = function loadIframe(button) {
-            const container = button.parentElement;
-            const src = container?.getAttribute("data-src");
+            const container = button.closest(".iframe-consent");
+            const src = container?.dataset.src;
 
             if (!container || !src) {
                 return;
             }
 
-            setStorageValue("externalContentAccepted", "true");
-            createIframe(container, src);
+            const provider = getIframeProvider(container, src);
+            setStorageValue(getIframeStorageKey(provider.id), "true");
+            loadAcceptedIframes(provider.id);
         };
-
-        if (getStorageValue("externalContentAccepted") === "true") {
-            document.querySelectorAll(".iframe-consent").forEach(container => {
-                const src = container.dataset.src;
-
-                if (src) {
-                    createIframe(container, src);
-                }
-            });
-        }
     }
 
     function getStorageValue(key) {
@@ -483,6 +958,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function setStorageValue(key, value) {
         try {
             window.localStorage.setItem(key, value);
+        } catch (error) {
+            console.warn("Local Storage ist nicht verfügbar:", error);
+        }
+    }
+
+    function removeStorageValue(key) {
+        try {
+            window.localStorage.removeItem(key);
         } catch (error) {
             console.warn("Local Storage ist nicht verfügbar:", error);
         }
