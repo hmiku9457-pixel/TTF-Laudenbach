@@ -1,7 +1,31 @@
-name: Website-Qualität manuell prüfen
+name: Website-Qualität prüfen
 
 on:
   workflow_dispatch:
+
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "assets/css/**"
+      - "assets/js/**"
+      - "assets/data/**"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "tools/quality/**"
+      - ".github/workflows/**"
+
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "assets/css/**"
+      - "assets/js/**"
+      - "assets/data/**"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "tools/quality/**"
+      - ".github/workflows/**"
 
 permissions:
   contents: read
