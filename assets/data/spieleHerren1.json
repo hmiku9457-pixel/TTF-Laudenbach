@@ -1,14 +1,5 @@
 [
   {
-    "datum": "So., 20.09.2026",
-    "uhrzeit": "10:30",
-    "spielort": "2",
-    "heim": "TTF Laudenbach",
-    "gast": "TSV Dörzbach",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "So., 27.09.2026",
     "uhrzeit": "10:30",
     "spielort": "2",
@@ -41,6 +32,15 @@
     "spielort": "1",
     "heim": "TTF Laudenbach",
     "gast": "VFB Bad Mergentheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 08.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "heim": "TTF Laudenbach",
+    "gast": "TSV Dörzbach",
     "ergebnis": null,
     "status": "geplant"
   },

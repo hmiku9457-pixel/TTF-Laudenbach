@@ -9,15 +9,6 @@
     "status": "geplant"
   },
   {
-    "datum": "Fr., 25.09.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach III",
-    "gast": "FC Igersheim",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "Fr., 09.10.2026",
     "uhrzeit": "20:00",
     "spielort": "1",
@@ -41,6 +32,15 @@
     "spielort": "1",
     "heim": "TSG Kirchberg II",
     "gast": "TTF Laudenbach III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 30.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach III",
+    "gast": "FC Igersheim",
     "ergebnis": null,
     "status": "geplant"
   },
@@ -153,8 +153,8 @@
     "status": "geplant"
   },
   {
-    "datum": "Fr., 16.04.2027",
-    "uhrzeit": "20:00",
+    "datum": "Sa., 17.04.2027",
+    "uhrzeit": "19:45",
     "spielort": "1",
     "heim": "TTF Laudenbach III",
     "gast": "TSG Kirchberg II",
