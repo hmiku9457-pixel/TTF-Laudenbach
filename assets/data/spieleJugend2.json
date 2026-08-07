@@ -9,6 +9,15 @@
     "status": "geplant"
   },
   {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "10:00\nv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
     "datum": "Sa., 24.10.2026",
     "uhrzeit": "10:00",
     "spielort": "1",
@@ -32,15 +41,6 @@
     "spielort": "1",
     "heim": "TSV Dörzbach II",
     "gast": "TTF Laudenbach II",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 28.11.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SC Buchenbach II",
     "ergebnis": null,
     "status": "geplant"
   }
