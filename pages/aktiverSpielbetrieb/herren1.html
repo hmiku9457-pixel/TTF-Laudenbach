@@ -1,119 +1,102 @@
 <!DOCTYPE html>
+
 <html lang="de">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- externes CSS -->
-		<link rel="stylesheet" href="/assets/css/main.css">
-
-		<!-- SEO: TTF Phase 3 -->
-		<title>1. Herrenmannschaft | TTF Laudenbach</title>
-		<meta name="description" content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach.">
-		<meta name="robots" content="index, follow, max-image-preview:large">
-		<link rel="canonical" href="https://www.ttf-laudenbach.de/pages/aktiverSpielbetrieb/herren1.html">
-
-		<meta property="og:locale" content="de_DE">
-		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="TTF Laudenbach">
-		<meta property="og:title" content="1. Herrenmannschaft | TTF Laudenbach">
-		<meta property="og:description" content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach.">
-		<meta property="og:url" content="https://www.ttf-laudenbach.de/pages/aktiverSpielbetrieb/herren1.html">
-		<meta property="og:image" content="https://www.ttf-laudenbach.de/assets/images/seo/ttf-laudenbach-social.png">
-		<meta property="og:image:width" content="1200">
-		<meta property="og:image:height" content="630">
-		<meta property="og:image:type" content="image/png">
-		<meta property="og:image:alt" content="Logo der Tischtennis-Freunde Laudenbach">
-
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="1. Herrenmannschaft | TTF Laudenbach">
-		<meta name="twitter:description" content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach.">
-		<meta name="twitter:image" content="https://www.ttf-laudenbach.de/assets/images/seo/ttf-laudenbach-social.png">
-		<meta name="twitter:image:alt" content="Logo der Tischtennis-Freunde Laudenbach">
-		<!-- SEO: Ende TTF Phase 3 -->
+<link href="/assets/css/site.bundle.css" rel="stylesheet"/>
+<!-- SEO: TTF Phase 3 -->
+<title>1. Herrenmannschaft | TTF Laudenbach</title>
+<meta content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://www.ttf-laudenbach.de/pages/aktiverSpielbetrieb/herren1.html" rel="canonical"/>
+<meta content="de_DE" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="TTF Laudenbach" property="og:site_name"/>
+<meta content="1. Herrenmannschaft | TTF Laudenbach" property="og:title"/>
+<meta content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach." property="og:description"/>
+<meta content="https://www.ttf-laudenbach.de/pages/aktiverSpielbetrieb/herren1.html" property="og:url"/>
+<meta content="https://www.ttf-laudenbach.de/assets/images/seo/ttf-laudenbach-social.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="Logo der Tischtennis-Freunde Laudenbach" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="1. Herrenmannschaft | TTF Laudenbach" name="twitter:title"/>
+<meta content="Aufstellung, Tabelle und Spielplan der 1. Herrenmannschaft der TTF Laudenbach." name="twitter:description"/>
+<meta content="https://www.ttf-laudenbach.de/assets/images/seo/ttf-laudenbach-social.png" name="twitter:image"/>
+<meta content="Logo der Tischtennis-Freunde Laudenbach" name="twitter:image:alt"/>
+<!-- SEO: Ende TTF Phase 3 -->
 </head>
-	
-	<body>
-		<div id="header-container"></div>
+<body><a class="skip-link" href="#main-content">Direkt zum Inhalt</a>
+<div id="header-container"></div><main id="main-content" tabindex="-1"><div class="grid">
+<div class="box full-width">
+<h1 class="u-text-center">Herren I</h1>
+</div>
+<div class="box">
+<h2 class="underline">Aufstellung:</h2>
+<table><caption class="visually-hidden">Aufstellung:</caption>
+<thead>
+<tr>
+<th scope="col">Pos.</th>
+<th scope="col">Name</th>
+<th scope="col">QTTR</th>
+</tr>
+</thead>
+<tbody data-datei="/assets/data/spielerHerren.json" data-mannschaft="Herren 1" id="spieler-mannschaft">
+<tr>
+<td colspan="3">Spielerliste wird geladen …</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p>Mannschaftsführer: Hubert Kraft</p>
+</div>
+<div class="box">
+<h2 class="underline">Tabelle:</h2>
+<table><caption class="visually-hidden">Tabelle:</caption>
+<thead>
+<tr>
+<th scope="col">Rang</th>
+<th scope="col">Mannschaft</th>
+<th scope="col">Partien</th>
+<th scope="col">S</th>
+<th scope="col">U</th>
+<th scope="col">N</th>
+<th scope="col">Spiele</th>
+<th scope="col">+/-</th>
+<th scope="col">Punkte</th>
+</tr>
+</thead>
+<tbody id="tabelle-herren1">
+<!-- Wird per JS gefüllt -->
+</tbody>
+</table>
+<a class="button button--card" href="https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/tabelle/gesamt" id="link-tabelleHerren1" rel="noopener noreferrer" target="_blank">Hier gehts zur Tabelle der 1. Herrenmannschaft</a>
+</div>
+<div class="box full-width">
+<h2 class="underline">Kompletter Spielplan:</h2>
+<table><caption class="visually-hidden">Kompletter Spielplan:</caption>
+<thead>
+<tr>
+<th scope="col">Datum</th>
+<th scope="col">Uhrzeit</th>
+<th scope="col">Spielort</th>
+<th scope="col">Gegner</th>
+<th scope="col">Ergebnis</th>
+</tr>
+</thead>
+<tbody id="spiele-herren1">
+<!-- Wird per JS gefüllt -->
+</tbody>
+</table>
+<a class="button button--card" href="https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/mannschaft/3094686/Erwachsene/spielerbilanzen/gesamt" id="link-spieleHerren1" rel="noopener noreferrer" target="_blank">Hier gehts zum Spielplan der 1. Herrenmannschaft</a>
+</div>
+</div><!-- externes JS --></main><div id="footer-container"></div>
 
-		<div class="grid">
-			<div class="box full-width">
-				<h1 class="u-text-center">Herren I</h1>
-			</div>
-			
-			<div class="box">
-				<h2 class="underline">Aufstellung:</h2>
-			
-				<table>
-					<thead>
-						<tr>
-							<th scope="col">Pos.</th>
-							<th scope="col">Name</th>
-							<th scope="col">QTTR</th>
-						</tr>
-					</thead>
-			
-					<tbody
-						id="spieler-mannschaft"
-						data-datei="/assets/data/spielerHerren.json"
-						data-mannschaft="Herren 1"
-					>
-						<tr>
-							<td colspan="3">Spielerliste wird geladen …</td>
-						</tr>
-					</tbody>
-				</table>
-			
-				<br>
-			
-				<p>Mannschaftsführer: Hubert Kraft</p>
-			</div>
-			
-			<div class="box">
-				<h2 class="underline">Tabelle:</h2>
-				<table>
-					<thead>
-						<tr>
-							<td>Rang</td>
-							<td>Mannschaft</td>
-							<td>Partien</td>
-							<td>S</td>
-							<td>U</td>
-							<td>N</td>
-							<td>Spiele</td>
-							<td>+/-</td>
-							<td>Punkte</td>
-						</tr>
-					</thead>
-					<tbody id="tabelle-herren1">
-						<!-- Wird per JS gefüllt -->
-					</tbody>
-				</table>
-				<a id="link-tabelleHerren1" target="_blank" rel="noopener noreferrer" class="button button--card">Hier gehts zur Tabelle der 1. Herrenmannschaft</a>
-			</div>
-			
-			<div class="box full-width">
-				<h2 class="underline">Kompletter Spielplan:</h2>
-				<table>
-					<thead>
-						<tr>
-							<td>Datum</td>
-							<td>Uhrzeit</td>
-							<td>Spielort</td>
-							<td>Gegner</td>
-							<td>Ergebnis</td>
-						</tr>
-					</thead>
-					<tbody id="spiele-herren1">
-						<!-- Wird per JS gefüllt -->
-					</tbody>
-				</table>
-				<a id="link-spieleHerren1" target="_blank" rel="noopener noreferrer" class="button button--card">Hier gehts zum Spielplan der 1. Herrenmannschaft</a>
-			</div>
-		</div>
 
-		<div id="footer-container"></div>
 
-		<!-- externes JS -->
-		<script type="module" src="/assets/js/main.js"></script>
-	</body>
+<script src="/assets/js/main.js" type="module"></script>
+</body>
 </html>

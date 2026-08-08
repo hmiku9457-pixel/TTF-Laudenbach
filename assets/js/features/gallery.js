@@ -1,5 +1,6 @@
 import { fetchJson } from "../core/http.js";
 import { showContainerStatus } from "../core/status.js";
+import { getSafeHttpUrl } from "../utils/safe-url.js";
 import { initAnimations } from "./animations.js";
 
 export async function initHistoricalImages() {
@@ -25,7 +26,6 @@ export async function initHistoricalImages() {
 
         function renderGallery(galleryId) {
             const gallery = galleries.find(item => item.id === galleryId);
-
             if (!gallery) {
                 showContainerStatus(galleryContainer, "Die ausgewählte Galerie wurde nicht gefunden.", "error");
                 return;
@@ -35,10 +35,13 @@ export async function initHistoricalImages() {
             const section = document.createElement("section");
             section.className = "box images-gallery is-active";
             section.dataset.gallery = gallery.id;
+            section.setAttribute("aria-live", "polite");
+
             const title = document.createElement("h3");
             title.className = "u-text-center";
             title.textContent = gallery.title;
             section.appendChild(title);
+
             const masonry = document.createElement("div");
             masonry.className = "masonry-gallery";
             const images = Array.isArray(gallery.images) ? gallery.images : [];
@@ -49,11 +52,19 @@ export async function initHistoricalImages() {
                 empty.textContent = "In dieser Galerie sind noch keine Bilder vorhanden.";
                 masonry.appendChild(empty);
             } else {
-                images.forEach((imagePath, index) => {
+                images.forEach((entry, index) => {
+                    const source = typeof entry === "string" ? entry : entry?.src;
+                    const safeSource = getSafeHttpUrl(source);
+                    if (!safeSource) {
+                        console.warn("Ungültiger Galeriepfad wurde übersprungen:", source);
+                        return;
+                    }
+
                     const image = document.createElement("img");
-                    image.src = imagePath;
-                    image.alt = `${gallery.title} Bild ${index + 1}`;
+                    image.src = safeSource;
+                    image.alt = getImageAlt(entry, gallery.title, index);
                     image.loading = "lazy";
+                    image.decoding = "async";
                     masonry.appendChild(image);
                 });
             }
@@ -61,7 +72,9 @@ export async function initHistoricalImages() {
             section.appendChild(masonry);
             galleryContainer.appendChild(section);
             document.querySelectorAll(".images-event-button").forEach(button => {
-                button.classList.toggle("is-active", button.dataset.target === gallery.id);
+                const active = button.dataset.target === gallery.id;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
             });
             hideLoadingBox(loadingBox);
             initAnimations(section);
@@ -74,7 +87,9 @@ export async function initHistoricalImages() {
             button.className = "images-event-button";
             button.dataset.target = gallery.id;
             button.textContent = gallery.title;
-            button.classList.toggle("is-active", gallery.id === defaultGalleryId);
+            const active = gallery.id === defaultGalleryId;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
             button.addEventListener("click", () => renderGallery(gallery.id));
             eventList.appendChild(button);
         });
@@ -89,6 +104,25 @@ export async function initHistoricalImages() {
         eventList.innerHTML = "";
         hideLoadingBox(loadingBox);
     }
+}
+
+function getImageAlt(entry, galleryTitle, index) {
+    if (entry && typeof entry === "object" && typeof entry.alt === "string" && entry.alt.trim()) {
+        return entry.alt.trim();
+    }
+
+    const source = typeof entry === "string" ? entry : entry?.src;
+    const filename = String(source || "")
+        .split("/")
+        .pop()
+        ?.replace(/\.[a-z0-9]+$/i, "")
+        .replace(/[-_]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    return filename
+        ? `${galleryTitle}: ${decodeURIComponent(filename)}`
+        : `${galleryTitle}, Bild ${index + 1}`;
 }
 
 function hideLoadingBox(loadingBox) {

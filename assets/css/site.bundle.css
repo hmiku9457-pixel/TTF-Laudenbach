@@ -1,0 +1,1392 @@
+/* Automatisch aus assets/css/main.css erzeugt. Nicht direkt bearbeiten. */
+/* Quelle: assets/css/main.css */
+/*
+ * Modularer CSS-Einstiegspunkt für Phase 4.
+ * Quelle für die gebündelte Produktionsdatei site.bundle.css.
+ * Die Importreihenfolge entspricht exakt der bisherigen style.css.
+ */
+/* Quelle: assets/css/base/reset.css */
+/* Reset und globale Basiseinstellungen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 1. RESET & BASIS ==================
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+/* Quelle: assets/css/base/theme.css */
+/* Farben, Abstände und Design-Variablen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 2. THEME (Farben) =================
+   ========================================= */
+
+:root {
+    --bg-main: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-navigation: #020617;
+
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-on-newsSlide: #020617;
+
+    /* Einheitliches Spacing */
+    --space-s: 5px;
+    --space-m: 10px;
+    --space-l: 15px;
+    --space-xl: 20px;
+
+    /* Einheitliche Shadows */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-heavy: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+    /* Farbschema für die Tabelle der Ewigen Rangliste */
+    --bg-table-ewigeTabelle-head: #2c3e50;
+    --bg-table-ewigeTabelle-evenRow: #1e3a5f;
+    --bg-table-ewigeTabelle-oddRow: #1a2e4a;
+    --bg-table-ewigeTabelle-highlight: #38bdf8;
+
+   /* Generelle (Fehler-)Farbcodes */
+   --success: #2e7d32;
+   --warning: #f4c542;
+   --error: #c62828;
+}
+
+/* Quelle: assets/css/layout/header-navigation.css */
+/* Header und Hauptnavigation. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 3. HEADER =========================
+   ========================================= */
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header-container,
+header {
+    position: relative;
+    background: var(--bg-main);
+    text-align: center;
+    padding: var(--space-m);
+}
+
+/* Logo links, Text bleibt zentriert */
+.logo {
+    position: absolute;
+    left: var(--space-l);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 75px;
+}
+
+.header-text {
+    text-align: center;
+}
+
+
+/* =========================================
+   ===== 4. NAVIGATION =====================
+   ========================================= */
+
+nav {
+    background: var(--bg-navigation);
+    text-align: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    padding: var(--space-m);
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* Dropdown Menü */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1001;
+
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-heavy);
+    border-radius: var(--space-m);
+    list-style: none;
+    padding: var(--space-s);
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu li + li {
+    margin-top: 4px;
+}
+
+.submenu a {
+    display: block;
+    padding: var(--space-s) var(--space-l);
+    border-radius: var(--space-s);
+    color: var(--text-main);
+    text-decoration: none;
+
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.submenu a:hover {
+    background: var(--bg-main);
+    transform: translateX(3px); /* leichtes "Reinsliden" */
+}
+
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+
+/* Explizite Steuerung der Untermenüs für Tastatur und Touch */
+.dropdown > a,
+.dropdown > .submenu-toggle {
+    vertical-align: middle;
+}
+
+.submenu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    margin-left: 2px;
+    padding: 0 var(--space-s);
+    border: 1px solid transparent;
+    border-radius: var(--space-s);
+    background: transparent;
+    color: var(--text-main);
+    font: inherit;
+    cursor: pointer;
+}
+
+.submenu-toggle:hover,
+.submenu-toggle:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+}
+
+.submenu-toggle[aria-expanded="true"] span {
+    transform: rotate(180deg);
+}
+
+.submenu-toggle span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.is-open .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: none), (max-width: 768px) {
+    .dropdown:hover .submenu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    .dropdown.is-open .submenu,
+    .dropdown:focus-within .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Quelle: assets/css/layout/grid-boxes.css */
+/* Grid-Layouts und Box-Komponenten. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 5. GRID LAYOUT ====================
+   ========================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-m);
+    padding: var(--space-m) var(--space-xl);
+    align-items: stretch;
+}
+
+.grid-home-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.grid-home-firstLine {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 750px;
+    gap: var(--space-m);
+    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    align-items: stretch;
+}
+
+.grid-home-secondLine {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 500px;
+    gap: var(--space-m);
+    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    align-items: stretch;
+}
+
+/*.sub-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+}*/ /* Erstmal wieder rausgenommen, da ich erstmal einen Workaround nehme */
+
+.full-width {
+    grid-column: 1 / -1;
+    padding: var(--space-m) var(--space-xl);
+}
+
+.grid-button {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-l);
+    padding: var(--space-m) var(--space-xl);
+    margin-top: auto;
+}
+
+
+/* =========================================
+   ===== 6. BOXEN ==========================
+   ========================================= */
+
+.box,
+.team-box {
+    background: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover-Effekt */
+.box:hover,
+.team-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/*.team-box {
+    background: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Fix für Textabstände */
+/*    line-height: 1.6;
+    overflow-wrap: break-word;
+}*/
+
+.team-box ul,
+.team-box ol {
+    padding-left: 1.2em; /* Abstand für Nummerierung/Bullet */
+    margin: 0 0 var(--space-m) 0; /* unten Abstand */
+}
+
+.team-box li {
+    margin-bottom: 0; /* Abstand zwischen Listenelementen */
+}
+
+.column {
+    display: grid;
+    gap: var(--space-m);
+}
+
+/* Quelle: assets/css/components/animations.css */
+/* Grundlegende Animationen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 7. ANIMATION ======================
+   ========================================= */
+
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quelle: assets/css/components/news-slider.css */
+/* News-Slider. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 8. NEWS SLIDER ====================
+   ========================================= */
+
+.news-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--space-m);
+    min-width: 100px;
+    min-height: 250px;
+}
+
+.news-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    background: var(--bg-secondary);
+    padding: var(--space-l);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: opacity 0.6s ease;
+}
+
+.news-slide.active {
+    opacity: 1;
+}
+
+.news-slide img {
+    width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    border-radius: var(--space-m);
+}
+
+.news-slide a {
+    margin-top: auto;
+    padding: 8px 12px;
+    background: var(--accent);
+    border-radius: var(--space-m);
+    text-decoration: none;
+    width: fit-content;
+    color: var(--text-on-newsSlide);
+}
+
+.news-slide a:hover {
+    background: var(--accent-hover);
+}
+
+/* Quelle: assets/css/components/teams.css */
+/* Mannschaftsübersicht. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 9. TEAMS GRID =====================
+   ========================================= */
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    padding: var(--space-m) var(--space-xl);
+}
+
+/* Quelle: assets/css/components/tables.css */
+/* Tabellen und ewige Rangliste. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 10. TABELLEN ======================
+   ========================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-m);
+}
+
+td,
+th {
+    padding: var(--space-m);
+    text-align: left;
+    border-bottom: 1px solid #334155;
+}
+
+th {
+    color: var(--accent);
+}
+
+table tr:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+
+/* =========================================
+   ===== 10.1 TABELLE: EWIGE RANGLISTE =====
+   ========================================= */
+
+.table-ewigeRangliste {
+    width: 100%;
+    max-width: 600px; /* verhindert zu breite Darstellung */
+    margin: 2rem auto; /* zentriert die Tabelle */
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    background-color: var(--bg-table-ewigeTabelle-oddRow);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: var(--space-m);
+    overflow: hidden; /* wichtig für abgerundete Ecken */
+}
+
+/* Tabellenkopf */
+.table-ewigeRangliste thead {
+    background-color: var(--bg-table-ewigeTabelle-head);
+    color: #ffffff;
+}
+
+.table-ewigeRangliste tbody tr {
+    opacity: 1;
+    transform: none;
+}
+
+.js .table-ewigeRangliste tbody tr.will-animate {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.table-ewigeRangliste th {
+    text-align: left;
+    padding: var(--space-m) var(--space-l);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* Tabelleninhalt */
+.table-ewigeRangliste td {
+    padding: var(--space-m) var(--space-l);
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Zebra-Streifen */
+.table-ewigeRangliste tbody tr:nth-child(even) {
+    background-color: var(--bg-table-ewigeTabelle-evenRow);
+}
+
+/* Hover-Effekt */
+.table-ewigeRangliste tbody tr:hover {
+    background-color: var(--bg-table-ewigeTabelle-highlight);
+    transition: background-color 0.2s ease;
+}
+
+/* Spaltenausrichtung */
+.table-ewigeRangliste td:first-child {
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-ewigeRangliste td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+.table-search {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   ==== 10.2 EWIGE RANGLISTE ANIMATION =====
+   ========================================= */
+
+.js .table-ewigeRangliste tbody tr.will-animate.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Quelle: assets/css/components/ui-buttons.css */
+/* UI-Hilfsklassen und Buttons. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 11. UI ELEMENTE ===================
+   ========================================= */
+
+hr {
+    border: 0;
+    height: 2px;
+    background: var(--accent);
+    margin: var(--space-xl) 0;
+}
+
+footer {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-muted);
+}
+
+.underline {
+    border-bottom: 2px solid currentColor;
+    display: inline-block;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+
+/* =========================================
+   ===== 12. BUTTONS =======================
+   ========================================= */
+
+.button {
+    display: inline-block;
+    padding: var(--space-m) var(--space-l);
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+    background: var(--bg-main);
+}
+
+.button--card {
+    display: block;
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.button img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.button:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-light);
+}
+
+/* Quelle: assets/css/components/maps-consent.css */
+/* Karten und Einwilligung für externe Inhalte. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 13. MAP DESIGN ====================
+   ========================================= */
+
+.map-container {
+    margin-top: var(--space-m);
+    border-radius: var(--space-m);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    display: block;
+}
+
+
+/* =========================================
+   ===== 14. BUTTON FUER DSGVO =============
+   ========================================= */
+
+.iframe-consent {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--bg-secondary);
+    text-align: center;
+    padding: var(--space-m);
+}
+
+.iframe-consent button {
+    margin-top: var(--space-s);
+}
+
+/* Quelle: assets/css/layout/footer.css */
+/* Footer. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 15. FOOTER ========================
+   ========================================= */
+
+.footer {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(5, 1fr);
+    padding: var(--space-xl);
+    color: var(--text-muted);
+}
+
+.footer-links {
+    margin-top: var(--space-m);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-l);
+}
+
+.footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--accent);
+}
+
+/* Quelle: assets/css/components/contact-form.css */
+/* Kontaktformular. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 16. KONTAKTFORMULAR ===============
+   ========================================= */
+
+.contact-section {
+    max-width: 600px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-m);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+
+    background: var(--bg-secondary);
+    padding: var(--space-xl);
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+}
+
+.contact-form h1,
+.contact-form h2 {
+    text-align: center;
+}
+
+.contact-submit-button.is-sending {
+    background-color: var(--warning);
+    color: #222;
+}
+
+.contact-submit-button.is-success {
+    background-color: var(--success);
+    color: white;
+}
+
+.contact-submit-button.is-error {
+    background-color: var(--error);
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--space-m);
+    border: 1px solid #334155;
+    border-radius: var(--space-s);
+    font-size: 1rem;
+
+    background: var(--bg-main);
+    color: var(--text-main);
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.form-consent {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-s);
+}
+
+.form-consent input {
+    margin-top: 3px;
+}
+
+/* Button nutzt dein bestehendes System */
+.contact-form button {
+    margin-top: var(--space-s);
+}
+
+.form-status {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-height: 1.2em;
+}
+
+/* Success / Error Zustände (optional via JS nutzbar) */
+.form-status.success {
+    color: #22c55e;
+}
+
+.form-status.error {
+    color: #ef4444;
+}
+
+/* Quelle: assets/css/responsive.css */
+/* Responsive Anpassungen. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 17. RESPONSIVE / MOBILE ===========
+   ========================================= */
+
+/* Große Tablets / kleinere Laptops */
+@media (max-width: 1024px) {
+    .grid-home-firstLine,
+    .grid-home-secondLine {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu {
+        gap: var(--space-m);
+    }
+
+    .menu a {
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablet / kleine Bildschirme */
+@media (max-width: 768px) {
+    #header-container,
+    header {
+        padding: var(--space-l) var(--space-m);
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        height: 60px;
+        margin-bottom: var(--space-s);
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-s) var(--space-m);
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        white-space: nowrap;
+        box-shadow: var(--shadow-heavy);
+        z-index: 2000;
+    }
+
+    .dropdown:hover .submenu,
+    .dropdown:focus-within .submenu {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .grid,
+    .grid-home-firstLine,
+    .grid-home-secondLine,
+    .full-width,
+    .grid-button,
+    .teams-grid {
+        grid-template-columns: 1fr;
+        padding-left: var(--space-m);
+        padding-right: var(--space-m);
+    }
+
+    .news-slider {
+        min-height: 320px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: var(--space-m);
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+      
+   .content.images-page {
+       grid-template-columns: 1fr;
+   }
+   
+   .images-event-list {
+       position: static;
+       order: -1;
+   }
+   
+   .masonry-gallery {
+       column-count: 2;
+   }
+}
+
+/* Kleine Handys */
+@media (max-width: 600px) {
+    .table-ewigeRangliste {
+        /*font-size: 0.85rem;*/
+    }
+
+    .table-ewigeRangliste th,
+    .table-ewigeRangliste td {
+        padding: var(--space-s) var(--space-m);
+    }
+
+    .table-search {
+        max-width: 100%;
+    }
+}
+
+/* Sehr kleine Handys */
+@media (max-width: 480px) {
+    body {
+        /*font-size: 0.95rem;*/
+    }
+
+    .box,
+    .team-box,
+    .contact-form {
+        padding: var(--space-l);
+    }
+
+    .grid-button {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    td,
+    th {
+        padding: var(--space-s);
+    }
+
+    .button--card {
+        padding: var(--space-l);
+    }
+
+    .map-container iframe {
+        height: 220px;
+    }
+
+   .masonry-gallery {
+       column-count: 1;
+   }
+}
+
+/* Quelle: assets/css/components/gallery.css */
+/* Historische Fotos und Galerie. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== 18. HISTORISCHE FOTOS =============
+   ========================================= */
+
+.content.images-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-xl);
+    padding: var(--space-m) var(--space-xl);
+    align-items: start;
+}
+
+.images-content {
+    min-width: 0;
+}
+
+.images-loading {
+    margin-top: 0;
+}
+
+.images-gallery h3 {
+    margin-bottom: var(--space-l);
+}
+
+.images-event-list {
+    position: sticky;
+    top: 140px;
+}
+
+.images-event-list h2 {
+    margin-bottom: var(--space-l);
+}
+
+.images-event-button {
+    width: 100%;
+    display: block;
+
+    margin-bottom: var(--space-s);
+    padding: var(--space-m);
+
+    border: none;
+    border-radius: var(--space-m);
+
+    background: var(--bg-main);
+    color: var(--text-main);
+
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    box-shadow: var(--shadow-light);
+
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.images-event-button:hover {
+    background: var(--accent-hover);
+    color: var(--text-on-newsSlide);
+    transform: translateX(3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.images-event-button.is-active {
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+}
+
+.images-event-button:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.masonry-gallery {
+    column-count: 3;
+    column-gap: var(--space-m);
+}
+
+.masonry-gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: var(--space-m);
+
+    border-radius: var(--space-m);
+    box-shadow: var(--shadow-light);
+
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.masonry-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-heavy);
+    cursor: pointer;
+}
+
+/* Quelle: assets/css/components/robustness.css */
+/* Phase-1-Regeln für Status und robuste Zustände. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== PHASE 1: ROBUSTHEIT ===============
+   Diesen Block am Ende der style.css ergänzen.
+   ========================================= */
+
+/* Einheitliche sichtbare Lade-/Fehlerzustände */
+.dynamic-status {
+    width: 100%;
+    padding: var(--space-l);
+    border-radius: var(--space-m);
+    text-align: center;
+}
+
+.dynamic-status--error {
+    color: var(--text-main);
+    background: rgba(198, 40, 40, 0.18);
+    border: 1px solid var(--error);
+}
+
+.dynamic-status--empty {
+    color: var(--text-main);
+    background: rgba(100, 116, 139, 0.18);
+    border: 1px solid var(--text-muted);
+}
+
+.news-slider > .dynamic-status {
+    min-height: 250px;
+    display: grid;
+    place-items: center;
+}
+
+/* Fehlermeldungen innerhalb dynamischer Tabellen */
+.table-status-row td {
+    text-align: center;
+    font-weight: 500;
+}
+
+.table-status-row--error td {
+    color: var(--text-main);
+    background: rgba(198, 40, 40, 0.18);
+}
+
+.table-status-row--empty td {
+    color: var(--text-muted);
+}
+
+/* Horizontal scrollbar für breite Tabellen */
+.table-scroll {
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--space-m);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll > table {
+    margin-top: 0;
+}
+
+.table-scroll--wide > table {
+    min-width: 700px;
+}
+
+.table-scroll--wide:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--space-s);
+}
+
+/* Nicht verfügbare dynamische Links */
+a.is-disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media (max-width: 480px) {
+    .table-scroll--wide > table {
+        font-size: 0.85rem;
+    }
+}
+
+/* Quelle: assets/css/components/accessibility.css */
+/* Phase-2-Regeln für Barrierefreiheit. Aus style.css unverändert ausgelagert. */
+
+/* =========================================
+   ===== PHASE 2: BARRIEREFREIHEIT =========
+   Diesen Block nach der Phase-1-Ergänzung
+   am Ende der style.css ergänzen.
+   ========================================= */
+
+/* Tastatur-Navigation direkt zum Hauptinhalt */
+.skip-link {
+    position: fixed;
+    top: var(--space-m);
+    left: var(--space-m);
+    z-index: 5000;
+    padding: var(--space-m) var(--space-l);
+    border-radius: var(--space-s);
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(calc(-100% - 30px));
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid var(--text-main);
+    outline-offset: 2px;
+}
+
+#main-content:focus {
+    outline: none;
+}
+
+/* Semantische, aber visuell nicht benötigte Seitenüberschrift */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Der Vereinsname ist ein Startseiten-Link statt einer zweiten H1. */
+.site-title {
+    display: inline-block;
+    color: var(--text-main);
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.site-title:hover {
+    color: var(--accent);
+}
+
+.site-title:focus-visible,
+.menu a:focus-visible,
+.footer a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.menu a[aria-current="page"] {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+/* Bedienbarer News-Slider */
+.news-slider--controlled .news-slide {
+    padding-bottom: 72px;
+    pointer-events: none;
+}
+
+.news-slider--controlled .news-slide.active {
+    pointer-events: auto;
+}
+
+.news-slider__controls {
+    position: absolute;
+    right: var(--space-m);
+    bottom: var(--space-m);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-s);
+    border-radius: var(--space-m);
+    background: rgba(2, 6, 23, 0.9);
+    box-shadow: var(--shadow-light);
+}
+
+.news-slider__button {
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0 var(--space-m);
+    border: 1px solid var(--accent);
+    border-radius: var(--space-s);
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.news-slider__button:hover {
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+}
+
+.news-slider__button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.news-slider__button--toggle {
+    min-width: 100px;
+}
+
+.news-slider__status {
+    min-width: 48px;
+    color: var(--text-main);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+/* Widerrufsmöglichkeit für freigegebene externe Inhalte */
+.iframe-embed__controls {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding: var(--space-m);
+    background: var(--bg-navigation);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.iframe-revoke-button {
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--accent);
+    border-radius: var(--space-s);
+    background: transparent;
+    color: var(--text-main);
+    font: inherit;
+    cursor: pointer;
+}
+
+.iframe-revoke-button:hover,
+.iframe-revoke-button:focus-visible {
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+}
+
+.iframe-revoke-button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Nutzer mit reduzierter Bewegung erhalten keine Einflug- oder
+   Überblendanimation. Der Slider startet zusätzlich pausiert. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .animate,
+    .table-ewigeRangliste tbody tr,
+    .table-ewigeRangliste tbody tr.animate {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .news-slide,
+    .submenu,
+    .box,
+    .team-box,
+    .button,
+    .skip-link {
+        transition: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.65em;
+    }
+
+    .news-slider__controls {
+        right: var(--space-s);
+        bottom: var(--space-s);
+        left: var(--space-s);
+        justify-content: center;
+    }
+
+    .news-slider__button {
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .news-slider__button--toggle {
+        min-width: 88px;
+    }
+
+    .iframe-embed__controls {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+/* Zustände der Galerie sind nicht nur farblich erkennbar. */
+.images-event-button[aria-pressed="true"] {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Tabellenbeschriftungen können semantisch vorhanden und visuell kompakt bleiben. */
+caption.visually-hidden {
+    position: absolute !important;
+}

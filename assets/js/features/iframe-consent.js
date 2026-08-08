@@ -3,12 +3,12 @@ import {
     removeStorageValue,
     setStorageValue
 } from "../core/storage.js";
+import { getSafeEmbedUrl } from "../utils/safe-url.js";
 
 const iframePlaceholders = new WeakMap();
 
 export function initIframeConsent() {
     const containers = Array.from(document.querySelectorAll(".iframe-consent"));
-
     if (containers.length === 0) {
         return;
     }
@@ -17,13 +17,15 @@ export function initIframeConsent() {
 
     containers.forEach(container => {
         rememberIframePlaceholder(container);
-        const src = container.dataset.src;
+        bindConsentButton(container);
+        const safeSrc = getSafeEmbedUrl(container.dataset.src);
 
-        if (!src) {
+        if (!safeSrc) {
+            markInvalidEmbed(container);
             return;
         }
 
-        const provider = getIframeProvider(container, src);
+        const provider = getIframeProvider(container, safeSrc);
         container.dataset.providerId = provider.id;
 
         if (legacyConsent) {
@@ -31,26 +33,33 @@ export function initIframeConsent() {
         }
 
         if (getStorageValue(getIframeStorageKey(provider.id)) === "true") {
-            createIframe(container, src);
+            createIframe(container, safeSrc);
         }
     });
 
     if (legacyConsent) {
         removeStorageValue("externalContentAccepted");
     }
+}
 
-    window.loadIframe = button => {
-        const container = button.closest(".iframe-consent");
-        const src = container?.dataset.src;
+function bindConsentButton(container) {
+    const button = container.querySelector("[data-iframe-consent-load]");
+    if (!button || button.dataset.listenerBound === "true") {
+        return;
+    }
 
-        if (!container || !src) {
+    button.dataset.listenerBound = "true";
+    button.addEventListener("click", () => {
+        const safeSrc = getSafeEmbedUrl(container.dataset.src);
+        if (!safeSrc) {
+            markInvalidEmbed(container);
             return;
         }
 
-        const provider = getIframeProvider(container, src);
+        const provider = getIframeProvider(container, safeSrc);
         setStorageValue(getIframeStorageKey(provider.id), "true");
         loadAcceptedIframes(provider.id);
-    };
+    });
 }
 
 function rememberIframePlaceholder(container) {
@@ -60,14 +69,7 @@ function rememberIframePlaceholder(container) {
 }
 
 function getIframeProvider(container, src) {
-    let hostname = "externer-inhalt";
-
-    try {
-        hostname = new URL(src, window.location.href).hostname.toLowerCase();
-    } catch (error) {
-        console.warn("Die Iframe-URL konnte nicht ausgewertet werden:", src, error);
-    }
-
+    const hostname = new URL(src).hostname.toLowerCase();
     const explicitProvider = container.dataset.provider?.trim();
 
     if (explicitProvider) {
@@ -80,7 +82,6 @@ function getIframeProvider(container, src) {
     if (hostname.includes("google")) {
         return { id: "google-maps", name: "Google Maps" };
     }
-
     if (hostname.includes("youtube") || hostname.includes("youtu.be")) {
         return { id: "youtube", name: "YouTube" };
     }
@@ -103,10 +104,7 @@ function getIframeTitle(container, provider) {
     const section = container.closest("section, .box, .team-box");
     const heading = section?.querySelector("h1, h2, h3, h4");
     const context = heading?.textContent?.trim();
-
-    return context
-        ? `${provider.name} – ${context}`
-        : `${provider.name} – externer Inhalt`;
+    return context ? `${provider.name} – ${context}` : `${provider.name} – externer Inhalt`;
 }
 
 function createIframe(container, src) {
@@ -119,7 +117,7 @@ function createIframe(container, src) {
     iframe.style.height = "250px";
     iframe.style.border = "0";
     iframe.loading = "lazy";
-    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.referrerPolicy = "no-referrer";
     iframe.allowFullscreen = true;
 
     const controls = document.createElement("div");
@@ -141,31 +139,37 @@ function createIframe(container, src) {
 
 function restoreIframePlaceholder(container) {
     const placeholderHtml = iframePlaceholders.get(container);
-
     if (typeof placeholderHtml === "string") {
         container.innerHTML = placeholderHtml;
         delete container.dataset.iframeLoaded;
+        bindConsentButton(container);
     }
 }
 
 function loadAcceptedIframes(providerId) {
     document.querySelectorAll(".iframe-consent").forEach(container => {
-        const src = container.dataset.src;
-
-        if (src && getIframeProvider(container, src).id === providerId) {
-            createIframe(container, src);
+        const safeSrc = getSafeEmbedUrl(container.dataset.src);
+        if (safeSrc && getIframeProvider(container, safeSrc).id === providerId) {
+            createIframe(container, safeSrc);
         }
     });
 }
 
 function revokeIframeConsent(providerId) {
     removeStorageValue(getIframeStorageKey(providerId));
-
     document.querySelectorAll(".iframe-consent").forEach(container => {
-        const src = container.dataset.src;
-
-        if (src && getIframeProvider(container, src).id === providerId) {
+        const safeSrc = getSafeEmbedUrl(container.dataset.src);
+        if (safeSrc && getIframeProvider(container, safeSrc).id === providerId) {
             restoreIframePlaceholder(container);
         }
     });
+}
+
+function markInvalidEmbed(container) {
+    container.innerHTML = "";
+    const status = document.createElement("p");
+    status.className = "dynamic-status dynamic-status--error";
+    status.setAttribute("role", "alert");
+    status.textContent = "Der externe Inhalt konnte aus Sicherheitsgründen nicht geladen werden.";
+    container.appendChild(status);
 }

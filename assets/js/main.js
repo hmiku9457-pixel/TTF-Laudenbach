@@ -18,7 +18,10 @@ import {
 } from "./features/tables.js";
 import { initThemeSwitcher } from "./features/theme-switcher.js";
 
+document.documentElement.classList.add("js");
+
 async function initializePage() {
+    // Fallbacks bleiben erhalten, die reguläre Struktur steht aber statisch im HTML.
     initPageStructure();
     initTableSemantics();
     initTableScrollContainers();

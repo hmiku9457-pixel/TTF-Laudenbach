@@ -21,6 +21,7 @@
     box-shadow: var(--shadow-light);
 }
 
+.contact-form h1,
 .contact-form h2 {
     text-align: center;
 }

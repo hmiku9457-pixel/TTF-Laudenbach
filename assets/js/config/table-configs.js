@@ -6,20 +6,24 @@ import {
     getSpielort
 } from "../utils/game-formatters.js";
 
+const text = value => value == null ? "" : String(value);
+
 function createGameConfig(targetId, url) {
     return {
         targetId,
         url,
         cells: row => {
-            const istHeimspiel = row.heim.includes("Laudenbach");
-            const gegner = istHeimspiel ? row.gast : row.heim;
+            const heim = text(row?.heim);
+            const gast = text(row?.gast);
+            const istHeimspiel = heim.includes("Laudenbach");
+            const gegner = istHeimspiel ? gast : heim;
 
             return [
-                row.datum,
-                formatUhrzeit(row.uhrzeit),
-                getSpielort(row.spielort, istHeimspiel),
+                text(row?.datum),
+                formatUhrzeit(text(row?.uhrzeit)),
+                getSpielort(text(row?.spielort), istHeimspiel),
                 gegner,
-                formatErgebnis(row.heim, row.gast, row.ergebnis)
+                formatErgebnis(heim, gast, text(row?.ergebnis))
             ];
         },
         emptyMessage: "Für diese Mannschaft sind aktuell keine Spiele eingetragen.",
@@ -32,15 +36,15 @@ function createLeagueTableConfig(targetId, url) {
         targetId,
         url,
         cells: row => [
-            row.rang,
-            row.mannschaft,
-            row.partien,
-            row.siege,
-            row.unentschieden,
-            row.niederlagen,
-            row.spiele,
-            row.spieleDifferenz,
-            row.punkte
+            text(row?.rang),
+            text(row?.mannschaft),
+            text(row?.partien),
+            text(row?.siege),
+            text(row?.unentschieden),
+            text(row?.niederlagen),
+            text(row?.spiele),
+            text(row?.spieleDifferenz),
+            text(row?.punkte)
         ],
         emptyMessage: "Für diese Liga sind aktuell keine Tabellendaten vorhanden.",
         errorMessage: "Die Ligatabelle konnte nicht geladen werden."
@@ -52,16 +56,18 @@ export const spieleConfigs = [
         targetId: "spiele-startseite",
         url: "/assets/data/spieleStartseite.json",
         cells: spiel => {
-            const istHeimspiel = spiel.heim.includes("Laudenbach");
-            const gegner = istHeimspiel ? spiel.gast : spiel.heim;
+            const heim = text(spiel?.heim);
+            const gast = text(spiel?.gast);
+            const istHeimspiel = heim.includes("Laudenbach");
+            const gegner = istHeimspiel ? gast : heim;
 
             return [
-                spiel.datum,
-                formatUhrzeit(spiel.uhrzeit),
-                getMannschaft(spiel.heim, spiel.gast, spiel.klasse),
+                text(spiel?.datum),
+                formatUhrzeit(text(spiel?.uhrzeit)),
+                getMannschaft(heim, gast, text(spiel?.klasse)),
                 gegner,
-                getSpielort(spiel.spielort, istHeimspiel),
-                getErgebnis(spiel)
+                getSpielort(text(spiel?.spielort), istHeimspiel),
+                getErgebnis({ ...spiel, heim, gast })
             ];
         },
         emptyMessage: "Aktuell stehen keine Spiele an.",

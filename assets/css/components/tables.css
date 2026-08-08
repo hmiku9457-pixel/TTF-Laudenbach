@@ -50,6 +50,11 @@ table tr:hover {
 }
 
 .table-ewigeRangliste tbody tr {
+    opacity: 1;
+    transform: none;
+}
+
+.js .table-ewigeRangliste tbody tr.will-animate {
     opacity: 0;
     transform: translateY(20px);
 }
@@ -104,10 +109,8 @@ table tr:hover {
    ==== 10.2 EWIGE RANGLISTE ANIMATION =====
    ========================================= */
 
-.table-ewigeRangliste tbody tr.animate {
-    opacity: 0; /* Start unsichtbar */
-    transform: translateY(40px); /* Start leicht nach unten verschoben */
-    animation: fadeInUp 0.6s ease forwards; /* Animation wie bei Boxen */
+.js .table-ewigeRangliste tbody tr.will-animate.animate {
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 

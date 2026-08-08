@@ -115,3 +115,62 @@ nav {
 }
 
 
+
+/* Explizite Steuerung der Untermenüs für Tastatur und Touch */
+.dropdown > a,
+.dropdown > .submenu-toggle {
+    vertical-align: middle;
+}
+
+.submenu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    margin-left: 2px;
+    padding: 0 var(--space-s);
+    border: 1px solid transparent;
+    border-radius: var(--space-s);
+    background: transparent;
+    color: var(--text-main);
+    font: inherit;
+    cursor: pointer;
+}
+
+.submenu-toggle:hover,
+.submenu-toggle:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+}
+
+.submenu-toggle[aria-expanded="true"] span {
+    transform: rotate(180deg);
+}
+
+.submenu-toggle span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.is-open .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: none), (max-width: 768px) {
+    .dropdown:hover .submenu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    .dropdown.is-open .submenu,
+    .dropdown:focus-within .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+}

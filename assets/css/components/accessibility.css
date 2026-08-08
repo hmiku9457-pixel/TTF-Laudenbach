@@ -219,3 +219,14 @@
         text-align: center;
     }
 }
+
+/* Zustände der Galerie sind nicht nur farblich erkennbar. */
+.images-event-button[aria-pressed="true"] {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Tabellenbeschriftungen können semantisch vorhanden und visuell kompakt bleiben. */
+caption.visually-hidden {
+    position: absolute !important;
+}
