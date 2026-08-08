@@ -1,0 +1,75 @@
+/* Korrektur der kompakten Tabellenköpfe auf schmalen Bildschirmen. */
+
+@media (max-width: 768px) {
+    /*
+     * ui-polish.css setzte thead zeitweise auf display: table.
+     * Dadurch entstand für den Kopf ein eigener Tabellenkontext mit
+     * unabhängig berechneten Spaltenbreiten. Kopf und Datenbereich
+     * verwenden nun wieder denselben Tabellenkontext.
+     */
+    table.table-compact-mobile {
+        display: table;
+        width: 100%;
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    table.table-compact-mobile > thead {
+        display: table-header-group !important;
+        width: auto !important;
+        height: auto;
+        position: static;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    table.table-compact-mobile > thead > tr {
+        display: table-row !important;
+        width: auto !important;
+    }
+
+    table.table-compact-mobile > tbody {
+        display: table-row-group !important;
+        width: auto !important;
+    }
+
+    table.table-compact-mobile > tbody > tr {
+        display: table-row !important;
+        width: auto !important;
+    }
+
+    table.table-compact-mobile > thead th,
+    table.table-compact-mobile > tbody td {
+        display: table-cell;
+        min-width: 0;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    table.table-compact-mobile > thead th {
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+
+    /*
+     * Die Scroll-Hülle soll bei den bewusst kompakten Tabellen nicht
+     * auf eine intrinsische Inhaltsbreite schrumpfen.
+     */
+    .table-scroll--compact,
+    .table-scroll--compact > table.table-compact-mobile {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    table.table-compact-mobile > thead th {
+        font-size: clamp(0.64rem, 2.65vw, 0.74rem);
+        letter-spacing: 0;
+    }
+}
