@@ -1,0 +1,83 @@
+/* Konsolidierte foundation-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
+:root {
+    --link-visited: #a5b4fc;
+    --link-visited-hover: #c7d2fe;
+}
+html,
+body {
+    max-width: 100%;
+}
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited {
+    color: var(--link-visited);
+}
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:hover,
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:focus-visible {
+    color: var(--link-visited-hover);
+}
+
+/* Quelle: ui-polish.css */
+@media (max-width: 768px) {
+    .responsive-label--mobile,
+        .responsive-value--mobile {
+            display: inline;
+        }
+}
+
+/* Quelle: ui-final.css */
+@keyframes rankingReverseFade {
+    from {
+            opacity: 0.72;
+            transform: translateY(2px);
+        }
+    to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+}
+
+/* Sichtbarer, klar priorisierter Seiteneinstieg. */
+.page-heading {
+    margin: 0 0 var(--space-l);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.home-intro {
+    margin: var(--space-l) var(--space-xl) 0;
+    padding: clamp(var(--space-l), 3vw, var(--space-xxl));
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: var(--space-m);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.38));
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.home-intro .page-heading {
+    margin-bottom: var(--space-s);
+}
+
+.home-intro__lead {
+    max-width: 68ch;
+    margin: 0 auto var(--space-l);
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.home-intro__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-m);
+}
+
+@media (max-width: 768px) {
+    .home-intro {
+        margin: var(--space-m) var(--space-m) 0;
+    }
+
+    .home-intro__actions > * {
+        width: 100%;
+    }
+}

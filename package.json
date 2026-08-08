@@ -1,0 +1,12 @@
+{
+  "name": "ttf-laudenbach-site-quality",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest"
+  }
+}

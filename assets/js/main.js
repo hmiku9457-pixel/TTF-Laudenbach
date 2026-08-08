@@ -1,69 +1,78 @@
-import { loadComponent } from "./core/components.js";
 import {
     initHeaderAccessibility,
     initPageStructure,
     initTableSemantics
 } from "./core/page-structure.js";
-import { initAnimationObserver, initAnimations } from "./features/animations.js";
-import { initContactForm } from "./features/contact-form.js";
-import { initHistoricalImages } from "./features/gallery.js";
-import { initIframeConsent } from "./features/iframe-consent.js";
-import { loadLinks } from "./features/links.js";
-import { initNewsSlider } from "./features/news-slider.js";
-import { initSpielerliste } from "./features/player-list.js";
-import {
-    initTableScrollContainers,
-    initTableSearch,
-    loadAllTables
-} from "./features/tables.js";
-import { initThemeSwitcher } from "./features/theme-switcher.js";
 
 document.documentElement.classList.add("js");
 
+const has = selector => Boolean(document.querySelector(selector));
+
+async function loadFeature(path, initializer, ...args) {
+    const module = await import(path);
+    const fn = module[initializer];
+    if (typeof fn !== "function") {
+        throw new TypeError(`${initializer} wurde in ${path} nicht gefunden.`);
+    }
+    return fn(...args);
+}
+
 async function initializePage() {
-    // Fallbacks bleiben erhalten, die reguläre Struktur steht aber statisch im HTML.
     initPageStructure();
+    initHeaderAccessibility();
     initTableSemantics();
-    initTableScrollContainers();
-    initTableSearch();
-    initIframeConsent();
-    initContactForm();
-    initAnimations();
-    initAnimationObserver([
-        initTableSemantics,
-        initTableScrollContainers
-    ]);
 
-    const [headerLoaded] = await Promise.all([
-        loadComponent(
-            "header-container",
-            "/components/header.html",
-            "Die Navigation konnte nicht geladen werden."
-        ),
-        loadComponent(
-            "footer-container",
-            "/components/footer.html",
-            "Der Seitenfuß konnte nicht geladen werden."
-        )
-    ]);
+    const tasks = [];
+    let tablesModule = null;
 
-    if (headerLoaded) {
-        initThemeSwitcher();
-        initHeaderAccessibility();
+    if (has("table")) {
+        tablesModule = await import("./features/tables.js");
+        tablesModule.initTableScrollContainers();
+        tablesModule.initTableSearch();
+        tasks.push(tablesModule.loadAllTables());
     }
 
-    await loadLinks();
+    if (has("#themeSwitcher")) {
+        tasks.push(loadFeature("./features/theme-switcher.js", "initThemeSwitcher"));
+    }
+    if (has(".iframe-consent")) {
+        tasks.push(loadFeature("./features/iframe-consent.js", "initIframeConsent"));
+    }
+    if (has("#contactForm")) {
+        tasks.push(loadFeature("./features/contact-form.js", "initContactForm"));
+    }
+    if (has(".news-slider")) {
+        tasks.push(loadFeature("./features/news-slider.js", "initNewsSlider"));
+    }
+    if (has("#images-gallery-container, #images-event-list")) {
+        tasks.push(loadFeature("./features/gallery.js", "initHistoricalImages"));
+    }
+    if (has("#spieler-mannschaft")) {
+        tasks.push(loadFeature("./features/player-list.js", "initSpielerliste"));
+    }
+    if (has('[id^="gruppe-"], [id^="link-tabelle"], [id^="link-spiele"], [id^="link-sponsor"]')) {
+        tasks.push(loadFeature("./features/links.js", "loadLinks"));
+    }
 
-    await Promise.allSettled([
-        initNewsSlider(),
-        loadAllTables(),
-        initHistoricalImages(),
-        initSpielerliste()
-    ]);
+    const needsAnimations = has(".box, .team-box, .news-slider, .button, .table-ewigeRangliste");
+    let animationsModule = null;
+    if (needsAnimations) {
+        animationsModule = await import("./features/animations.js");
+        animationsModule.initAnimations();
+        animationsModule.initAnimationObserver([
+            initTableSemantics,
+            root => tablesModule?.initTableScrollContainers(root)
+        ]);
+    }
+
+    const results = await Promise.allSettled(tasks);
+    results.filter(result => result.status === "rejected").forEach(result => {
+        console.error("Feature konnte nicht initialisiert werden:", result.reason);
+    });
 
     initTableSemantics();
-    initTableScrollContainers();
-    initAnimations();
+    tablesModule?.initTableScrollContainers();
+    animationsModule?.initAnimations();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

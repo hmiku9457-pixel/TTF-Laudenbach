@@ -20,7 +20,9 @@
 @import url("./components/gallery.css");
 @import url("./components/robustness.css");
 @import url("./components/accessibility.css");
-@import url("./components/ui-fixes.css");
-@import url("./components/ui-polish.css");
-@import url("./components/ui-final.css");
-@import url("./components/table-header-fix.css");
+@import url("./consolidated/foundation.css");
+@import url("./consolidated/navigation.css");
+@import url("./consolidated/contact.css");
+@import url("./consolidated/news.css");
+@import url("./consolidated/gallery.css");
+@import url("./consolidated/tables.css");

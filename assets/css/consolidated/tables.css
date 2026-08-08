@@ -1,0 +1,525 @@
+/* Konsolidierte tables-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
+table thead th {
+    color: var(--accent);
+}
+table tbody th {
+    color: var(--text-main);
+    font-weight: 400;
+}
+table.table--emphasis-first-column tbody th {
+    color: var(--accent);
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .table-scroll--cards {
+            overflow: visible;
+            overscroll-behavior: auto;
+        }
+    .table-scroll--wide > table.table-mobile-cards {
+            min-width: 0;
+        }
+    table.table-mobile-cards,
+        table.table-mobile-cards tbody {
+            display: block;
+            width: 100%;
+        }
+    table.table-mobile-cards thead {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    table.table-mobile-cards tbody {
+            display: grid;
+            gap: var(--space-m);
+        }
+    table.table-mobile-cards tbody tr {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 var(--space-m);
+            padding: var(--space-m);
+            border: 1px solid #334155;
+            border-radius: var(--space-m);
+            background: rgba(15, 23, 42, 0.42);
+            box-shadow: var(--shadow-light);
+        }
+    table.table-mobile-cards tbody tr:hover {
+            background: rgba(56, 189, 248, 0.08);
+        }
+    table.table-mobile-cards tbody td {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: var(--space-m);
+            min-width: 0;
+            padding: 0.42rem 0;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.72);
+            overflow-wrap: anywhere;
+            text-align: right;
+        }
+    table.table-mobile-cards tbody td::before {
+            content: attr(data-label);
+            flex: 0 0 auto;
+            color: var(--accent);
+            font-weight: 700;
+            text-align: left;
+        }
+    table.table-mobile-cards tbody td:last-child {
+            border-bottom: 0;
+        }
+    table.table-mobile-cards--next-games tbody td:nth-child(n + 3),
+        table.table-mobile-cards--schedule tbody td:nth-child(n + 3),
+        table.table-mobile-cards--league tbody td:nth-child(1),
+        table.table-mobile-cards--league tbody td:nth-child(2) {
+            grid-column: 1 / -1;
+        }
+    table.table-mobile-cards--league tbody td:nth-child(n + 3) {
+            grid-column: auto;
+        }
+    table.table-mobile-cards .table-status-row {
+            display: block;
+        }
+    table.table-mobile-cards .table-status-row td {
+            display: block;
+            grid-column: 1 / -1;
+            text-align: center;
+            border: 0;
+        }
+    table.table-mobile-cards .table-status-row td::before {
+            content: none;
+        }
+}
+@media (max-width: 480px) {
+    table.table-mobile-cards tbody tr {
+            grid-template-columns: 1fr;
+        }
+    table.table-mobile-cards tbody td,
+        table.table-mobile-cards--league tbody td:nth-child(n + 3) {
+            grid-column: 1;
+        }
+}
+
+/* Quelle: ui-polish.css */
+table.table--emphasis-first-column tbody th {
+    color: var(--text-main);
+    font-weight: 600;
+}
+.responsive-label--mobile,
+.responsive-value--mobile,
+.table-mobile-only,
+.venue-compact {
+    display: none;
+}
+.table-scroll--compact {
+    overflow: visible;
+    overscroll-behavior: auto;
+}
+.venue-compact {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.venue-badge {
+    display: inline-grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: help;
+}
+.venue-badge--away {
+    border-color: #94a3b8;
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+}
+.venue-tooltip {
+    position: absolute;
+    z-index: 4300;
+    right: 0;
+    bottom: calc(100% + 0.5rem);
+    width: max-content;
+    max-width: min(250px, 76vw);
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #475569;
+    border-radius: 0.5rem;
+    background: #020617;
+    color: #e2e8f0;
+    box-shadow: var(--shadow-light);
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: left;
+    white-space: normal;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.25rem);
+    transition:
+        opacity 0.16s ease,
+        transform 0.16s ease,
+        visibility 0.16s ease;
+}
+.venue-compact:hover .venue-tooltip,
+.venue-compact:focus-within .venue-tooltip,
+.venue-compact.is-open .venue-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+    table.table-compact-mobile,
+        table.table-compact-mobile thead,
+        table.table-compact-mobile tbody {
+            display: table;
+            width: 100%;
+        }
+    table.table-compact-mobile {
+            min-width: 0;
+            table-layout: fixed;
+            font-size: clamp(0.68rem, 2.25vw, 0.82rem);
+        }
+    table.table-compact-mobile thead {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+    table.table-compact-mobile tbody {
+            display: table-row-group;
+        }
+    table.table-compact-mobile tbody tr {
+            display: table-row;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+    table.table-compact-mobile tbody td,
+        table.table-compact-mobile thead th {
+            display: table-cell;
+            min-width: 0;
+            padding: 0.55rem 0.25rem;
+            overflow-wrap: anywhere;
+            hyphens: auto;
+            vertical-align: middle;
+        }
+    table.table-compact-mobile tbody td::before {
+            content: none;
+        }
+    .responsive-label--desktop,
+        .responsive-value--desktop,
+        .venue-full {
+            display: none;
+        }
+    .venue-compact {
+            display: inline-flex;
+        }
+    table.table-compact-mobile--league .table-mobile-only {
+            display: table-cell;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(4),
+        table.table-compact-mobile--league :is(th, td):nth-child(5),
+        table.table-compact-mobile--league :is(th, td):nth-child(6),
+        table.table-compact-mobile--league :is(th, td):nth-child(7) {
+            display: none;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(1) {
+            width: 8%;
+            text-align: left;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(2) {
+            width: 35%;
+            text-align: left;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(3) {
+            width: 14%;
+            text-align: center;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(8) {
+            width: 16%;
+            text-align: center;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(9) {
+            width: 11%;
+            text-align: center;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--league :is(th, td):nth-child(10) {
+            width: 16%;
+            text-align: right;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
+            width: 19%;
+            text-align: left;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
+            width: 13%;
+            text-align: center;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
+            width: 14%;
+            text-align: left;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
+            width: 29%;
+            text-align: left;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
+            width: 10%;
+            text-align: center;
+            overflow: visible;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
+            width: 15%;
+            text-align: right;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile .table-status-row {
+            display: table-row;
+        }
+    table.table-compact-mobile .table-status-row td {
+            display: table-cell;
+            text-align: center;
+        }
+}
+@media (max-width: 480px) {
+    table.table-compact-mobile {
+            font-size: clamp(0.63rem, 2.6vw, 0.76rem);
+        }
+    table.table-compact-mobile tbody td,
+        table.table-compact-mobile thead th {
+            padding: 0.5rem 0.16rem;
+        }
+    .venue-badge {
+            width: 1.55rem;
+            height: 1.55rem;
+            font-size: 0.7rem;
+        }
+    .venue-tooltip {
+            right: -1rem;
+            max-width: min(220px, 82vw);
+        }
+}
+@media (prefers-reduced-motion: reduce) {
+    .venue-tooltip {
+            transition: none;
+        }
+}
+
+/* Quelle: ui-final.css */
+@media (max-width: 768px) {
+    table.table-compact-mobile thead th {
+            overflow-wrap: normal;
+            word-break: normal;
+            hyphens: none;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
+            width: 18%;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
+            width: 14%;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
+            width: 13%;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
+            width: 31%;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
+            width: 10%;
+        }
+    table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
+            width: 14%;
+        }
+    table.table-compact-mobile--schedule .table-mobile-only {
+            display: table-cell;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(5),
+        table.table-compact-mobile--schedule :is(th, td):nth-child(6) {
+            display: none;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(1) {
+            width: 19%;
+            text-align: left;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(2) {
+            width: 15%;
+            text-align: center;
+            white-space: nowrap;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(3) {
+            width: 38%;
+            text-align: left;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(4) {
+            width: 11%;
+            overflow: visible;
+            text-align: center;
+        }
+    table.table-compact-mobile--schedule :is(th, td):nth-child(7) {
+            width: 17%;
+            text-align: right;
+            white-space: nowrap;
+        }
+}
+@media (max-width: 480px) {
+    table.table-compact-mobile thead th {
+            font-size: 0.68rem;
+            letter-spacing: 0;
+        }
+    table.table-compact-mobile--next-games :is(th, td),
+        table.table-compact-mobile--schedule :is(th, td) {
+            padding-inline: 0.12rem;
+        }
+}
+.table-ewigeRangliste {
+    max-width: 680px;
+    border: 1px solid #334155;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(15, 23, 42, 0.52);
+    box-shadow: var(--shadow-light);
+}
+.table-ewigeRangliste thead {
+    background: rgba(56, 189, 248, 0.12);
+}
+.table-ewigeRangliste thead th {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid #475569;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+.table-ewigeRangliste tbody tr,
+.table-ewigeRangliste tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.36);
+    opacity: 1;
+    transform: none;
+}
+.table-ewigeRangliste tbody th[scope="row"],
+.table-ewigeRangliste tbody td {
+    padding: 0.62rem 0.75rem;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.72);
+    background: transparent;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+.table-ewigeRangliste tbody th[scope="row"] {
+    width: 16%;
+    text-align: left;
+    font-weight: 700;
+}
+.table-ewigeRangliste tbody td:nth-child(2) {
+    width: 64%;
+    text-align: left;
+}
+.table-ewigeRangliste tbody td:last-child {
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+}
+.table-ewigeRangliste tbody tr:last-child > * {
+    border-bottom: 0;
+}
+.table-ewigeRangliste tbody tr:hover {
+    background: rgba(56, 189, 248, 0.09);
+}
+.table-search {
+    max-width: 680px;
+    border: 1px solid #475569;
+    border-radius: var(--space-s);
+    background: #f8fafc;
+    color: #0f172a;
+}
+.table-ewigeRangliste tbody tr.ranking-fade-ready {
+    animation: rankingReverseFade 0.16s ease-out both;
+    animation-delay: var(--ranking-fade-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+    .table-ewigeRangliste tbody tr.ranking-fade-ready {
+            animation: none;
+        }
+}
+
+/* Quelle: table-header-fix.css */
+@media (max-width: 768px) {
+    table.table-compact-mobile {
+            display: table;
+            width: 100%;
+            min-width: 0;
+            table-layout: fixed;
+        }
+    table.table-compact-mobile > thead {
+            display: table-header-group !important;
+            width: auto !important;
+            height: auto;
+            position: static;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+    table.table-compact-mobile > thead > tr {
+            display: table-row !important;
+            width: auto !important;
+        }
+    table.table-compact-mobile > tbody {
+            display: table-row-group !important;
+            width: auto !important;
+        }
+    table.table-compact-mobile > tbody > tr {
+            display: table-row !important;
+            width: auto !important;
+        }
+    table.table-compact-mobile > thead th,
+        table.table-compact-mobile > tbody td {
+            display: table-cell;
+            min-width: 0;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+    table.table-compact-mobile > thead th {
+            overflow-wrap: normal;
+            word-break: normal;
+            hyphens: none;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+    .table-scroll--compact,
+        .table-scroll--compact > table.table-compact-mobile {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
+}
+@media (max-width: 480px) {
+    table.table-compact-mobile > thead th {
+            font-size: clamp(0.64rem, 2.65vw, 0.74rem);
+            letter-spacing: 0;
+        }
+}

@@ -20,7 +20,7 @@
 
 .grid-home-firstLine {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 750px;
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(34rem, 1.35fr);
     gap: var(--space-m);
     padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
     align-items: stretch;
@@ -28,7 +28,7 @@
 
 .grid-home-secondLine {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 500px;
+    grid-template-columns: minmax(28rem, 1.35fr) minmax(20rem, 0.85fr);
     gap: var(--space-m);
     padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
     align-items: stretch;
@@ -69,11 +69,11 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover-Effekt */
+/* Reine Inhaltsboxen bleiben ruhig; Interaktion wird nur an Links und Buttons signalisiert. */
 .box:hover,
 .team-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-heavy);
+    transform: none;
+    box-shadow: var(--shadow-light);
 }
 
 /*.team-box {
@@ -103,3 +103,12 @@
 }
 
 
+
+
+/* TTF: fließender Startseiten-Breakpoint */
+@media (max-width: 1180px) {
+    .grid-home-firstLine,
+    .grid-home-secondLine {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -23,6 +23,7 @@ IGNORE_PARTS = {
     "test-results",
 }
 IGNORE_PREFIXES = {
+    ("tools", "site-modernization", "payload"),
     ("tools", "review-upgrade", "templates"),
 }
 ALLOWED_EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "data"}

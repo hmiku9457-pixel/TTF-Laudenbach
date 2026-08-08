@@ -276,7 +276,7 @@ nav {
 
 .grid-home-firstLine {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 750px;
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(34rem, 1.35fr);
     gap: var(--space-m);
     padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
     align-items: stretch;
@@ -284,7 +284,7 @@ nav {
 
 .grid-home-secondLine {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 500px;
+    grid-template-columns: minmax(28rem, 1.35fr) minmax(20rem, 0.85fr);
     gap: var(--space-m);
     padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
     align-items: stretch;
@@ -325,11 +325,11 @@ nav {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover-Effekt */
+/* Reine Inhaltsboxen bleiben ruhig; Interaktion wird nur an Links und Buttons signalisiert. */
 .box:hover,
 .team-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-heavy);
+    transform: none;
+    box-shadow: var(--shadow-light);
 }
 
 /*.team-box {
@@ -356,6 +356,17 @@ nav {
 .column {
     display: grid;
     gap: var(--space-m);
+}
+
+
+
+
+/* TTF: fließender Startseiten-Breakpoint */
+@media (max-width: 1180px) {
+    .grid-home-firstLine,
+    .grid-home-secondLine {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* Quelle: assets/css/components/animations.css */
@@ -1391,32 +1402,103 @@ caption.visually-hidden {
     position: absolute !important;
 }
 
-/* Quelle: assets/css/components/ui-fixes.css */
-/* Gesammelte UI-Korrekturen August 2026. Diese Datei wird zuletzt importiert. */
+/* Quelle: assets/css/consolidated/foundation.css */
+/* Konsolidierte foundation-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
 
+/* Quelle: ui-fixes.css */
 :root {
     --link-visited: #a5b4fc;
     --link-visited-hover: #c7d2fe;
 }
-
 html,
 body {
     max-width: 100%;
 }
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited {
+    color: var(--link-visited);
+}
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:hover,
+main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:focus-visible {
+    color: var(--link-visited-hover);
+}
 
-/* -------------------------------------------------------------------------
-   Navigation: Link und Dropdown-Pfeil bilden eine gemeinsame Bedienfläche.
-   ------------------------------------------------------------------------- */
+/* Quelle: ui-polish.css */
+@media (max-width: 768px) {
+    .responsive-label--mobile,
+        .responsive-value--mobile {
+            display: inline;
+        }
+}
+
+/* Quelle: ui-final.css */
+@keyframes rankingReverseFade {
+    from {
+            opacity: 0.72;
+            transform: translateY(2px);
+        }
+    to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+}
+
+/* Sichtbarer, klar priorisierter Seiteneinstieg. */
+.page-heading {
+    margin: 0 0 var(--space-l);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.home-intro {
+    margin: var(--space-l) var(--space-xl) 0;
+    padding: clamp(var(--space-l), 3vw, var(--space-xxl));
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: var(--space-m);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.38));
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.home-intro .page-heading {
+    margin-bottom: var(--space-s);
+}
+
+.home-intro__lead {
+    max-width: 68ch;
+    margin: 0 auto var(--space-l);
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.home-intro__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-m);
+}
+
+@media (max-width: 768px) {
+    .home-intro {
+        margin: var(--space-m) var(--space-m) 0;
+    }
+
+    .home-intro__actions > * {
+        width: 100%;
+    }
+}
+
+/* Quelle: assets/css/consolidated/navigation.css */
+/* Konsolidierte navigation-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
 .menu {
     align-items: center;
 }
-
 .menu > li {
     display: flex;
     align-items: center;
     min-height: 36px;
 }
-
 .dropdown > .dropdown-link {
     display: inline-flex;
     align-items: center;
@@ -1425,7 +1507,6 @@ body {
     padding: 0.25rem 0;
     line-height: 1.25;
 }
-
 .dropdown-link__indicator {
     display: inline-grid;
     place-items: center;
@@ -1435,48 +1516,24 @@ body {
     font-size: 0.78em;
     transition: transform 0.2s ease;
 }
-
 .dropdown.is-open > .dropdown-link .dropdown-link__indicator {
     transform: rotate(180deg);
 }
-
 .submenu-toggle {
     display: none !important;
 }
-
-/* -------------------------------------------------------------------------
-   Ruhige, aber gut erkennbare Farbe für bereits besuchte Inhaltslinks.
-   Navigations- und Buttonlinks behalten ihre jeweilige Komponentenfarbe.
-   ------------------------------------------------------------------------- */
-main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited {
-    color: var(--link-visited);
+@media (prefers-reduced-motion: reduce) {
+    .dropdown-link__indicator,
+        .images-event-list,
+        .images-nav-backdrop {
+            transition: none;
+        }
 }
 
-main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:hover,
-main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:focus-visible {
-    color: var(--link-visited-hover);
-}
+/* Quelle: assets/css/consolidated/contact.css */
+/* Konsolidierte contact-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
 
-/* -------------------------------------------------------------------------
-   Tabellen: nur Spaltenköpfe werden standardmäßig blau hervorgehoben.
-   ------------------------------------------------------------------------- */
-table thead th {
-    color: var(--accent);
-}
-
-table tbody th {
-    color: var(--text-main);
-    font-weight: 400;
-}
-
-table.table--emphasis-first-column tbody th {
-    color: var(--accent);
-    font-weight: 700;
-}
-
-/* -------------------------------------------------------------------------
-   Kontaktformular und Grid-Kinder dürfen ihre Spalten nicht verbreitern.
-   ------------------------------------------------------------------------- */
+/* Quelle: ui-fixes.css */
 .grid > *,
 .grid-home-firstLine > *,
 .grid-home-secondLine > *,
@@ -1485,54 +1542,46 @@ table.table--emphasis-first-column tbody th {
 .form-group {
     min-width: 0;
 }
-
 .contact-section,
 .contact-form {
     width: 100%;
     max-width: 100%;
 }
-
 .contact-form :where(input:not([type="checkbox"]), textarea, button) {
     width: 100%;
     max-width: 100%;
     min-width: 0;
 }
-
 .contact-form textarea {
     resize: vertical;
 }
-
 .form-consent {
     width: 100%;
 }
-
 .form-consent input[type="checkbox"] {
     flex: 0 0 auto;
     width: auto;
     min-width: auto;
 }
-
 .form-consent label {
     min-width: 0;
     overflow-wrap: anywhere;
 }
 
-/* -------------------------------------------------------------------------
-   News-Slider: gemeinsame Fußzeile und kompakte mobile 2/3-zu-1/3-Ansicht.
-   ------------------------------------------------------------------------- */
+/* Quelle: assets/css/consolidated/news.css */
+/* Konsolidierte news-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
 .news-slider {
     min-height: 420px;
 }
-
 .news-slide {
     display: block;
     padding: var(--space-l);
 }
-
 .news-slider--has-footer .news-slide {
     padding-bottom: 76px;
 }
-
 .news-slide__body {
     display: flex;
     flex-direction: column;
@@ -1540,16 +1589,13 @@ table.table--emphasis-first-column tbody th {
     min-height: 0;
     gap: var(--space-s);
 }
-
 .news-slide__copy {
     flex: 0 0 auto;
     min-width: 0;
 }
-
 .news-slide__copy p {
     overflow-wrap: anywhere;
 }
-
 .news-slide__media {
     order: -1;
     flex: 1 1 auto;
@@ -1557,7 +1603,6 @@ table.table--emphasis-first-column tbody th {
     overflow: hidden;
     border-radius: var(--space-m);
 }
-
 .news-slide__media img {
     display: block;
     width: 100%;
@@ -1566,11 +1611,9 @@ table.table--emphasis-first-column tbody th {
     object-fit: cover;
     border-radius: inherit;
 }
-
 .news-slide--without-image .news-slide__copy {
     flex: 1;
 }
-
 .news-slider__footer {
     position: absolute;
     right: var(--space-m);
@@ -1583,12 +1626,10 @@ table.table--emphasis-first-column tbody th {
     gap: var(--space-m);
     pointer-events: none;
 }
-
 .news-slider__read-more,
 .news-slider__controls {
     pointer-events: auto;
 }
-
 .news-slider__read-more {
     display: inline-flex;
     align-items: center;
@@ -1601,16 +1642,13 @@ table.table--emphasis-first-column tbody th {
     text-decoration: none;
     white-space: nowrap;
 }
-
 .news-slider__read-more:hover,
 .news-slider__read-more:focus-visible {
     background: var(--accent-hover);
 }
-
 .news-slider__read-more[hidden] {
     display: none;
 }
-
 .news-slider__controls {
     position: static;
     display: flex;
@@ -1622,29 +1660,113 @@ table.table--emphasis-first-column tbody th {
     box-shadow: var(--shadow-light);
     margin-left: auto;
 }
+@media (max-width: 768px) {
+    .news-slider {
+            min-height: 340px;
+        }
+    .news-slider--has-footer .news-slide {
+            padding: var(--space-m);
+            padding-bottom: 66px;
+        }
+    .news-slide__body {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(90px, 1fr);
+            align-items: stretch;
+            gap: var(--space-m);
+        }
+    .news-slide--without-image .news-slide__body {
+            grid-template-columns: 1fr;
+        }
+    .news-slide__copy {
+            overflow: hidden;
+        }
+    .news-slide__copy h3 {
+            font-size: 1.05rem;
+            line-height: 1.25;
+        }
+    .news-slide__copy p {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 7;
+            line-clamp: 7;
+            font-size: 0.94rem;
+        }
+    .news-slide__media {
+            order: 0;
+            min-width: 0;
+            min-height: 0;
+            height: 100%;
+        }
+    .news-slider__footer {
+            right: var(--space-s);
+            bottom: var(--space-s);
+            left: var(--space-s);
+            gap: var(--space-s);
+        }
+    .news-slider__read-more {
+            min-height: 36px;
+            padding: 0 var(--space-m);
+            font-size: 0.88rem;
+        }
+    .news-slider__controls {
+            gap: 3px;
+            padding: 3px;
+        }
+    .news-slider__button {
+            min-width: 34px;
+            min-height: 34px;
+            padding: 0 0.4rem;
+            font-size: 0.86rem;
+        }
+    .news-slider__button--toggle {
+            min-width: 68px;
+        }
+    .news-slider__status {
+            min-width: 38px;
+            font-size: 0.86rem;
+        }
+}
+@media (max-width: 480px) {
+    .news-slider {
+            min-height: 360px;
+        }
+    .news-slide__body {
+            grid-template-columns: minmax(0, 2fr) minmax(82px, 1fr);
+            gap: var(--space-s);
+        }
+    .news-slide__copy p {
+            -webkit-line-clamp: 8;
+            line-clamp: 8;
+            font-size: 0.88rem;
+        }
+    .news-slider__footer {
+            flex-wrap: nowrap;
+        }
+    .news-slider__read-more {
+            padding: 0 0.55rem;
+        }
+}
 
-/* -------------------------------------------------------------------------
-   Galerie: Banner oben, Desktopnavigation links, mobiles Off-Canvas-Panel.
-   ------------------------------------------------------------------------- */
+/* Quelle: assets/css/consolidated/gallery.css */
+/* Konsolidierte gallery-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
 .content.images-page {
     grid-template-columns: 280px minmax(0, 1fr);
 }
-
 .images-page__banner {
     grid-column: 1 / -1;
     grid-row: 1;
 }
-
 .images-event-list {
     grid-column: 1;
     grid-row: 2;
 }
-
 .images-content {
     grid-column: 2;
     grid-row: 2;
 }
-
 .images-event-list__header {
     display: flex;
     align-items: center;
@@ -1652,377 +1774,338 @@ table.table--emphasis-first-column tbody th {
     gap: var(--space-m);
     margin-bottom: var(--space-l);
 }
-
 .images-event-list__header h2 {
     flex: 1;
     margin-bottom: 0;
 }
-
 .images-event-button {
     white-space: normal;
     overflow-wrap: anywhere;
     hyphens: auto;
 }
-
 .images-nav-toggle,
 .images-nav-close,
 .images-nav-backdrop {
     display: none;
 }
-
-/* -------------------------------------------------------------------------
-   Breite dynamische Tabellen werden auf schmalen Geräten zu Karten.
-   ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .table-scroll--cards {
-        overflow: visible;
-        overscroll-behavior: auto;
-    }
-
-    .table-scroll--wide > table.table-mobile-cards {
-        min-width: 0;
-    }
-
-    table.table-mobile-cards,
-    table.table-mobile-cards tbody {
-        display: block;
-        width: 100%;
-    }
-
-    table.table-mobile-cards thead {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
-
-    table.table-mobile-cards tbody {
-        display: grid;
-        gap: var(--space-m);
-    }
-
-    table.table-mobile-cards tbody tr {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0 var(--space-m);
-        padding: var(--space-m);
-        border: 1px solid #334155;
-        border-radius: var(--space-m);
-        background: rgba(15, 23, 42, 0.42);
-        box-shadow: var(--shadow-light);
-    }
-
-    table.table-mobile-cards tbody tr:hover {
-        background: rgba(56, 189, 248, 0.08);
-    }
-
-    table.table-mobile-cards tbody td {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: var(--space-m);
-        min-width: 0;
-        padding: 0.42rem 0;
-        border-bottom: 1px solid rgba(51, 65, 85, 0.72);
-        overflow-wrap: anywhere;
-        text-align: right;
-    }
-
-    table.table-mobile-cards tbody td::before {
-        content: attr(data-label);
-        flex: 0 0 auto;
-        color: var(--accent);
-        font-weight: 700;
-        text-align: left;
-    }
-
-    table.table-mobile-cards tbody td:last-child {
-        border-bottom: 0;
-    }
-
-    table.table-mobile-cards--next-games tbody td:nth-child(n + 3),
-    table.table-mobile-cards--schedule tbody td:nth-child(n + 3),
-    table.table-mobile-cards--league tbody td:nth-child(1),
-    table.table-mobile-cards--league tbody td:nth-child(2) {
-        grid-column: 1 / -1;
-    }
-
-    table.table-mobile-cards--league tbody td:nth-child(n + 3) {
-        grid-column: auto;
-    }
-
-    table.table-mobile-cards .table-status-row {
-        display: block;
-    }
-
-    table.table-mobile-cards .table-status-row td {
-        display: block;
-        grid-column: 1 / -1;
-        text-align: center;
-        border: 0;
-    }
-
-    table.table-mobile-cards .table-status-row td::before {
-        content: none;
-    }
-
-    /* News: Text links (2/3), Bild rechts (1/3). */
-    .news-slider {
-        min-height: 340px;
-    }
-
-    .news-slider--has-footer .news-slide {
-        padding: var(--space-m);
-        padding-bottom: 66px;
-    }
-
-    .news-slide__body {
-        display: grid;
-        grid-template-columns: minmax(0, 2fr) minmax(90px, 1fr);
-        align-items: stretch;
-        gap: var(--space-m);
-    }
-
-    .news-slide--without-image .news-slide__body {
-        grid-template-columns: 1fr;
-    }
-
-    .news-slide__copy {
-        overflow: hidden;
-    }
-
-    .news-slide__copy h3 {
-        font-size: 1.05rem;
-        line-height: 1.25;
-    }
-
-    .news-slide__copy p {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 7;
-        line-clamp: 7;
-        font-size: 0.94rem;
-    }
-
-    .news-slide__media {
-        order: 0;
-        min-width: 0;
-        min-height: 0;
-        height: 100%;
-    }
-
-    .news-slider__footer {
-        right: var(--space-s);
-        bottom: var(--space-s);
-        left: var(--space-s);
-        gap: var(--space-s);
-    }
-
-    .news-slider__read-more {
-        min-height: 36px;
-        padding: 0 var(--space-m);
-        font-size: 0.88rem;
-    }
-
-    .news-slider__controls {
-        gap: 3px;
-        padding: 3px;
-    }
-
-    .news-slider__button {
-        min-width: 34px;
-        min-height: 34px;
-        padding: 0 0.4rem;
-        font-size: 0.86rem;
-    }
-
-    .news-slider__button--toggle {
-        min-width: 68px;
-    }
-
-    .news-slider__status {
-        min-width: 38px;
-        font-size: 0.86rem;
-    }
-
-    /* Mobiles Galeriepanel. */
     .content.images-page {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        padding: var(--space-m);
-    }
-
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            padding: var(--space-m);
+        }
     .images-page__banner,
-    .images-nav-toggle,
-    .images-content {
-        grid-column: 1;
-    }
-
+        .images-nav-toggle,
+        .images-content {
+            grid-column: 1;
+        }
     .images-page__banner {
-        grid-row: 1;
-    }
-
+            grid-row: 1;
+        }
     .images-nav-toggle {
-        display: inline-flex;
-        grid-row: 2;
-        align-items: center;
-        justify-content: center;
-        justify-self: start;
-        margin: 0;
-    }
-
+            display: inline-flex;
+            grid-row: 2;
+            align-items: center;
+            justify-content: center;
+            justify-self: start;
+            margin: 0;
+        }
     .images-content {
-        grid-row: 3;
-    }
-
+            grid-row: 3;
+        }
     .images-event-list {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 4100;
-        display: block;
-        width: min(86vw, 320px);
-        max-height: 100dvh;
-        margin: 0;
-        overflow-y: auto;
-        border-radius: 0 var(--space-m) var(--space-m) 0;
-        transform: translateX(-105%);
-        transition: transform 0.25s ease;
-    }
-
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 4100;
+            display: block;
+            width: min(86vw, 320px);
+            max-height: 100dvh;
+            margin: 0;
+            overflow-y: auto;
+            border-radius: 0 var(--space-m) var(--space-m) 0;
+            transform: translateX(-105%);
+            transition: transform 0.25s ease;
+        }
     .images-event-list.is-open {
-        transform: translateX(0);
-    }
-
+            transform: translateX(0);
+        }
     .images-event-list__header {
-        justify-content: space-between;
-    }
-
+            justify-content: space-between;
+        }
     .images-nav-close {
-        display: inline-grid;
-        place-items: center;
-        flex: 0 0 auto;
-        width: 40px;
-        height: 40px;
-        border: 1px solid var(--accent);
-        border-radius: var(--space-s);
-        background: transparent;
-        color: var(--text-main);
-        font: inherit;
-        font-size: 1.5rem;
-        line-height: 1;
-        cursor: pointer;
-    }
-
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 auto;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            border-radius: var(--space-s);
+            background: transparent;
+            color: var(--text-main);
+            font: inherit;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+        }
     .images-nav-backdrop {
-        position: fixed;
-        inset: 0;
-        z-index: 4000;
-        width: 100%;
-        height: 100%;
-        border: 0;
-        background: rgba(2, 6, 23, 0.72);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-    }
-
+            position: fixed;
+            inset: 0;
+            z-index: 4000;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: rgba(2, 6, 23, 0.72);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
     .images-nav-backdrop.is-visible {
-        display: block;
-        opacity: 1;
-        pointer-events: auto;
-    }
-
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
     body.gallery-nav-open {
-        overflow: hidden;
-    }
+            overflow: hidden;
+        }
 }
-
-@media (max-width: 480px) {
-    .news-slider {
-        min-height: 360px;
-    }
-
-    .news-slide__body {
-        grid-template-columns: minmax(0, 2fr) minmax(82px, 1fr);
-        gap: var(--space-s);
-    }
-
-    .news-slide__copy p {
-        -webkit-line-clamp: 8;
-        line-clamp: 8;
-        font-size: 0.88rem;
-    }
-
-    .news-slider__footer {
-        flex-wrap: nowrap;
-    }
-
-    .news-slider__read-more {
-        padding: 0 0.55rem;
-    }
-
-    table.table-mobile-cards tbody tr {
-        grid-template-columns: 1fr;
-    }
-
-    table.table-mobile-cards tbody td,
-    table.table-mobile-cards--league tbody td:nth-child(n + 3) {
-        grid-column: 1;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .dropdown-link__indicator,
-    .images-event-list,
-    .images-nav-backdrop {
-        transition: none;
-    }
+        .images-event-list,
+        .images-nav-backdrop {
+            transition: none;
+        }
 }
 
-/* Quelle: assets/css/components/ui-polish.css */
-/* UI-Feinschliff: Tabellen und Galerie, August 2026. */
-
-/* Rollen in der Ehrenmitgliedertabelle sind Inhalte, keine Spaltenköpfe. */
-table.table--emphasis-first-column tbody th {
-    color: var(--text-main);
-    font-weight: 600;
-}
-
-/* Das Galeriepanel darf nicht von der allgemeinen Box-Animation transformiert werden. */
+/* Quelle: ui-polish.css */
 .images-event-list.animate {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
 }
+@media (max-width: 768px) {
+    .images-event-list,
+        .images-event-list.animate {
+            opacity: 1 !important;
+            transform: translateX(-105%) !important;
+            animation: none !important;
+        }
+    .images-event-list.is-open,
+        .images-event-list.animate.is-open {
+            transform: translateX(0) !important;
+        }
+    .images-nav-close {
+            position: relative;
+            z-index: 1;
+            pointer-events: auto;
+        }
+}
 
-/* Responsive Hilfswerte sind auf großen Ansichten unsichtbar. */
+/* Quelle: ui-final.css */
+@media (max-width: 768px) {
+    .images-nav-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 44px;
+            padding: 0.62rem 1rem;
+            border: 1px solid rgba(56, 189, 248, 0.72);
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(30, 41, 59, 0.96),
+                    rgba(15, 23, 42, 0.96)
+                );
+            color: var(--text-main);
+            box-shadow:
+                0 6px 18px rgba(2, 6, 23, 0.24),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            font: inherit;
+            font-size: 0.94rem;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            transition:
+                border-color 0.18s ease,
+                background 0.18s ease,
+                color 0.18s ease,
+                box-shadow 0.18s ease,
+                transform 0.18s ease;
+        }
+    .images-nav-toggle:hover {
+            border-color: var(--accent);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(51, 65, 85, 0.98),
+                    rgba(30, 41, 59, 0.98)
+                );
+            color: #ffffff;
+            box-shadow:
+                0 8px 22px rgba(2, 6, 23, 0.32),
+                0 0 0 1px rgba(56, 189, 248, 0.12);
+            transform: translateY(-1px);
+        }
+    .images-nav-toggle:focus-visible {
+            outline: 3px solid rgba(56, 189, 248, 0.42);
+            outline-offset: 3px;
+        }
+    .images-nav-toggle[aria-expanded="true"] {
+            border-color: var(--accent);
+            background: rgba(56, 189, 248, 0.16);
+            color: var(--accent);
+        }
+    .images-nav-toggle__icon {
+            display: inline-grid;
+            place-items: center;
+            width: 1.35rem;
+            height: 1.35rem;
+            color: var(--accent);
+            font-size: 1.05rem;
+            line-height: 1;
+        }
+    .images-nav-toggle__label {
+            white-space: nowrap;
+        }
+}
+@media (prefers-reduced-motion: reduce) {
+    .images-nav-toggle {
+            transition: none;
+        }
+}
+
+/* Quelle: assets/css/consolidated/tables.css */
+/* Konsolidierte tables-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+
+/* Quelle: ui-fixes.css */
+table thead th {
+    color: var(--accent);
+}
+table tbody th {
+    color: var(--text-main);
+    font-weight: 400;
+}
+table.table--emphasis-first-column tbody th {
+    color: var(--accent);
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .table-scroll--cards {
+            overflow: visible;
+            overscroll-behavior: auto;
+        }
+    .table-scroll--wide > table.table-mobile-cards {
+            min-width: 0;
+        }
+    table.table-mobile-cards,
+        table.table-mobile-cards tbody {
+            display: block;
+            width: 100%;
+        }
+    table.table-mobile-cards thead {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    table.table-mobile-cards tbody {
+            display: grid;
+            gap: var(--space-m);
+        }
+    table.table-mobile-cards tbody tr {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 var(--space-m);
+            padding: var(--space-m);
+            border: 1px solid #334155;
+            border-radius: var(--space-m);
+            background: rgba(15, 23, 42, 0.42);
+            box-shadow: var(--shadow-light);
+        }
+    table.table-mobile-cards tbody tr:hover {
+            background: rgba(56, 189, 248, 0.08);
+        }
+    table.table-mobile-cards tbody td {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: var(--space-m);
+            min-width: 0;
+            padding: 0.42rem 0;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.72);
+            overflow-wrap: anywhere;
+            text-align: right;
+        }
+    table.table-mobile-cards tbody td::before {
+            content: attr(data-label);
+            flex: 0 0 auto;
+            color: var(--accent);
+            font-weight: 700;
+            text-align: left;
+        }
+    table.table-mobile-cards tbody td:last-child {
+            border-bottom: 0;
+        }
+    table.table-mobile-cards--next-games tbody td:nth-child(n + 3),
+        table.table-mobile-cards--schedule tbody td:nth-child(n + 3),
+        table.table-mobile-cards--league tbody td:nth-child(1),
+        table.table-mobile-cards--league tbody td:nth-child(2) {
+            grid-column: 1 / -1;
+        }
+    table.table-mobile-cards--league tbody td:nth-child(n + 3) {
+            grid-column: auto;
+        }
+    table.table-mobile-cards .table-status-row {
+            display: block;
+        }
+    table.table-mobile-cards .table-status-row td {
+            display: block;
+            grid-column: 1 / -1;
+            text-align: center;
+            border: 0;
+        }
+    table.table-mobile-cards .table-status-row td::before {
+            content: none;
+        }
+}
+@media (max-width: 480px) {
+    table.table-mobile-cards tbody tr {
+            grid-template-columns: 1fr;
+        }
+    table.table-mobile-cards tbody td,
+        table.table-mobile-cards--league tbody td:nth-child(n + 3) {
+            grid-column: 1;
+        }
+}
+
+/* Quelle: ui-polish.css */
+table.table--emphasis-first-column tbody th {
+    color: var(--text-main);
+    font-weight: 600;
+}
 .responsive-label--mobile,
 .responsive-value--mobile,
 .table-mobile-only,
 .venue-compact {
     display: none;
 }
-
 .table-scroll--compact {
     overflow: visible;
     overscroll-behavior: auto;
 }
-
-/* Zugänglicher H-/A-Tooltip. */
 .venue-compact {
     position: relative;
     align-items: center;
     justify-content: center;
 }
-
 .venue-badge {
     display: inline-grid;
     place-items: center;
@@ -2039,13 +2122,11 @@ table.table--emphasis-first-column tbody th {
     line-height: 1;
     cursor: help;
 }
-
 .venue-badge--away {
     border-color: #94a3b8;
     background: rgba(148, 163, 184, 0.12);
     color: #cbd5e1;
 }
-
 .venue-tooltip {
     position: absolute;
     z-index: 4300;
@@ -2073,7 +2154,6 @@ table.table--emphasis-first-column tbody th {
         transform 0.16s ease,
         visibility 0.16s ease;
 }
-
 .venue-compact:hover .venue-tooltip,
 .venue-compact:focus-within .venue-tooltip,
 .venue-compact.is-open .venue-tooltip {
@@ -2081,310 +2161,223 @@ table.table--emphasis-first-column tbody th {
     visibility: visible;
     transform: translateY(0);
 }
-
 @media (max-width: 768px) {
-    /* Das Galeriepanel muss beim Schließen tatsächlich aus dem Viewport fahren. */
-    .images-event-list,
-    .images-event-list.animate {
-        opacity: 1 !important;
-        transform: translateX(-105%) !important;
-        animation: none !important;
-    }
-
-    .images-event-list.is-open,
-    .images-event-list.animate.is-open {
-        transform: translateX(0) !important;
-    }
-
-    .images-nav-close {
-        position: relative;
-        z-index: 1;
-        pointer-events: auto;
-    }
-
-    /* Kartenansicht bleibt nur beim vollständigen Mannschaftsspielplan aktiv. */
     table.table-compact-mobile,
-    table.table-compact-mobile thead,
-    table.table-compact-mobile tbody {
-        display: table;
-        width: 100%;
-    }
-
+        table.table-compact-mobile thead,
+        table.table-compact-mobile tbody {
+            display: table;
+            width: 100%;
+        }
     table.table-compact-mobile {
-        min-width: 0;
-        table-layout: fixed;
-        font-size: clamp(0.68rem, 2.25vw, 0.82rem);
-    }
-
+            min-width: 0;
+            table-layout: fixed;
+            font-size: clamp(0.68rem, 2.25vw, 0.82rem);
+        }
     table.table-compact-mobile thead {
-        position: static;
-        width: auto;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-    }
-
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
     table.table-compact-mobile tbody {
-        display: table-row-group;
-    }
-
+            display: table-row-group;
+        }
     table.table-compact-mobile tbody tr {
-        display: table-row;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-
+            display: table-row;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
     table.table-compact-mobile tbody td,
-    table.table-compact-mobile thead th {
-        display: table-cell;
-        min-width: 0;
-        padding: 0.55rem 0.25rem;
-        overflow-wrap: anywhere;
-        hyphens: auto;
-        vertical-align: middle;
-    }
-
+        table.table-compact-mobile thead th {
+            display: table-cell;
+            min-width: 0;
+            padding: 0.55rem 0.25rem;
+            overflow-wrap: anywhere;
+            hyphens: auto;
+            vertical-align: middle;
+        }
     table.table-compact-mobile tbody td::before {
-        content: none;
-    }
-
+            content: none;
+        }
     .responsive-label--desktop,
-    .responsive-value--desktop,
-    .venue-full {
-        display: none;
-    }
-
-    .responsive-label--mobile,
-    .responsive-value--mobile {
-        display: inline;
-    }
-
+        .responsive-value--desktop,
+        .venue-full {
+            display: none;
+        }
     .venue-compact {
-        display: inline-flex;
-    }
-
-    /* Ligatabelle: Rang | Team | S-U-N | Spiele | +/- | Punkte */
+            display: inline-flex;
+        }
     table.table-compact-mobile--league .table-mobile-only {
-        display: table-cell;
-    }
-
+            display: table-cell;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(4),
-    table.table-compact-mobile--league :is(th, td):nth-child(5),
-    table.table-compact-mobile--league :is(th, td):nth-child(6),
-    table.table-compact-mobile--league :is(th, td):nth-child(7) {
-        display: none;
-    }
-
+        table.table-compact-mobile--league :is(th, td):nth-child(5),
+        table.table-compact-mobile--league :is(th, td):nth-child(6),
+        table.table-compact-mobile--league :is(th, td):nth-child(7) {
+            display: none;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(1) {
-        width: 8%;
-        text-align: left;
-    }
-
+            width: 8%;
+            text-align: left;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(2) {
-        width: 35%;
-        text-align: left;
-    }
-
+            width: 35%;
+            text-align: left;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(3) {
-        width: 14%;
-        text-align: center;
-        white-space: nowrap;
-    }
-
+            width: 14%;
+            text-align: center;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(8) {
-        width: 16%;
-        text-align: center;
-        white-space: nowrap;
-    }
-
+            width: 16%;
+            text-align: center;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(9) {
-        width: 11%;
-        text-align: center;
-        white-space: nowrap;
-    }
-
+            width: 11%;
+            text-align: center;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--league :is(th, td):nth-child(10) {
-        width: 16%;
-        text-align: right;
-        white-space: nowrap;
-    }
-
-    /* Nächste Spiele: kompakte Desktop-ähnliche Tabellenansicht. */
+            width: 16%;
+            text-align: right;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
-        width: 19%;
-        text-align: left;
-    }
-
+            width: 19%;
+            text-align: left;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
-        width: 13%;
-        text-align: center;
-        white-space: nowrap;
-    }
-
+            width: 13%;
+            text-align: center;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
-        width: 14%;
-        text-align: left;
-        white-space: nowrap;
-    }
-
+            width: 14%;
+            text-align: left;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
-        width: 29%;
-        text-align: left;
-    }
-
+            width: 29%;
+            text-align: left;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
-        width: 10%;
-        text-align: center;
-        overflow: visible;
-    }
-
+            width: 10%;
+            text-align: center;
+            overflow: visible;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
-        width: 15%;
-        text-align: right;
-        white-space: nowrap;
-    }
-
+            width: 15%;
+            text-align: right;
+            white-space: nowrap;
+        }
     table.table-compact-mobile .table-status-row {
-        display: table-row;
-    }
-
+            display: table-row;
+        }
     table.table-compact-mobile .table-status-row td {
-        display: table-cell;
-        text-align: center;
-    }
+            display: table-cell;
+            text-align: center;
+        }
 }
-
 @media (max-width: 480px) {
     table.table-compact-mobile {
-        font-size: clamp(0.63rem, 2.6vw, 0.76rem);
-    }
-
+            font-size: clamp(0.63rem, 2.6vw, 0.76rem);
+        }
     table.table-compact-mobile tbody td,
-    table.table-compact-mobile thead th {
-        padding: 0.5rem 0.16rem;
-    }
-
+        table.table-compact-mobile thead th {
+            padding: 0.5rem 0.16rem;
+        }
     .venue-badge {
-        width: 1.55rem;
-        height: 1.55rem;
-        font-size: 0.7rem;
-    }
-
+            width: 1.55rem;
+            height: 1.55rem;
+            font-size: 0.7rem;
+        }
     .venue-tooltip {
-        right: -1rem;
-        max-width: min(220px, 82vw);
-    }
+            right: -1rem;
+            max-width: min(220px, 82vw);
+        }
 }
-
 @media (prefers-reduced-motion: reduce) {
     .venue-tooltip {
-        transition: none;
-    }
+            transition: none;
+        }
 }
 
-/* Quelle: assets/css/components/ui-final.css */
-/* Finale Designkorrekturen: kompakte Spieltabellen, Rangliste und Galerie. */
-
-/* ==========================================================================
-   1. KOMPAKTE MOBILE SPIELTABELLEN
-   ========================================================================== */
-
+/* Quelle: ui-final.css */
 @media (max-width: 768px) {
     table.table-compact-mobile thead th {
-        overflow-wrap: normal;
-        word-break: normal;
-        hyphens: none;
-        white-space: nowrap;
-        line-height: 1.2;
-    }
-
-    /* Nächste Spiele:
-       Dat. | Zeit | Team | Geg. | H/A | Erg. */
+            overflow-wrap: normal;
+            word-break: normal;
+            hyphens: none;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
-        width: 18%;
-    }
-
+            width: 18%;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
-        width: 14%;
-    }
-
+            width: 14%;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
-        width: 13%;
-    }
-
+            width: 13%;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
-        width: 31%;
-    }
-
+            width: 31%;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
-        width: 10%;
-    }
-
+            width: 10%;
+        }
     table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
-        width: 14%;
-    }
-
-    /* Mannschaftsspielplan:
-       Dat. | Zeit | Geg. | H/A | Erg. */
+            width: 14%;
+        }
     table.table-compact-mobile--schedule .table-mobile-only {
-        display: table-cell;
-    }
-
+            display: table-cell;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(5),
-    table.table-compact-mobile--schedule :is(th, td):nth-child(6) {
-        display: none;
-    }
-
+        table.table-compact-mobile--schedule :is(th, td):nth-child(6) {
+            display: none;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(1) {
-        width: 19%;
-        text-align: left;
-    }
-
+            width: 19%;
+            text-align: left;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(2) {
-        width: 15%;
-        text-align: center;
-        white-space: nowrap;
-    }
-
+            width: 15%;
+            text-align: center;
+            white-space: nowrap;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(3) {
-        width: 38%;
-        text-align: left;
-    }
-
+            width: 38%;
+            text-align: left;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(4) {
-        width: 11%;
-        overflow: visible;
-        text-align: center;
-    }
-
+            width: 11%;
+            overflow: visible;
+            text-align: center;
+        }
     table.table-compact-mobile--schedule :is(th, td):nth-child(7) {
-        width: 17%;
-        text-align: right;
-        white-space: nowrap;
-    }
+            width: 17%;
+            text-align: right;
+            white-space: nowrap;
+        }
 }
-
 @media (max-width: 480px) {
     table.table-compact-mobile thead th {
-        font-size: 0.68rem;
-        letter-spacing: 0;
-    }
-
+            font-size: 0.68rem;
+            letter-spacing: 0;
+        }
     table.table-compact-mobile--next-games :is(th, td),
-    table.table-compact-mobile--schedule :is(th, td) {
-        padding-inline: 0.12rem;
-    }
+        table.table-compact-mobile--schedule :is(th, td) {
+            padding-inline: 0.12rem;
+        }
 }
-
-/* ==========================================================================
-   2. EWIGE RANGLISTE
-   ========================================================================== */
-
 .table-ewigeRangliste {
     max-width: 680px;
     border: 1px solid #334155;
@@ -2393,11 +2386,9 @@ table.table--emphasis-first-column tbody th {
     background: rgba(15, 23, 42, 0.52);
     box-shadow: var(--shadow-light);
 }
-
 .table-ewigeRangliste thead {
     background: rgba(56, 189, 248, 0.12);
 }
-
 .table-ewigeRangliste thead th {
     padding: 0.7rem 0.75rem;
     border-bottom: 1px solid #475569;
@@ -2405,14 +2396,12 @@ table.table--emphasis-first-column tbody th {
     font-weight: 700;
     letter-spacing: 0.01em;
 }
-
 .table-ewigeRangliste tbody tr,
 .table-ewigeRangliste tbody tr:nth-child(even) {
     background: rgba(15, 23, 42, 0.36);
     opacity: 1;
     transform: none;
 }
-
 .table-ewigeRangliste tbody th[scope="row"],
 .table-ewigeRangliste tbody td {
     padding: 0.62rem 0.75rem;
@@ -2421,32 +2410,26 @@ table.table--emphasis-first-column tbody th {
     color: var(--text-main);
     line-height: 1.3;
 }
-
 .table-ewigeRangliste tbody th[scope="row"] {
     width: 16%;
     text-align: left;
     font-weight: 700;
 }
-
 .table-ewigeRangliste tbody td:nth-child(2) {
     width: 64%;
     text-align: left;
 }
-
 .table-ewigeRangliste tbody td:last-child {
     width: 20%;
     text-align: right;
     font-weight: 600;
 }
-
 .table-ewigeRangliste tbody tr:last-child > * {
     border-bottom: 0;
 }
-
 .table-ewigeRangliste tbody tr:hover {
     background: rgba(56, 189, 248, 0.09);
 }
-
 .table-search {
     max-width: 680px;
     border: 1px solid #475569;
@@ -2454,185 +2437,69 @@ table.table--emphasis-first-column tbody th {
     background: #f8fafc;
     color: #0f172a;
 }
-
 .table-ewigeRangliste tbody tr.ranking-fade-ready {
     animation: rankingReverseFade 0.16s ease-out both;
     animation-delay: var(--ranking-fade-delay, 0ms);
 }
-
-@keyframes rankingReverseFade {
-    from {
-        opacity: 0.72;
-        transform: translateY(2px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================================================================
-   3. GALERIE-TRIGGER
-   ========================================================================== */
-
-@media (max-width: 768px) {
-    .images-nav-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.55rem;
-        min-height: 44px;
-        padding: 0.62rem 1rem;
-        border: 1px solid rgba(56, 189, 248, 0.72);
-        border-radius: 999px;
-        background:
-            linear-gradient(
-                180deg,
-                rgba(30, 41, 59, 0.96),
-                rgba(15, 23, 42, 0.96)
-            );
-        color: var(--text-main);
-        box-shadow:
-            0 6px 18px rgba(2, 6, 23, 0.24),
-            inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        font: inherit;
-        font-size: 0.94rem;
-        font-weight: 700;
-        line-height: 1;
-        cursor: pointer;
-        transition:
-            border-color 0.18s ease,
-            background 0.18s ease,
-            color 0.18s ease,
-            box-shadow 0.18s ease,
-            transform 0.18s ease;
-    }
-
-    .images-nav-toggle:hover {
-        border-color: var(--accent);
-        background:
-            linear-gradient(
-                180deg,
-                rgba(51, 65, 85, 0.98),
-                rgba(30, 41, 59, 0.98)
-            );
-        color: #ffffff;
-        box-shadow:
-            0 8px 22px rgba(2, 6, 23, 0.32),
-            0 0 0 1px rgba(56, 189, 248, 0.12);
-        transform: translateY(-1px);
-    }
-
-    .images-nav-toggle:focus-visible {
-        outline: 3px solid rgba(56, 189, 248, 0.42);
-        outline-offset: 3px;
-    }
-
-    .images-nav-toggle[aria-expanded="true"] {
-        border-color: var(--accent);
-        background: rgba(56, 189, 248, 0.16);
-        color: var(--accent);
-    }
-
-    .images-nav-toggle__icon {
-        display: inline-grid;
-        place-items: center;
-        width: 1.35rem;
-        height: 1.35rem;
-        color: var(--accent);
-        font-size: 1.05rem;
-        line-height: 1;
-    }
-
-    .images-nav-toggle__label {
-        white-space: nowrap;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .table-ewigeRangliste tbody tr.ranking-fade-ready {
-        animation: none;
-    }
-
-    .images-nav-toggle {
-        transition: none;
-    }
+            animation: none;
+        }
 }
 
-/* Quelle: assets/css/components/table-header-fix.css */
-/* Korrektur der kompakten Tabellenköpfe auf schmalen Bildschirmen. */
-
+/* Quelle: table-header-fix.css */
 @media (max-width: 768px) {
-    /*
-     * ui-polish.css setzte thead zeitweise auf display: table.
-     * Dadurch entstand für den Kopf ein eigener Tabellenkontext mit
-     * unabhängig berechneten Spaltenbreiten. Kopf und Datenbereich
-     * verwenden nun wieder denselben Tabellenkontext.
-     */
     table.table-compact-mobile {
-        display: table;
-        width: 100%;
-        min-width: 0;
-        table-layout: fixed;
-    }
-
+            display: table;
+            width: 100%;
+            min-width: 0;
+            table-layout: fixed;
+        }
     table.table-compact-mobile > thead {
-        display: table-header-group !important;
-        width: auto !important;
-        height: auto;
-        position: static;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-    }
-
+            display: table-header-group !important;
+            width: auto !important;
+            height: auto;
+            position: static;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
     table.table-compact-mobile > thead > tr {
-        display: table-row !important;
-        width: auto !important;
-    }
-
+            display: table-row !important;
+            width: auto !important;
+        }
     table.table-compact-mobile > tbody {
-        display: table-row-group !important;
-        width: auto !important;
-    }
-
+            display: table-row-group !important;
+            width: auto !important;
+        }
     table.table-compact-mobile > tbody > tr {
-        display: table-row !important;
-        width: auto !important;
-    }
-
+            display: table-row !important;
+            width: auto !important;
+        }
     table.table-compact-mobile > thead th,
-    table.table-compact-mobile > tbody td {
-        display: table-cell;
-        min-width: 0;
-        box-sizing: border-box;
-        vertical-align: middle;
-    }
-
+        table.table-compact-mobile > tbody td {
+            display: table-cell;
+            min-width: 0;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
     table.table-compact-mobile > thead th {
-        overflow-wrap: normal;
-        word-break: normal;
-        hyphens: none;
-        white-space: nowrap;
-        line-height: 1.2;
-    }
-
-    /*
-     * Die Scroll-Hülle soll bei den bewusst kompakten Tabellen nicht
-     * auf eine intrinsische Inhaltsbreite schrumpfen.
-     */
+            overflow-wrap: normal;
+            word-break: normal;
+            hyphens: none;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
     .table-scroll--compact,
-    .table-scroll--compact > table.table-compact-mobile {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-    }
+        .table-scroll--compact > table.table-compact-mobile {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
 }
-
 @media (max-width: 480px) {
     table.table-compact-mobile > thead th {
-        font-size: clamp(0.64rem, 2.65vw, 0.74rem);
-        letter-spacing: 0;
-    }
+            font-size: clamp(0.64rem, 2.65vw, 0.74rem);
+            letter-spacing: 0;
+        }
 }
