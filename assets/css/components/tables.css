@@ -637,3 +637,18 @@ table.table--emphasis-first-column tbody th {
         }
 }
 /* TTF:INTEGRATED:tables:END */
+
+/* TTF:MOBILE-TABLE-VISIBILITY:START */
+/* Mobile Kurzbeschriftungen und Kurzwerte der Spieltabellen anzeigen */
+@media (max-width: 768px) {
+    table.table-compact-mobile .responsive-label--desktop,
+    table.table-compact-mobile .responsive-value--desktop {
+        display: none;
+    }
+
+    table.table-compact-mobile .responsive-label--mobile,
+    table.table-compact-mobile .responsive-value--mobile {
+        display: inline;
+    }
+}
+/* TTF:MOBILE-TABLE-VISIBILITY:END */
