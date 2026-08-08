@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Erzeugt CSS-Bundle und Sitemap der Vereinswebsite.
+"""Erzeugt CSS-Bundle und Sitemap.
 
-Header und Footer werden im Browser zentral aus ``components/`` geladen und
-nicht mehr in jede einzelne HTML-Datei kopiert.
+Header und Footer werden nicht mehr in jede HTML-Datei kopiert. Sie werden
+zur Laufzeit aus components/header.html und components/footer.html geladen.
 """
 from __future__ import annotations
 
@@ -64,10 +64,12 @@ def expand_css(path: Path, stack: tuple[Path, ...] = ()) -> str:
         result.append(text[cursor : match.start()])
         import_value = match.group(1)
         parsed = urlsplit(import_value)
+
         if parsed.scheme or import_value.startswith("data:"):
             result.append(match.group(0))
         else:
             result.append(expand_css(path.parent / import_value, (*stack, path)))
+
         cursor = match.end()
 
     result.append(text[cursor:])
@@ -83,6 +85,7 @@ def page_url(path: Path, text: str) -> str:
     canonical = CANONICAL_RE.search(text)
     if canonical:
         return canonical.group(1).strip()
+
     relative = path.relative_to(ROOT).as_posix()
     if relative == "index.html":
         return BASE_URL + "/"
@@ -91,23 +94,31 @@ def page_url(path: Path, text: str) -> str:
 
 def expected_sitemap() -> str:
     entries: list[str] = []
+
     for path in pages(include_404=False):
         relative = path.relative_to(ROOT).as_posix()
         if relative in SITEMAP_EXCLUDED:
             continue
+
         text = path.read_text(encoding="utf-8")
         robots = ROBOTS_RE.search(text)
         if robots and "noindex" in robots.group(1).lower():
             continue
+
         entries.append(page_url(path, text))
 
     entries = sorted(set(entries), key=lambda url: (url != BASE_URL + "/", url))
+
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
     for url in entries:
-        lines.extend(["  <url>", f"    <loc>{html.escape(url)}</loc>", "  </url>"])
+        lines.extend([
+            "  <url>",
+            f"    <loc>{html.escape(url)}</loc>",
+            "  </url>",
+        ])
     lines.append("</urlset>")
     return "\n".join(lines) + "\n"
 
@@ -116,6 +127,7 @@ def update_or_check(path: Path, expected: str, write_changes: bool, changed: lis
     current = path.read_text(encoding="utf-8") if path.exists() else ""
     if current == expected:
         return
+
     changed.append(path)
     if write_changes:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -139,6 +151,7 @@ def build(write_changes: bool) -> int:
             print(f"- {path.relative_to(ROOT)}")
     else:
         print("Alle generierten Dateien sind aktuell.")
+
     return 0
 
 
