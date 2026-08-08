@@ -60,6 +60,38 @@ def update_css_entry() -> None:
         (ROOT / "assets/css/components" / name).unlink(missing_ok=True)
 
 
+def cleanup_package_artifacts() -> None:
+    """Entfernt versehentlich hochgeladene Python-Cachedateien aus dem Paket."""
+    package_root = ROOT / "tools/site-modernization"
+    if not package_root.exists():
+        return
+    for cache_dir in sorted(package_root.rglob("__pycache__"), reverse=True):
+        shutil.rmtree(cache_dir, ignore_errors=True)
+    for compiled_file in package_root.rglob("*.pyc"):
+        compiled_file.unlink(missing_ok=True)
+
+
+def update_quality_ignore() -> None:
+    """Schließt den unverarbeiteten Paket-Payload von Website-Prüfungen aus."""
+    path = ROOT / "tools/quality/check_site.py"
+    if not path.is_file():
+        return
+
+    text = path.read_text(encoding="utf-8")
+    prefix = '("tools", "site-modernization", "payload"),'
+    if prefix in text:
+        return
+
+    pattern = r"(IGNORE_PREFIXES\s*=\s*\{[^\S\r\n]*\r?\n)"
+    replacement = r'\1    ("tools", "site-modernization", "payload"),\n'
+    text, count = re.subn(pattern, replacement, text, count=1)
+    if count != 1:
+        raise RuntimeError(
+            "IGNORE_PREFIXES konnte in tools/quality/check_site.py nicht erweitert werden."
+        )
+    path.write_text(text, encoding="utf-8")
+
+
 def update_home_grid() -> None:
     path = ROOT / "assets/css/layout/grid-boxes.css"
     text = path.read_text(encoding="utf-8")
@@ -165,6 +197,8 @@ def run_build() -> None:
 def main() -> int:
     require_repo()
     copy_payload()
+    cleanup_package_artifacts()
+    update_quality_ignore()
     update_css_entry()
     update_home_grid()
     normalize_headings()
