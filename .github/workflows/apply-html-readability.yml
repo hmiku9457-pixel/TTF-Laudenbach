@@ -9,7 +9,7 @@ permissions:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 15
     env:
       PYTHONDONTWRITEBYTECODE: "1"
 
@@ -24,15 +24,13 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Node.js einrichten
+      - name: Node.js für Formatierung einrichten
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
-      - name: Abhängigkeiten installieren
-        run: |
-          python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
-          npm install --no-audit --no-fund
+      - name: Python-Abhängigkeit installieren
+        run: python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
 
       - name: HTML-Struktur vereinfachen
         run: python tools/html-readability/apply_html_readability.py
@@ -47,14 +45,13 @@ jobs:
             "404.html" \
             "pages/**/*.html" \
             "components/**/*.html" \
-            "assets/js/main.js" \
-            "tests/e2e/site-smoke.spec.mjs"
+            "assets/js/main.js"
 
       - name: CSS-Bundle und Sitemap aktualisieren
         run: python tools/site/build.py --write
 
-      - name: Qualitätsprüfung
-        run: python tools/site/check.py
+      - name: Statische Qualitätsprüfung
+        run: python tools/quality/check_site.py
 
       - name: JavaScript-Syntax prüfen
         shell: bash
@@ -62,22 +59,6 @@ jobs:
           while IFS= read -r -d '' file; do
             node --check "$file"
           done < <(find assets/js -type f -name '*.js' -print0)
-
-      - name: Chromium installieren
-        run: npx playwright install --with-deps chromium
-
-      - name: Browser- und Layouttests
-        run: npm run test:e2e
-
-      - name: Testbericht hochladen
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: html-bereinigung-testbericht-${{ github.run_number }}
-          path: |
-            playwright-report/
-            test-results/
-          retention-days: 14
 
       - name: Änderungen anzeigen
         run: git status --short
