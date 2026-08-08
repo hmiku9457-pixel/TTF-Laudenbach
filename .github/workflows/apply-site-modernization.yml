@@ -22,6 +22,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - name: Python-Prüfwerkzeuge installieren
+        run: python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
       - name: Update anwenden
         run: python tools/site-modernization/apply_site_modernization.py
       - name: Generierte Dateien prüfen
