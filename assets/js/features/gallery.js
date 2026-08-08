@@ -124,12 +124,12 @@ function initGalleryNavigation(panel) {
     if (!toggle) {
         toggle = document.createElement("button");
         toggle.type = "button";
-        toggle.className = "button images-nav-toggle";
-        toggle.textContent = "Galerien öffnen";
+        toggle.className = "images-nav-toggle";
         toggle.setAttribute("aria-controls", panel.id);
         toggle.setAttribute("aria-expanded", "false");
         page.insertBefore(toggle, page.querySelector(".images-content"));
     }
+    configureGalleryToggle(toggle);
 
     let closeButton = panel.querySelector(".images-nav-close");
     if (!closeButton) {
@@ -197,6 +197,23 @@ function initGalleryNavigation(panel) {
     });
 
     return { open, close };
+}
+
+function configureGalleryToggle(toggle) {
+    toggle.classList.remove("button");
+    toggle.classList.add("images-nav-toggle");
+    toggle.setAttribute("aria-label", "Galerien öffnen");
+
+    const icon = document.createElement("span");
+    icon.className = "images-nav-toggle__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = "☰";
+
+    const label = document.createElement("span");
+    label.className = "images-nav-toggle__label";
+    label.textContent = "Galerien";
+
+    toggle.replaceChildren(icon, label);
 }
 
 function getImageAlt(entry, galleryTitle, index) {

@@ -2286,3 +2286,276 @@ table.table--emphasis-first-column tbody th {
         transition: none;
     }
 }
+
+/* Quelle: assets/css/components/ui-final.css */
+/* Finale Designkorrekturen: kompakte Spieltabellen, Rangliste und Galerie. */
+
+/* ==========================================================================
+   1. KOMPAKTE MOBILE SPIELTABELLEN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    table.table-compact-mobile thead th {
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+
+    /* Nächste Spiele:
+       Dat. | Zeit | Team | Geg. | H/A | Erg. */
+    table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
+        width: 18%;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
+        width: 14%;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
+        width: 13%;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
+        width: 31%;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
+        width: 10%;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
+        width: 14%;
+    }
+
+    /* Mannschaftsspielplan:
+       Dat. | Zeit | Geg. | H/A | Erg. */
+    table.table-compact-mobile--schedule .table-mobile-only {
+        display: table-cell;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(5),
+    table.table-compact-mobile--schedule :is(th, td):nth-child(6) {
+        display: none;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(1) {
+        width: 19%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(2) {
+        width: 15%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(3) {
+        width: 38%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(4) {
+        width: 11%;
+        overflow: visible;
+        text-align: center;
+    }
+
+    table.table-compact-mobile--schedule :is(th, td):nth-child(7) {
+        width: 17%;
+        text-align: right;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    table.table-compact-mobile thead th {
+        font-size: 0.68rem;
+        letter-spacing: 0;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td),
+    table.table-compact-mobile--schedule :is(th, td) {
+        padding-inline: 0.12rem;
+    }
+}
+
+/* ==========================================================================
+   2. EWIGE RANGLISTE
+   ========================================================================== */
+
+.table-ewigeRangliste {
+    max-width: 680px;
+    border: 1px solid #334155;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(15, 23, 42, 0.52);
+    box-shadow: var(--shadow-light);
+}
+
+.table-ewigeRangliste thead {
+    background: rgba(56, 189, 248, 0.12);
+}
+
+.table-ewigeRangliste thead th {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid #475569;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.table-ewigeRangliste tbody tr,
+.table-ewigeRangliste tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.36);
+    opacity: 1;
+    transform: none;
+}
+
+.table-ewigeRangliste tbody th[scope="row"],
+.table-ewigeRangliste tbody td {
+    padding: 0.62rem 0.75rem;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.72);
+    background: transparent;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+
+.table-ewigeRangliste tbody th[scope="row"] {
+    width: 16%;
+    text-align: left;
+    font-weight: 700;
+}
+
+.table-ewigeRangliste tbody td:nth-child(2) {
+    width: 64%;
+    text-align: left;
+}
+
+.table-ewigeRangliste tbody td:last-child {
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+}
+
+.table-ewigeRangliste tbody tr:last-child > * {
+    border-bottom: 0;
+}
+
+.table-ewigeRangliste tbody tr:hover {
+    background: rgba(56, 189, 248, 0.09);
+}
+
+.table-search {
+    max-width: 680px;
+    border: 1px solid #475569;
+    border-radius: var(--space-s);
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.table-ewigeRangliste tbody tr.ranking-fade-ready {
+    animation: rankingReverseFade 0.16s ease-out both;
+    animation-delay: var(--ranking-fade-delay, 0ms);
+}
+
+@keyframes rankingReverseFade {
+    from {
+        opacity: 0.72;
+        transform: translateY(2px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   3. GALERIE-TRIGGER
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .images-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        min-height: 44px;
+        padding: 0.62rem 1rem;
+        border: 1px solid rgba(56, 189, 248, 0.72);
+        border-radius: 999px;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(30, 41, 59, 0.96),
+                rgba(15, 23, 42, 0.96)
+            );
+        color: var(--text-main);
+        box-shadow:
+            0 6px 18px rgba(2, 6, 23, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        font: inherit;
+        font-size: 0.94rem;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        transition:
+            border-color 0.18s ease,
+            background 0.18s ease,
+            color 0.18s ease,
+            box-shadow 0.18s ease,
+            transform 0.18s ease;
+    }
+
+    .images-nav-toggle:hover {
+        border-color: var(--accent);
+        background:
+            linear-gradient(
+                180deg,
+                rgba(51, 65, 85, 0.98),
+                rgba(30, 41, 59, 0.98)
+            );
+        color: #ffffff;
+        box-shadow:
+            0 8px 22px rgba(2, 6, 23, 0.32),
+            0 0 0 1px rgba(56, 189, 248, 0.12);
+        transform: translateY(-1px);
+    }
+
+    .images-nav-toggle:focus-visible {
+        outline: 3px solid rgba(56, 189, 248, 0.42);
+        outline-offset: 3px;
+    }
+
+    .images-nav-toggle[aria-expanded="true"] {
+        border-color: var(--accent);
+        background: rgba(56, 189, 248, 0.16);
+        color: var(--accent);
+    }
+
+    .images-nav-toggle__icon {
+        display: inline-grid;
+        place-items: center;
+        width: 1.35rem;
+        height: 1.35rem;
+        color: var(--accent);
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .images-nav-toggle__label {
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .table-ewigeRangliste tbody tr.ranking-fade-ready {
+        animation: none;
+    }
+
+    .images-nav-toggle {
+        transition: none;
+    }
+}

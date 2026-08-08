@@ -3,8 +3,8 @@ import { showTableStatus } from "../core/status.js";
 import { spieleConfigs, tabellenConfigs } from "../config/table-configs.js";
 import { initAnimations } from "./animations.js";
 
-const COMPACT_TABLE_TYPES = new Set(["next-games", "league"]);
-const CARD_TABLE_TYPES = new Set(["schedule"]);
+const COMPACT_TABLE_TYPES = new Set(["next-games", "league", "schedule"]);
+const CARD_TABLE_TYPES = new Set();
 
 export function initTableScrollContainers(root = document) {
     root.querySelectorAll("table").forEach(table => {
@@ -71,7 +71,7 @@ function configureResponsiveTable(table) {
     } else if (tableType === "league") {
         prepareLeagueTable(table);
     } else if (tableType === "schedule") {
-        decorateTableCells(table);
+        prepareScheduleTable(table);
     }
 
     syncStatusRowColspan(table);
@@ -86,7 +86,8 @@ function resetResponsiveClasses(table) {
         "table-mobile-cards--league",
         "table-compact-mobile",
         "table-compact-mobile--next-games",
-        "table-compact-mobile--league"
+        "table-compact-mobile--league",
+        "table-compact-mobile--schedule"
     ].forEach(className => table.classList.remove(className));
 }
 
@@ -147,25 +148,122 @@ function prepareLeagueTable(table) {
 
 function prepareNextGamesTable(table) {
     const headerRow = table.tHead?.rows?.[0];
+
     if (headerRow) {
+        ensureDualHeaderLabel(headerRow.cells[0], "Dat.");
         ensureDualHeaderLabel(headerRow.cells[1], "Zeit");
         ensureDualHeaderLabel(headerRow.cells[2], "Team");
+        ensureDualHeaderLabel(headerRow.cells[3], "Geg.");
         ensureDualHeaderLabel(headerRow.cells[4], "H/A");
         ensureDualHeaderLabel(headerRow.cells[5], "Erg.");
     }
 
     const targetId = table.tBodies?.[0]?.id || "next-games";
 
-    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)").forEach((row, rowIndex) => {
-        const cells = Array.from(row.cells);
-        if (cells.length < 6) {
-            return;
-        }
+    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
+        .forEach((row, rowIndex) => {
+            const cells = Array.from(row.cells);
 
-        ensureDualValue(cells[0], compactDate(normalizedCellText(cells[0])));
-        ensureDualValue(cells[2], abbreviateTeam(normalizedCellText(cells[2])));
-        ensureVenueCell(cells[4], targetId, rowIndex);
-    });
+            if (cells.length < 6) {
+                return;
+            }
+
+            ensureDualValue(
+                cells[0],
+                compactDate(normalizedCellText(cells[0]))
+            );
+            ensureDualValue(
+                cells[2],
+                abbreviateTeam(normalizedCellText(cells[2]))
+            );
+            ensureVenueCell(cells[4], targetId, rowIndex);
+        });
+}
+
+function prepareScheduleTable(table) {
+    const headerRow = table.tHead?.rows?.[0];
+
+    if (!headerRow) {
+        return;
+    }
+
+    const desktopHeaders = Array.from(headerRow.cells)
+        .filter(cell => !cell.classList.contains("table-mobile-only"));
+
+    if (desktopHeaders.length < 5) {
+        return;
+    }
+
+    ensureDualHeaderLabel(desktopHeaders[0], "Dat.");
+    ensureDualHeaderLabel(desktopHeaders[1], "Zeit");
+    ensureDualHeaderLabel(desktopHeaders[4], "Erg.");
+
+    let opponentHeader = headerRow.querySelector(
+        ".table-mobile-only--schedule-opponent"
+    );
+    let venueHeader = headerRow.querySelector(
+        ".table-mobile-only--schedule-venue"
+    );
+
+    if (!opponentHeader) {
+        opponentHeader = document.createElement("th");
+        opponentHeader.scope = "col";
+        opponentHeader.className =
+            "table-mobile-only table-mobile-only--schedule-opponent";
+        opponentHeader.textContent = "Geg.";
+        headerRow.insertBefore(opponentHeader, desktopHeaders[2]);
+    }
+
+    if (!venueHeader) {
+        venueHeader = document.createElement("th");
+        venueHeader.scope = "col";
+        venueHeader.className =
+            "table-mobile-only table-mobile-only--schedule-venue";
+        venueHeader.textContent = "H/A";
+        headerRow.insertBefore(venueHeader, desktopHeaders[2]);
+    }
+
+    const targetId = table.tBodies?.[0]?.id || "schedule";
+
+    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
+        .forEach((row, rowIndex) => {
+            const desktopCells = Array.from(row.cells)
+                .filter(cell => !cell.classList.contains("table-mobile-only"));
+
+            if (desktopCells.length < 5) {
+                return;
+            }
+
+            ensureDualValue(
+                desktopCells[0],
+                compactDate(normalizedCellText(desktopCells[0]))
+            );
+
+            let opponentCell = row.querySelector(
+                ".table-mobile-only--schedule-opponent"
+            );
+            let venueCell = row.querySelector(
+                ".table-mobile-only--schedule-venue"
+            );
+
+            if (!opponentCell) {
+                opponentCell = document.createElement("td");
+                opponentCell.className =
+                    "table-mobile-only table-mobile-only--schedule-opponent";
+                opponentCell.textContent = normalizedCellText(desktopCells[3]);
+                row.insertBefore(opponentCell, desktopCells[2]);
+            }
+
+            if (!venueCell) {
+                venueCell = document.createElement("td");
+                venueCell.className =
+                    "table-mobile-only table-mobile-only--schedule-venue";
+                venueCell.textContent = normalizedCellText(desktopCells[2]);
+                row.insertBefore(venueCell, desktopCells[2]);
+            }
+
+            ensureVenueCell(venueCell, targetId, rowIndex);
+        });
 }
 
 function ensureDualHeaderLabel(cell, mobileText) {
