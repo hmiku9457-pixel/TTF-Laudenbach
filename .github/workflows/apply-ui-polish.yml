@@ -1,0 +1,82 @@
+name: UI-Feinschliff anwenden
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ui-polish
+  cancel-in-progress: false
+
+jobs:
+  apply-ui-polish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Python-Prüfabhängigkeiten installieren
+        run: |
+          python -m pip install \
+            --disable-pip-version-check \
+            "beautifulsoup4==4.13.4"
+
+      - name: UI-Feinschliff anwenden
+        run: python tools/ui-polish/apply_ui_polish.py
+
+      - name: CSS-Bundle prüfen
+        run: python tools/review-upgrade/build_css.py --check
+
+      - name: Feinschliff-Struktur prüfen
+        run: python tools/ui-polish/verify_ui_polish.py
+
+      - name: JavaScript-Syntax prüfen
+        run: node --check assets/js/features/tables.js
+
+      - name: Repository-Qualitätsprüfung ausführen
+        run: python tools/quality/check_site.py
+
+      - name: Änderungen anzeigen
+        run: |
+          git diff --stat
+          git status --short
+
+      - name: Änderungen committen
+        run: |
+          git add \
+            assets/js/features/tables.js \
+            assets/css/components/ui-polish.css \
+            assets/css/main.css \
+            assets/css/site.bundle.css
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen erforderlich."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "Polish mobile tables and gallery navigation"
+          git pull --rebase origin main
+          git push origin HEAD:main
