@@ -8,6 +8,7 @@ import shutil
 import zipfile
 from pathlib import Path
 from typing import Iterable
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 
@@ -47,7 +48,100 @@ def copy_templates() -> None:
             print(f"Aktualisiert: {relative.as_posix()}")
 
 
-def patch_html_documents() -> None:
+def safe_http_url(value: object) -> str | None:
+    """Akzeptiert ausschließlich vollständige HTTP(S)-URLs."""
+    if not isinstance(value, str):
+        return None
+    candidate = value.strip()
+    parsed = urlparse(candidate)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return None
+    return candidate
+
+
+def load_static_link_targets() -> tuple[dict[str, str], dict[str, str]]:
+    """Erzeugt ID->URL- und ID->Beschriftung-Zuordnungen aus links.json."""
+    path = ROOT / "assets/data/links.json"
+    if not path.is_file():
+        return {}, {}
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    targets: dict[str, str] = {}
+    labels: dict[str, str] = {}
+
+    for section in ("tabellen", "spielplaene"):
+        entries = data.get(section, [])
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            entry_id = entry.get("id")
+            url = safe_http_url(entry.get("url"))
+            if isinstance(entry_id, str) and entry_id and url:
+                targets[f"link-{entry_id}"] = url
+
+    sponsor_ids = {"sponsor1", "sponsor2", "sponsor3", "sponsor4"}
+    groups = data.get("links", [])
+    if isinstance(groups, list):
+        for group in groups:
+            if not isinstance(group, dict):
+                continue
+            links = group.get("links", [])
+            if not isinstance(links, list):
+                continue
+            for entry in links:
+                if not isinstance(entry, dict):
+                    continue
+                entry_id = entry.get("id")
+                if entry_id not in sponsor_ids:
+                    continue
+                url = safe_http_url(entry.get("url"))
+                name = entry.get("name")
+                if not url:
+                    continue
+                for suffix in ("", "-main", "-footer"):
+                    element_id = f"link-{entry_id}{suffix}"
+                    targets[element_id] = url
+                    if isinstance(name, str) and name.strip():
+                        labels[element_id] = name.strip()
+
+    return targets, labels
+
+
+def hydrate_static_links(
+    soup: BeautifulSoup,
+    targets: dict[str, str],
+    labels: dict[str, str],
+) -> bool:
+    """Schreibt dynamische Linkziele als progressiven HTML-Fallback vor."""
+    changed = False
+    for element_id, url in targets.items():
+        anchor = soup.find("a", id=element_id)
+        if not anchor:
+            continue
+        if anchor.get("href") != url:
+            anchor["href"] = url
+            changed = True
+        if anchor.has_attr("aria-disabled"):
+            del anchor["aria-disabled"]
+            changed = True
+        classes = list(anchor.get("class", []))
+        if "is-disabled" in classes:
+            anchor["class"] = [name for name in classes if name != "is-disabled"]
+            changed = True
+        label = labels.get(element_id)
+        if label and anchor.get_text(" ", strip=True) != label:
+            anchor.clear()
+            anchor.string = label
+            changed = True
+    return changed
+
+
+def patch_html_documents(
+    static_targets: dict[str, str],
+    static_labels: dict[str, str],
+) -> None:
     for path in sorted(ROOT.rglob("*.html")):
         if any(part in {".git", "node_modules"} for part in path.parts):
             continue
@@ -73,6 +167,7 @@ def patch_html_documents() -> None:
         improve_tables(soup, relative)
         convert_inline_iframe_handlers(soup)
         ensure_contact_status(soup)
+        hydrate_static_links(soup, static_targets, static_labels)
 
         output = str(soup)
         if not output.lstrip().lower().startswith("<!doctype html>"):
@@ -312,6 +407,22 @@ def patch_links_json() -> None:
     print("Sponsor-Links geprüft.")
 
 
+def patch_component_links(
+    static_targets: dict[str, str],
+    static_labels: dict[str, str],
+) -> None:
+    """Ergänzt Link-Fallbacks auch in geladenen Header-/Footer-Fragmenten."""
+    components = ROOT / "components"
+    if not components.is_dir():
+        return
+    for path in sorted(components.glob("*.html")):
+        original = path.read_text(encoding="utf-8")
+        soup = BeautifulSoup(original, "html.parser")
+        if hydrate_static_links(soup, static_targets, static_labels):
+            path.write_text(str(soup).strip() + "\n", encoding="utf-8")
+            print(f"Komponenten-Links ergänzt: {path.relative_to(ROOT)}")
+
+
 def pin_actions() -> None:
     pattern = re.compile(r"(uses:\s*)(actions/(?:checkout|setup-python|setup-node|upload-artifact))@[^\s#]+")
     for path in sorted((ROOT / ".github/workflows").glob("*.yml")):
@@ -337,9 +448,12 @@ def remove_legacy_files() -> None:
 
 def main() -> int:
     copy_templates()
-    patch_html_documents()
-    patch_header_component()
+    # URLs zuerst normalisieren, damit die statischen HTML-Fallbacks HTTPS verwenden.
     patch_links_json()
+    static_targets, static_labels = load_static_link_targets()
+    patch_html_documents(static_targets, static_labels)
+    patch_header_component()
+    patch_component_links(static_targets, static_labels)
     pin_actions()
     remove_legacy_files()
     print("Abschlussverbesserungen wurden im Arbeitsstand angewendet.")
