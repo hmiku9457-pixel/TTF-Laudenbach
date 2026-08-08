@@ -13,7 +13,7 @@ concurrency:
 jobs:
   apply-ui-update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     env:
       PYTHONDONTWRITEBYTECODE: "1"
@@ -30,10 +30,23 @@ jobs:
           python-version: "3.13"
 
       - name: Python-Prüfabhängigkeiten installieren
-        run: python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
+        run: |
+          python -m pip install \
+            --disable-pip-version-check \
+            "beautifulsoup4==4.13.4"
+
+      - name: Generierte Testdateien entfernen
+        run: |
+          rm -rf \
+            tools/review-upgrade/node_modules \
+            tools/review-upgrade/playwright-report \
+            tools/review-upgrade/test-results
 
       - name: UI-Update anwenden
         run: python tools/ui-update/apply_ui_update.py
+
+      - name: CSS-Bundle mit zentralem Builder prüfen
+        run: python tools/review-upgrade/build_css.py --check
 
       - name: Update-Struktur prüfen
         run: python tools/ui-update/verify_ui_update.py
@@ -49,27 +62,27 @@ jobs:
         run: python tools/quality/check_site.py
 
       - name: Änderungen anzeigen
-        run: git diff --stat && git status --short
+        run: |
+          git diff --stat
+          git status --short
 
       - name: Änderungen committen
         run: |
-          git add \
-            assets/css/main.css \
-            assets/css/site.bundle.css \
-            assets/css/components/ui-fixes.css \
-            assets/js/core/page-structure.js \
-            assets/js/features/news-slider.js \
-            assets/js/features/tables.js \
-            assets/js/features/gallery.js \
-            pages/unserVerein.html \
-            pages/dokumente/historischeFotos.html
+          # Bewusst alle Änderungen aufnehmen:
+          # Neben dem UI-Update werden damit auch bereits versionierte
+          # Playwright-/Node-Artefakte aus dem Repository entfernt.
+          git add -A
+
           if git diff --cached --quiet; then
             echo "Keine Änderungen erforderlich."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Fix responsive navigation, news, tables and gallery"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m \
+            "Fix responsive UI and remove generated test artifacts"
           git pull --rebase origin main
           git push origin HEAD:main

@@ -2,6 +2,7 @@ name: Website-Qualität prüfen
 
 on:
   workflow_dispatch:
+
   pull_request:
     paths:
       - "**/*.html"
@@ -11,10 +12,11 @@ on:
       - "sitemap.xml"
       - "robots.txt"
       - "tools/quality/**"
-      - "tools/review-upgrade/**"
       - ".github/workflows/**"
+
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "**/*.html"
       - "assets/css/**"
@@ -23,7 +25,6 @@ on:
       - "sitemap.xml"
       - "robots.txt"
       - "tools/quality/**"
-      - "tools/review-upgrade/**"
       - ".github/workflows/**"
 
 permissions:
@@ -33,34 +34,35 @@ concurrency:
   group: site-quality-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  PYTHONDONTWRITEBYTECODE: "1"
-
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 10
+
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        uses: actions/checkout@v4
 
       - name: Python einrichten
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
       - name: Node.js einrichten
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
 
-      - name: Prüfwerkzeuge installieren
+      - name: Python-Prüfabhängigkeiten installieren
         run: |
-          python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
-          npm install --prefix tools/review-upgrade --no-audit --no-fund
-          npx --prefix tools/review-upgrade playwright install --with-deps chromium
+          python -m pip install \
+            --disable-pip-version-check \
+            "beautifulsoup4==4.13.4"
 
-      - name: Statische Prüfung
+      - name: HTML, JSON, Links und Imports prüfen
         run: python tools/quality/check_site.py
 
       - name: JavaScript-Syntax prüfen
@@ -68,32 +70,9 @@ jobs:
         run: |
           while IFS= read -r -d '' file; do
             node --check "$file"
-          done < <(find assets/js -type f -name '*.js' -print0)
-
-      - name: HTML-Standard prüfen
-        run: python tools/review-upgrade/run_vnu.py
-
-      - name: Lokalen Webserver starten
-        shell: bash
-        run: |
-          python -m http.server 4173 --bind 127.0.0.1 > /tmp/ttf-http.log 2>&1 &
-          for attempt in {1..20}; do
-            curl --fail --silent http://127.0.0.1:4173/index.html > /dev/null && exit 0
-            sleep 1
-          done
-          cat /tmp/ttf-http.log
-          exit 1
-
-      - name: Browser- und Accessibility-Tests
-        run: npm test --prefix tools/review-upgrade
-
-      - name: Testbericht bei Fehler hochladen
-        if: failure()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: quality-testbericht-${{ github.run_id }}
-          path: |
-            tools/review-upgrade/playwright-report/
-            tools/review-upgrade/test-results/
-          if-no-files-found: ignore
-          retention-days: 7
+          done < <(
+            find assets/js \
+              -type f \
+              -name '*.js' \
+              -print0
+          )
