@@ -1,0 +1,65 @@
+name: Einmalig Browsertests entfernen
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Browser- und Layouttests entfernen
+        run: python tools/remove-browser-tests/remove_browser_tests.py
+
+      - name: Verbleibendes JavaScript prüfen
+        shell: bash
+        run: |
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done < <(find assets/js -type f -name '*.js' -print0)
+
+      - name: Vorhandene statische Qualitätsprüfung ausführen
+        shell: bash
+        run: |
+          if [ -f tools/site/check.py ]; then
+            python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
+            python tools/site/check.py
+          elif [ -f tools/quality/check_site.py ]; then
+            python -m pip install --disable-pip-version-check "beautifulsoup4==4.13.4"
+            python tools/quality/check_site.py
+          else
+            echo "Keine statische Python-Prüfung vorhanden."
+          fi
+
+      - name: Änderungen anzeigen
+        run: git status --short
+
+      - name: Bereinigung committen
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Es waren keine Browsertests mehr vorhanden."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "cleanup: Browser- und Layouttests entfernen"
+          git push
