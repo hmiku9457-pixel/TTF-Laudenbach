@@ -1,0 +1,73 @@
+name: Tabellenköpfe mobil korrigieren
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: table-header-fix
+  cancel-in-progress: false
+
+jobs:
+  apply-table-header-fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Python-Prüfabhängigkeiten installieren
+        run: |
+          python -m pip install \
+            --disable-pip-version-check \
+            "beautifulsoup4==4.13.4"
+
+      - name: Tabellenkopf-Korrektur anwenden
+        run: python tools/table-header-fix/apply_table_header_fix.py
+
+      - name: CSS-Bundle prüfen
+        run: python tools/review-upgrade/build_css.py --check
+
+      - name: Korrektur verifizieren
+        run: python tools/table-header-fix/verify_table_header_fix.py
+
+      - name: Repository-Qualitätsprüfung ausführen
+        run: python tools/quality/check_site.py
+
+      - name: Änderungen anzeigen
+        run: |
+          git diff --stat
+          git status --short
+
+      - name: Änderungen committen
+        run: |
+          git add \
+            assets/css/components/table-header-fix.css \
+            assets/css/main.css \
+            assets/css/site.bundle.css
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen erforderlich."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "Fix compact mobile table header alignment"
+          git pull --rebase origin main
+          git push origin HEAD:main
