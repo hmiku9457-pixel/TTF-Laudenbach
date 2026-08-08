@@ -180,14 +180,14 @@ def patch_tables() -> None:
     content = TABLES_JS.read_text(encoding="utf-8")
 
     content = re.sub(
-        r'const COMPACT_TABLE_TYPES = new Set\(\[[^\n]*\]\);',
+        r"const COMPACT_TABLE_TYPES\s*=\s*new Set\([^;]*\);",
         'const COMPACT_TABLE_TYPES = '
         'new Set(["next-games", "league", "schedule"]);',
         content,
         count=1,
     )
     content = re.sub(
-        r'const CARD_TABLE_TYPES = new Set\(\[[^\n]*\]\);',
+        r"const CARD_TABLE_TYPES\s*=\s*new Set\([^;]*\);",
         "const CARD_TABLE_TYPES = new Set();",
         content,
         count=1,
@@ -211,22 +211,24 @@ def patch_tables() -> None:
         1,
     )
 
-    pattern = re.compile(
-        r"function prepareNextGamesTable\(table\) \{.*?"
-        r"\n\}\nfunction ensureDualHeaderLabel",
-        re.S,
-    )
-    replacement = (
-        NEXT_AND_SCHEDULE_FUNCTIONS.strip()
-        + "\n\nfunction ensureDualHeaderLabel"
-    )
-    content, count = pattern.subn(replacement, content, count=1)
+    start_marker = "function prepareNextGamesTable(table) {"
+    end_marker = "function ensureDualHeaderLabel"
 
-    if count != 1:
+    start_index = content.find(start_marker)
+    end_index = content.find(end_marker, start_index)
+
+    if start_index < 0 or end_index < 0:
         raise RuntimeError(
             "Die Funktionen für die responsiven Spieltabellen "
-            "konnten nicht aktualisiert werden."
+            "konnten nicht gefunden werden."
         )
+
+    content = (
+        content[:start_index]
+        + NEXT_AND_SCHEDULE_FUNCTIONS.strip()
+        + "\n\n"
+        + content[end_index:]
+    )
 
     TABLES_JS.write_text(content, encoding="utf-8")
 
