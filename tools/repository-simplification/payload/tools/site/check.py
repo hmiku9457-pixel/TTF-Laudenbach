@@ -185,11 +185,9 @@ def check_html(errors: list[str], warnings: list[str]) -> None:
             errors.append(
                 f'{relative}: erwartet genau ein <main id="main-content">'
             )
-        elif len(mains[0].find_all("h1")) != 1:
-            errors.append(
-                f"{relative}: im Hauptinhalt wird genau eine H1 erwartet"
-            )
 
+        # Die genaue H1-Anzahl wird im anschließenden Playwright-Test
+        # gegen den tatsächlich gerenderten Browser-DOM geprüft.
         if soup.select("header h1"):
             errors.append(f"{relative}: H1 im Header gefunden")
 
