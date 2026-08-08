@@ -2097,10 +2097,6 @@ table.table--emphasis-first-column tbody th {
 .venue-compact {
     display: none;
 }
-.table-scroll--compact {
-    overflow: visible;
-    overscroll-behavior: auto;
-}
 .venue-compact {
     position: relative;
     align-items: center;
@@ -2162,6 +2158,13 @@ table.table--emphasis-first-column tbody th {
     transform: translateY(0);
 }
 @media (max-width: 768px) {
+    /* Die kompakte Tabellenansicht passt vollständig in den Viewport.
+       Oberhalb dieses Breakpoints bleibt der normale Scroll-Container aktiv. */
+    .table-scroll--compact {
+        overflow: visible;
+        overscroll-behavior: auto;
+    }
+
     table.table-compact-mobile,
         table.table-compact-mobile thead,
         table.table-compact-mobile tbody {
