@@ -3,6 +3,9 @@ import { showTableStatus } from "../core/status.js";
 import { spieleConfigs, tabellenConfigs } from "../config/table-configs.js";
 import { initAnimations } from "./animations.js";
 
+const COMPACT_TABLE_TYPES = new Set(["next-games", "league"]);
+const CARD_TABLE_TYPES = new Set(["schedule"]);
+
 export function initTableScrollContainers(root = document) {
     root.querySelectorAll("table").forEach(table => {
         configureResponsiveTable(table);
@@ -11,6 +14,7 @@ export function initTableScrollContainers(root = document) {
             syncTableWrapper(table.parentElement, table);
             return;
         }
+
         if (table.classList.contains("table-ewigeRangliste")) {
             return;
         }
@@ -26,11 +30,13 @@ export function initTableScrollContainers(root = document) {
 function syncTableWrapper(wrapper, table) {
     const headerCells = table.tHead?.rows?.[0]?.cells?.length || 0;
     const isCardTable = table.classList.contains("table-mobile-cards");
+    const isCompactTable = table.classList.contains("table-compact-mobile");
 
-    wrapper.classList.toggle("table-scroll--wide", headerCells >= 5);
+    wrapper.classList.toggle("table-scroll--wide", headerCells >= 5 && !isCardTable && !isCompactTable);
     wrapper.classList.toggle("table-scroll--cards", isCardTable);
+    wrapper.classList.toggle("table-scroll--compact", isCompactTable);
 
-    if (headerCells >= 5 && !isCardTable) {
+    if (headerCells >= 5 && !isCardTable && !isCompactTable) {
         wrapper.tabIndex = 0;
         wrapper.setAttribute("aria-label", "Tabelle kann horizontal gescrollt werden");
     } else {
@@ -50,21 +56,232 @@ function configureResponsiveTable(table) {
         return;
     }
 
-    table.classList.add("table-mobile-cards", `table-mobile-cards--${tableType}`);
-    decorateTableCells(table);
+    resetResponsiveClasses(table);
+
+    if (COMPACT_TABLE_TYPES.has(tableType)) {
+        table.classList.add("table-compact-mobile", `table-compact-mobile--${tableType}`);
+    }
+
+    if (CARD_TABLE_TYPES.has(tableType)) {
+        table.classList.add("table-mobile-cards", `table-mobile-cards--${tableType}`);
+    }
+
+    if (tableType === "next-games") {
+        prepareNextGamesTable(table);
+    } else if (tableType === "league") {
+        prepareLeagueTable(table);
+    } else if (tableType === "schedule") {
+        decorateTableCells(table);
+    }
+
+    syncStatusRowColspan(table);
+    initVenueTooltipInteractions();
+}
+
+function resetResponsiveClasses(table) {
+    [
+        "table-mobile-cards",
+        "table-mobile-cards--next-games",
+        "table-mobile-cards--schedule",
+        "table-mobile-cards--league",
+        "table-compact-mobile",
+        "table-compact-mobile--next-games",
+        "table-compact-mobile--league"
+    ].forEach(className => table.classList.remove(className));
 }
 
 function getResponsiveTableType(targetId) {
     if (targetId === "spiele-startseite") {
         return "next-games";
     }
+
     if (/^spiele-(?:herren|jugend)\d+$/i.test(targetId)) {
         return "schedule";
     }
+
     if (/^tabelle-(?:herren|jugend)\d+$/i.test(targetId)) {
         return "league";
     }
+
     return null;
+}
+
+function prepareLeagueTable(table) {
+    const headerRow = table.tHead?.rows?.[0];
+    if (!headerRow) {
+        return;
+    }
+
+    ensureDualHeaderLabel(headerRow.cells[1], "Team");
+
+    let recordHeader = headerRow.querySelector(".table-mobile-only--record");
+    if (!recordHeader) {
+        recordHeader = document.createElement("th");
+        recordHeader.scope = "col";
+        recordHeader.className = "table-mobile-only table-mobile-only--record";
+        recordHeader.textContent = "S-U-N";
+        headerRow.insertBefore(recordHeader, headerRow.cells[2] || null);
+    }
+
+    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)").forEach(row => {
+        if (row.querySelector(".table-mobile-only--record")) {
+            return;
+        }
+
+        const originalCells = Array.from(row.cells);
+        if (originalCells.length < 9) {
+            return;
+        }
+
+        const recordCell = document.createElement("td");
+        recordCell.className = "table-mobile-only table-mobile-only--record";
+        recordCell.textContent = [
+            normalizedCellText(originalCells[3]),
+            normalizedCellText(originalCells[4]),
+            normalizedCellText(originalCells[5])
+        ].join("-");
+
+        row.insertBefore(recordCell, originalCells[2] || null);
+    });
+}
+
+function prepareNextGamesTable(table) {
+    const headerRow = table.tHead?.rows?.[0];
+    if (headerRow) {
+        ensureDualHeaderLabel(headerRow.cells[1], "Zeit");
+        ensureDualHeaderLabel(headerRow.cells[2], "Team");
+        ensureDualHeaderLabel(headerRow.cells[4], "H/A");
+        ensureDualHeaderLabel(headerRow.cells[5], "Erg.");
+    }
+
+    const targetId = table.tBodies?.[0]?.id || "next-games";
+
+    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)").forEach((row, rowIndex) => {
+        const cells = Array.from(row.cells);
+        if (cells.length < 6) {
+            return;
+        }
+
+        ensureDualValue(cells[0], compactDate(normalizedCellText(cells[0])));
+        ensureDualValue(cells[2], abbreviateTeam(normalizedCellText(cells[2])));
+        ensureVenueCell(cells[4], targetId, rowIndex);
+    });
+}
+
+function ensureDualHeaderLabel(cell, mobileText) {
+    if (!cell || cell.querySelector(".responsive-label--mobile")) {
+        return;
+    }
+
+    const desktopText = cell.textContent.trim();
+    cell.textContent = "";
+
+    const desktop = document.createElement("span");
+    desktop.className = "responsive-label responsive-label--desktop";
+    desktop.textContent = desktopText;
+
+    const mobile = document.createElement("span");
+    mobile.className = "responsive-label responsive-label--mobile";
+    mobile.textContent = mobileText;
+
+    cell.append(desktop, mobile);
+}
+
+function ensureDualValue(cell, mobileText) {
+    if (!cell || cell.querySelector(".responsive-value--mobile")) {
+        return;
+    }
+
+    const desktopText = normalizedCellText(cell);
+    cell.textContent = "";
+
+    const desktop = document.createElement("span");
+    desktop.className = "responsive-value responsive-value--desktop";
+    desktop.textContent = desktopText;
+
+    const mobile = document.createElement("span");
+    mobile.className = "responsive-value responsive-value--mobile";
+    mobile.textContent = mobileText || desktopText;
+
+    cell.append(desktop, mobile);
+}
+
+function ensureVenueCell(cell, tableId, rowIndex) {
+    if (!cell || cell.querySelector(".venue-compact")) {
+        return;
+    }
+
+    const fullLocation = normalizedCellText(cell);
+    const isAway = /auswärt/i.test(fullLocation);
+    const badgeText = isAway ? "A" : "H";
+    const detailText = isAway
+        ? "Auswärtsspiel – Spielort beim gegnerischen Verein"
+        : `Heimspiel – ${fullLocation || "Spielort noch nicht bekannt"}`;
+    const tooltipId = `venue-tooltip-${sanitizeId(tableId)}-${rowIndex + 1}`;
+
+    cell.textContent = "";
+
+    const desktop = document.createElement("span");
+    desktop.className = "venue-full";
+    desktop.textContent = fullLocation || "–";
+
+    const compact = document.createElement("span");
+    compact.className = "venue-compact";
+
+    const badge = document.createElement("button");
+    badge.type = "button";
+    badge.className = `venue-badge venue-badge--${isAway ? "away" : "home"}`;
+    badge.textContent = badgeText;
+    badge.setAttribute("aria-label", detailText);
+    badge.setAttribute("aria-describedby", tooltipId);
+    badge.setAttribute("aria-expanded", "false");
+
+    const tooltip = document.createElement("span");
+    tooltip.id = tooltipId;
+    tooltip.className = "venue-tooltip";
+    tooltip.setAttribute("role", "tooltip");
+    tooltip.textContent = detailText;
+
+    compact.append(badge, tooltip);
+    cell.append(desktop, compact);
+}
+
+function initVenueTooltipInteractions() {
+    if (document.documentElement.dataset.venueTooltipsInitialized === "true") {
+        return;
+    }
+
+    document.documentElement.dataset.venueTooltipsInitialized = "true";
+
+    document.addEventListener("click", event => {
+        const badge = event.target.closest(".venue-badge");
+        const currentWrapper = badge?.closest(".venue-compact") || null;
+        const shouldOpen = currentWrapper && !currentWrapper.classList.contains("is-open");
+
+        closeVenueTooltips();
+
+        if (shouldOpen) {
+            currentWrapper.classList.add("is-open");
+            badge.setAttribute("aria-expanded", "true");
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") {
+            return;
+        }
+
+        const openBadge = document.querySelector(".venue-compact.is-open .venue-badge");
+        closeVenueTooltips();
+        openBadge?.focus();
+    });
+}
+
+function closeVenueTooltips() {
+    document.querySelectorAll(".venue-compact.is-open").forEach(wrapper => {
+        wrapper.classList.remove("is-open");
+        wrapper.querySelector(".venue-badge")?.setAttribute("aria-expanded", "false");
+    });
 }
 
 function decorateTableCells(table) {
@@ -78,6 +295,52 @@ function decorateTableCells(table) {
     });
 }
 
+function syncStatusRowColspan(table) {
+    const headerCount = table.tHead?.rows?.[0]?.cells?.length || 1;
+
+    table.querySelectorAll(".table-status-row td").forEach(cell => {
+        cell.colSpan = headerCount;
+    });
+}
+
+function normalizedCellText(cell) {
+    return String(cell?.textContent || "").replace(/\s+/g, " ").trim();
+}
+
+function compactDate(value) {
+    return String(value || "")
+        .replace(/(\d{2}\.\d{2}\.)\d{4}/, "$1")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function abbreviateTeam(value) {
+    const normalized = String(value || "").trim();
+    const numberMap = {
+        "1": "I",
+        "2": "II",
+        "3": "III",
+        "4": "IV",
+        "5": "V"
+    };
+
+    const match = normalized.match(/^(Herren|Jugend)\s+([IVX]+|\d+)$/i);
+    if (!match) {
+        return normalized;
+    }
+
+    const prefix = /^herren$/i.test(match[1]) ? "H" : "J";
+    const number = numberMap[match[2]] || match[2].toUpperCase();
+    return `${prefix} ${number}`;
+}
+
+function sanitizeId(value) {
+    return String(value || "table")
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]+/g, "-")
+        .replace(/^-+|-+$/g, "") || "table";
+}
+
 export function initTableSearch() {
     const input = document.getElementById("searchInput");
     if (!input || input.dataset.searchInitialized === "true") {
@@ -87,6 +350,7 @@ export function initTableSearch() {
     input.dataset.searchInitialized = "true";
     input.addEventListener("input", () => {
         const search = input.value.trim().toLowerCase();
+
         document.querySelectorAll(".table-ewigeRangliste tbody tr")
             .forEach(row => {
                 const nameCell = row.children[1];
@@ -112,13 +376,16 @@ export async function loadTable(config) {
         }
 
         tbody.innerHTML = "";
+
         if (data.length === 0) {
             showTableStatus(
                 tbody,
                 config.emptyMessage || "Aktuell sind keine Daten verfügbar.",
                 "empty"
             );
-            configureResponsiveTable(tbody.closest("table"));
+            const table = tbody.closest("table");
+            configureResponsiveTable(table);
+            syncExistingWrapper(table);
             return;
         }
 
@@ -131,15 +398,13 @@ export async function loadTable(config) {
                 cell.textContent = value ?? "–";
                 row.appendChild(cell);
             });
+
             tbody.appendChild(row);
         });
 
         const table = tbody.closest("table");
         configureResponsiveTable(table);
-        if (table?.parentElement?.classList.contains("table-scroll")) {
-            syncTableWrapper(table.parentElement, table);
-        }
-
+        syncExistingWrapper(table);
         initTableSearch();
         initAnimations(table || document);
     } catch (error) {
@@ -149,7 +414,16 @@ export async function loadTable(config) {
             config.errorMessage || "Die Daten konnten nicht geladen werden.",
             "error"
         );
-        configureResponsiveTable(tbody.closest("table"));
+
+        const table = tbody.closest("table");
+        configureResponsiveTable(table);
+        syncExistingWrapper(table);
+    }
+}
+
+function syncExistingWrapper(table) {
+    if (table?.parentElement?.classList.contains("table-scroll")) {
+        syncTableWrapper(table.parentElement, table);
     }
 }
 

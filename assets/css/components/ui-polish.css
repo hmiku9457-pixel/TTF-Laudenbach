@@ -1,0 +1,298 @@
+/* UI-Feinschliff: Tabellen und Galerie, August 2026. */
+
+/* Rollen in der Ehrenmitgliedertabelle sind Inhalte, keine Spaltenköpfe. */
+table.table--emphasis-first-column tbody th {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Das Galeriepanel darf nicht von der allgemeinen Box-Animation transformiert werden. */
+.images-event-list.animate {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+/* Responsive Hilfswerte sind auf großen Ansichten unsichtbar. */
+.responsive-label--mobile,
+.responsive-value--mobile,
+.table-mobile-only,
+.venue-compact {
+    display: none;
+}
+
+.table-scroll--compact {
+    overflow: visible;
+    overscroll-behavior: auto;
+}
+
+/* Zugänglicher H-/A-Tooltip. */
+.venue-compact {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.venue-badge {
+    display: inline-grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: help;
+}
+
+.venue-badge--away {
+    border-color: #94a3b8;
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+}
+
+.venue-tooltip {
+    position: absolute;
+    z-index: 4300;
+    right: 0;
+    bottom: calc(100% + 0.5rem);
+    width: max-content;
+    max-width: min(250px, 76vw);
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #475569;
+    border-radius: 0.5rem;
+    background: #020617;
+    color: #e2e8f0;
+    box-shadow: var(--shadow-light);
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: left;
+    white-space: normal;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.25rem);
+    transition:
+        opacity 0.16s ease,
+        transform 0.16s ease,
+        visibility 0.16s ease;
+}
+
+.venue-compact:hover .venue-tooltip,
+.venue-compact:focus-within .venue-tooltip,
+.venue-compact.is-open .venue-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    /* Das Galeriepanel muss beim Schließen tatsächlich aus dem Viewport fahren. */
+    .images-event-list,
+    .images-event-list.animate {
+        opacity: 1 !important;
+        transform: translateX(-105%) !important;
+        animation: none !important;
+    }
+
+    .images-event-list.is-open,
+    .images-event-list.animate.is-open {
+        transform: translateX(0) !important;
+    }
+
+    .images-nav-close {
+        position: relative;
+        z-index: 1;
+        pointer-events: auto;
+    }
+
+    /* Kartenansicht bleibt nur beim vollständigen Mannschaftsspielplan aktiv. */
+    table.table-compact-mobile,
+    table.table-compact-mobile thead,
+    table.table-compact-mobile tbody {
+        display: table;
+        width: 100%;
+    }
+
+    table.table-compact-mobile {
+        min-width: 0;
+        table-layout: fixed;
+        font-size: clamp(0.68rem, 2.25vw, 0.82rem);
+    }
+
+    table.table-compact-mobile thead {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    table.table-compact-mobile tbody {
+        display: table-row-group;
+    }
+
+    table.table-compact-mobile tbody tr {
+        display: table-row;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    table.table-compact-mobile tbody td,
+    table.table-compact-mobile thead th {
+        display: table-cell;
+        min-width: 0;
+        padding: 0.55rem 0.25rem;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+        vertical-align: middle;
+    }
+
+    table.table-compact-mobile tbody td::before {
+        content: none;
+    }
+
+    .responsive-label--desktop,
+    .responsive-value--desktop,
+    .venue-full {
+        display: none;
+    }
+
+    .responsive-label--mobile,
+    .responsive-value--mobile {
+        display: inline;
+    }
+
+    .venue-compact {
+        display: inline-flex;
+    }
+
+    /* Ligatabelle: Rang | Team | S-U-N | Spiele | +/- | Punkte */
+    table.table-compact-mobile--league .table-mobile-only {
+        display: table-cell;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(4),
+    table.table-compact-mobile--league :is(th, td):nth-child(5),
+    table.table-compact-mobile--league :is(th, td):nth-child(6),
+    table.table-compact-mobile--league :is(th, td):nth-child(7) {
+        display: none;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(1) {
+        width: 8%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(2) {
+        width: 35%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(3) {
+        width: 14%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(8) {
+        width: 16%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(9) {
+        width: 11%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--league :is(th, td):nth-child(10) {
+        width: 16%;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    /* Nächste Spiele: kompakte Desktop-ähnliche Tabellenansicht. */
+    table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
+        width: 19%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
+        width: 13%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
+        width: 14%;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
+        width: 29%;
+        text-align: left;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
+        width: 10%;
+        text-align: center;
+        overflow: visible;
+    }
+
+    table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
+        width: 15%;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    table.table-compact-mobile .table-status-row {
+        display: table-row;
+    }
+
+    table.table-compact-mobile .table-status-row td {
+        display: table-cell;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    table.table-compact-mobile {
+        font-size: clamp(0.63rem, 2.6vw, 0.76rem);
+    }
+
+    table.table-compact-mobile tbody td,
+    table.table-compact-mobile thead th {
+        padding: 0.5rem 0.16rem;
+    }
+
+    .venue-badge {
+        width: 1.55rem;
+        height: 1.55rem;
+        font-size: 0.7rem;
+    }
+
+    .venue-tooltip {
+        right: -1rem;
+        max-width: min(220px, 82vw);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .venue-tooltip {
+        transition: none;
+    }
+}
