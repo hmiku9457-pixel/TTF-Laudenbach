@@ -16,12 +16,6 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 PAYLOAD = HERE / "payload.zip"
 
-ACTION_PINS = {
-    "actions/checkout": "11d5960a326750d5838078e36cf38b85af677262",  # v4.4.0
-    "actions/setup-python": "5fda3b95a4ea91299a34e894583c3862153e4b97",  # v7.0.0
-    "actions/setup-node": "820762786026740c76f36085b0efc47a31fe5020",  # v7.0.0
-    "actions/upload-artifact": "ea165f8d65b6e75b540449e92b4886f43607fa02",  # v4.6.2
-}
 
 SPECIAL_HEADINGS = {
     "index.html": "Tischtennis-Freunde Laudenbach",
@@ -39,6 +33,11 @@ def copy_templates() -> None:
             if member.is_dir():
                 continue
             relative = Path(member.filename)
+            if tuple(relative.parts[:2]) == (".github", "workflows"):
+                raise ValueError(
+                    "Workflow-Dateien dürfen nicht durch den laufenden GitHub-Workflow verändert werden: "
+                    f"{member.filename}"
+                )
             if relative.is_absolute() or ".." in relative.parts:
                 raise ValueError(f"Unsicherer Payload-Pfad: {member.filename}")
             destination = ROOT / relative
@@ -423,20 +422,6 @@ def patch_component_links(
             print(f"Komponenten-Links ergänzt: {path.relative_to(ROOT)}")
 
 
-def pin_actions() -> None:
-    pattern = re.compile(r"(uses:\s*)(actions/(?:checkout|setup-python|setup-node|upload-artifact))@[^\s#]+")
-    for path in sorted((ROOT / ".github/workflows").glob("*.yml")):
-        text = path.read_text(encoding="utf-8")
-
-        def replace(match: re.Match[str]) -> str:
-            action = match.group(2)
-            return f"{match.group(1)}{action}@{ACTION_PINS[action]}"
-
-        updated = pattern.sub(replace, text)
-        if updated != text:
-            path.write_text(updated, encoding="utf-8")
-            print(f"Action-Pins aktualisiert: {path.relative_to(ROOT)}")
-
 
 def remove_legacy_files() -> None:
     for relative in ["assets/css/style.css", "assets/js/script.js"]:
@@ -454,7 +439,6 @@ def main() -> int:
     patch_html_documents(static_targets, static_labels)
     patch_header_component()
     patch_component_links(static_targets, static_labels)
-    pin_actions()
     remove_legacy_files()
     print("Abschlussverbesserungen wurden im Arbeitsstand angewendet.")
     return 0
