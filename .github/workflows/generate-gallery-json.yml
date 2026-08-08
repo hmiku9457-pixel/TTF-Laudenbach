@@ -2,13 +2,11 @@ name: Generate Gallery JSON
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - "assets/images/**"
       - "!assets/images/seo/**"
       - ".github/workflows/generate-gallery-json.yml"
-
   workflow_dispatch:
 
 permissions:
@@ -18,23 +16,25 @@ concurrency:
   group: repository-writer
   cancel-in-progress: false
 
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
 jobs:
   generate-gallery-json:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
 
       - name: Python einrichten
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
 
       - name: Galerie-JSON erzeugen und validieren
-        env:
-          PYTHONDONTWRITEBYTECODE: "1"
         run: |
           python <<'PY'
           import json
@@ -47,87 +47,61 @@ jobs:
           image_extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
           excluded_directories = {"seo"}
 
-          if not images_dir.is_dir():
-              raise FileNotFoundError(f"Bilderordner fehlt: {images_dir}")
-
           def slugify(text):
-              text = text.lower()
-              text = text.replace("ä", "ae")
-              text = text.replace("ö", "oe")
-              text = text.replace("ü", "ue")
-              text = text.replace("ß", "ss")
-              text = re.sub(r"[^a-z0-9]+", "-", text)
-              return text.strip("-")
+              value = text.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+              return re.sub(r"[^a-z0-9]+", "-", value).strip("-")
 
           def url_for(path):
               return "/" + quote(str(path).replace("\\", "/"))
 
+          def alt_for(path, gallery_title):
+              name = re.sub(r"[-_]+", " ", path.stem).strip()
+              return f"{gallery_title}: {name}" if name else gallery_title
+
+          def image_entry(path, gallery_title):
+              return {"src": url_for(path), "alt": alt_for(path, gallery_title)}
+
           galleries = []
+          general_title = "Generelle Bilder"
           general_images = sorted(
-              (
-                  file for file in images_dir.iterdir()
-                  if file.is_file() and file.suffix.lower() in image_extensions
-              ),
+              (file for file in images_dir.iterdir() if file.is_file() and file.suffix.lower() in image_extensions),
               key=lambda path: path.name.lower(),
           )
-
           galleries.append({
               "id": "general",
-              "title": "Generelle Bilder",
-              "images": [url_for(file) for file in general_images],
+              "title": general_title,
+              "images": [image_entry(file, general_title) for file in general_images],
           })
 
-          event_dirs = sorted(
-              (
-                  folder for folder in images_dir.iterdir()
-                  if folder.is_dir()
-                  and folder.name.lower() not in excluded_directories
-                  and not folder.name.startswith((".", "_"))
-              ),
+          for folder in sorted(
+              (folder for folder in images_dir.iterdir() if folder.is_dir() and folder.name.lower() not in excluded_directories and not folder.name.startswith((".", "_"))),
               key=lambda path: path.name.lower(),
-          )
-
-          for folder in event_dirs:
+          ):
               images = sorted(
-                  (
-                      file for file in folder.iterdir()
-                      if file.is_file() and file.suffix.lower() in image_extensions
-                  ),
+                  (file for file in folder.iterdir() if file.is_file() and file.suffix.lower() in image_extensions),
                   key=lambda path: path.name.lower(),
               )
+              if images:
+                  galleries.append({
+                      "id": slugify(folder.name),
+                      "title": folder.name,
+                      "images": [image_entry(file, folder.name) for file in images],
+                  })
 
-              if not images:
-                  continue
-
-              galleries.append({
-                  "id": slugify(folder.name),
-                  "title": folder.name,
-                  "images": [url_for(file) for file in images],
-              })
-
-          gallery_ids = [gallery["id"] for gallery in galleries]
-          if len(gallery_ids) != len(set(gallery_ids)):
+          ids = [gallery["id"] for gallery in galleries]
+          if len(ids) != len(set(ids)):
               raise ValueError("Doppelte Galerie-IDs erkannt.")
 
-          data = {
-              "defaultGallery": "general",
-              "galleries": galleries,
-          }
-
-          if data["defaultGallery"] not in gallery_ids:
-              raise ValueError("Die Standardgalerie ist nicht vorhanden.")
-
+          data = {"defaultGallery": "general", "galleries": galleries}
           for gallery in galleries:
-              for image_url in gallery["images"]:
-                  image_path = Path(unquote(image_url.lstrip("/")))
+              for image in gallery["images"]:
+                  image_path = Path(unquote(image["src"].lstrip("/")))
                   if not image_path.is_file():
                       raise FileNotFoundError(f"Galeriebild fehlt: {image_path}")
+                  if not image["alt"].strip():
+                      raise ValueError(f"Leerer Alt-Text: {image_path}")
 
-          serialized = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-          json.loads(serialized)
-
-          output_file.parent.mkdir(parents=True, exist_ok=True)
-          output_file.write_text(serialized, encoding="utf-8")
+          output_file.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           print(f"{output_file} erzeugt: {len(galleries)} Galerien")
           PY
 
@@ -136,14 +110,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add assets/data/gallerie.json
-
           if git diff --staged --quiet; then
             echo "Keine Änderungen gefunden."
             exit 0
           fi
-
           git commit -m "Galerie JSON automatisch aktualisieren"
           git pull --rebase origin main
           git push origin HEAD:main
