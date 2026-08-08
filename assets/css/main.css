@@ -1,13 +1,12 @@
 /*
- * Modularer CSS-Einstiegspunkt für Phase 4.
- * Quelle für die gebündelte Produktionsdatei site.bundle.css.
- * Die Importreihenfolge entspricht exakt der bisherigen style.css.
+ * Zentraler Einstiegspunkt für die Website-Gestaltung.
+ * Die Produktionsdatei site.bundle.css wird daraus automatisch erzeugt.
  */
-
 @import url("./base/reset.css");
 @import url("./base/theme.css");
 @import url("./layout/header-navigation.css");
 @import url("./layout/grid-boxes.css");
+@import url("./components/page-content.css");
 @import url("./components/animations.css");
 @import url("./components/news-slider.css");
 @import url("./components/teams.css");
@@ -20,9 +19,3 @@
 @import url("./components/gallery.css");
 @import url("./components/robustness.css");
 @import url("./components/accessibility.css");
-@import url("./consolidated/foundation.css");
-@import url("./consolidated/navigation.css");
-@import url("./consolidated/contact.css");
-@import url("./consolidated/news.css");
-@import url("./consolidated/gallery.css");
-@import url("./consolidated/tables.css");

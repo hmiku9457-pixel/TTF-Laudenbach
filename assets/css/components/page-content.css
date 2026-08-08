@@ -1,6 +1,5 @@
-/* Konsolidierte foundation-Regeln. Automatisch aus den bisherigen UI-Korrekturschichten zusammengeführt. */
+/* Seitenüberschriften, Seiteneinstieg und allgemeine Inhaltsregeln. */
 
-/* Quelle: ui-fixes.css */
 :root {
     --link-visited: #a5b4fc;
     --link-visited-hover: #c7d2fe;
@@ -17,7 +16,6 @@ main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited
     color: var(--link-visited-hover);
 }
 
-/* Quelle: ui-polish.css */
 @media (max-width: 768px) {
     .responsive-label--mobile,
         .responsive-value--mobile {
@@ -25,7 +23,6 @@ main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited
         }
 }
 
-/* Quelle: ui-final.css */
 @keyframes rankingReverseFade {
     from {
             opacity: 0.72;

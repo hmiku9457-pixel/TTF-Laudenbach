@@ -98,4 +98,38 @@
     color: #ef4444;
 }
 
-
+/* TTF:INTEGRATED:contact:START */
+.grid > *,
+.grid-home-firstLine > *,
+.grid-home-secondLine > *,
+.contact-section,
+.contact-form,
+.form-group {
+    min-width: 0;
+}
+.contact-section,
+.contact-form {
+    width: 100%;
+    max-width: 100%;
+}
+.contact-form :where(input:not([type="checkbox"]), textarea, button) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+.contact-form textarea {
+    resize: vertical;
+}
+.form-consent {
+    width: 100%;
+}
+.form-consent input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: auto;
+}
+.form-consent label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+/* TTF:INTEGRATED:contact:END */
