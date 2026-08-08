@@ -10,7 +10,6 @@ export function initPageStructure() {
 
 export function ensureMainLandmark() {
     const existingMain = document.querySelector("main");
-
     if (existingMain) {
         existingMain.id ||= "main-content";
         if (!existingMain.hasAttribute("tabindex")) {
@@ -89,8 +88,36 @@ export function initHeaderAccessibility() {
     initDropdownNavigation(navigation);
 }
 
+/**
+ * Dropdown-Navigation mit kombiniertem Link und Pfeil.
+ * Erster Klick öffnet das Untermenü, ein zweiter Klick auf denselben Link
+ * öffnet die zugehörige Übersichtsseite.
+ */
 export function initDropdownNavigation(navigation = document) {
     const dropdowns = Array.from(navigation.querySelectorAll(".dropdown"));
+
+    const closeDropdown = (dropdown, { focus = false } = {}) => {
+        const link = dropdown.querySelector(":scope > a");
+        dropdown.classList.remove("is-open");
+        dropdown.dataset.navigationArmed = "false";
+        link?.setAttribute("aria-expanded", "false");
+        if (focus) {
+            link?.focus();
+        }
+    };
+
+    const openDropdown = dropdown => {
+        dropdowns.forEach(other => {
+            if (other !== dropdown) {
+                closeDropdown(other);
+            }
+        });
+
+        const link = dropdown.querySelector(":scope > a");
+        dropdown.classList.add("is-open");
+        dropdown.dataset.navigationArmed = "true";
+        link?.setAttribute("aria-expanded", "true");
+    };
 
     dropdowns.forEach((dropdown, index) => {
         const submenu = dropdown.querySelector(":scope > .submenu");
@@ -99,51 +126,54 @@ export function initDropdownNavigation(navigation = document) {
             return;
         }
 
-        submenu.id ||= `submenu-${index + 1}`;
-        let toggle = dropdown.querySelector(":scope > .submenu-toggle");
+        // Entfernt den in einer früheren Version separat erzeugten Button.
+        dropdown.querySelector(":scope > .submenu-toggle")?.remove();
 
-        if (!toggle) {
-            toggle = document.createElement("button");
-            toggle.type = "button";
-            toggle.className = "submenu-toggle";
-            toggle.innerHTML = '<span aria-hidden="true">▾</span>';
-            link.insertAdjacentElement("afterend", toggle);
+        submenu.id ||= `submenu-${index + 1}`;
+        link.classList.add("dropdown-link");
+        link.setAttribute("aria-haspopup", "true");
+        link.setAttribute("aria-controls", submenu.id);
+        link.setAttribute("aria-expanded", "false");
+        dropdown.dataset.navigationArmed = "false";
+
+        if (!link.querySelector(".dropdown-link__indicator")) {
+            const indicator = document.createElement("span");
+            indicator.className = "dropdown-link__indicator";
+            indicator.setAttribute("aria-hidden", "true");
+            indicator.textContent = "▾";
+            link.appendChild(indicator);
         }
 
-        toggle.setAttribute("aria-controls", submenu.id);
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", `Untermenü ${link.textContent.trim()} öffnen`);
+        link.addEventListener("click", event => {
+            const isOpen = dropdown.classList.contains("is-open");
+            const isArmed = dropdown.dataset.navigationArmed === "true";
 
-        const close = ({ focus = false } = {}) => {
-            dropdown.classList.remove("is-open");
-            toggle.setAttribute("aria-expanded", "false");
-            toggle.setAttribute("aria-label", `Untermenü ${link.textContent.trim()} öffnen`);
-            if (focus) {
-                toggle.focus();
+            if (!isOpen || !isArmed) {
+                event.preventDefault();
+                openDropdown(dropdown);
             }
-        };
+            // Ist das Menü bereits durch einen ersten Klick geöffnet, darf der
+            // zweite Klick regulär zur Übersichtsseite navigieren.
+        });
 
-        const open = () => {
-            dropdowns.forEach(other => {
-                if (other !== dropdown) {
-                    other.classList.remove("is-open");
-                    other.querySelector(":scope > .submenu-toggle")?.setAttribute("aria-expanded", "false");
-                }
-            });
-            dropdown.classList.add("is-open");
-            toggle.setAttribute("aria-expanded", "true");
-            toggle.setAttribute("aria-label", `Untermenü ${link.textContent.trim()} schließen`);
-        };
-
-        toggle.addEventListener("click", event => {
-            event.preventDefault();
-            const isOpen = toggle.getAttribute("aria-expanded") === "true";
-            isOpen ? close() : open();
+        link.addEventListener("keydown", event => {
+            if (event.key === "ArrowDown") {
+                event.preventDefault();
+                openDropdown(dropdown);
+                submenu.querySelector("a")?.focus();
+            }
         });
 
         dropdown.addEventListener("keydown", event => {
             if (event.key === "Escape") {
-                close({ focus: true });
+                event.preventDefault();
+                closeDropdown(dropdown, { focus: true });
+            }
+        });
+
+        submenu.addEventListener("click", event => {
+            if (event.target.closest("a")) {
+                closeDropdown(dropdown);
             }
         });
     });
@@ -151,8 +181,7 @@ export function initDropdownNavigation(navigation = document) {
     document.addEventListener("click", event => {
         dropdowns.forEach(dropdown => {
             if (!dropdown.contains(event.target)) {
-                dropdown.classList.remove("is-open");
-                dropdown.querySelector(":scope > .submenu-toggle")?.setAttribute("aria-expanded", "false");
+                closeDropdown(dropdown);
             }
         });
     });
