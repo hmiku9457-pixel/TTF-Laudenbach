@@ -37,7 +37,7 @@ jobs:
       - name: HTML-Struktur vereinfachen
         run: python tools/html-readability/apply_html_readability.py
 
-      - name: HTML und Komponenten formatieren
+      - name: HTML und zentrale Dateien formatieren
         run: |
           npx --yes prettier@3.6.2 \
             --write \
@@ -50,11 +50,11 @@ jobs:
             "assets/js/main.js" \
             "tests/e2e/site-smoke.spec.mjs"
 
-      - name: Generierte Dateien aktualisieren
-        run: python tools/site-build/build_site.py --write
+      - name: CSS-Bundle und Sitemap aktualisieren
+        run: python tools/site/build.py --write
 
       - name: Qualitätsprüfung
-        run: python tools/quality/check_site.py
+        run: python tools/site/check.py
 
       - name: JavaScript-Syntax prüfen
         shell: bash
