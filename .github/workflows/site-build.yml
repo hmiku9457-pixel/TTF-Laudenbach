@@ -1,0 +1,53 @@
+name: TTF - Generierte Website aktualisieren
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "components/**"
+      - "assets/css/**"
+      - "index.html"
+      - "pages/**/*.html"
+      - "tools/site-build/**"
+  pull_request:
+    paths:
+      - "components/**"
+      - "assets/css/**"
+      - "index.html"
+      - "pages/**/*.html"
+      - "tools/site-build/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Website erzeugen
+        run: python tools/site-build/build_site.py --write
+      - name: Ausgabe validieren
+        run: python tools/site-build/build_site.py
+      - name: Pull Request auf nicht erzeugte Änderungen prüfen
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code
+      - name: Erzeugte Dateien committen
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet; then
+            echo "Alle generierten Dateien sind aktuell."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html 404.html pages sitemap.xml assets/css/site.bundle.css
+          git commit -m "build: update generated site files"
+          git push
