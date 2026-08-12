@@ -1,5 +1,32 @@
 const SUPPORTED_TABLE_TYPES = new Set(["next-games", "league", "schedule"]);
 
+const LEAGUE_COLUMN_NAMES = [
+    "rank",
+    "team",
+    "matches",
+    "wins",
+    "draws",
+    "losses",
+    "games",
+    "difference",
+    "points"
+];
+const NEXT_GAMES_COLUMN_NAMES = [
+    "date",
+    "time",
+    "team",
+    "opponent",
+    "venue",
+    "result"
+];
+const SCHEDULE_COLUMN_NAMES = [
+    "date",
+    "time",
+    "venue",
+    "opponent",
+    "result"
+];
+
 export function initTableScrollContainers(configs, root = document) {
     const responsiveTypes = new Map(
         configs.map(config => [config.targetId, config.responsiveType])
@@ -93,36 +120,47 @@ function prepareLeagueTable(table) {
         return;
     }
 
-    ensureDualHeaderLabel(headerRow.cells[1], "Team");
+    const desktopHeaders = Array.from(headerRow.cells)
+        .filter(cell => !cell.classList.contains("table-mobile-only"));
+    if (desktopHeaders.length < LEAGUE_COLUMN_NAMES.length) {
+        return;
+    }
+
+    applyColumnClasses(desktopHeaders, LEAGUE_COLUMN_NAMES);
+    ensureDualHeaderLabel(desktopHeaders[1], "Team");
 
     let recordHeader = headerRow.querySelector(".table-mobile-only--record");
     if (!recordHeader) {
         recordHeader = document.createElement("th");
         recordHeader.scope = "col";
-        recordHeader.className = "table-mobile-only table-mobile-only--record";
+        recordHeader.className = "table-mobile-only table-mobile-only--record table-col--record";
         recordHeader.textContent = "S-U-N";
         headerRow.insertBefore(recordHeader, headerRow.cells[2] || null);
     }
 
     table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)").forEach(row => {
-        if (row.querySelector(".table-mobile-only--record")) {
+        const originalCells = Array.from(row.cells)
+            .filter(cell => !cell.classList.contains("table-mobile-only"));
+        if (originalCells.length < LEAGUE_COLUMN_NAMES.length) {
             return;
         }
 
-        const originalCells = Array.from(row.cells);
-        if (originalCells.length < 9) {
-            return;
+        applyColumnClasses(originalCells, LEAGUE_COLUMN_NAMES);
+
+        let recordCell = row.querySelector(".table-mobile-only--record");
+        if (!recordCell) {
+            recordCell = document.createElement("td");
+            recordCell.className =
+                "table-mobile-only table-mobile-only--record table-col--record";
+            recordCell.textContent = [
+                normalizedCellText(originalCells[3]),
+                normalizedCellText(originalCells[4]),
+                normalizedCellText(originalCells[5])
+            ].join("-");
+            row.insertBefore(recordCell, originalCells[2] || null);
+        } else {
+            recordCell.classList.add("table-col--record");
         }
-
-        const recordCell = document.createElement("td");
-        recordCell.className = "table-mobile-only table-mobile-only--record";
-        recordCell.textContent = [
-            normalizedCellText(originalCells[3]),
-            normalizedCellText(originalCells[4]),
-            normalizedCellText(originalCells[5])
-        ].join("-");
-
-        row.insertBefore(recordCell, originalCells[2] || null);
     });
 }
 
@@ -135,15 +173,18 @@ function prepareNextGamesTable(table) {
         ensureDualHeaderLabel(headerRow.cells[3], "Geg.");
         ensureDualHeaderLabel(headerRow.cells[4], "H/A");
         ensureDualHeaderLabel(headerRow.cells[5], "Erg.");
+        applyColumnClasses(Array.from(headerRow.cells), NEXT_GAMES_COLUMN_NAMES);
     }
 
     const targetId = table.tBodies?.[0]?.id || "next-games";
     table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
         .forEach((row, rowIndex) => {
             const cells = Array.from(row.cells);
-            if (cells.length < 6) {
+            if (cells.length < NEXT_GAMES_COLUMN_NAMES.length) {
                 return;
             }
+
+            applyColumnClasses(cells, NEXT_GAMES_COLUMN_NAMES);
 
             ensureDualValue(
                 cells[0],
@@ -165,10 +206,11 @@ function prepareScheduleTable(table) {
 
     const desktopHeaders = Array.from(headerRow.cells)
         .filter(cell => !cell.classList.contains("table-mobile-only"));
-    if (desktopHeaders.length < 5) {
+    if (desktopHeaders.length < SCHEDULE_COLUMN_NAMES.length) {
         return;
     }
 
+    applyColumnClasses(desktopHeaders, SCHEDULE_COLUMN_NAMES);
     ensureDualHeaderLabel(desktopHeaders[0], "Dat.");
     ensureDualHeaderLabel(desktopHeaders[1], "Zeit");
     ensureDualHeaderLabel(desktopHeaders[4], "Erg.");
@@ -184,7 +226,7 @@ function prepareScheduleTable(table) {
         opponentHeader = document.createElement("th");
         opponentHeader.scope = "col";
         opponentHeader.className =
-            "table-mobile-only table-mobile-only--schedule-opponent";
+            "table-mobile-only table-mobile-only--schedule-opponent table-col--opponent";
         opponentHeader.textContent = "Geg.";
         headerRow.insertBefore(opponentHeader, desktopHeaders[2]);
     }
@@ -193,7 +235,7 @@ function prepareScheduleTable(table) {
         venueHeader = document.createElement("th");
         venueHeader.scope = "col";
         venueHeader.className =
-            "table-mobile-only table-mobile-only--schedule-venue";
+            "table-mobile-only table-mobile-only--schedule-venue table-col--venue";
         venueHeader.textContent = "H/A";
         headerRow.insertBefore(venueHeader, desktopHeaders[2]);
     }
@@ -203,9 +245,11 @@ function prepareScheduleTable(table) {
         .forEach((row, rowIndex) => {
             const desktopCells = Array.from(row.cells)
                 .filter(cell => !cell.classList.contains("table-mobile-only"));
-            if (desktopCells.length < 5) {
+            if (desktopCells.length < SCHEDULE_COLUMN_NAMES.length) {
                 return;
             }
+
+            applyColumnClasses(desktopCells, SCHEDULE_COLUMN_NAMES);
 
             ensureDualValue(
                 desktopCells[0],
@@ -222,7 +266,7 @@ function prepareScheduleTable(table) {
             if (!opponentCell) {
                 opponentCell = document.createElement("td");
                 opponentCell.className =
-                    "table-mobile-only table-mobile-only--schedule-opponent";
+                    "table-mobile-only table-mobile-only--schedule-opponent table-col--opponent";
                 opponentCell.textContent = normalizedCellText(desktopCells[3]);
                 row.insertBefore(opponentCell, desktopCells[2]);
             }
@@ -230,7 +274,7 @@ function prepareScheduleTable(table) {
             if (!venueCell) {
                 venueCell = document.createElement("td");
                 venueCell.className =
-                    "table-mobile-only table-mobile-only--schedule-venue";
+                    "table-mobile-only table-mobile-only--schedule-venue table-col--venue";
                 venueCell.textContent = normalizedCellText(desktopCells[2]);
                 row.insertBefore(venueCell, desktopCells[2]);
             }
@@ -285,9 +329,10 @@ function ensureVenueCell(cell, tableId, rowIndex) {
     const fullLocation = normalizedCellText(cell);
     const isAway = /auswärt/i.test(fullLocation);
     const badgeText = isAway ? "A" : "H";
-    const detailText = isAway
-        ? "Auswärtsspiel – Spielort beim gegnerischen Verein"
-        : `Heimspiel – ${fullLocation || "Spielort noch nicht bekannt"}`;
+    const badgeLabel = isAway ? "A – Auswärtsspiel" : "H – Heimspiel";
+    const tooltipText = isAway
+        ? "Spielort beim gegnerischen Verein"
+        : fullLocation || "Spielort noch nicht bekannt";
     const tooltipId = `venue-tooltip-${sanitizeId(tableId)}-${rowIndex + 1}`;
 
     cell.textContent = "";
@@ -303,7 +348,7 @@ function ensureVenueCell(cell, tableId, rowIndex) {
     badge.type = "button";
     badge.className = `venue-badge venue-badge--${isAway ? "away" : "home"}`;
     badge.textContent = badgeText;
-    badge.setAttribute("aria-label", detailText);
+    badge.setAttribute("aria-label", badgeLabel);
     badge.setAttribute("aria-describedby", tooltipId);
     badge.setAttribute("aria-expanded", "false");
 
@@ -311,7 +356,7 @@ function ensureVenueCell(cell, tableId, rowIndex) {
     tooltip.id = tooltipId;
     tooltip.className = "venue-tooltip";
     tooltip.setAttribute("role", "tooltip");
-    tooltip.textContent = detailText;
+    tooltip.textContent = tooltipText;
 
     compact.append(badge, tooltip);
     cell.append(desktop, compact);
@@ -359,6 +404,19 @@ function syncStatusRowColspan(table) {
     const headerCount = table.tHead?.rows?.[0]?.cells?.length || 1;
     table.querySelectorAll(".table-status-row td").forEach(cell => {
         cell.colSpan = headerCount;
+    });
+}
+
+function applyColumnClasses(cells, columnNames) {
+    cells.forEach((cell, index) => {
+        Array.from(cell.classList)
+            .filter(className => className.startsWith("table-col--"))
+            .forEach(className => cell.classList.remove(className));
+
+        const columnName = columnNames[index];
+        if (columnName) {
+            cell.classList.add(`table-col--${columnName}`);
+        }
     });
 }
 

@@ -37,8 +37,10 @@ table tr:hover {
 
 /* Lade-, Leer- und Fehlerzustände innerhalb dynamischer Tabellen. */
 .table-status-row td {
+    width: auto;
     text-align: center;
     font-weight: 500;
+    white-space: normal;
 }
 
 .table-status-row--error td {
@@ -362,77 +364,77 @@ table tr:hover {
         display: table-cell;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(4),
-    table.table-compact-mobile--league :is(th, td):nth-child(5),
-    table.table-compact-mobile--league :is(th, td):nth-child(6),
-    table.table-compact-mobile--league :is(th, td):nth-child(7) {
+    table.table-compact-mobile--league .table-col--matches,
+    table.table-compact-mobile--league .table-col--wins,
+    table.table-compact-mobile--league .table-col--draws,
+    table.table-compact-mobile--league .table-col--losses {
         display: none;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(1) {
+    table.table-compact-mobile--league .table-col--rank {
         width: 8%;
         text-align: left;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(2) {
+    table.table-compact-mobile--league .table-col--team {
         width: 35%;
         text-align: left;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(3) {
+    table.table-compact-mobile--league .table-col--record {
         width: 14%;
         text-align: center;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(8) {
+    table.table-compact-mobile--league .table-col--games {
         width: 16%;
         text-align: center;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(9) {
+    table.table-compact-mobile--league .table-col--difference {
         width: 11%;
         text-align: center;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--league :is(th, td):nth-child(10) {
+    table.table-compact-mobile--league .table-col--points {
         width: 16%;
         text-align: right;
         white-space: nowrap;
     }
 
     /* Startseite: Dat. | Zeit | Team | Geg. | H/A | Erg. */
-    table.table-compact-mobile--next-games :is(th, td):nth-child(1) {
+    table.table-compact-mobile--next-games .table-col--date {
         width: 18%;
         text-align: left;
     }
 
-    table.table-compact-mobile--next-games :is(th, td):nth-child(2) {
+    table.table-compact-mobile--next-games .table-col--time {
         width: 14%;
         text-align: center;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--next-games :is(th, td):nth-child(3) {
+    table.table-compact-mobile--next-games .table-col--team {
         width: 13%;
         text-align: left;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--next-games :is(th, td):nth-child(4) {
+    table.table-compact-mobile--next-games .table-col--opponent {
         width: 31%;
         text-align: left;
     }
 
-    table.table-compact-mobile--next-games :is(th, td):nth-child(5) {
+    table.table-compact-mobile--next-games .table-col--venue {
         width: 10%;
         overflow: visible;
         text-align: center;
     }
 
-    table.table-compact-mobile--next-games :is(th, td):nth-child(6) {
+    table.table-compact-mobile--next-games .table-col--result {
         width: 14%;
         text-align: right;
         white-space: nowrap;
@@ -443,34 +445,34 @@ table tr:hover {
         display: table-cell;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(5),
-    table.table-compact-mobile--schedule :is(th, td):nth-child(6) {
+    table.table-compact-mobile--schedule .table-col--venue:not(.table-mobile-only),
+    table.table-compact-mobile--schedule .table-col--opponent:not(.table-mobile-only) {
         display: none;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(1) {
+    table.table-compact-mobile--schedule .table-col--date {
         width: 19%;
         text-align: left;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(2) {
+    table.table-compact-mobile--schedule .table-col--time {
         width: 15%;
         text-align: center;
         white-space: nowrap;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(3) {
+    table.table-compact-mobile--schedule .table-mobile-only.table-col--opponent {
         width: 38%;
         text-align: left;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(4) {
+    table.table-compact-mobile--schedule .table-mobile-only.table-col--venue {
         width: 11%;
         overflow: visible;
         text-align: center;
     }
 
-    table.table-compact-mobile--schedule :is(th, td):nth-child(7) {
+    table.table-compact-mobile--schedule .table-col--result {
         width: 17%;
         text-align: right;
         white-space: nowrap;
