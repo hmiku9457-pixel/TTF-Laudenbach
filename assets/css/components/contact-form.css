@@ -120,3 +120,9 @@
 .form-status.error {
     color: #ef4444;
 }
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: var(--space-l);
+    }
+}

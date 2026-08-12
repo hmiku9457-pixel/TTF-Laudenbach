@@ -42,4 +42,48 @@
     margin-top: var(--space-s);
 }
 
+.iframe-embed__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--space-m);
+    padding: var(--space-m);
+    background: var(--bg-navigation);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
 
+.iframe-revoke-button {
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--accent);
+    border-radius: var(--space-s);
+    background: transparent;
+    color: var(--text-main);
+    font: inherit;
+    cursor: pointer;
+}
+
+.iframe-revoke-button:hover,
+.iframe-revoke-button:focus-visible {
+    background: var(--accent);
+    color: var(--text-on-newsSlide);
+}
+
+.iframe-revoke-button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+    .map-container iframe {
+        height: 220px;
+    }
+
+    .iframe-embed__controls {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}

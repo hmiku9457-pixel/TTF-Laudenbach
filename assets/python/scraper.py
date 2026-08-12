@@ -720,7 +720,7 @@ def save_links_json():
     Speichert alle URLs zentral in der links.json.
     """
     data = {
-        "spielplaene": SPIELPLAENE,
+        "spielplaene": [plan for plan in SPIELPLAENE if plan.get("export_link", True)],
         "tabellen": TABELLEN,
         "spielerlisten": SPIELERLISTEN,
         "links": LINKS

@@ -1,7 +1,6 @@
 import { fetchJson } from "../core/http.js";
 import { showContainerStatus } from "../core/status.js";
 import { getSafeHttpUrl } from "../utils/safe-url.js";
-import { initAnimations } from "./animations.js";
 
 export async function initHistoricalImages() {
     const galleryContainer = document.getElementById("images-gallery-container");
@@ -82,7 +81,6 @@ export async function initHistoricalImages() {
             });
 
             hideLoadingBox(loadingBox);
-            initAnimations(section);
             galleryNavigation.close({ returnFocus: false });
         }
 

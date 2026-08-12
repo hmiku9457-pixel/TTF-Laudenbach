@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 
+SAISON = "26--27"
+
 today = datetime.today()
 start_date = (today - timedelta(days=30)).strftime("%Y-%m-%d")
 end_date = (today + timedelta(days=30)).strftime("%Y-%m-%d")
@@ -12,49 +14,50 @@ SPIELPLAENE = [
     {
         "id": "spieleStartseite",
         "name": "Startseite Spiele",
-        "url": f"https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/spielplan?date_start={start_date}&date_end={end_date}",
-        "type": "startseite"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/verein/2054043/TTF_Laudenbach/spielplan?date_start={start_date}&date_end={end_date}",
+        "type": "startseite",
+        "export_link": False
     },
     {
         "id": "spieleHerren1",
         "name": "Spiele Herren 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/mannschaft/3094686/Erwachsene/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/mannschaft/3094686/Erwachsene/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleHerren2",
         "name": "Spiele Herren 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/mannschaft/3096927/Erwachsene_II/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/mannschaft/3096927/Erwachsene_II/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleHerren3",
         "name": "Spiele Herren 3",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/mannschaft/3093800/Erwachsene_III/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/mannschaft/3093800/Erwachsene_III/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleHerren4",
         "name": "Spiele Herren 4",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_B_Gr_2/gruppe/530002/mannschaft/3154166/Erwachsene_IV/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_B_Gr_2/gruppe/530002/mannschaft/3154166/Erwachsene_IV/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleHerren5",
         "name": "Spiele Herren 5",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisklasse_A_Gr_2/gruppe/530040/mannschaft/3154165/Erwachsene_V_(4er)/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisklasse_A_Gr_2/gruppe/530040/mannschaft/3154165/Erwachsene_V_(4er)/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleJugend1",
         "name": "Spiele Jugend 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/mannschaft/3094009/Jugend_19/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/mannschaft/3094009/Jugend_19/spielerbilanzen/gesamt",
         "type": "mannschaft"
     },
     {
         "id": "spieleJugend2",
         "name": "Spiele Jugend 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/mannschaft/3095060/Jugend_19_II/spielerbilanzen/gesamt",
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/mannschaft/3095060/Jugend_19_II/spielerbilanzen/gesamt",
         "type": "mannschaft"
     }
 ]
@@ -67,37 +70,37 @@ TABELLEN = [
     {
         "id": "tabelleHerren1",
         "name": "Tabelle Herren 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/tabelle/gesamt"
     },
     {
         "id": "tabelleHerren2",
         "name": "Tabelle Herren 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/tabelle/gesamt"
     },
     {
         "id": "tabelleHerren3",
         "name": "Tabelle Herren 3",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_A_Gr_2/gruppe/529997/tabelle/gesamt"
     },
     {
         "id": "tabelleHerren4",
         "name": "Tabelle Herren 4",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisliga_B_Gr_2/gruppe/530002/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisliga_B_Gr_2/gruppe/530002/tabelle/gesamt"
     },
     {
         "id": "tabelleHerren5",
         "name": "Tabelle Herren 5",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Kreisklasse_A_Gr_2/gruppe/530040/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Erwachsene_Kreisklasse_A_Gr_2/gruppe/530040/tabelle/gesamt"
     },
     {
         "id": "tabelleJugend1",
         "name": "Tabelle Jugend 1",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Jugend_Kreisliga_A_Ost/gruppe/533900/tabelle/gesamt"
     },
     {
         "id": "tabelleJugend2",
         "name": "Tabelle Jugend 2",
-        "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/tabelle/gesamt"
+        "url": f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/ligen/Jugend_Kreisliga_E2_Ost/gruppe/533911/tabelle/gesamt"
     }
 ]
 
@@ -110,14 +113,14 @@ SPIELERLISTEN = [
         "name": "Spieler Herren",
         "bereich": "Herren",
         "url": (
-            "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
+            f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/verein/2054043/TTF_Laudenbach/meldungendetails/Erwachsene/vr"
         )
     },
     {
         "name": "Spieler Jugend 19",
         "bereich": "Jugend 19",
         "url": (
-            "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/meldungendetails/J%2019/vr"
+            f"https://www.mytischtennis.de/click-tt/TTBW/{SAISON}/verein/2054043/TTF_Laudenbach/meldungendetails/J%2019/vr"
         )
     }
 ]
@@ -184,7 +187,7 @@ LINKS = [
                 "id": "sponsor1",
                 "name": "JAKO",
                 "bild": "./assets/images/TTF-Laudenbach_Logo.png",
-                "url": "http://www.jako.com/"
+                "url": "https://www.jako.com/"
             },
             {
                 "id": "sponsor2",

@@ -37,6 +37,12 @@ async function loadSiteComponent({ selector, url, name }) {
     return { name, status: "loaded" };
 }
 
+function updateCurrentYear(root = document) {
+    root.querySelectorAll("[data-current-year]").forEach(element => {
+        element.textContent = String(new Date().getFullYear());
+    });
+}
+
 export async function initSiteComponents() {
     const results = await Promise.allSettled(
         SITE_COMPONENTS.map(component => loadSiteComponent(component))
@@ -50,6 +56,8 @@ export async function initSiteComponents() {
             );
         }
     });
+
+    updateCurrentYear();
 
     return results;
 }

@@ -11,7 +11,7 @@
 }
 
 #header-container,
-header {
+.site-header {
     position: relative;
     background: var(--bg-main);
     text-align: center;
@@ -28,6 +28,32 @@ header {
 
 .header-text {
     text-align: center;
+}
+
+.site-title {
+    display: inline-block;
+    color: var(--text-main);
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.site-title:hover {
+    color: var(--accent);
+}
+
+.site-title:focus-visible,
+.menu a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.menu a[aria-current="page"] {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
 }
 
 /* =========================================
@@ -155,8 +181,62 @@ nav {
     }
 }
 
+@media (max-width: 1024px) {
+    .menu {
+        gap: var(--space-m);
+    }
+
+    .menu a {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #header-container,
+    .site-header {
+        padding: var(--space-l) var(--space-m);
+    }
+
+    .logo {
+        position: static;
+        height: 60px;
+        margin-bottom: var(--space-s);
+        transform: none;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-s) var(--space-m);
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 2000;
+        white-space: nowrap;
+        box-shadow: var(--shadow-heavy);
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    .dropdown:hover .submenu,
+    .dropdown:focus-within .submenu {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.65em;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .dropdown-link__indicator {
-        transition: none;
+    .dropdown-link__indicator,
+    .submenu {
+        transition: none !important;
     }
 }

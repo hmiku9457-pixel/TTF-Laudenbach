@@ -64,3 +64,15 @@ hr {
     transform: translateY(0);
     box-shadow: var(--shadow-light);
 }
+
+@media (max-width: 480px) {
+    .button--card {
+        padding: var(--space-l);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none !important;
+    }
+}

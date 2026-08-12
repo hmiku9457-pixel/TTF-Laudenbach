@@ -1,7 +1,6 @@
 import { fetchJson } from "../core/http.js";
 import { showContainerStatus } from "../core/status.js";
 import { getSafeHttpUrl } from "../utils/safe-url.js";
-import { initAnimations } from "./animations.js";
 
 export async function loadLinks() {
     try {
@@ -65,7 +64,6 @@ export async function loadLinks() {
             });
         });
 
-        initAnimations();
     } catch (error) {
         console.error("Fehler beim Laden der links.json:", error);
         showLinksError();

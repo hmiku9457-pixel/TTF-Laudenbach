@@ -1,7 +1,6 @@
 import { fetchJson } from "../core/http.js";
 import { showContainerStatus } from "../core/status.js";
 import { getSafeHttpUrl } from "../utils/safe-url.js";
-import { initAnimations } from "./animations.js";
 
 export async function initNewsSlider() {
     const newsContainer = document.querySelector(".news-slider");
@@ -27,7 +26,6 @@ export async function initNewsSlider() {
         });
 
         startSlider(newsContainer);
-        initAnimations(newsContainer);
     } catch (error) {
         console.error("Fehler beim Laden der news.json:", error);
         showContainerStatus(newsContainer, "Die Neuigkeiten konnten nicht geladen werden.", "error");

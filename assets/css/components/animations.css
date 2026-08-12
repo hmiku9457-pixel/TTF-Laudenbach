@@ -17,4 +17,10 @@
     }
 }
 
-
+@media (prefers-reduced-motion: reduce) {
+    .animate {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

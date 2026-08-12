@@ -94,3 +94,33 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+@media (max-width: 768px) {
+    .grid,
+    .grid-home-firstLine,
+    .grid-home-secondLine,
+    .full-width,
+    .grid-button {
+        grid-template-columns: 1fr;
+        padding-left: var(--space-m);
+        padding-right: var(--space-m);
+    }
+}
+
+@media (max-width: 480px) {
+    .box,
+    .team-box {
+        padding: var(--space-l);
+    }
+
+    .grid-button {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .box,
+    .team-box {
+        transition: none !important;
+    }
+}

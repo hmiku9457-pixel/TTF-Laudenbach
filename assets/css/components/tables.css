@@ -544,7 +544,11 @@ table tr:hover {
         transition: none;
     }
 
+    .table-ewigeRangliste tbody tr,
+    .table-ewigeRangliste tbody tr.animate,
     .table-ewigeRangliste tbody tr.ranking-fade-ready {
-        animation: none;
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 }

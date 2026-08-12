@@ -28,3 +28,19 @@
     color: var(--accent);
 }
 
+.footer a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr;
+        gap: var(--space-m);
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}

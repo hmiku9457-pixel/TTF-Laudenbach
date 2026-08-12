@@ -1,12 +1,6 @@
 {
   "spielplaene": [
     {
-      "id": "spieleStartseite",
-      "name": "Startseite Spiele",
-      "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/spielplan?date_start=2026-07-13&date_end=2026-09-11",
-      "type": "startseite"
-    },
-    {
       "id": "spieleHerren1",
       "name": "Spiele Herren 1",
       "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/ligen/Erwachsene_Bezirksklasse_Gr_1/gruppe/529980/mannschaft/3094686/Erwachsene/spielerbilanzen/gesamt",
@@ -156,7 +150,7 @@
           "id": "sponsor1",
           "name": "JAKO",
           "bild": "./assets/images/TTF-Laudenbach_Logo.png",
-          "url": "http://www.jako.com/"
+          "url": "https://www.jako.com/"
         },
         {
           "id": "sponsor2",
