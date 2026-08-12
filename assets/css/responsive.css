@@ -1,4 +1,4 @@
-/* Responsive Anpassungen. Aus style.css unverändert ausgelagert. */
+/* Responsive Anpassungen für das allgemeine Seitenlayout. */
 
 /* =========================================
    ===== 17. RESPONSIVE / MOBILE ===========
@@ -10,7 +10,7 @@
     .grid-home-secondLine {
         grid-template-columns: 1fr;
     }
-    
+
     .menu {
         gap: var(--space-m);
     }
@@ -80,43 +80,23 @@
     .footer-links {
         flex-wrap: wrap;
     }
-      
-   .content.images-page {
-       grid-template-columns: 1fr;
-   }
-   
-   .images-event-list {
-       position: static;
-       order: -1;
-   }
-   
-   .masonry-gallery {
-       column-count: 2;
-   }
-}
 
-/* Kleine Handys */
-@media (max-width: 600px) {
-    .table-ewigeRangliste {
-        /*font-size: 0.85rem;*/
+    .content.images-page {
+        grid-template-columns: 1fr;
     }
 
-    .table-ewigeRangliste th,
-    .table-ewigeRangliste td {
-        padding: var(--space-s) var(--space-m);
+    .images-event-list {
+        position: static;
+        order: -1;
     }
 
-    .table-search {
-        max-width: 100%;
+    .masonry-gallery {
+        column-count: 2;
     }
 }
 
 /* Sehr kleine Handys */
 @media (max-width: 480px) {
-    body {
-        /*font-size: 0.95rem;*/
-    }
-
     .box,
     .team-box,
     .contact-form {
@@ -127,15 +107,6 @@
         grid-template-columns: 1fr;
     }
 
-    table {
-        font-size: 0.85rem;
-    }
-
-    td,
-    th {
-        padding: var(--space-s);
-    }
-
     .button--card {
         padding: var(--space-l);
     }
@@ -144,7 +115,7 @@
         height: 220px;
     }
 
-   .masonry-gallery {
-       column-count: 1;
-   }
+    .masonry-gallery {
+        column-count: 1;
+    }
 }

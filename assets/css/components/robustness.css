@@ -1,11 +1,5 @@
-/* Phase-1-Regeln für Status und robuste Zustände. Aus style.css unverändert ausgelagert. */
+/* Einheitliche Status- und Fallback-Zustände für dynamische Inhalte. */
 
-/* =========================================
-   ===== PHASE 1: ROBUSTHEIT ===============
-   Diesen Block am Ende der style.css ergänzen.
-   ========================================= */
-
-/* Einheitliche sichtbare Lade-/Fehlerzustände */
 .dynamic-status {
     width: 100%;
     padding: var(--space-l);
@@ -31,55 +25,9 @@
     place-items: center;
 }
 
-/* Fehlermeldungen innerhalb dynamischer Tabellen */
-.table-status-row td {
-    text-align: center;
-    font-weight: 500;
-}
-
-.table-status-row--error td {
-    color: var(--text-main);
-    background: rgba(198, 40, 40, 0.18);
-}
-
-.table-status-row--empty td {
-    color: var(--text-muted);
-}
-
-/* Horizontal scrollbar für breite Tabellen */
-.table-scroll {
-    width: 100%;
-    max-width: 100%;
-    margin-top: var(--space-m);
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    -webkit-overflow-scrolling: touch;
-}
-
-.table-scroll > table {
-    margin-top: 0;
-}
-
-.table-scroll--wide > table {
-    min-width: 700px;
-}
-
-.table-scroll--wide:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: var(--space-s);
-}
-
 /* Nicht verfügbare dynamische Links */
 a.is-disabled {
     opacity: 0.65;
     cursor: not-allowed;
     pointer-events: none;
 }
-
-@media (max-width: 480px) {
-    .table-scroll--wide > table {
-        font-size: 0.85rem;
-    }
-}
-

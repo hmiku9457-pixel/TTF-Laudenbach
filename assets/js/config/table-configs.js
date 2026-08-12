@@ -12,12 +12,12 @@ function createGameConfig(targetId, url) {
     return {
         targetId,
         url,
+        responsiveType: "schedule",
         cells: row => {
             const heim = text(row?.heim);
             const gast = text(row?.gast);
             const istHeimspiel = heim.includes("Laudenbach");
             const gegner = istHeimspiel ? gast : heim;
-
             return [
                 text(row?.datum),
                 formatUhrzeit(text(row?.uhrzeit)),
@@ -35,6 +35,7 @@ function createLeagueTableConfig(targetId, url) {
     return {
         targetId,
         url,
+        responsiveType: "league",
         cells: row => [
             text(row?.rang),
             text(row?.mannschaft),
@@ -55,12 +56,12 @@ export const spieleConfigs = [
     {
         targetId: "spiele-startseite",
         url: "/assets/data/spieleStartseite.json",
+        responsiveType: "next-games",
         cells: spiel => {
             const heim = text(spiel?.heim);
             const gast = text(spiel?.gast);
             const istHeimspiel = heim.includes("Laudenbach");
             const gegner = istHeimspiel ? gast : heim;
-
             return [
                 text(spiel?.datum),
                 formatUhrzeit(text(spiel?.uhrzeit)),

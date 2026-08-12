@@ -4,34 +4,19 @@
     --link-visited: #a5b4fc;
     --link-visited-hover: #c7d2fe;
 }
+
 html,
 body {
     max-width: 100%;
 }
+
 main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited {
     color: var(--link-visited);
 }
+
 main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:hover,
 main :where(p, li, dd, figcaption, label) a:not(.button):not(.read-more):visited:focus-visible {
     color: var(--link-visited-hover);
-}
-
-@media (max-width: 768px) {
-    .responsive-label--mobile,
-        .responsive-value--mobile {
-            display: inline;
-        }
-}
-
-@keyframes rankingReverseFade {
-    from {
-            opacity: 0.72;
-            transform: translateY(2px);
-        }
-    to {
-            opacity: 1;
-            transform: translateY(0);
-        }
 }
 
 /* Sichtbarer, klar priorisierter Seiteneinstieg. */
