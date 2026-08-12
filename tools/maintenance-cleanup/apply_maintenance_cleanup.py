@@ -13,10 +13,12 @@ nicht selbst und kann erneut ausgeführt werden.
 5. Der Galerie-Generator wird aus dem GitHub-Workflow nach
    assets/python/generate_gallery.py verschoben.
 6. Die Scraper-Validierung erhält einen dauerhaften Ort unter assets/python/.
-7. Die beiden dauerhaften Workflows werden auf die neuen Python-Dateien
-   umgestellt.
+7. Die benötigten Workflow-Aktualisierungen werden als fertige Ersatzdateien
+   unter tools/maintenance-cleanup/workflow-replacements/ vorbereitet. GitHub
+   erlaubt dem normalen GITHUB_TOKEN nicht, Workflow-Dateien selbst zu pushen.
 8. Die README wird auf die tatsächlich verwendete Architektur aktualisiert.
-9. Das alte einmalige direct-css-update-Paket wird entfernt, sofern vorhanden.
+9. Das alte einmalige direct-css-update-Tool wird entfernt, sofern vorhanden.
+   Der zugehörige Workflow wird nur zur manuellen Löschung vorgemerkt.
 
 Nicht enthalten:
 - Kein automatischer Umbau von tables.js/tables.css. Dieser Bereich wurde
@@ -759,31 +761,55 @@ def remove_old_direct_css_migration() -> int:
         print("ENTFERNT: tools/direct-css-update/")
         removed += 1
 
-    workflows = ROOT / ".github/workflows"
-    if workflows.is_dir():
-        for path in sorted(list(workflows.glob("*.yml")) + list(workflows.glob("*.yaml"))):
-            if path.resolve() == current_script:
-                continue
-            text = read(path)
-            if "apply_direct_css_update.py" in text or "tools/direct-css-update" in text:
-                path.unlink()
-                print(f"ENTFERNT: {rel(path)}")
-                removed += 1
+    # Workflow-Dateien unter .github/workflows werden absichtlich NICHT
+    # verändert. Der normale GITHUB_TOKEN darf solche Änderungen nicht pushen.
     return removed
 
 
-def patch_scraper_workflow() -> bool:
-    path = ROOT / ".github/workflows/scraper.yml"
-    if not path.is_file():
+def prepare_workflow_replacements() -> int:
+    """Bereitet Workflow-Dateien außerhalb von .github für manuellen Commit vor."""
+    target = ROOT / "tools/maintenance-cleanup/workflow-replacements"
+    changed = 0
+
+    scraper = ROOT / ".github/workflows/scraper.yml"
+    if not scraper.is_file():
         raise RuntimeError(".github/workflows/scraper.yml wurde nicht gefunden.")
-    original = read(path)
-    updated = original.replace(
+    scraper_text = read(scraper).replace(
         "python tools/review-upgrade/validate_scraper_data.py",
         "python assets/python/validate_scraper_data.py",
     )
-    if "tools/review-upgrade/validate_scraper_data.py" in updated:
+    if "tools/review-upgrade/validate_scraper_data.py" in scraper_text:
         raise RuntimeError("Alte Scraper-Validator-Referenz konnte nicht ersetzt werden.")
-    return write_if_changed(path, updated)
+    if "assets/python/validate_scraper_data.py" not in scraper_text:
+        raise RuntimeError("Neue Scraper-Validator-Referenz fehlt im Ersatzworkflow.")
+    changed += write_if_changed(target / "scraper.yml", scraper_text)
+    changed += write_if_changed(target / "generate-gallery-json.yml", GALLERY_WORKFLOW)
+
+    instructions = """TTF LAUDENBACH – WORKFLOW-ÄNDERUNGEN MANUELL ANWENDEN
+=====================================================
+
+GitHub blockiert absichtlich, dass der normale GITHUB_TOKEN eines Workflows
+Workflow-Dateien unter .github/workflows selbst verändert und zurückpusht.
+Darum wurden diese Dateien nur vorbereitet.
+
+Nach erfolgreichem Wartbarkeits-Cleanup bitte manuell im Repository:
+
+1. tools/maintenance-cleanup/workflow-replacements/scraper.yml
+   nach .github/workflows/scraper.yml kopieren/ersetzen.
+
+2. tools/maintenance-cleanup/workflow-replacements/generate-gallery-json.yml
+   nach .github/workflows/generate-gallery-json.yml kopieren/ersetzen.
+
+3. .github/workflows/apply-direct-css-update.yml löschen, falls die Datei
+   noch vorhanden ist.
+
+4. Diese drei Workflow-Änderungen normal über die GitHub-Oberfläche committen.
+
+5. Danach können die Dateien unter workflow-replacements/ sowie auf Wunsch
+   maintenance-cleanup.yml und dieses Wartungsskript manuell gelöscht werden.
+"""
+    changed += write_if_changed(target / "MANUELL_ANWENDEN.txt", instructions)
+    return int(changed)
 
 
 def write_new_permanent_files() -> int:
@@ -799,10 +825,6 @@ def write_new_permanent_files() -> int:
     changed += write_if_changed(
         ROOT / "assets/python/validate_scraper_data.py",
         SCRAPER_VALIDATOR_PY,
-    )
-    changed += write_if_changed(
-        ROOT / ".github/workflows/generate-gallery-json.yml",
-        GALLERY_WORKFLOW,
     )
     changed += write_if_changed(ROOT / "README.md", README)
     return int(changed)
@@ -827,8 +849,9 @@ def verify() -> None:
         ROOT / "assets/js/core/site-components.js",
         ROOT / "assets/python/generate_gallery.py",
         ROOT / "assets/python/validate_scraper_data.py",
-        ROOT / ".github/workflows/scraper.yml",
-        ROOT / ".github/workflows/generate-gallery-json.yml",
+        ROOT / "tools/maintenance-cleanup/workflow-replacements/scraper.yml",
+        ROOT / "tools/maintenance-cleanup/workflow-replacements/generate-gallery-json.yml",
+        ROOT / "tools/maintenance-cleanup/workflow-replacements/MANUELL_ANWENDEN.txt",
     ]
     for path in required:
         if not path.is_file():
@@ -872,17 +895,17 @@ def verify() -> None:
         if "await initSiteComponents();" not in text:
             errors.append("main.js initialisiert Header/Footer nicht vor den Features.")
 
-    scraper_workflow = ROOT / ".github/workflows/scraper.yml"
-    if scraper_workflow.is_file():
-        text = read(scraper_workflow)
+    scraper_replacement = ROOT / "tools/maintenance-cleanup/workflow-replacements/scraper.yml"
+    if scraper_replacement.is_file():
+        text = read(scraper_replacement)
         if "tools/review-upgrade/validate_scraper_data.py" in text:
-            errors.append("scraper.yml enthält noch die alte Validator-Referenz.")
+            errors.append("Vorbereiteter scraper.yml enthält noch die alte Validator-Referenz.")
         if "assets/python/validate_scraper_data.py" not in text:
-            errors.append("scraper.yml verwendet den neuen Validator nicht.")
+            errors.append("Vorbereiteter scraper.yml verwendet den neuen Validator nicht.")
 
-    gallery_workflow = ROOT / ".github/workflows/generate-gallery-json.yml"
-    if gallery_workflow.is_file() and "python assets/python/generate_gallery.py" not in read(gallery_workflow):
-        errors.append("Galerie-Workflow verwendet generate_gallery.py nicht.")
+    gallery_replacement = ROOT / "tools/maintenance-cleanup/workflow-replacements/generate-gallery-json.yml"
+    if gallery_replacement.is_file() and "python assets/python/generate_gallery.py" not in read(gallery_replacement):
+        errors.append("Vorbereiteter Galerie-Workflow verwendet generate_gallery.py nicht.")
 
     if (ROOT / "assets/css/site.bundle.css").exists():
         errors.append("assets/css/site.bundle.css existiert noch.")
@@ -914,7 +937,7 @@ def main() -> int:
     patch_tables_css_comment()
     remove_legacy_bundle()
     write_new_permanent_files()
-    patch_scraper_workflow()
+    prepare_workflow_replacements()
     removed_old = remove_old_direct_css_migration()
     verify()
 
@@ -924,6 +947,7 @@ def main() -> int:
     print(f"- Alte direct-css-update-Artefakte entfernt: {removed_old}")
     print("- Header/Footer werden jetzt zentral aus components/ geladen.")
     print("- Galerie- und Scraper-Hilfslogik liegt dauerhaft unter assets/python/.")
+    print("- Workflow-Ersatzdateien wurden unter tools/maintenance-cleanup/workflow-replacements/ vorbereitet.")
     print("- README entspricht der neuen, buildfreien Struktur.")
     print("- Dieses Wartungsskript wurde absichtlich NICHT gelöscht.")
     return 0
