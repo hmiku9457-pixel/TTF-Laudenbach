@@ -1,14 +1,5 @@
 [
   {
-    "datum": "Fr., 18.09.2026",
-    "uhrzeit": "20:00",
-    "spielort": "1",
-    "heim": "TTF Laudenbach IV",
-    "gast": "TSV Rossfeld V",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "So., 27.09.2026",
     "uhrzeit": "10:30",
     "spielort": "2",
@@ -59,6 +50,15 @@
     "spielort": "1",
     "heim": "TV Niederstetten",
     "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 27.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "heim": "TTF Laudenbach IV",
+    "gast": "TSV Rossfeld V",
     "ergebnis": null,
     "status": "geplant"
   },

@@ -3,7 +3,7 @@
     {
       "id": "spieleStartseite",
       "name": "Startseite Spiele",
-      "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/spielplan?date_start=2026-07-09&date_end=2026-09-07",
+      "url": "https://www.mytischtennis.de/click-tt/TTBW/26--27/verein/2054043/TTF_Laudenbach/spielplan?date_start=2026-07-13&date_end=2026-09-11",
       "type": "startseite"
     },
     {
@@ -156,7 +156,7 @@
           "id": "sponsor1",
           "name": "JAKO",
           "bild": "./assets/images/TTF-Laudenbach_Logo.png",
-          "url": "https://www.jako.com/"
+          "url": "http://www.jako.com/"
         },
         {
           "id": "sponsor2",
