@@ -1,0 +1,85 @@
+name: Repo-Cleanup B/C/D anwenden
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-writer
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Repo-Cleanup B/C/D anwenden
+        run: python tools/repo-cleanup-bcd/apply_repo_cleanup_bcd.py
+
+      - name: Python prüfen
+        run: |
+          python -m py_compile \
+            assets/python/config.py \
+            assets/python/scraper.py \
+            tools/repo-cleanup-bcd/apply_repo_cleanup_bcd.py
+
+      - name: JavaScript prüfen
+        run: |
+          node --check assets/js/core/site-components.js
+          node --check assets/js/features/links.js
+          node --check assets/js/features/news-slider.js
+          node --check assets/js/features/gallery.js
+
+      - name: Zielzustand prüfen
+        shell: bash
+        run: |
+          test ! -e assets/css/responsive.css
+          ! grep -q 'responsive.css' assets/css/main.css
+          ! grep -q 'TTBW/26--27/' assets/python/config.py
+          grep -q 'SAISON = "26--27"' assets/python/config.py
+          grep -q 'data-current-year' components/footer.html
+          ! grep -q 'initAnimations' assets/js/features/links.js
+          ! grep -q 'initAnimations' assets/js/features/news-slider.js
+          ! grep -q 'initAnimations' assets/js/features/gallery.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('assets/data/links.json').read_text(encoding='utf-8'))
+          assert all(item.get('id') != 'spieleStartseite' for item in data.get('spielplaene', []))
+          PY
+
+      - name: Sicherstellen, dass keine Workflow-Datei verändert wurde
+        shell: bash
+        run: |
+          if ! git diff --quiet -- .github/workflows; then
+            echo "Fehler: Der Cleanup hat eine Workflow-Datei verändert."
+            git diff -- .github/workflows
+            exit 1
+          fi
+
+      - name: Änderungen committen
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css assets/python/config.py assets/python/scraper.py assets/data/links.json \
+            assets/js/core/site-components.js assets/js/features/links.js assets/js/features/news-slider.js \
+            assets/js/features/gallery.js components/header.html components/footer.html ToDoList.txt
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen gefunden."
+            exit 0
+          fi
+          git commit -m "Repo-Cleanup B C D anwenden"
+          git pull --rebase origin main
+          git push origin HEAD:main
