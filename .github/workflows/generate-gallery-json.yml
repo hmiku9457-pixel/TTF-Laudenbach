@@ -6,6 +6,7 @@ on:
     paths:
       - "assets/images/**"
       - "!assets/images/seo/**"
+      - "assets/python/generate_gallery.py"
       - ".github/workflows/generate-gallery-json.yml"
   workflow_dispatch:
 
@@ -35,75 +36,7 @@ jobs:
           python-version: "3.13"
 
       - name: Galerie-JSON erzeugen und validieren
-        run: |
-          python <<'PY'
-          import json
-          import re
-          from pathlib import Path
-          from urllib.parse import quote, unquote
-
-          images_dir = Path("assets/images")
-          output_file = Path("assets/data/gallerie.json")
-          image_extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-          excluded_directories = {"seo"}
-
-          def slugify(text):
-              value = text.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
-              return re.sub(r"[^a-z0-9]+", "-", value).strip("-")
-
-          def url_for(path):
-              return "/" + quote(str(path).replace("\\", "/"))
-
-          def alt_for(path, gallery_title):
-              name = re.sub(r"[-_]+", " ", path.stem).strip()
-              return f"{gallery_title}: {name}" if name else gallery_title
-
-          def image_entry(path, gallery_title):
-              return {"src": url_for(path), "alt": alt_for(path, gallery_title)}
-
-          galleries = []
-          general_title = "Generelle Bilder"
-          general_images = sorted(
-              (file for file in images_dir.iterdir() if file.is_file() and file.suffix.lower() in image_extensions),
-              key=lambda path: path.name.lower(),
-          )
-          galleries.append({
-              "id": "general",
-              "title": general_title,
-              "images": [image_entry(file, general_title) for file in general_images],
-          })
-
-          for folder in sorted(
-              (folder for folder in images_dir.iterdir() if folder.is_dir() and folder.name.lower() not in excluded_directories and not folder.name.startswith((".", "_"))),
-              key=lambda path: path.name.lower(),
-          ):
-              images = sorted(
-                  (file for file in folder.iterdir() if file.is_file() and file.suffix.lower() in image_extensions),
-                  key=lambda path: path.name.lower(),
-              )
-              if images:
-                  galleries.append({
-                      "id": slugify(folder.name),
-                      "title": folder.name,
-                      "images": [image_entry(file, folder.name) for file in images],
-                  })
-
-          ids = [gallery["id"] for gallery in galleries]
-          if len(ids) != len(set(ids)):
-              raise ValueError("Doppelte Galerie-IDs erkannt.")
-
-          data = {"defaultGallery": "general", "galleries": galleries}
-          for gallery in galleries:
-              for image in gallery["images"]:
-                  image_path = Path(unquote(image["src"].lstrip("/")))
-                  if not image_path.is_file():
-                      raise FileNotFoundError(f"Galeriebild fehlt: {image_path}")
-                  if not image["alt"].strip():
-                      raise ValueError(f"Leerer Alt-Text: {image_path}")
-
-          output_file.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-          print(f"{output_file} erzeugt: {len(galleries)} Galerien")
-          PY
+        run: python assets/python/generate_gallery.py
 
       - name: Änderungen committen
         shell: bash

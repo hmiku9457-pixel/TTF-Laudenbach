@@ -61,7 +61,7 @@ jobs:
           if [[ "${{ inputs.allow_large_data_drop }}" == "true" ]]; then
             EXTRA_ARGS+=(--allow-large-drop)
           fi
-          python tools/review-upgrade/validate_scraper_data.py \
+          python assets/python/validate_scraper_data.py \
             --before .scraper-before \
             --candidate .scraper-candidate \
             "${EXTRA_ARGS[@]}"
