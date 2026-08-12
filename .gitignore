@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 
-# Node.js
-
-# Playwright
+# Scraper / lokale Debug-Ausgaben
+debug/
+.scraper-before/
+.scraper-candidate/

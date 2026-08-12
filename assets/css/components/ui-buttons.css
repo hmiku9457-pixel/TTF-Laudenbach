@@ -1,7 +1,7 @@
-/* UI-Hilfsklassen und Buttons. Aus style.css unverändert ausgelagert. */
+/* UI-Hilfsklassen und Buttons. */
 
 /* =========================================
-   ===== 11. UI ELEMENTE ===================
+   ===== UI ELEMENTE =======================
    ========================================= */
 
 hr {
@@ -11,55 +11,47 @@ hr {
     margin: var(--space-xl) 0;
 }
 
-footer {
-    text-align: center;
-    padding: var(--space-xl);
-    color: var(--text-muted);
-}
-
 .underline {
-    border-bottom: 2px solid currentColor;
     display: inline-block;
+    border-bottom: 2px solid currentColor;
 }
 
 .u-text-center {
     text-align: center;
 }
 
-
 /* =========================================
-   ===== 12. BUTTONS =======================
+   ===== BUTTONS ===========================
    ========================================= */
 
 .button {
     display: inline-block;
     padding: var(--space-m) var(--space-l);
+    border-radius: var(--space-m);
     background: var(--bg-secondary);
     color: var(--text-main);
-    text-decoration: none;
-    border-radius: var(--space-m);
     box-shadow: var(--shadow-light);
+    text-decoration: none;
     cursor: pointer;
-
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .button:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-heavy);
     background: var(--bg-main);
+    box-shadow: var(--shadow-heavy);
 }
 
 .button--card {
     display: block;
-    text-align: center;
     padding: var(--space-xl);
+    text-align: center;
 }
 
 .button img {
+    display: block;
     max-width: 100%;
     height: auto;
-    display: block;
     margin: 0 auto;
 }
 
@@ -72,5 +64,3 @@ footer {
     transform: translateY(0);
     box-shadow: var(--shadow-light);
 }
-
-

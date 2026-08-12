@@ -1,7 +1,7 @@
-/* Header und Hauptnavigation. Aus style.css unverändert ausgelagert. */
+/* Header und Hauptnavigation. */
 
 /* =========================================
-   ===== 3. HEADER =========================
+   ===== HEADER ============================
    ========================================= */
 
 .top-bar {
@@ -18,7 +18,6 @@ header {
     padding: var(--space-m);
 }
 
-/* Logo links, Text bleibt zentriert */
 .logo {
     position: absolute;
     left: var(--space-l);
@@ -31,9 +30,8 @@ header {
     text-align: center;
 }
 
-
 /* =========================================
-   ===== 4. NAVIGATION =====================
+   ===== NAVIGATION ========================
    ========================================= */
 
 nav {
@@ -44,6 +42,7 @@ nav {
 .menu {
     list-style: none;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--space-xl);
@@ -52,6 +51,12 @@ nav {
 
 .menu li {
     position: relative;
+}
+
+.menu > li {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
 }
 
 .menu a {
@@ -64,20 +69,18 @@ nav {
     color: var(--accent);
 }
 
-/* Dropdown Menü */
+/* Dropdown-Menü */
 .submenu {
     position: absolute;
     top: 100%;
     left: 50%;
     z-index: 1001;
-
     background: var(--bg-secondary);
     box-shadow: var(--shadow-heavy);
     border-radius: var(--space-m);
     list-style: none;
     padding: var(--space-s);
     white-space: nowrap;
-
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateY(-10px);
@@ -98,66 +101,43 @@ nav {
     border-radius: var(--space-s);
     color: var(--text-main);
     text-decoration: none;
-
     transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .submenu a:hover {
     background: var(--bg-main);
-    transform: translateX(3px); /* leichtes "Reinsliden" */
+    transform: translateX(3px);
 }
 
 .dropdown:hover .submenu,
-.dropdown:focus-within .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-
-
-/* Explizite Steuerung der Untermenüs für Tastatur und Touch */
-.dropdown > a,
-.dropdown > .submenu-toggle {
-    vertical-align: middle;
-}
-
-.submenu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 32px;
-    min-height: 32px;
-    margin-left: 2px;
-    padding: 0 var(--space-s);
-    border: 1px solid transparent;
-    border-radius: var(--space-s);
-    background: transparent;
-    color: var(--text-main);
-    font: inherit;
-    cursor: pointer;
-}
-
-.submenu-toggle:hover,
-.submenu-toggle:focus-visible {
-    border-color: var(--accent);
-    color: var(--accent);
-    outline: none;
-}
-
-.submenu-toggle[aria-expanded="true"] span {
-    transform: rotate(180deg);
-}
-
-.submenu-toggle span {
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
+.dropdown:focus-within .submenu,
 .dropdown.is-open .submenu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+.dropdown > .dropdown-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 36px;
+    padding: 0.25rem 0;
+    line-height: 1.25;
+}
+
+.dropdown-link__indicator {
+    display: inline-grid;
+    place-items: center;
+    width: 1rem;
+    height: 1rem;
+    color: var(--accent);
+    font-size: 0.78em;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.is-open > .dropdown-link .dropdown-link__indicator {
+    transform: rotate(180deg);
 }
 
 @media (hover: none), (max-width: 768px) {
@@ -175,43 +155,8 @@ nav {
     }
 }
 
-/* TTF:INTEGRATED:navigation:START */
-.menu {
-    align-items: center;
-}
-.menu > li {
-    display: flex;
-    align-items: center;
-    min-height: 36px;
-}
-.dropdown > .dropdown-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 36px;
-    padding: 0.25rem 0;
-    line-height: 1.25;
-}
-.dropdown-link__indicator {
-    display: inline-grid;
-    place-items: center;
-    width: 1rem;
-    height: 1rem;
-    color: var(--accent);
-    font-size: 0.78em;
-    transition: transform 0.2s ease;
-}
-.dropdown.is-open > .dropdown-link .dropdown-link__indicator {
-    transform: rotate(180deg);
-}
-.submenu-toggle {
-    display: none !important;
-}
 @media (prefers-reduced-motion: reduce) {
-    .dropdown-link__indicator,
-        .images-event-list,
-        .images-nav-backdrop {
-            transition: none;
-        }
+    .dropdown-link__indicator {
+        transition: none;
+    }
 }
-/* TTF:INTEGRATED:navigation:END */

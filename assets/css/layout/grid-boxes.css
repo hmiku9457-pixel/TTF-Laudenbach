@@ -1,7 +1,7 @@
-/* Grid-Layouts und Box-Komponenten. Aus style.css unverändert ausgelagert. */
+/* Grid-Layouts und Box-Komponenten. */
 
 /* =========================================
-   ===== 5. GRID LAYOUT ====================
+   ===== GRID LAYOUT =======================
    ========================================= */
 
 .grid {
@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: minmax(18rem, 0.9fr) minmax(34rem, 1.35fr);
     gap: var(--space-m);
-    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    padding: 0 var(--space-xl);
     align-items: stretch;
 }
 
@@ -30,16 +30,15 @@
     display: grid;
     grid-template-columns: minmax(28rem, 1.35fr) minmax(20rem, 0.85fr);
     gap: var(--space-m);
-    padding: 0 var(--space-xl); /* Top-Bottom Padding wird über grid-home-wrapper geregelt */
+    padding: 0 var(--space-xl);
     align-items: stretch;
 }
 
-/*.sub-grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    height: 100%;
-}*/ /* Erstmal wieder rausgenommen, da ich erstmal einen Workaround nehme */
+.grid > *,
+.grid-home-firstLine > *,
+.grid-home-secondLine > * {
+    min-width: 0;
+}
 
 .full-width {
     grid-column: 1 / -1;
@@ -54,18 +53,16 @@
     margin-top: auto;
 }
 
-
 /* =========================================
-   ===== 6. BOXEN ==========================
+   ===== BOXEN =============================
    ========================================= */
 
 .box,
 .team-box {
-    background: var(--bg-secondary);
     padding: var(--space-xl);
     border-radius: var(--space-m);
+    background: var(--bg-secondary);
     box-shadow: var(--shadow-light);
-
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -76,25 +73,14 @@
     box-shadow: var(--shadow-light);
 }
 
-/*.team-box {
-    background: var(--bg-secondary);
-    padding: var(--space-xl);
-    border-radius: var(--space-m);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
-    /* Fix für Textabstände */
-/*    line-height: 1.6;
-    overflow-wrap: break-word;
-}*/
-
 .team-box ul,
 .team-box ol {
-    padding-left: 1.2em; /* Abstand für Nummerierung/Bullet */
-    margin: 0 0 var(--space-m) 0; /* unten Abstand */
+    padding-left: 1.2em;
+    margin: 0 0 var(--space-m) 0;
 }
 
 .team-box li {
-    margin-bottom: 0; /* Abstand zwischen Listenelementen */
+    margin-bottom: 0;
 }
 
 .column {
@@ -102,10 +88,6 @@
     gap: var(--space-m);
 }
 
-
-
-
-/* TTF: fließender Startseiten-Breakpoint */
 @media (max-width: 1180px) {
     .grid-home-firstLine,
     .grid-home-secondLine {

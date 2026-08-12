@@ -1,11 +1,13 @@
-/* Kontaktformular. Aus style.css unverändert ausgelagert. */
+/* Kontaktformular. */
 
 /* =========================================
-   ===== 16. KONTAKTFORMULAR ===============
+   ===== KONTAKTFORMULAR ===================
    ========================================= */
 
 .contact-section {
-    max-width: 600px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: var(--space-xl) auto;
     padding: var(--space-m);
 }
@@ -13,11 +15,13 @@
 .contact-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     gap: var(--space-m);
-
-    background: var(--bg-secondary);
     padding: var(--space-xl);
     border-radius: var(--space-m);
+    background: var(--bg-secondary);
     box-shadow: var(--shadow-light);
 }
 
@@ -44,6 +48,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    min-width: 0;
     gap: var(--space-s);
 }
 
@@ -52,11 +57,9 @@
     padding: var(--space-m);
     border: 1px solid #334155;
     border-radius: var(--space-s);
-    font-size: 1rem;
-
     background: var(--bg-main);
     color: var(--text-main);
-
+    font-size: 1rem;
     transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -70,6 +73,7 @@
 .form-consent {
     flex-direction: row;
     align-items: flex-start;
+    width: 100%;
     gap: var(--space-s);
 }
 
@@ -77,19 +81,38 @@
     margin-top: 3px;
 }
 
-/* Button nutzt dein bestehendes System */
+.form-consent input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: auto;
+}
+
+.form-consent label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
 .contact-form button {
     margin-top: var(--space-s);
 }
 
-.form-status {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    min-height: 1.2em;
+.contact-form :where(input:not([type="checkbox"]), textarea, button) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
-/* Success / Error Zustände (optional via JS nutzbar) */
+.contact-form textarea {
+    resize: vertical;
+}
+
+.form-status {
+    min-height: 1.2em;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 .form-status.success {
     color: #22c55e;
 }
@@ -97,39 +120,3 @@
 .form-status.error {
     color: #ef4444;
 }
-
-/* TTF:INTEGRATED:contact:START */
-.grid > *,
-.grid-home-firstLine > *,
-.grid-home-secondLine > *,
-.contact-section,
-.contact-form,
-.form-group {
-    min-width: 0;
-}
-.contact-section,
-.contact-form {
-    width: 100%;
-    max-width: 100%;
-}
-.contact-form :where(input:not([type="checkbox"]), textarea, button) {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-}
-.contact-form textarea {
-    resize: vertical;
-}
-.form-consent {
-    width: 100%;
-}
-.form-consent input[type="checkbox"] {
-    flex: 0 0 auto;
-    width: auto;
-    min-width: auto;
-}
-.form-consent label {
-    min-width: 0;
-    overflow-wrap: anywhere;
-}
-/* TTF:INTEGRATED:contact:END */
