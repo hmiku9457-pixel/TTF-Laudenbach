@@ -145,7 +145,14 @@ def remove_unused_components_module() -> bool:
             text = read_text(path)
         except UnicodeDecodeError:
             continue
-        if "components.js" in text or re.search(r'\bloadComponent\s*\(', text):
+        # Nur die konkrete Altdatei components.js erkennen. Ein einfacher
+        # Substring-Test würde fälschlich auch site-components.js treffen.
+        references_components_module = re.search(
+            r'(?<![\w-])components\.js\b',
+            text,
+        )
+        references_load_component = re.search(r'\bloadComponent\s*\(', text)
+        if references_components_module or references_load_component:
             references.append(str(path.relative_to(ROOT)))
 
     if references:
