@@ -3,6 +3,7 @@ import {
     initPageStructure,
     initTableSemantics
 } from "./core/page-structure.js";
+import { initSiteComponents } from "./core/site-components.js";
 
 document.documentElement.classList.add("js");
 
@@ -18,6 +19,8 @@ async function loadFeature(path, initializer, ...args) {
 }
 
 async function initializePage() {
+    await initSiteComponents();
+
     initPageStructure();
     initHeaderAccessibility();
     initTableSemantics();

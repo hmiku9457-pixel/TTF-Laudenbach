@@ -1,6 +1,6 @@
 /*
  * Zentraler Einstiegspunkt für die Website-Gestaltung.
- * Die Produktionsdatei site.bundle.css wird daraus automatisch erzeugt.
+ * Die Website lädt diese Datei direkt; die Imports bilden die CSS-Module ab.
  */
 @import url("./base/reset.css");
 @import url("./base/theme.css");

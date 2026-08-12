@@ -1,6 +1,6 @@
 /**
  * Semantische Seitenstruktur und Navigationszustände.
- * Die Struktur wird statisch ausgeliefert; die ensure-Funktionen sind Fallbacks.
+ * Header und Footer werden aus /components geladen; die ensure-Funktionen ergänzen die Seitenstruktur.
  */
 export function initPageStructure() {
     ensureMainLandmark();
@@ -125,9 +125,6 @@ export function initDropdownNavigation(navigation = document) {
         if (!submenu || !link) {
             return;
         }
-
-        // Entfernt den in einer früheren Version separat erzeugten Button.
-        dropdown.querySelector(":scope > .submenu-toggle")?.remove();
 
         submenu.id ||= `submenu-${index + 1}`;
         link.classList.add("dropdown-link");

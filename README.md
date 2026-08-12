@@ -2,51 +2,92 @@
 
 Statische Vereinswebsite auf GitHub Pages.
 
-## Die einfache Regel
+## Grundprinzip
 
-Bearbeitet werden nur die **Quelldateien**:
+Die Seite bleibt bewusst einfach aufgebaut:
 
-- Seiteninhalte: `index.html` und `pages/**/*.html`
-- gemeinsamer Header und Footer: `components/`
-- Gestaltung: `assets/css/`
-- Funktionen: `assets/js/`
-- dynamische Inhalte: `assets/data/`
+- **HTML (`index.html`, `pages/**/*.html`)** – Seiteninhalt und semantische Struktur
+- **`components/header.html`** – gemeinsamer Header und Hauptnavigation
+- **`components/footer.html`** – gemeinsamer Footer
+- **`assets/css/main.css`** – zentraler CSS-Einstiegspunkt; lädt die CSS-Module direkt per `@import`
+- **`assets/js/main.js`** – zentraler JavaScript-Einstiegspunkt; lädt nur benötigte Features
+- **`assets/data/`** – dynamisch erzeugte JSON-Daten
+- **`assets/python/`** – Scraper, Datenvalidierung und Galerie-Generator
 
-Nicht direkt bearbeiten:
+Es gibt keinen CSS-Build und kein `site.bundle.css` mehr.
 
-- `assets/css/site.bundle.css`
-- die markierten Header-/Footer-Blöcke in den HTML-Dateien
-- `sitemap.xml`
+## Header und Footer
 
-Diese Dateien werden aus den Quellen erzeugt.
+Die HTML-Seiten enthalten nur noch die beiden Platzhalter:
 
-## Nach einer Änderung
+```html
+<div id="header-container"></div>
+...
+<div id="footer-container"></div>
+```
 
-### Normale Inhalte, JavaScript oder Daten
+`assets/js/core/site-components.js` lädt anschließend:
 
-Änderung committen. Der Workflow **„Website bauen und prüfen“** startet automatisch.
+- `/components/header.html`
+- `/components/footer.html`
 
-### Header, Footer, CSS oder Seitenstruktur
+Damit sind Header und Footer echte **Single Sources of Truth**. Änderungen an Navigation oder Footer werden nur noch in den beiden Dateien unter `components/` vorgenommen.
 
-Unter **Actions → Website bauen und prüfen → Run workflow** die Option
+## CSS
 
-**„Header, Footer, CSS-Bundle und Sitemap aktualisieren“**
+Die Seiten laden direkt:
 
-aktivieren. Der Workflow baut, prüft und committet die erzeugten Dateien.
+```html
+<link href="/assets/css/main.css" rel="stylesheet"/>
+```
 
-## Dauerhafte Workflows
+`main.css` importiert die getrennten Base-, Layout-, Komponenten- und Responsive-Dateien. Es ist kein Build-Schritt notwendig.
 
-- **Website bauen und prüfen** – Build, Qualitätsprüfung und Browsertests
-- **Generate Gallery JSON** – aktualisiert die Galerie-Daten
-- **Auto-Update Daten** – aktualisiert Mannschafts- und Spieldaten
+## JavaScript
 
-Einmalige Design-, Patch- und Migrationsworkflows gehören nicht mehr zum
-dauerhaften Aufbau.
+`assets/js/main.js` initialisiert zuerst Header und Footer und lädt danach nur die Features, die auf der jeweiligen Seite gebraucht werden, zum Beispiel Tabellen, Galerie, Kontaktformular, News-Slider oder Spielerlisten.
 
-## Werkzeuge
+## Automatische Daten
+
+### Mannschaften, Spielpläne und Tabellen
+
+Der Workflow **Auto-Update Daten** startet täglich und kann zusätzlich manuell ausgeführt werden.
+
+- Scraper: `assets/python/scraper.py`
+- Konfiguration: `assets/python/config.py`
+- Prüfung vor Übernahme: `assets/python/validate_scraper_data.py`
+
+Bei einem ungewöhnlich großen Datenrückgang bricht die Prüfung ab. Für einen beabsichtigten Saisonwechsel kann der manuelle Workflow mit `allow_large_data_drop` ausgeführt werden.
+
+### Galerie
+
+Der Workflow **Generate Gallery JSON** läuft bei Änderungen unter `assets/images/` und erzeugt:
 
 ```text
-tools/site/build.py   # Header, Footer, CSS-Bundle und Sitemap
-tools/site/check.py   # HTML, Links, JSON, Imports und Repository-Hygiene
-tests/e2e/            # Browser- und Layouttests
+assets/data/gallerie.json
 ```
+
+Die eigentliche Logik liegt in:
+
+```text
+assets/python/generate_gallery.py
+```
+
+Der GitHub-Workflow enthält dadurch nur noch die Ablaufsteuerung.
+
+## Typische Änderungen
+
+| Änderung | Datei / Bereich |
+|---|---|
+| Navigation | `components/header.html` |
+| Footer | `components/footer.html` |
+| Seiteninhalt | jeweilige HTML-Datei |
+| Gestaltung | `assets/css/` |
+| Frontend-Funktion | `assets/js/` |
+| Mannschafts-/Ligaquellen | `assets/python/config.py` und ggf. `assets/js/config/` |
+| Scraper | `assets/python/scraper.py` |
+| Galerie-Erzeugung | `assets/python/generate_gallery.py` |
+
+## Wartungsregel
+
+Neue Abstraktionen oder Build-Schritte nur einführen, wenn sie ein konkretes Wartungsproblem lösen. Für diese Vereinswebsite gilt bewusst: **wenige Ebenen, eindeutige Zuständigkeiten und möglichst wenig duplizierter Code.**

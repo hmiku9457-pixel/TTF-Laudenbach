@@ -1,0 +1,22 @@
+TTF LAUDENBACH – WORKFLOW-ÄNDERUNGEN MANUELL ANWENDEN
+=====================================================
+
+GitHub blockiert absichtlich, dass der normale GITHUB_TOKEN eines Workflows
+Workflow-Dateien unter .github/workflows selbst verändert und zurückpusht.
+Darum wurden diese Dateien nur vorbereitet.
+
+Nach erfolgreichem Wartbarkeits-Cleanup bitte manuell im Repository:
+
+1. tools/maintenance-cleanup/workflow-replacements/scraper.yml
+   nach .github/workflows/scraper.yml kopieren/ersetzen.
+
+2. tools/maintenance-cleanup/workflow-replacements/generate-gallery-json.yml
+   nach .github/workflows/generate-gallery-json.yml kopieren/ersetzen.
+
+3. .github/workflows/apply-direct-css-update.yml löschen, falls die Datei
+   noch vorhanden ist.
+
+4. Diese drei Workflow-Änderungen normal über die GitHub-Oberfläche committen.
+
+5. Danach können die Dateien unter workflow-replacements/ sowie auf Wunsch
+   maintenance-cleanup.yml und dieses Wartungsskript manuell gelöscht werden.
