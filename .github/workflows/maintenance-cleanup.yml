@@ -1,4 +1,4 @@
-name: Wartbarkeits-Cleanup anwenden
+name: Wartbarkeits-Cleanup anwenden (v2)
 
 on:
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Wartbarkeits-Cleanup anwenden
+      - name: Wartbarkeits-Cleanup anwenden (v2)
         run: python tools/maintenance-cleanup/apply_maintenance_cleanup.py
 
       - name: Python-Dateien auf Syntax prüfen
@@ -57,6 +57,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          if git diff --staged --name-only | grep -q '^.github/workflows/'; then
+            echo "FEHLER: Der Cleanup darf keine Workflow-Dateien automatisch committen." >&2
+            git diff --staged --name-only | grep '^.github/workflows/' >&2
+            exit 1
+          fi
           if git diff --staged --quiet; then
             echo "Keine Änderungen gefunden."
             exit 0
