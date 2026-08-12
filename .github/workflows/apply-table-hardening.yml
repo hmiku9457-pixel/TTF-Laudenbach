@@ -1,0 +1,57 @@
+name: Tabellen-Härtung Priorität B anwenden
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: table-hardening-priority-b
+  cancel-in-progress: false
+
+jobs:
+  apply-hardening:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Tabellen-Härtung anwenden
+        run: python tools/table-hardening/apply_table_hardening.py
+
+      - name: Zielzustand prüfen
+        run: python tools/table-hardening/apply_table_hardening.py --check
+
+      - name: JavaScript-Syntax prüfen
+        run: node --check assets/js/features/table-responsive.js
+
+      - name: Git-Diff prüfen
+        run: git diff --check
+
+      - name: Änderungen committen
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            assets/js/features/table-responsive.js \
+            assets/css/components/tables.css
+
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen gefunden."
+            exit 0
+          fi
+
+          git commit -m "Tabellen-Selektoren semantisch härten"
+          git pull --rebase origin main
+          git push origin HEAD:main
