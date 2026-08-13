@@ -1,4 +1,4 @@
-/* Farben, Abstände und Design-Variablen. Aus style.css unverändert ausgelagert. */
+/* Farben, Abstände und Design-Variablen. */
 
 /* =========================================
    ===== 2. THEME (Farben) =================
@@ -37,5 +37,3 @@
    --warning: #f4c542;
    --error: #c62828;
 }
-
-

@@ -11,7 +11,7 @@ Die Seite bleibt bewusst einfach aufgebaut:
 - **`components/footer.html`** – gemeinsamer Footer
 - **`assets/css/main.css`** – zentraler CSS-Einstiegspunkt; lädt die CSS-Module direkt per `@import`
 - **`assets/js/main.js`** – zentraler JavaScript-Einstiegspunkt; lädt nur benötigte Features
-- **`assets/data/`** – dynamisch erzeugte JSON-Daten
+- **`assets/data/`** – JSON-Daten für dynamische Inhalte; teils automatisch erzeugt, teils manuell gepflegt
 - **`assets/python/`** – Scraper, Datenvalidierung und Galerie-Generator
 
 Es gibt keinen CSS-Build und kein `site.bundle.css` mehr.
@@ -41,7 +41,7 @@ Die Seiten laden direkt:
 <link href="/assets/css/main.css" rel="stylesheet"/>
 ```
 
-`main.css` importiert die getrennten Base-, Layout-, Komponenten- und Responsive-Dateien. Es ist kein Build-Schritt notwendig.
+`main.css` importiert die getrennten Base-, Layout- und Komponenten-Dateien. Responsive-Regeln liegen direkt bei der jeweiligen Komponente. Es ist kein Build-Schritt notwendig.
 
 ## JavaScript
 
@@ -74,6 +74,21 @@ assets/python/generate_gallery.py
 ```
 
 Der GitHub-Workflow enthält dadurch nur noch die Ablaufsteuerung.
+
+## Datenpflege
+
+Unter `assets/data/` liegen sowohl automatisch erzeugte als auch manuell gepflegte JSON-Dateien. Für die Wartung gilt:
+
+| Datei | Pflege |
+|---|---|
+| `news.json` | aktuell manuell gepflegt; die geplante CMS-Anbindung soll diese Pflege später übernehmen |
+| `gallerie.json` | automatisch durch **Generate Gallery JSON** / `assets/python/generate_gallery.py` |
+| `links.json` | automatisch aus `assets/python/config.py` durch den Scraper |
+| `spiele*.json` | automatisch durch den Scraper |
+| `tabelle*.json` | automatisch durch den Scraper |
+| `spieler*.json` | automatisch durch den Scraper |
+
+Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. Änderungen gehören stattdessen in die jeweilige Quelle oder Konfiguration, damit sie beim nächsten Workflow-Lauf nicht überschrieben werden.
 
 ## Typische Änderungen
 

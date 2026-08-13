@@ -81,7 +81,7 @@ export function initHeaderAccessibility() {
                 link.setAttribute("aria-current", "page");
             }
         } catch {
-            // Ungültige Links werden von der Qualitätsprüfung abgefangen.
+            // Ungültige oder nicht auflösbare Links werden hier ignoriert.
         }
     });
 

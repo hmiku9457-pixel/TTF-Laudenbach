@@ -35,9 +35,6 @@ async function initializePage() {
         tasks.push(tablesModule.loadAllTables());
     }
 
-    if (has("#themeSwitcher")) {
-        tasks.push(loadFeature("./features/theme-switcher.js", "initThemeSwitcher"));
-    }
     if (has(".iframe-consent")) {
         tasks.push(loadFeature("./features/iframe-consent.js", "initIframeConsent"));
     }
