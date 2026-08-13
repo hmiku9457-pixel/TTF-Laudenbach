@@ -86,3 +86,19 @@ Nicht manuell bearbeiten:
 * News-Einträge in `sitemap.xml`
 
 Änderungen gehören in die Markdown-Datei, die Templates oder den Generator.
+
+## Automatisierung
+
+Der dauerhafte Workflow **News generieren** verwendet immer denselben Generator `assets/python/generate_news.py`.
+
+Er startet:
+
+* bei relevanten Änderungen auf `main` (`content/news/`, `assets/images/news/`, News-Templates, Generator oder Requirements),
+* zweimal pro Stunde in der Zeitzone `Europe/Berlin` für geplante Veröffentlichungen,
+* manuell über **Actions → News generieren → Run workflow**.
+
+Jeder Lauf berechnet den vollständigen Sollzustand neu. Dadurch werden auch gelöschte Artikel, die News-Übersicht, die fünf Slider-Einträge und die News-Einträge der Sitemap konsistent synchronisiert.
+
+Der manuelle Lauf ist zugleich der Rebuild-/Repair-Weg. Er fordert auch dann einen neuen GitHub-Pages-Build an, wenn keine generierte Datei geändert werden musste.
+
+GitHub kann geplante Workflows in öffentlichen Repositories nach 60 Tagen ohne Repository-Aktivität automatisch deaktivieren. Falls eine geplante News nicht erscheint, zuerst den Workflow **News generieren** prüfen beziehungsweise manuell ausführen und einen deaktivierten Schedule wieder aktivieren.

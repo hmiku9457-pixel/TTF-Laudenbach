@@ -61,10 +61,11 @@ News werden nicht mehr doppelt in HTML und `news.json` gepflegt.
 - Generierte Artikelseiten: `pages/news/*.html`
 - Generierte Slider-Daten: `assets/data/news.json`
 
-`publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht.
+Der Workflow **News generieren** synchronisiert diese Ausgaben dauerhaft. Er läuft automatisch bei Änderungen an News-Quellen, News-Bildern, Templates oder Generator, prüft geplante Veröffentlichungen zweimal pro Stunde in `Europe/Berlin` und kann zusätzlich manuell ausgeführt werden.
+
+`publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht. Der manuelle Workflow-Lauf dient gleichzeitig als vollständiger Rebuild/Repair und fordert auch einen neuen GitHub-Pages-Build an.
 
 Generierte News-Dateien sollten nicht manuell korrigiert werden. Änderungen gehören in die Markdown-Quelle oder in die Templates. Das neutrale Dateiformat ist in `docs/news-content-format.md` dokumentiert.
-
 ## Automatische Daten
 
 ### Mannschaften, Spielpläne und Tabellen
@@ -95,11 +96,11 @@ Der GitHub-Workflow enthält dadurch nur noch die Ablaufsteuerung.
 
 ## Datenpflege
 
-Unter `assets/data/` liegen sowohl automatisch erzeugte als auch manuell gepflegte JSON-Dateien. Für die Wartung gilt:
+Unter `assets/data/` liegen automatisch erzeugte JSON-Dateien. Für die Wartung gilt:
 
 | Datei | Pflege |
 |---|---|
-| `news.json` | aktuell manuell gepflegt; die geplante CMS-Anbindung soll diese Pflege später übernehmen |
+| `news.json` | automatisch durch **News generieren** / `assets/python/generate_news.py` |
 | `gallerie.json` | automatisch durch **Generate Gallery JSON** / `assets/python/generate_gallery.py` |
 | `links.json` | automatisch aus `assets/python/config.py` durch den Scraper |
 | `spiele*.json` | automatisch durch den Scraper |
