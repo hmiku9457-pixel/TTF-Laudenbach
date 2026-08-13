@@ -42,19 +42,15 @@ jobs:
           python assets/python/generate_news.py
           git diff --check
 
-      - name: Temporäre Update-Pakete entfernen
+      - name: Temporäre Tool-Pakete entfernen
         run: |
           rm -rf tools/news-cms-package1
           rm -rf tools/news-cms-package2
-          rm -f .github/workflows/news-cms-package1.yml
-          rm -f .github/workflows/news-cms-package2.yml
 
       - name: Paket-Cleanup prüfen
         run: |
           test ! -e tools/news-cms-package1
           test ! -e tools/news-cms-package2
-          test ! -e .github/workflows/news-cms-package1.yml
-          test ! -e .github/workflows/news-cms-package2.yml
           test -f .github/workflows/generate-news.yml
 
       - name: Änderungen committen
@@ -65,7 +61,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A
+          git add -A -- \
+            README.md \
+            docs/news-content-format.md \
+            assets/data/news.json \
+            pages/neuigkeiten.html \
+            pages/news \
+            sitemap.xml \
+            tools/news-cms-package1 \
+            tools/news-cms-package2
 
           if git diff --staged --quiet; then
             echo "Keine Änderungen gefunden."
