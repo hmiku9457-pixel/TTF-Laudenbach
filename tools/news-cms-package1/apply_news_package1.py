@@ -94,49 +94,54 @@ def update_homepage() -> None:
 def update_readme() -> None:
     text = read(README)
 
-    replacements = [
-        (
-            "* `assets/data/` – JSON-Daten für dynamische Inhalte; teils automatisch erzeugt, teils manuell gepflegt",
-            "* `assets/data/` – JSON-Daten für dynamische Inhalte; überwiegend automatisch erzeugt",
-        ),
-        (
-            "* `assets/python/` – Scraper, Datenvalidierung und Galerie-Generator",
-            "* `assets/python/` – Scraper, Datenvalidierung, Galerie- und News-Generator",
-        ),
-        (
-            "`news.json`  | aktuell manuell gepflegt; die geplante CMS-Anbindung soll diese Pflege später übernehmen",
-            "`news.json`  | automatisch aus `content/news/*.md` durch `assets/python/generate_news.py`",
-        ),
-    ]
+    # Die README wurde im Wartbarkeits-Cleanup bereits mehrfach vereinfacht.
+    # Deshalb hier bewusst zeilen-/abschnittsorientiert arbeiten statt alte
+    # Formulierungen 1:1 vorauszusetzen.
+    lines = text.splitlines()
 
-    for old, new in replacements:
-        if new in text:
-            continue
-        if old not in text:
-            fail(f"README.md: erwarteter Text nicht gefunden: {old}")
-        text = text.replace(old, new, 1)
+    def replace_prefixed_line(prefix: str, replacement: str) -> None:
+        nonlocal lines
+        matches = [index for index, line in enumerate(lines) if line.startswith(prefix)]
+        if not matches:
+            fail(f"README.md: erwarteter Strukturpunkt fehlt: {prefix}")
+        if len(matches) > 1:
+            fail(f"README.md: Strukturpunkt ist nicht eindeutig: {prefix}")
+        lines[matches[0]] = replacement
 
-    bullet_anchor = "* `assets/python/` – Scraper, Datenvalidierung, Galerie- und News-Generator"
-    content_bullets = (
-        "\n* `content/news/` – redaktionelle Markdown-Quelldateien für Neuigkeiten"
-        "\n* `templates/` – zentrale HTML-Vorlagen für generierte News-Seiten"
+    replace_prefixed_line(
+        "- **`assets/data/`**",
+        "- **`assets/data/`** – automatisch erzeugte JSON-Daten für dynamische Inhalte",
     )
-    if "`content/news/` – redaktionelle Markdown-Quelldateien" not in text:
-        if bullet_anchor not in text:
-            fail("README.md: Einfügepunkt für News-Quellstruktur fehlt.")
-        text = text.replace(bullet_anchor, bullet_anchor + content_bullets, 1)
+    replace_prefixed_line(
+        "- **`assets/python/`**",
+        "- **`assets/python/`** – Scraper, Datenvalidierung sowie Galerie- und News-Generator",
+    )
+
+    if not any("**`content/news/`**" in line for line in lines):
+        python_index = next(
+            (index for index, line in enumerate(lines) if line.startswith("- **`assets/python/`**")),
+            None,
+        )
+        if python_index is None:
+            fail("README.md: Einfügepunkt nach assets/python fehlt.")
+        lines[python_index + 1:python_index + 1] = [
+            "- **`content/news/`** – redaktionelle Markdown-Quelldateien für Neuigkeiten",
+            "- **`templates/`** – zentrale HTML-Vorlagen für generierte News-Seiten",
+        ]
+
+    text = "\n".join(lines) + "\n"
 
     section = """## Neuigkeiten / Content-System
 
 News werden nicht mehr doppelt in HTML und `news.json` gepflegt.
 
-* Source of Truth: `content/news/*.md`
-* Artikel-Template: `templates/news-article.html`
-* Übersichts-Template: `templates/news-overview.html`
-* Generator: `assets/python/generate_news.py`
-* Generierte Übersicht: `pages/neuigkeiten.html`
-* Generierte Artikelseiten: `pages/news/*.html`
-* Generierte Slider-Daten: `assets/data/news.json`
+- Source of Truth: `content/news/*.md`
+- Artikel-Template: `templates/news-article.html`
+- Übersichts-Template: `templates/news-overview.html`
+- Generator: `assets/python/generate_news.py`
+- Generierte Übersicht: `pages/neuigkeiten.html`
+- Generierte Artikelseiten: `pages/news/*.html`
+- Generierte Slider-Daten: `assets/data/news.json`
 
 `publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht.
 
@@ -144,23 +149,32 @@ Generierte News-Dateien sollten nicht manuell korrigiert werden. Änderungen geh
 
 """
     if "## Neuigkeiten / Content-System" not in text:
-        anchor = "## Datenpflege\n"
-        if anchor not in text:
-            fail("README.md: Abschnitt 'Datenpflege' nicht gefunden.")
+        anchors = ("## Automatische Daten\n", "## Datenpflege\n", "## Typische Änderungen\n")
+        anchor = next((candidate for candidate in anchors if candidate in text), None)
+        if anchor is None:
+            fail("README.md: kein geeigneter Abschnitt für die News-Dokumentation gefunden.")
         text = text.replace(anchor, section + anchor, 1)
 
-    typical_anchor = "Galerie-Erzeugung  | `assets/python/generate_gallery.py`"
-    if "News-Inhalte  | `content/news/*.md`" not in text:
-        if typical_anchor not in text:
-            fail("README.md: Tabelle 'Typische Änderungen' hat sich unerwartet geändert.")
-        text = text.replace(
-            typical_anchor,
-            typical_anchor
-            + "\nNews-Inhalte  | `content/news/*.md`"
-            + "\nNews-Templates  | `templates/news-article.html`, `templates/news-overview.html`"
-            + "\nNews-Generator  | `assets/python/generate_news.py`",
-            1,
-        )
+    news_rows = [
+        "| News-Inhalte | `content/news/*.md` |",
+        "| News-Templates | `templates/news-article.html`, `templates/news-overview.html` |",
+        "| News-Generator | `assets/python/generate_news.py` |",
+    ]
+    if news_rows[0] not in text:
+        typical_heading = "## Typische Änderungen"
+        if typical_heading not in text:
+            fail("README.md: Abschnitt 'Typische Änderungen' fehlt.")
+
+        section_start = text.index(typical_heading)
+        next_heading = text.find("\n## ", section_start + len(typical_heading))
+        section_end = len(text) if next_heading == -1 else next_heading
+        typical = text[section_start:section_end].rstrip()
+
+        if "| Änderung | Datei / Bereich |" not in typical:
+            fail("README.md: Tabelle unter 'Typische Änderungen' fehlt.")
+
+        typical += "\n" + "\n".join(news_rows) + "\n"
+        text = text[:section_start] + typical + text[section_end:]
 
     README.write_text(text, encoding="utf-8")
 
