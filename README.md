@@ -11,8 +11,10 @@ Die Seite bleibt bewusst einfach aufgebaut:
 - **`components/footer.html`** – gemeinsamer Footer
 - **`assets/css/main.css`** – zentraler CSS-Einstiegspunkt; lädt die CSS-Module direkt per `@import`
 - **`assets/js/main.js`** – zentraler JavaScript-Einstiegspunkt; lädt nur benötigte Features
-- **`assets/data/`** – JSON-Daten für dynamische Inhalte; teils automatisch erzeugt, teils manuell gepflegt
-- **`assets/python/`** – Scraper, Datenvalidierung und Galerie-Generator
+- **`assets/data/`** – automatisch erzeugte JSON-Daten für dynamische Inhalte
+- **`assets/python/`** – Scraper, Datenvalidierung sowie Galerie- und News-Generator
+- **`content/news/`** – redaktionelle Markdown-Quelldateien für Neuigkeiten
+- **`templates/`** – zentrale HTML-Vorlagen für generierte News-Seiten
 
 Es gibt keinen CSS-Build und kein `site.bundle.css` mehr.
 
@@ -46,6 +48,22 @@ Die Seiten laden direkt:
 ## JavaScript
 
 `assets/js/main.js` initialisiert zuerst Header und Footer und lädt danach nur die Features, die auf der jeweiligen Seite gebraucht werden, zum Beispiel Tabellen, Galerie, Kontaktformular, News-Slider oder Spielerlisten.
+
+## Neuigkeiten / Content-System
+
+News werden nicht mehr doppelt in HTML und `news.json` gepflegt.
+
+- Source of Truth: `content/news/*.md`
+- Artikel-Template: `templates/news-article.html`
+- Übersichts-Template: `templates/news-overview.html`
+- Generator: `assets/python/generate_news.py`
+- Generierte Übersicht: `pages/neuigkeiten.html`
+- Generierte Artikelseiten: `pages/news/*.html`
+- Generierte Slider-Daten: `assets/data/news.json`
+
+`publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht.
+
+Generierte News-Dateien sollten nicht manuell korrigiert werden. Änderungen gehören in die Markdown-Quelle oder in die Templates. Das neutrale Dateiformat ist in `docs/news-content-format.md` dokumentiert.
 
 ## Automatische Daten
 
@@ -102,6 +120,9 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 | Mannschafts-/Ligaquellen | `assets/python/config.py` und ggf. `assets/js/config/` |
 | Scraper | `assets/python/scraper.py` |
 | Galerie-Erzeugung | `assets/python/generate_gallery.py` |
+| News-Inhalte | `content/news/*.md` |
+| News-Templates | `templates/news-article.html`, `templates/news-overview.html` |
+| News-Generator | `assets/python/generate_news.py` |
 
 ## Wartungsregel
 

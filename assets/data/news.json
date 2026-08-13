@@ -1,14 +1,23 @@
 [
   {
     "title": "Training bei den Tischtennis-Freunden Laudenbach",
-    "text": "Dass Tischtennis spielen Spaß machen kann, können sicherlich die Teilnehmer des Trainings bei den Tischtennis-Freunden Laudenbach bestätigen. Wer mal Lust hat, sich an der schnellsten Ballsportart der Welt zu versuchen, ist herzlich willkommen - Jungs und Mädchen gleichermaßen. Aber auch Erwachsene (Damen und Herren) dürfen gerne bei uns im Training hereinschneien.Unter fachkundiger Anleitung können die einzelnen Schläge erlernt werden.",
+    "text": "Du möchtest Tischtennis ausprobieren? Kinder, Jugendliche, Erwachsene, Wiedereinsteiger und Gastspieler sind bei den Tischtennis-Freunden Laudenbach herzlich willkommen.",
     "image": "/assets/images/LustAufTischtennis.png",
-    "link": "/pages/news/artikel2.html"
+    "imageAlt": "Training bei den Tischtennis-Freunden Laudenbach",
+    "link": "/pages/news/training-bei-den-tischtennis-freunden-laudenbach.html"
   },
   {
     "title": "Laudenbacher Firma VierElemente sponsort Jacken",
-    "text": "Tobias Kimmelmann, Inhaber der Laudenbacher Firma VierElemente hat die Tischtennis-Freunde Laudenbach mit neuen Jacken ausgestattet. Neu eingekleidet wurden alle 3 Herrenmannschaften sowie die Jugendmannschaft. Ein einheitliches Auftreten aller aktiven Spieler in der Öffentlichkeit ist dadurch nun möglich. Die Firma VierElemente ist ein zuverlässiger Partner für Sanitär und Heizung. Weitere Infos siehe www.vierelemente2018.de. Die Tischtennis-Freunde Laudenbach bedankten sich gestern Abend beim Inhaber Tobias Kimmelmann für die Spende und übergaben an ihn die erste Jacke.",
+    "text": "Die Laudenbacher Firma VierElemente stattet die Herren- und Jugendmannschaften der TTF Laudenbach mit neuen Vereinsjacken aus.",
     "image": "/assets/images/VierElemente_TTFLaudenbach.jpg",
-    "link": "/pages/news/artikel1.html"
+    "imageAlt": "Im Bild (vlnr.): 1. Vorsitzender Manuel Ilzhöfer, Inhaber VierElemente Tobias Kimmelmann und 1. Vorsitzender Christopher Wolfert",
+    "link": "/pages/news/vierelemente-sponsort-jacken.html"
+  },
+  {
+    "title": "49. TTF-Hauptversammlung",
+    "text": "Bericht zur 49. Hauptversammlung und zum 50-jährigen Bestehen der Tischtennis-Freunde Laudenbach.",
+    "image": "/assets/images/seo/ttf-laudenbach-social.png",
+    "imageAlt": "Logo der Tischtennis-Freunde Laudenbach",
+    "link": "/pages/news/49-ttf-hauptversammlung.html"
   }
 ]

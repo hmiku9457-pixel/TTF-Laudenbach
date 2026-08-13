@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<title>{{PAGE_TITLE}}</title>
+<meta content="{{DESCRIPTION}}" name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="{{CANONICAL_URL}}" rel="canonical"/>
+<meta content="de_DE" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="TTF Laudenbach" property="og:site_name"/>
+<meta content="{{PAGE_TITLE}}" property="og:title"/>
+<meta content="{{DESCRIPTION}}" property="og:description"/>
+<meta content="{{CANONICAL_URL}}" property="og:url"/>
+<meta content="{{IMAGE_URL}}" property="og:image"/>
+<meta content="{{IMAGE_ALT}}" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="{{PAGE_TITLE}}" name="twitter:title"/>
+<meta content="{{DESCRIPTION}}" name="twitter:description"/>
+<meta content="{{IMAGE_URL}}" name="twitter:image"/>
+<meta content="{{IMAGE_ALT}}" name="twitter:image:alt"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Direkt zum Inhalt</a>
+<div id="header-container"></div>
+<main id="main-content" tabindex="-1">
+<div class="news-page">
+<article class="box news-article">
+<header class="news-article__header">
+<h1 class="news-article__title">{{TITLE}}</h1>
+<time class="news-article__date" datetime="{{DATETIME}}">{{DISPLAY_DATE}}</time>
+</header>
+<img class="news-article__hero" src="{{IMAGE_PATH}}" alt="{{IMAGE_ALT}}"/>
+<div class="news-article__content">
+{{CONTENT}}
+</div>
+<div class="news-article__actions">
+<a class="button button--card" href="/pages/neuigkeiten.html">Alle Neuigkeiten</a>
+</div>
+</article>
+</div>
+</main>
+<div id="footer-container"></div>
+<script src="/assets/js/main.js" type="module"></script>
+</body>
+</html>

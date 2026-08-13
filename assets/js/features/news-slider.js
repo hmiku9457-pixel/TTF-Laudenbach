@@ -59,7 +59,7 @@ function createSlide(item, active) {
 
         const image = document.createElement("img");
         image.src = imageUrl;
-        image.alt = item?.title || "Vereinsneuigkeit";
+        image.alt = item?.imageAlt || item?.title || "Vereinsneuigkeit";
         image.loading = active ? "eager" : "lazy";
         image.decoding = "async";
         media.appendChild(image);
