@@ -1,0 +1,32 @@
+TTF Laudenbach – Repo-Cleanup B+C
+==================================
+
+Dieses Paket enthält ausschließlich die im Review als Priorität B und C
+festgelegten Wartbarkeitsbereinigungen. News-Inhalte und CMS werden NICHT
+verändert.
+
+Enthalten:
+- README an die aktuelle CSS-Struktur anpassen
+- klar dokumentieren, welche JSON-Daten manuell bzw. automatisch gepflegt werden
+- ungenutzten Theme-Switcher entfernen (nur nach repositoryweiter Nutzungsprüfung)
+- ungenutzte .home-intro-CSS-Regeln entfernen (nur nach repositoryweiter Nutzungsprüfung)
+- offensichtliche historische CSS-Migrationshinweise entfernen
+- veralteten Kommentar zur nicht vorhandenen Qualitätsprüfung korrigieren
+
+Anwendung:
+1. Inhalt dieses ZIPs in das Root-Verzeichnis des GitHub-Repositories hochladen.
+2. Normal committen.
+3. GitHub -> Actions -> "Repo-Cleanup B+C anwenden" -> Run workflow.
+4. Nach erfolgreichem Lauf die Webseite kurz testen.
+5. Wenn alles passt, können anschließend manuell entfernt werden:
+   - tools/repo-cleanup-bc/
+   - .github/workflows/apply-repo-cleanup-bc.yml
+
+Das Script löscht sich absichtlich nicht selbst.
+
+Sicherheit:
+- Falls themeSwitcher/theme-red/theme-dark außerhalb der alten Implementierung
+  tatsächlich noch verwendet werden, bricht das Script VOR Änderungen ab.
+- Falls .home-intro außerhalb des alten CSS tatsächlich noch verwendet wird,
+  bricht das Script VOR Änderungen ab.
+- Das Script verändert keine .github/workflows-Datei.
