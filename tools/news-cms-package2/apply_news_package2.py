@@ -21,108 +21,6 @@ REQUIRED_PACKAGE1 = (
     ROOT / "assets/data/news.json",
 )
 
-FINAL_WORKFLOW = r'''name: News generieren
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - "content/news/**"
-      - "assets/images/news/**"
-      - "assets/python/generate_news.py"
-      - "assets/python/news_requirements.txt"
-      - "templates/news-article.html"
-      - "templates/news-overview.html"
-      - ".github/workflows/generate-news.yml"
-  schedule:
-    - cron: "17,47 * * * *"
-      timezone: "Europe/Berlin"
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  pages: write
-
-concurrency:
-  group: repository-writer
-  cancel-in-progress: false
-
-env:
-  PYTHONDONTWRITEBYTECODE: "1"
-
-jobs:
-  generate-news:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Repository auschecken
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-        with:
-          fetch-depth: 0
-
-      - name: Python einrichten
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: "3.13"
-
-      - name: News-Abhängigkeiten installieren
-        run: python -m pip install --disable-pip-version-check -r assets/python/news_requirements.txt
-
-      - name: News generieren und Repository synchronisieren
-        id: sync
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          for attempt in 1 2 3; do
-            echo "Synchronisationsversuch ${attempt}/3"
-            git fetch origin main
-            git reset --hard origin/main
-
-            python assets/python/generate_news.py
-            git diff --check
-
-            git add -A -- \
-              assets/data/news.json \
-              pages/neuigkeiten.html \
-              pages/news \
-              sitemap.xml
-
-            if git diff --staged --quiet; then
-              echo "Keine generierten News-Änderungen gefunden."
-              echo "changed=false" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-
-            git status --short
-            git commit -m "News automatisch aktualisieren"
-
-            if git push origin HEAD:main; then
-              echo "changed=true" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-
-            echo "main wurde parallel geändert; Generierung wird auf aktuellem Stand wiederholt."
-          done
-
-          echo "News konnten nach drei Versuchen nicht nach main geschrieben werden." >&2
-          exit 1
-
-      - name: GitHub Pages neu bauen
-        if: steps.sync.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          curl --fail-with-body --location --request POST \
-            --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer ${GITHUB_TOKEN}" \
-            --header "X-GitHub-Api-Version: 2026-03-10" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
-'''
-
 NEWS_SECTION = '''## Neuigkeiten / Content-System
 
 News werden nicht mehr doppelt in HTML und `news.json` gepflegt.
@@ -208,16 +106,19 @@ def update_docs() -> None:
     DOCS.write_text(text + "\n", encoding="utf-8")
 
 
-def write_workflow() -> None:
-    WORKFLOW.parent.mkdir(parents=True, exist_ok=True)
-    WORKFLOW.write_text(FINAL_WORKFLOW, encoding="utf-8")
+def ensure_workflow() -> None:
+    if not WORKFLOW.is_file():
+        fail(
+            ".github/workflows/generate-news.yml fehlt. "
+            "Der finale Workflow muss vor dem Paketlauf durch einen normalen Benutzer-Commit ins Repository gelangen."
+        )
 
 
 def main() -> None:
     ensure_package1()
     update_readme()
     update_docs()
-    write_workflow()
+    ensure_workflow()
     print("News CMS Paket 2 angewendet.")
 
 
