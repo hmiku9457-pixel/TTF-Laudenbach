@@ -88,6 +88,16 @@
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung9"
         }
       ]
+    },
+    {
+      "id": "news",
+      "title": "news",
+      "images": [
+        {
+          "src": "/assets/images/news/3im0apb.jpeg",
+          "alt": "news: 3im0apb"
+        }
+      ]
     }
   ]
 }
