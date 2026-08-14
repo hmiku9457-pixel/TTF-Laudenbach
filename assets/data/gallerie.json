@@ -94,6 +94,10 @@
       "title": "news",
       "images": [
         {
+          "src": "/assets/images/news/27585032.jpg",
+          "alt": "news: 27585032"
+        },
+        {
           "src": "/assets/images/news/3im0apb.jpeg",
           "alt": "news: 3im0apb"
         }
