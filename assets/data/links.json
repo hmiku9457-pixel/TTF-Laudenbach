@@ -134,6 +134,16 @@
       ]
     },
     {
+      "gruppe": "dies_und_das",
+      "links": [
+        {
+          "id": "weikersheim",
+          "name": "Stadt Weikersheim",
+          "url": "https://www.weikersheim.de/startseite"
+        }
+      ]
+    },
+    {
       "gruppe": "sponsoren",
       "links": [
         {
