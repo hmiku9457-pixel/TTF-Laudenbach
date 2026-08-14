@@ -53,6 +53,55 @@
     margin-top: auto;
 }
 
+/*
+ * Linkseite: Die letzte Zeile soll nicht aus einer einzelnen Karte bestehen.
+ * Vier Einträge werden bei begrenztem Platz 2+2, fünf Einträge 3+2.
+ * Bei sehr viel Platz dürfen sie wieder in eine Zeile wechseln.
+ */
+.box:has(> .grid-button[id^="gruppe-"]) {
+    container-type: inline-size;
+}
+
+.grid-button[id^="gruppe-"]:has(> .button:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-button[id^="gruppe-"]:has(> .button:nth-child(5):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@container (min-width: 760px) {
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(4):last-child) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@container (min-width: 950px) {
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(5):last-child) {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@container (max-width: 560px) {
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(4):last-child),
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(5):last-child) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Unser Verein: Satzungslink nutzt die volle Breite der linken Spalte. */
+.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+    padding: 0;
+}
+
+.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) > .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 64px;
+}
+
 /* =========================================
    ===== BOXEN =============================
    ========================================= */
@@ -105,6 +154,11 @@
         padding-left: var(--space-m);
         padding-right: var(--space-m);
     }
+
+    .column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -113,7 +167,9 @@
         padding: var(--space-l);
     }
 
-    .grid-button {
+    .grid-button,
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(4):last-child),
+    .grid-button[id^="gruppe-"]:has(> .button:nth-child(5):last-child) {
         grid-template-columns: 1fr;
     }
 }

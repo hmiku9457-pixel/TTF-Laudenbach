@@ -4,6 +4,31 @@
    ===== KONTAKTFORMULAR ===================
    ========================================= */
 
+/*
+ * Auf der Startseite ist das Formular bereits selbst eine vollständige Box.
+ * Die zusätzliche äußere .box wird dort visuell neutralisiert.
+ */
+.grid-home-secondLine > .box:has(> .contact-section) {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.grid-home-secondLine > .box:has(> .contact-section):hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.grid-home-secondLine > .box:has(> .contact-section) > .contact-section {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-home-secondLine > .box:has(> .contact-section) .contact-form {
+    height: 100%;
+}
+
 .contact-section {
     width: 100%;
     max-width: 100%;
@@ -119,10 +144,4 @@
 
 .form-status.error {
     color: #ef4444;
-}
-
-@media (max-width: 480px) {
-    .contact-form {
-        padding: var(--space-l);
-    }
 }
