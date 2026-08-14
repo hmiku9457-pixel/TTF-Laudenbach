@@ -37,18 +37,17 @@ jobs:
 
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           ref: main
 
       - name: GitHub Pages konfigurieren
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
       - name: Öffentliches Website-Artefakt vorbereiten
         shell: bash
         run: |
           set -euo pipefail
-
           rm -rf .pages-site
           mkdir -p .pages-site/assets
 
@@ -70,10 +69,10 @@ jobs:
           test ! -e .pages-site/.pages.yml
 
       - name: Pages-Artefakt hochladen
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: .pages-site
 
       - name: Auf GitHub Pages veröffentlichen
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

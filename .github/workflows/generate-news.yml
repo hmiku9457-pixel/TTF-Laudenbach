@@ -18,8 +18,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: repository-writer
@@ -54,7 +52,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -65,7 +62,6 @@ jobs:
 
             python assets/python/generate_news.py
             git diff --check
-
             git add -A -- \
               assets/data/news.json \
               pages/neuigkeiten.html \
@@ -80,7 +76,6 @@ jobs:
 
             git status --short
             git commit -m "News automatisch aktualisieren"
-
             if git push origin HEAD:main; then
               echo "changed=true" >> "$GITHUB_OUTPUT"
               exit 0
