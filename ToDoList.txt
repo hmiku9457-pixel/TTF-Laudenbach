@@ -1,8 +1,0 @@
-- Ewige Rangliste aktuallisieren (und eventuell automatisieren)
-- Ewige Rangliste etwas verbessern
-- Unser Verein, leichte Desing-Bugs
-- Kontakt-Form auf Startseite ist eine Box in der Box
-- News Seiten Layout
-- CMS Anbindung
-- User-Doku
-- Admin-Doku
