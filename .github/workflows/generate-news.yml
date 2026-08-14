@@ -19,6 +19,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write
 
 concurrency:
   group: repository-writer
@@ -31,6 +32,9 @@ jobs:
   generate-news:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      changed: ${{ steps.sync.outputs.changed }}
+
     steps:
       - name: Repository auschecken
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
@@ -88,13 +92,17 @@ jobs:
           echo "News konnten nach drei Versuchen nicht nach main geschrieben werden." >&2
           exit 1
 
-      - name: GitHub Pages neu bauen
-        if: steps.sync.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          curl --fail-with-body --location --request POST \
-            --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer ${GITHUB_TOKEN}" \
-            --header "X-GitHub-Api-Version: 2026-03-10" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
+  deploy:
+    needs: generate-news
+    if: >-
+      needs.generate-news.result == 'success' &&
+      (
+        needs.generate-news.outputs.changed == 'true' ||
+        github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch'
+      )
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml

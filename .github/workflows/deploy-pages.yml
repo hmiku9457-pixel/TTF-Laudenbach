@@ -1,0 +1,79 @@
+name: Website veröffentlichen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "404.html"
+      - "CNAME"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "components/**"
+      - "pages/**"
+      - "assets/css/**"
+      - "assets/js/**"
+      - "assets/data/**"
+      - "assets/images/seo/**"
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v6
+
+      - name: Öffentliches Website-Artefakt vorbereiten
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rm -rf .pages-site
+          mkdir -p .pages-site/assets
+
+          cp index.html 404.html CNAME robots.txt sitemap.xml .pages-site/
+          cp -a components pages .pages-site/
+          cp -a assets/css assets/data assets/images assets/js .pages-site/assets/
+
+          test -f .pages-site/index.html
+          test -f .pages-site/404.html
+          test -f .pages-site/assets/css/main.css
+          test -f .pages-site/assets/js/main.js
+          test -d .pages-site/pages
+          test -d .pages-site/components
+
+          # Technische Quellen gehören nicht ins veröffentlichte Artefakt.
+          test ! -e .pages-site/assets/python
+          test ! -e .pages-site/content
+          test ! -e .pages-site/templates
+          test ! -e .pages-site/.pages.yml
+
+      - name: Pages-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .pages-site
+
+      - name: Auf GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v5
