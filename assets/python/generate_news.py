@@ -755,7 +755,7 @@ def cleanup_stale_pages(expected_names: set[str]) -> None:
             continue
 
         text = path.read_text(encoding="utf-8", errors="replace")
-        if GENERATED_MARKER in text or path.name in {"artikel1.html", "artikel2.html"}:
+        if GENERATED_MARKER in text:
             path.unlink()
 
 

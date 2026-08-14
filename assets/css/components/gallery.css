@@ -32,10 +32,6 @@
     margin-top: 0;
 }
 
-.images-gallery h3 {
-    margin-bottom: var(--space-l);
-}
-
 .images-event-list h2 {
     margin-bottom: var(--space-l);
 }

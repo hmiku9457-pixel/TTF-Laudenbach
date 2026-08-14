@@ -186,25 +186,21 @@ LINKS = [
             {
                 "id": "sponsor1",
                 "name": "JAKO",
-                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://www.jako.com/"
             },
             {
                 "id": "sponsor2",
                 "name": "Vier Elemente",
-                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://vierelemente2018.de/"
             },
             {
                 "id": "sponsor3",
                 "name": "Endin",
-                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://endin.eu/"
             },
             {
                 "id": "sponsor4",
                 "name": "Tuwa",
-                "bild": "./assets/images/TTF-Laudenbach_Logo.png",
                 "url": "https://www.instagram.com/tuwa_feinkost/"
             }
         ]

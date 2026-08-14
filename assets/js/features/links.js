@@ -2,6 +2,8 @@ import { fetchJson } from "../core/http.js";
 import { showContainerStatus } from "../core/status.js";
 import { getSafeHttpUrl } from "../utils/safe-url.js";
 
+const SPONSOR_SLOTS = ["sponsor1", "sponsor2", "sponsor3", "sponsor4"];
+
 export async function loadLinks() {
     try {
         const data = await fetchJson("/assets/data/links.json");
@@ -41,11 +43,10 @@ export async function loadLinks() {
             });
         });
 
-        const sponsorSlots = ["sponsor1", "sponsor2", "sponsor3", "sponsor4"];
         linkGruppen.forEach(gruppe => {
             const links = Array.isArray(gruppe.links) ? gruppe.links : [];
             links.forEach(link => {
-                if (!sponsorSlots.includes(link.id)) {
+                if (!SPONSOR_SLOTS.includes(link.id)) {
                     return;
                 }
 
@@ -96,7 +97,7 @@ function showLinksError() {
     document.querySelectorAll('[id^="link-tabelle"], [id^="link-spiele"]')
         .forEach(link => disableLink(link, "Dieser Link ist momentan nicht verfügbar."));
 
-    ["sponsor1", "sponsor2", "sponsor3", "sponsor4"].forEach(slot => {
+    SPONSOR_SLOTS.forEach(slot => {
         [`link-${slot}`, `link-${slot}-main`, `link-${slot}-footer`].forEach(id => {
             const link = document.getElementById(id);
             if (link) {
