@@ -63,9 +63,20 @@ News werden nicht mehr doppelt in HTML und `news.json` gepflegt.
 
 Der Workflow **News generieren** synchronisiert diese Ausgaben dauerhaft. Er läuft automatisch bei Änderungen an News-Quellen, News-Bildern, Templates oder Generator, prüft geplante Veröffentlichungen zweimal pro Stunde in `Europe/Berlin` und kann zusätzlich manuell ausgeführt werden.
 
-`publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht. Der manuelle Workflow-Lauf dient gleichzeitig als vollständiger Rebuild/Repair und fordert auch einen neuen GitHub-Pages-Build an.
+`publish_at` steuert, ab wann ein Artikel auf der Website berücksichtigt wird. Zukünftige Artikel können bereits im Repository liegen, werden vom Generator aber noch nicht veröffentlicht. Nach einem erfolgreichen News-Push bzw. Rebuild ruft der Workflow zentral **Website veröffentlichen** auf.
 
 Generierte News-Dateien sollten nicht manuell korrigiert werden. Änderungen gehören in die Markdown-Quelle oder in die Templates. Das neutrale Dateiformat ist in `docs/news-content-format.md` dokumentiert.
+
+## Veröffentlichung
+
+GitHub Pages wird über den Workflow **Website veröffentlichen** (`.github/workflows/deploy-pages.yml`) deployed.
+
+Generator-Workflows erzeugen und committen ausschließlich ihre Daten und rufen anschließend denselben zentralen Deployment-Workflow auf. Direkte Änderungen an öffentlichen HTML-, CSS-, JavaScript- oder Datendateien lösen die Veröffentlichung direkt aus.
+
+Das Pages-Artefakt enthält nur die öffentlich benötigten Website-Dateien. Python-Skripte, Markdown-Quellen, Templates und CMS-Konfiguration werden nicht mit ausgeliefert.
+
+Einrichtung, Zuständigkeiten und Repair-Ablauf sind in `docs/pages-deployment.md` dokumentiert.
+
 ## Automatische Daten
 
 ### Mannschaften, Spielpläne und Tabellen
@@ -80,7 +91,7 @@ Bei einem ungewöhnlich großen Datenrückgang bricht die Prüfung ab. Für eine
 
 ### Galerie
 
-Der Workflow **Generate Gallery JSON** läuft bei Änderungen unter `assets/images/` und erzeugt:
+Der Workflow **Generate Gallery JSON** läuft bei relevanten Änderungen unter `assets/images/` und erzeugt:
 
 ```text
 assets/data/gallerie.json
@@ -91,6 +102,8 @@ Die eigentliche Logik liegt in:
 ```text
 assets/python/generate_gallery.py
 ```
+
+`assets/images/seo/` und `assets/images/news/` sind bewusst keine Galerie-Quellen.
 
 Der GitHub-Workflow enthält dadurch nur noch die Ablaufsteuerung.
 
@@ -124,6 +137,7 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 | News-Inhalte | `content/news/*.md` |
 | News-Templates | `templates/news-article.html`, `templates/news-overview.html` |
 | News-Generator | `assets/python/generate_news.py` |
+| Pages-Deployment | `.github/workflows/deploy-pages.yml` |
 
 ## Wartungsregel
 

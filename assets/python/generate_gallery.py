@@ -7,11 +7,12 @@ import re
 from pathlib import Path
 from urllib.parse import quote, unquote
 
+
 ROOT = Path(__file__).resolve().parents[2]
 IMAGES_DIR = ROOT / "assets/images"
 OUTPUT_FILE = ROOT / "assets/data/gallerie.json"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-EXCLUDED_DIRECTORIES = {"seo"}
+EXCLUDED_DIRECTORIES = {"seo", "news"}
 
 
 def slugify(text: str) -> str:
@@ -47,6 +48,7 @@ def build_gallery_data() -> dict[str, object]:
         raise FileNotFoundError(f"Bilderordner fehlt: {IMAGES_DIR.relative_to(ROOT)}")
 
     galleries: list[dict[str, object]] = []
+
     general_title = "Generelle Bilder"
     general_images = sorted(
         (
@@ -84,6 +86,7 @@ def build_gallery_data() -> dict[str, object]:
             ),
             key=lambda path: path.name.lower(),
         )
+
         if images:
             galleries.append(
                 {
@@ -113,19 +116,24 @@ def validate_gallery_data(data: dict[str, object]) -> None:
     for gallery in galleries:
         if not isinstance(gallery, dict):
             raise ValueError("Ungültiger Galerie-Eintrag.")
+
         images = gallery.get("images")
         if not isinstance(images, list):
             raise ValueError("images muss eine Liste sein.")
+
         for image in images:
             if not isinstance(image, dict):
                 raise ValueError("Ungültiger Bild-Eintrag.")
+
             src = str(image.get("src", ""))
             alt = str(image.get("alt", ""))
             image_path = ROOT / Path(unquote(src.lstrip("/")))
+
             if not image_path.is_file():
                 raise FileNotFoundError(
                     f"Galeriebild fehlt: {image_path.relative_to(ROOT)}"
                 )
+
             if not alt.strip():
                 raise ValueError(
                     f"Leerer Alt-Text: {image_path.relative_to(ROOT)}"
@@ -139,6 +147,7 @@ def main() -> int:
         json.dumps(data, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
     print(
         f"{OUTPUT_FILE.relative_to(ROOT)} erzeugt: "
         f"{len(data['galleries'])} Galerien"
