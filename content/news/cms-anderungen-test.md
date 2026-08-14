@@ -3,7 +3,7 @@ title: CMS Änderungen Test
 publish_at: 2026-09-30T20:15
 summary: Hier teste ich gerade die Änderungen am CMS um mehr Editor Optionen zu bieten.
 image: /assets/images/news/3im0apb.jpeg
-image_alt: Test Bild
+image_alt: Test Bild Beschreibung
 sections:
   - type: text
     alignment: center
