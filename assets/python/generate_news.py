@@ -220,6 +220,19 @@ def parse_event_time(value: Any, source: Path, block_number: int) -> str:
     if isinstance(value, time):
         return value.strftime("%H:%M")
 
+    # PyYAML (YAML 1.1) interpretiert ungequotete Werte wie 20:30 als
+    # Sexagesimalzahl: 20 * 60 + 30 = 1230. Pages CMS kann Uhrzeiten genau
+    # in dieser Form serialisieren. Solche Werte werden wieder zuverlässig
+    # in HH:MM zurückgeführt.
+    if isinstance(value, int) and not isinstance(value, bool):
+        if 0 <= value < 24 * 60:
+            hours, minutes = divmod(value, 60)
+            return f"{hours:02d}:{minutes:02d}"
+
+        raise ValueError(
+            f"{source.name}: Eventblock {block_number}: 'time' liegt außerhalb eines gültigen Tages."
+        )
+
     if not isinstance(value, str) or not EVENT_TIME_RE.fullmatch(value.strip()):
         raise ValueError(
             f"{source.name}: Eventblock {block_number}: 'time' muss leer oder im Format HH:MM sein."
