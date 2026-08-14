@@ -41,7 +41,7 @@ HEADING_RE = re.compile(r"^(#{1,6})\s+", re.MULTILINE)
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z0-9_]+\}\}")
 
 ALLOWED_RENDERED_TAGS = {
-    "p", "h2", "h3", "strong", "em", "ul", "ol", "li", "a", "img",
+    "p", "h1", "h2", "h3", "strong", "em", "ul", "ol", "li", "a", "img",
     "table", "thead", "tbody", "tr", "th", "td", "blockquote", "code", "pre",
     "hr", "br",
 }
@@ -214,16 +214,16 @@ def validate_markdown_source(body: str, source: Path) -> None:
 
     for heading in HEADING_RE.finditer(body):
         level = len(heading.group(1))
-        if level not in {2, 3}:
+        if level not in {1, 2, 3}:
             raise ValueError(
-                f"{source.name}: nur H2 und H3 sind im Artikeltext erlaubt; gefunden: H{level}."
+                f"{source.name}: nur H1, H2 und H3 sind im Artikeltext erlaubt; gefunden: H{level}."
             )
 
     for match in MARKDOWN_IMAGE_RE.finditer(body):
         alt = match.group(1).strip()
         path = match.group(2).strip().strip("<>")
-        if not alt:
-            raise ValueError(f"{source.name}: Bilder im Artikel benötigen einen Alt-Text.")
+        # Pages CMS kann Inline-Bilder ohne Alt-Text serialisieren.
+        # alt="" ist für dekorative Bilder gültig; der Bildpfad bleibt Pflicht und wird validiert.
         validate_image_path(path, source)
 
 

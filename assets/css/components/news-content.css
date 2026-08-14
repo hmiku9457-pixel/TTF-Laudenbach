@@ -60,6 +60,7 @@
     margin-top: var(--space-l);
 }
 
+.news-article__content h1,
 .news-article__content h2,
 .news-article__content h3 {
     margin-top: var(--space-xl);

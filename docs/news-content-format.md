@@ -58,7 +58,7 @@ Eine spätere Änderung des Titels ändert die URL nicht.
 ## Unterstütztes Markdown
 
 * Absätze
-* H2 und H3
+* H1, H2 und H3
 * Fett und Kursiv
 * Links
 * Aufzählungen und nummerierte Listen
@@ -67,14 +67,14 @@ Eine spätere Änderung des Titels ändert die URL nicht.
 * Blockquotes
 * Code
 
-Eine zusätzliche H1 ist nicht erlaubt, weil der Artikeltitel bereits die H1 der Seite ist.
+H1, H2 und H3 sind im Artikeltext erlaubt. Der Seitentitel bleibt unabhängig davon die Hauptüberschrift des News-Artikels.
 Rohes HTML ist nicht erlaubt.
 
 ## Bilder
 
 Bilder müssen im Repository unter `/assets/images/` liegen.
 Neue CMS-Bilder sollen später bevorzugt unter `/assets/images/news/` abgelegt werden.
-Bilder im Artikel benötigen einen nicht-leeren Alt-Text.
+Das Titelbild benötigt weiterhin das Pflichtfeld `image_alt`. Inline-Bilder können einen Alt-Text besitzen; Pages CMS kann sie jedoch auch mit leerem `alt=""` speichern. Solche Inline-Bilder werden als dekorativ behandelt.
 
 ## Generierte Dateien
 
