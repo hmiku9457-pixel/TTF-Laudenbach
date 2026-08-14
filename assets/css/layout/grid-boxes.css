@@ -137,9 +137,19 @@
     gap: var(--space-m);
 }
 
-/* Unser Verein: Beschreibung und Satzungslink optisch enger zusammenhalten. */
+/*
+ * Unser Verein:
+ * .grid-button besitzt global margin-top: auto und wird dadurch in der
+ * gestreckten linken Spalte nach unten geschoben. Für den Satzungsbereich
+ * wird dieses Verhalten bewusst aufgehoben und ein definierter Abstand gesetzt.
+ */
 .column:has(> .grid-button > a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
-    gap: calc(var(--space-m) / 2);
+    align-content: start;
+    gap: var(--space-xl);
+}
+
+.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+    margin-top: 0;
 }
 
 @media (max-width: 1180px) {
