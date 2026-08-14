@@ -1,5 +1,5 @@
 ---
-title: Training bem TTF
+title: Training beim TTF
 publish_at: 2026-06-14T12:02
 summary: Du möchtest Tischtennis ausprobieren? Kinder, Jugendliche, Erwachsene,
   Wiedereinsteiger und Gastspieler sind bei den Tischtennis-Freunden Laudenbach
