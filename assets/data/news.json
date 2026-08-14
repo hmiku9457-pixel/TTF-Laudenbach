@@ -1,5 +1,12 @@
 [
   {
+    "title": "Redakteur Test",
+    "text": "Ein Test, wie es für einen Redakteur aussieht",
+    "image": "/assets/images/news/27585032.jpg",
+    "imageAlt": "Beispiel Bild",
+    "link": "/pages/news/redakteur-test.html"
+  },
+  {
     "title": "Training bei den Tischtennis-Freunden Laudenbach",
     "text": "Du möchtest Tischtennis ausprobieren? Kinder, Jugendliche, Erwachsene, Wiedereinsteiger und Gastspieler sind bei den Tischtennis-Freunden Laudenbach herzlich willkommen.",
     "image": "/assets/images/LustAufTischtennis.png",
