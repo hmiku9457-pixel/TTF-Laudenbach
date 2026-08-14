@@ -1,12 +1,5 @@
 [
   {
-    "title": "CMS Test",
-    "text": "Das ist eine Test-News für das neue CMS System.",
-    "image": "/assets/images/news/3im0apb.jpeg",
-    "imageAlt": "Test-Bild",
-    "link": "/pages/news/cms-test.html"
-  },
-  {
     "title": "Training bei den Tischtennis-Freunden Laudenbach",
     "text": "Du möchtest Tischtennis ausprobieren? Kinder, Jugendliche, Erwachsene, Wiedereinsteiger und Gastspieler sind bei den Tischtennis-Freunden Laudenbach herzlich willkommen.",
     "image": "/assets/images/LustAufTischtennis.png",
