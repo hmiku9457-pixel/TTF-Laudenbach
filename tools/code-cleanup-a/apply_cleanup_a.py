@@ -80,23 +80,44 @@ def cleanup_news_slider() -> None:
     elif ".news-slide a {" in text or ".news-slide a:hover" in text:
         raise RuntimeError("news-slider.css: alte Link-Regeln weichen vom erwarteten Stand ab.")
 
-    old_selector = ".news-slider--has-footer .news-slide,\n.news-slider--controlled .news-slide {"
-    new_selector = ".news-slider--has-footer .news-slide {"
+    selector_variants = (
+        (
+            ".news-slider--has-footer .news-slide,\n"
+            ".news-slider--controlled .news-slide {",
+            ".news-slider--has-footer .news-slide {",
+        ),
+        (
+            "    .news-slider--has-footer .news-slide,\n"
+            "    .news-slider--controlled .news-slide {",
+            "    .news-slider--has-footer .news-slide {",
+        ),
+    )
 
-    occurrences = text.count(old_selector)
-    if occurrences:
-        if occurrences != 3:
-            raise RuntimeError(
-                f"news-slider.css: kombinierter Padding-Selektor {occurrences}x statt 3x gefunden."
-            )
-        text = text.replace(old_selector, new_selector)
-    elif text.count(new_selector) < 3:
-        raise RuntimeError("news-slider.css: bereits bereinigte Footer-Selektoren fehlen.")
+    changed = 0
+    for old_selector, new_selector in selector_variants:
+        count = text.count(old_selector)
+        if count:
+            text = text.replace(old_selector, new_selector)
+            changed += count
+
+    # Im aktuellen Stand existieren drei Padding-Regeln:
+    # Desktop, <= 768 px und <= 360 px.
+    # Bei einem erneuten Lauf dürfen sie bereits bereinigt sein.
+    if changed == 0 and text.count(".news-slider--has-footer .news-slide {") < 3:
+        raise RuntimeError(
+            "news-slider.css: Footer-Padding-Regeln wurden weder im alten "
+            "noch im bereits bereinigten Zustand gefunden."
+        )
 
     if ".news-slide a {" in text or ".news-slide a:hover" in text:
         raise RuntimeError("news-slider.css: tote Slide-Link-Regeln sind noch vorhanden.")
-    if old_selector in text:
-        raise RuntimeError("news-slider.css: redundanter Padding-Selektor ist noch vorhanden.")
+
+    for old_selector, _ in selector_variants:
+        if old_selector in text:
+            raise RuntimeError(
+                "news-slider.css: redundanter Padding-Selektor ist noch vorhanden."
+            )
+
     if ".news-slider--controlled .news-slide {" not in text:
         raise RuntimeError("news-slider.css: notwendige --controlled-Pointer-Regel fehlt.")
 
