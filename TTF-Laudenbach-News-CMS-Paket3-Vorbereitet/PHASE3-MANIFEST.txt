@@ -1,0 +1,10 @@
+Phase-3-Paket – enthaltene Dateien
+
+.pages.yml
+assets/images/news/training-bei-den-tischtennis-freunden-laudenbach.png
+assets/images/news/vierelemente-sponsort-jacken.jpg
+content/news/training-bei-den-tischtennis-freunden-laudenbach.md
+content/news/vierelemente-sponsort-jacken.md
+docs/news-content-format.md
+docs/pages-cms-redaktion.md
+docs/pages-cms-setup.md
