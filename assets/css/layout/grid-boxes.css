@@ -137,6 +137,11 @@
     gap: var(--space-m);
 }
 
+/* Unser Verein: Beschreibung und Satzungslink optisch enger zusammenhalten. */
+.column:has(> .grid-button > a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+    gap: calc(var(--space-m) / 2);
+}
+
 @media (max-width: 1180px) {
     .grid-home-firstLine,
     .grid-home-secondLine {
