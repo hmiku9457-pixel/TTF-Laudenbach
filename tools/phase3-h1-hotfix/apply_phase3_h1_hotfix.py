@@ -11,7 +11,10 @@ def replace_once(path: Path, old: str, new: str) -> None:
         raise RuntimeError(f"{path}: erwarteter Text nicht gefunden:\n{old}")
     path.write_text(text.replace(old, new, 1), encoding="utf-8")
 
+
 generator = ROOT / "assets/python/generate_news.py"
+
+# H1–H3 entsprechen den Überschriftsebenen des Pages-CMS-Rich-Text-Editors.
 replace_once(
     generator,
     '"p", "h2", "h3", "strong", "em", "ul", "ol", "li", "a", "img",',
@@ -27,6 +30,19 @@ replace_once(
     "            raise ValueError(\n"
     '                f"{source.name}: nur H1, H2 und H3 sind im Artikeltext erlaubt; gefunden: H{level}."\n'
     "            )",
+)
+
+# Pages CMS kann Inline-Bilder als ![](/pfad/bild.jpg) speichern.
+# Ein leerer Alt-Text ist für dekorative Inline-Bilder gültig.
+# Der Pfad wird weiterhin strikt validiert.
+replace_once(
+    generator,
+    "        if not alt:\n"
+    '            raise ValueError(f"{source.name}: Bilder im Artikel benötigen einen Alt-Text.")\n'
+    "        validate_image_path(path, source)",
+    "        # Pages CMS kann Inline-Bilder ohne Alt-Text serialisieren.\n"
+    "        # alt=\"\" ist für dekorative Bilder gültig; der Bildpfad bleibt Pflicht und wird validiert.\n"
+    "        validate_image_path(path, source)",
 )
 
 css = ROOT / "assets/css/components/news-content.css"
@@ -55,5 +71,10 @@ replace_once(
     "H1, H2 und H3 sind im Artikeltext erlaubt. Der Seitentitel bleibt unabhängig davon die Hauptüberschrift des News-Artikels.\n"
     "Rohes HTML ist nicht erlaubt.",
 )
+replace_once(
+    docs,
+    "Bilder im Artikel benötigen einen nicht-leeren Alt-Text.",
+    "Das Titelbild benötigt weiterhin das Pflichtfeld `image_alt`. Inline-Bilder können einen Alt-Text besitzen; Pages CMS kann sie jedoch auch mit leerem `alt=\"\"` speichern. Solche Inline-Bilder werden als dekorativ behandelt.",
+)
 
-print("Phase-3-H1-Hotfix angewendet.")
+print("Phase-3-Editor-Hotfix angewendet.")
