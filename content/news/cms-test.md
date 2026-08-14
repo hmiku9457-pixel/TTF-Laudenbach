@@ -34,6 +34,6 @@ Was macht Code block?
 
 Normaler Text
 
-![](/assets/images/news/3im0apb.jpeg)
+![Alt text](/assets/images/news/3im0apb.jpeg)
 
 Ende Test
