@@ -36,16 +36,23 @@
     <section class="box images-page__banner">
         <h1 class="u-text-center">Historische Fotos</h1>
         <p class="u-text-center">Einblicke in die Vereinsgeschichte der TTF Laudenbach.</p>
+        <button
+            aria-controls="images-navigation-panel"
+            aria-expanded="false"
+            class="images-nav-toggle"
+            type="button"
+        >
+            <span aria-hidden="true" class="images-nav-toggle__icon">☰</span>
+            <span class="images-nav-toggle__label">Galerien</span>
+        </button>
     </section>
-
     <section aria-live="polite" class="images-content">
         <div class="box images-loading" id="images-loading">
             <p class="u-text-center">Bilder werden geladen...</p>
         </div>
         <div id="images-gallery-container"></div>
     </section>
-
-    <aside aria-label="Galerien" class="box images-event-list">
+    <aside aria-label="Galerien" class="box images-event-list" id="images-navigation-panel">
         <h2 class="u-text-center">Galerien</h2>
         <div id="images-event-list">
             <p class="u-text-center">Galerien werden geladen...</p>

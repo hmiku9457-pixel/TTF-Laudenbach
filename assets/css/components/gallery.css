@@ -144,73 +144,58 @@
         column-count: 2;
     }
 
-    .images-page__banner,
-    .images-nav-toggle,
-    .images-content {
-        grid-column: 1;
-    }
-
+    /*
+     * Auf Mobilgeräten bleiben Titel, Einleitung und Galerieauswahl gemeinsam
+     * erreichbar. Die Box haftet beim Scrollen am oberen Rand.
+     */
     .images-page__banner {
+        position: sticky;
+        top: var(--space-s);
+        z-index: 900;
+        grid-column: 1;
         grid-row: 1;
     }
 
     .images-nav-toggle {
         display: inline-flex;
-        grid-row: 2;
+        width: 100%;
+        min-height: 48px;
+        margin: var(--space-m) 0 0;
+        padding: var(--space-m) var(--space-l);
+        border: none;
+        border-radius: var(--space-m);
         align-items: center;
         justify-content: center;
-        justify-self: start;
         gap: 0.55rem;
-        min-height: 44px;
-        margin: 0;
-        padding: 0.62rem 1rem;
-        border: 1px solid rgba(56, 189, 248, 0.72);
-        border-radius: 999px;
-        background: linear-gradient(
-            180deg,
-            rgba(30, 41, 59, 0.96),
-            rgba(15, 23, 42, 0.96)
-        );
+        background: var(--bg-main);
         color: var(--text-main);
-        box-shadow:
-            0 6px 18px rgba(2, 6, 23, 0.24),
-            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        box-shadow: var(--shadow-light);
         font: inherit;
-        font-size: 0.94rem;
         font-weight: 700;
         line-height: 1;
         cursor: pointer;
         transition:
-            border-color 0.18s ease,
-            background 0.18s ease,
-            color 0.18s ease,
-            box-shadow 0.18s ease,
-            transform 0.18s ease;
+            background 0.2s ease,
+            color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.2s ease;
     }
 
     .images-nav-toggle:hover {
-        border-color: var(--accent);
-        background: linear-gradient(
-            180deg,
-            rgba(51, 65, 85, 0.98),
-            rgba(30, 41, 59, 0.98)
-        );
-        color: #ffffff;
-        box-shadow:
-            0 8px 22px rgba(2, 6, 23, 0.32),
-            0 0 0 1px rgba(56, 189, 248, 0.12);
+        background: var(--accent-hover);
+        color: var(--text-on-newsSlide);
+        box-shadow: var(--shadow-heavy);
         transform: translateY(-1px);
     }
 
     .images-nav-toggle:focus-visible {
-        outline: 3px solid rgba(56, 189, 248, 0.42);
+        outline: 3px solid var(--accent);
         outline-offset: 3px;
     }
 
     .images-nav-toggle[aria-expanded="true"] {
-        border-color: var(--accent);
-        background: rgba(56, 189, 248, 0.16);
-        color: var(--accent);
+        background: var(--accent);
+        color: var(--text-on-newsSlide);
     }
 
     .images-nav-toggle__icon {
@@ -218,7 +203,7 @@
         place-items: center;
         width: 1.35rem;
         height: 1.35rem;
-        color: var(--accent);
+        color: currentColor;
         font-size: 1.05rem;
         line-height: 1;
     }
@@ -228,7 +213,8 @@
     }
 
     .images-content {
-        grid-row: 3;
+        grid-column: 1;
+        grid-row: 2;
     }
 
     .images-event-list,
