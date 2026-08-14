@@ -52,12 +52,13 @@
     object-fit: cover;
 }
 
+/* Baukasten: Die gesamte Artikelbreite steht Layoutblöcken zur Verfügung. */
 .news-article__content {
-    max-width: 78ch;
+    max-width: none;
 }
 
-.news-article__content > * + * {
-    margin-top: var(--space-l);
+.news-article__content > .news-block + .news-block {
+    margin-top: var(--space-xl);
 }
 
 .news-article__content h1,
@@ -73,24 +74,54 @@
     padding-left: 1.4rem;
 }
 
-.news-article__content img {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: var(--space-m);
-}
-
 .news-article__content blockquote {
     padding-left: var(--space-l);
     border-left: 3px solid var(--accent);
     color: var(--text-muted);
 }
 
+/* Normaler Text bleibt angenehm lesbar, Medien und Tabellen dürfen ausbrechen. */
+.news-block--text > :not(.news-rich-image, .news-table-wrapper) {
+    max-width: 78ch;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.news-block--text > :first-child {
+    margin-top: 0;
+}
+
+.news-block--text-center {
+    text-align: center;
+}
+
+.news-block--text-center ul,
+.news-block--text-center ol {
+    width: fit-content;
+    text-align: left;
+}
+
+.news-rich-image,
 .news-table-wrapper {
+    width: 100%;
     max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.news-rich-image img,
+.news-article__content img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: var(--space-m);
+    object-fit: contain;
+}
+
+.news-table-wrapper {
     overflow-x: auto;
     border-radius: var(--space-m);
 }
@@ -112,6 +143,118 @@
 
 .news-article__content th {
     background: rgba(56, 189, 248, 0.12);
+}
+
+/* Zwei Spalten: auf Desktop 50/50, auf kleineren Displays untereinander. */
+.news-block--columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+.news-block__column {
+    min-width: 0;
+}
+
+.news-block__column > * + * {
+    margin-top: var(--space-l);
+}
+
+.news-block__column > :first-child {
+    margin-top: 0;
+}
+
+.news-block__column .news-rich-image,
+.news-block__column .news-table-wrapper,
+.news-block__column img,
+.news-block__column table {
+    width: 100%;
+    max-width: 100%;
+}
+
+.news-block__column table {
+    min-width: 100%;
+}
+
+/* Optionale Eventankündigung. Sie erscheint nur, wenn der Block verwendet wird. */
+.news-event {
+    max-width: 78ch;
+    margin-right: auto;
+    margin-left: auto;
+    padding: var(--space-l);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--space-m);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.news-event__label {
+    margin: 0 0 var(--space-s);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.news-event .news-event__title {
+    margin: 0 0 var(--space-l);
+}
+
+.news-event__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-m);
+    margin: 0;
+}
+
+.news-event__meta-item {
+    min-width: 0;
+}
+
+.news-event__meta dt {
+    margin-bottom: var(--space-xs);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.news-event__meta dd {
+    margin: 0;
+}
+
+.news-event__description {
+    margin-top: var(--space-l);
+}
+
+.news-event__description > * + * {
+    margin-top: var(--space-m);
+}
+
+/* Trenner und definierte Abstände statt frei eingegebener Pixelwerte. */
+.news-block--divider {
+    width: min(100%, 78ch);
+    margin-right: auto;
+    margin-left: auto;
+    border: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.news-block--spacer {
+    width: 100%;
+}
+
+.news-block--spacer-small {
+    height: var(--space-m);
+}
+
+.news-block--spacer-medium {
+    height: var(--space-xl);
+}
+
+.news-block--spacer-large {
+    height: calc(var(--space-xl) * 2);
 }
 
 .news-article__actions {
@@ -173,6 +316,15 @@
     .news-page {
         width: calc(100% - 2 * var(--space-m));
         margin: var(--space-m) auto;
+    }
+
+    .news-block--columns {
+        grid-template-columns: 1fr;
+        gap: var(--space-l);
+    }
+
+    .news-event__meta {
+        grid-template-columns: 1fr;
     }
 
     .news-overview-card {

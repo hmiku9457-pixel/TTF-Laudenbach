@@ -1,0 +1,10 @@
+Enthaltene Dateien
+
+.pages.yml
+README-Paket.md
+assets/css/components/news-content.css
+assets/python/generate_news.py
+content/news/training-bei-den-tischtennis-freunden-laudenbach.md
+content/news/vierelemente-sponsort-jacken.md
+docs/news-baukasten.md
+docs/news-content-format.md

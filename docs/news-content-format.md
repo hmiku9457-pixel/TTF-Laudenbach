@@ -1,30 +1,7 @@
 # News-Content-Format
 
 Die Dateien unter `content/news/` sind die einzige redaktionelle Quelle für die News der Website.
-Das Format ist bewusst CMS-unabhängig: YAML-Frontmatter plus Markdown.
-
-## Beispiel
-
-```markdown
----
-title: "Vereinsmeisterschaften 2026"
-publish_at: "2026-09-12T18:00"
-summary: "Kurzer optionaler Teaser für Slider und Übersicht."
-image: "/assets/images/news/vereinsmeisterschaften-2026.jpg"
-image_alt: "Teilnehmer der Vereinsmeisterschaften 2026"
----
-
-Der eigentliche Artikel beginnt hier.
-
-## Zwischenüberschrift
-
-Normaler Text mit **Fettschrift**, *Kursivschrift*, [Links](https://example.org)
-und Listen.
-
-| Platz | Name |
-| --- | --- |
-| 1. | Beispiel |
-```
+Das Format bleibt CMS-unabhängig: YAML-Frontmatter mit strukturierten `sections`; Rich-Text-Inhalte innerhalb der Blöcke bleiben Markdown.
 
 ## Pflichtfelder
 
@@ -32,9 +9,103 @@ und Listen.
 * `publish_at`
 * `image`
 * `image_alt`
-* Markdown-Body
+* `sections` mit mindestens einem inhaltlichen Block
 
-`summary` ist optional. Fehlt es, erzeugt der Generator einen Teaser aus dem Artikeltext.
+`summary` ist optional. Fehlt es, erzeugt der Generator einen Teaser aus dem gerenderten Artikelinhalt.
+
+## Baukasten
+
+Unter `sections` stehen frei sortierbare Blöcke.
+
+### Text
+
+```yaml
+- type: text
+  alignment: left
+  body: |-
+    Normaler **Rich Text**.
+```
+
+`alignment` ist `left` oder `center`.
+
+### Zwei Spalten
+
+```yaml
+- type: two_columns
+  left: |-
+    Inhalt links.
+  right: |-
+    Inhalt rechts.
+```
+
+Desktop: zwei gleich breite Spalten. Mobil: untereinander.
+
+### Eventankündigung
+
+Der Eventblock ist vollständig optional und nur für Artikel gedacht, in denen ein konkreter Termin hervorgehoben werden soll.
+
+```yaml
+- type: event
+  title: "Vereinsmeisterschaften"
+  date: "2026-09-12"
+  time: "14:00"
+  location: "Bergstraßenhalle"
+  description: |-
+    Weitere Informationen zur Veranstaltung.
+```
+
+Pflicht innerhalb eines Eventblocks: `title`, `date`.
+Optional: `time`, `location`, `description`.
+
+### Trenner
+
+```yaml
+- type: divider
+```
+
+### Abstand
+
+```yaml
+- type: spacer
+  size: medium
+```
+
+Erlaubte Größen: `small`, `medium`, `large`.
+
+## Markdown innerhalb von Rich-Text-Feldern
+
+Unterstützt:
+
+* Absätze
+* H1, H2 und H3
+* Fett und Kursiv
+* Links
+* Listen
+* Bilder
+* Tabellen
+* Blockquotes
+* Code
+
+Rohes HTML ist nicht erlaubt.
+
+Das Titelbild benötigt weiterhin `image_alt`.
+Inline-Bilder dürfen einen Alt-Text besitzen; Pages CMS kann sie auch mit `alt=""` speichern. Solche Bilder werden als dekorativ behandelt.
+
+## Bilder und Tabellen
+
+Bilder und Tabellen sind keine eigenen Baukasten-Blöcke.
+
+Sie bleiben normale Rich-Text-Inhalte und werden per CSS automatisch auf die verfügbare Breite gesetzt:
+
+* im normalen Artikel: volle Artikelbreite,
+* im Zwei-Spalten-Bereich: volle Breite der jeweiligen Spalte.
+
+Text bleibt im normalen Textblock auf eine gut lesbare Zeilenbreite begrenzt.
+
+## Legacy-Kompatibilität
+
+Der Generator akzeptiert weiterhin ältere News-Dateien mit einem normalen Markdown-Body unterhalb des Frontmatters.
+Neue CMS-Artikel sollen ausschließlich `sections` verwenden.
 
 ## Veröffentlichungszeit
 
@@ -43,9 +114,7 @@ Artikel mit einem Zeitpunkt in der Zukunft werden noch nicht in HTML, Übersicht
 
 ## Dateiname / URL
 
-Der Markdown-Dateiname ist der dauerhafte Slug und muss aus Kleinbuchstaben, Ziffern und Bindestrichen bestehen.
-
-Beispiel:
+Der Markdown-Dateiname ist der dauerhafte Slug.
 
 `content/news/saisonstart-2026.md`
 
@@ -53,28 +122,7 @@ erzeugt:
 
 `/pages/news/saisonstart-2026.html`
 
-Eine spätere Änderung des Titels ändert die URL nicht.
-
-## Unterstütztes Markdown
-
-* Absätze
-* H1, H2 und H3
-* Fett und Kursiv
-* Links
-* Aufzählungen und nummerierte Listen
-* Bilder
-* Tabellen
-* Blockquotes
-* Code
-
-H1, H2 und H3 sind im Artikeltext erlaubt. Der Seitentitel bleibt unabhängig davon die Hauptüberschrift des News-Artikels.
-Rohes HTML ist nicht erlaubt.
-
-## Bilder
-
-Bilder müssen im Repository unter `/assets/images/` liegen.
-Neue CMS-Bilder sollen später bevorzugt unter `/assets/images/news/` abgelegt werden.
-Das Titelbild benötigt weiterhin das Pflichtfeld `image_alt`. Inline-Bilder können einen Alt-Text besitzen; Pages CMS kann sie jedoch auch mit leerem `alt=""` speichern. Solche Inline-Bilder werden als dekorativ behandelt.
+Eine spätere Titeländerung ändert die URL nicht.
 
 ## Generierte Dateien
 
@@ -85,20 +133,4 @@ Nicht manuell bearbeiten:
 * `assets/data/news.json`
 * News-Einträge in `sitemap.xml`
 
-Änderungen gehören in die Markdown-Datei, die Templates oder den Generator.
-
-## Automatisierung
-
-Der dauerhafte Workflow **News generieren** verwendet immer denselben Generator `assets/python/generate_news.py`.
-
-Er startet:
-
-* bei relevanten Änderungen auf `main` (`content/news/`, `assets/images/news/`, News-Templates, Generator oder Requirements),
-* zweimal pro Stunde in der Zeitzone `Europe/Berlin` für geplante Veröffentlichungen,
-* manuell über **Actions → News generieren → Run workflow**.
-
-Jeder Lauf berechnet den vollständigen Sollzustand neu. Dadurch werden auch gelöschte Artikel, die News-Übersicht, die fünf Slider-Einträge und die News-Einträge der Sitemap konsistent synchronisiert.
-
-Der manuelle Lauf ist zugleich der Rebuild-/Repair-Weg. Er fordert auch dann einen neuen GitHub-Pages-Build an, wenn keine generierte Datei geändert werden musste.
-
-GitHub kann geplante Workflows in öffentlichen Repositories nach 60 Tagen ohne Repository-Aktivität automatisch deaktivieren. Falls eine geplante News nicht erscheint, zuerst den Workflow **News generieren** prüfen beziehungsweise manuell ausführen und einen deaktivierten Schedule wieder aktivieren.
+Änderungen gehören in `content/news/`, `.pages.yml`, die Templates, das News-CSS oder den Generator.
