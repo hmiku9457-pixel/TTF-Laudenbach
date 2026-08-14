@@ -1,0 +1,126 @@
+media:
+  - name: news_images
+    label: News-Bilder
+    input: assets/images/news
+    output: /assets/images/news
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+    categories:
+      - image
+    rename: safe
+    commit:
+      templates:
+        create: "News-Bild hinzufügen: {filename}"
+        update: "News-Bild aktualisieren: {filename}"
+        delete: "News-Bild löschen: {filename}"
+        rename: "News-Bild umbenennen: {oldFilename} -> {newFilename}"
+
+content:
+  - name: news
+    label: Neuigkeiten
+    type: collection
+    path: content/news
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{title}.md"
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields:
+        - title
+        - publish_at
+        - summary
+      primary: title
+      sort:
+        - publish_at
+        - title
+      search:
+        - title
+        - summary
+      default:
+        sort: publish_at
+        order: desc
+    commit:
+      templates:
+        create: "News erstellen: {filename}"
+        update: "News aktualisieren: {filename}"
+        delete: "News löschen: {filename}"
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+        description: "Titel des Artikels. Beim Erstellen wird daraus automatisch der dauerhafte Dateiname erzeugt."
+
+      - name: publish_at
+        label: Veröffentlichung
+        type: date
+        required: true
+        description: "Standard ist der aktuelle Zeitpunkt. Ein zukünftiger Zeitpunkt plant die Veröffentlichung über den bestehenden GitHub-Workflow."
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm"
+          step: 60
+
+      - name: summary
+        label: Kurzbeschreibung
+        type: text
+        required: false
+        description: "Optionaler Teaser für Slider, Übersicht und SEO. Leer lassen, damit automatisch ein Teaser aus dem Artikel erzeugt wird."
+        options:
+          maxlength: 320
+
+      - name: image
+        label: Titelbild
+        type: image
+        required: true
+        description: "Titelbild für Artikel, News-Übersicht und Slider."
+        options:
+          media: news_images
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+          categories:
+            - image
+          rename: safe
+
+      - name: image_alt
+        label: Bildbeschreibung
+        type: string
+        required: true
+        description: "Kurze sachliche Beschreibung des Titelbilds für Barrierefreiheit."
+        options:
+          maxlength: 240
+
+      - name: body
+        label: Artikel
+        type: rich-text
+        required: true
+        description: "Artikeltext. Für Zwischenüberschriften H2 oder H3 verwenden; keine zusätzliche H1."
+        options:
+          format: markdown
+          switcher: false
+          media: news_images
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+          categories:
+            - image
+          rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: app
