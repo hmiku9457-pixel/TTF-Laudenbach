@@ -18,6 +18,131 @@ media:
         delete: "News-Bild löschen: {filename}"
         rename: "News-Bild umbenennen: {oldFilename} -> {newFilename}"
 
+components:
+  news_text:
+    type: object
+    label: Text
+    fields:
+      - name: alignment
+        label: Textausrichtung
+        type: select
+        required: true
+        default: left
+        options:
+          values:
+            - name: left
+              label: Linksbündig
+            - name: center
+              label: Zentriert
+      - name: body
+        label: Text
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: false
+          media: news_images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+
+  news_two_columns:
+    type: object
+    label: Zwei Spalten
+    fields:
+      - name: left
+        label: Linke Spalte
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: false
+          media: news_images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+      - name: right
+        label: Rechte Spalte
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: false
+          media: news_images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+
+  news_event:
+    type: object
+    label: Eventankündigung
+    fields:
+      - name: title
+        label: Event
+        type: string
+        required: true
+        options:
+          maxlength: 160
+      - name: date
+        label: Datum
+        type: date
+        required: true
+        default: ""
+        options:
+          format: "yyyy-MM-dd"
+      - name: time
+        label: Uhrzeit
+        type: string
+        required: false
+        description: "Optional, Format HH:MM, zum Beispiel 18:30."
+        pattern:
+          regex: "^$|^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          message: "Bitte eine Uhrzeit im Format HH:MM eingeben."
+      - name: location
+        label: Ort
+        type: string
+        required: false
+        options:
+          maxlength: 180
+      - name: description
+        label: Beschreibung
+        type: rich-text
+        required: false
+        options:
+          format: markdown
+          switcher: false
+          media: news_images
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
+          rename: safe
+
+  news_divider:
+    type: object
+    label: Trenner
+    fields:
+      - name: enabled
+        type: boolean
+        default: true
+        hidden: true
+
+  news_spacer:
+    type: object
+    label: Abstand
+    fields:
+      - name: size
+        label: Größe
+        type: select
+        required: true
+        default: medium
+        options:
+          values:
+            - name: small
+              label: Klein
+            - name: medium
+              label: Mittel
+            - name: large
+              label: Groß
+
 content:
   - name: news
     label: Neuigkeiten
@@ -58,7 +183,6 @@ content:
         type: string
         required: true
         description: "Titel des Artikels. Beim Erstellen wird daraus automatisch der dauerhafte Dateiname erzeugt."
-
       - name: publish_at
         label: Veröffentlichung
         type: date
@@ -68,15 +192,13 @@ content:
           time: true
           format: "yyyy-MM-dd'T'HH:mm"
           step: 60
-
       - name: summary
         label: Kurzbeschreibung
         type: text
         required: false
-        description: "Optionaler Teaser für Slider, Übersicht und SEO. Leer lassen, damit automatisch ein Teaser aus dem Artikel erzeugt wird."
+        description: "Optionaler Teaser für Slider, Übersicht und SEO. Leer lassen, damit automatisch ein Teaser aus dem Artikelinhalt erzeugt wird."
         options:
           maxlength: 320
-
       - name: image
         label: Titelbild
         type: image
@@ -84,15 +206,9 @@ content:
         description: "Titelbild für Artikel, News-Übersicht und Slider."
         options:
           media: news_images
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
-          categories:
-            - image
+          extensions: [jpg, jpeg, png, webp]
+          categories: [image]
           rename: safe
-
       - name: image_alt
         label: Bildbeschreibung
         type: string
@@ -100,24 +216,24 @@ content:
         description: "Kurze sachliche Beschreibung des Titelbilds für Barrierefreiheit."
         options:
           maxlength: 240
-
-      - name: body
-        label: Artikel
-        type: rich-text
+      - name: sections
+        label: Artikelinhalt
+        type: block
         required: true
-        description: "Artikeltext. Als Überschriften können H1, H2 und H3 verwendet werden."
-        options:
-          format: markdown
-          switcher: false
-          media: news_images
-          extensions:
-            - jpg
-            - jpeg
-            - png
-            - webp
-          categories:
-            - image
-          rename: safe
+        list: true
+        blockKey: type
+        description: "Artikel aus frei sortierbaren Inhaltsblöcken aufbauen. Die Eventankündigung ist vollständig optional und nur für passende Veranstaltungs-News gedacht."
+        blocks:
+          - name: text
+            component: news_text
+          - name: two_columns
+            component: news_two_columns
+          - name: event
+            component: news_event
+          - name: divider
+            component: news_divider
+          - name: spacer
+            component: news_spacer
 
 settings:
   content:
