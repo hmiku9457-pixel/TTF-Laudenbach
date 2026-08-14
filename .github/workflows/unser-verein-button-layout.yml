@@ -1,0 +1,65 @@
+name: Unser Verein Button-Layout anwenden
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: repository-writer
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Python einrichten
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Layout anpassen
+        run: python tools/unser-verein-button-layout/apply_unser_verein_button_layout.py
+
+      - name: Änderungen prüfen und committen
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git diff --check
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- \
+            pages/unserVerein.html \
+            assets/css/layout/grid-boxes.css
+
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen gefunden."
+            exit 0
+          fi
+
+          git status --short
+          git commit -m "Satzungsbutton strukturell vereinfachen"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+  deploy:
+    needs: apply
+    if: needs.apply.result == 'success'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml
