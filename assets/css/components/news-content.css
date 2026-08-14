@@ -18,12 +18,16 @@
 }
 
 .news-page {
+    display: flex;
     width: min(calc(100% - var(--space-xl) - var(--space-xl)), 980px);
     margin: var(--space-xl) auto;
+    flex-direction: column;
+    gap: var(--space-m);
 }
 
 .news-article,
-.news-overview {
+.news-overview__header,
+.news-overview-card {
     overflow-wrap: anywhere;
 }
 
@@ -263,7 +267,7 @@
 
 .news-overview__intro {
     max-width: 70ch;
-    margin-bottom: var(--space-xl);
+    margin: 0 auto;
     color: var(--text-muted);
 }
 
