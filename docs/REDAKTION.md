@@ -871,8 +871,8 @@ Verantwortlich für:
 
 ## Technische Fragen
 
-**Ansprechpartner:** [Name eintragen]
-**E-Mail:** [E-Mail-Adresse eintragen]
+**Ansprechpartner:** Sascha Warth
+**E-Mail:** warth.sascha@outlook.de
 
 ---
 
