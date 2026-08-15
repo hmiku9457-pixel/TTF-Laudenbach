@@ -262,6 +262,28 @@ content:
               format: markdown
               switcher: false
               media: false
+      - name: technical_guide
+        label: Technikdokumentation
+        type: file
+        path: docs/technik.md
+        format: yaml-frontmatter
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: title
+            label: Dokumenttitel
+            type: string
+            readonly: true
+          - name: body
+            label: Technikdokumentation
+            type: rich-text
+            readonly: true
+            options:
+              format: markdown
+              switcher: false
+              media: false
 
 settings:
   content:
