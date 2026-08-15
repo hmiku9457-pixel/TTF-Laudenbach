@@ -235,6 +235,34 @@ content:
           - name: spacer
             component: news_spacer
 
+
+  - name: documentation
+    label: Dokumentation
+    type: group
+    items:
+      - name: editorial_guide
+        label: Redaktionshandbuch
+        type: file
+        path: docs/redaktion.md
+        format: yaml-frontmatter
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: title
+            label: Dokumenttitel
+            type: string
+            readonly: true
+          - name: body
+            label: Redaktionshandbuch
+            type: rich-text
+            readonly: true
+            options:
+              format: markdown
+              switcher: false
+              media: false
+
 settings:
   content:
     merge: true
