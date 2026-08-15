@@ -1,296 +1,201 @@
-# Redaktionsdokumentation – TTF Laudenbach
-
-Diese Dokumentation richtet sich an alle Personen, die Inhalte auf der Webseite der **TTF Laudenbach** pflegen.
-
-Für die normale redaktionelle Arbeit sind **keine Programmierkenntnisse** erforderlich. Insbesondere müssen keine HTML-, CSS-, JavaScript-, Python- oder GitHub-Dateien manuell bearbeitet werden.
-
+---
+title: "Redaktionshandbuch – TTF Laudenbach"
 ---
 
-# 1. Grundprinzip der Webseite
+# Redaktionshandbuch – TTF Laudenbach
 
-Die Webseite ist technisch von ihren redaktionellen Inhalten getrennt.
+Dieses Handbuch richtet sich an alle Personen, die Neuigkeiten auf der Webseite der **Tischtennis-Freunde Laudenbach** pflegen. Für die normale redaktionelle Arbeit sind keine Kenntnisse in HTML, CSS, JavaScript, Python oder Git erforderlich.
 
-Redakteure kümmern sich ausschließlich um Inhalte, die für die Veröffentlichung vorgesehen sind. Die technische Struktur der Webseite wird separat verwaltet.
+Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien der Webseite werden dabei nicht manuell bearbeitet.
 
-## Redaktionelle Aufgaben
+## 1. Was kann über das CMS gepflegt werden?
 
-Zu den typischen redaktionellen Aufgaben gehören insbesondere:
+Über das CMS werden die **Neuigkeiten** der Vereinswebseite gepflegt. Dazu gehören:
 
-* News erstellen
-* bestehende News bearbeiten
-* News löschen
-* Texte innerhalb von News formatieren
-* Bilder in News einfügen
-* Tabellen innerhalb von News verwenden
-* Veranstaltungen innerhalb einer News hervorheben
+- neue News erstellen,
+- bestehende News bearbeiten,
+- News für einen späteren Zeitpunkt planen,
+- News löschen,
+- Titelbilder und Bilder im Artikel verwenden,
+- Texte formatieren,
+- Tabellen einfügen,
+- Inhalte in zwei Spalten darstellen,
+- Veranstaltungen hervorheben,
+- Trenner und zusätzliche Abstände verwenden.
 
-## Keine redaktionellen Aufgaben
+Nicht zur normalen Redaktion gehören unter anderem Navigation, Footer, Seitendesign, Spielpläne, Tabellenstände, Spielerlisten, Scraper, Galerie-Automatisierung und technische Workflows. Diese Bereiche werden separat technisch betreut.
 
-Folgende Bereiche gehören **nicht** zur normalen redaktionellen Pflege:
+## 2. Pages CMS öffnen
 
-* Navigation
-* Seitenlayout
-* Farben und Design
-* CSS
-* JavaScript
-* Tabellen des Spielbetriebs
-* Mannschaftsdaten
-* Spielerlisten
-* Spielergebnisse
-* Tabellenstände
-* automatische Datenimporte
-* Header und Footer
-* SEO-Grundstruktur
-* Sitemap
-* technische Konfigurationsdateien
-* generierte JSON-Dateien
+1. Pages CMS öffnen.
+2. Mit dem eingerichteten Zugang anmelden.
+3. Das Repository der TTF Laudenbach auswählen.
+4. Im Menü **Neuigkeiten** öffnen.
 
-Diese Bereiche werden entweder automatisch erzeugt oder gehören zur technischen Wartung der Webseite.
+Zusätzlich steht im CMS der Bereich **Dokumentation** zur Verfügung. Dort kann dieses Redaktionshandbuch jederzeit eingesehen werden.
 
-**Wichtig:** Dateien im GitHub-Repository sollten von Redakteuren nicht manuell verändert werden, sofern dies nicht ausdrücklich in dieser Dokumentation beschrieben ist.
+## 3. Übersicht der News
 
----
+Im Bereich **Neuigkeiten** werden die vorhandenen Beiträge angezeigt. Die Liste ist standardmäßig nach dem Veröffentlichungszeitpunkt sortiert, neue Beiträge stehen oben.
 
-# 2. Pages CMS
+Angezeigt werden insbesondere:
 
-Für die Pflege der News wird **Pages CMS** verwendet.
+- Titel,
+- Veröffentlichungszeitpunkt,
+- Kurzbeschreibung.
 
-Pages CMS stellt eine grafische Oberfläche bereit, über die Inhalte bearbeitet werden können, ohne direkt mit dem Quellcode der Webseite arbeiten zu müssen.
+Über die Suche können Beiträge nach Titel und Kurzbeschreibung gefunden werden.
 
-## Zugang
+## 4. Neue News erstellen
 
-CMS-Adresse:
+Zum Erstellen einer News im Bereich **Neuigkeiten** einen neuen Eintrag anlegen.
 
-**[CMS-Adresse bei Übergabe eintragen]**
+Eine News besteht aus folgenden Feldern:
 
-Der Zugang zur Webseite wird bei der Übergabe eingerichtet.
+1. **Titel**
+2. **Veröffentlichung**
+3. **Kurzbeschreibung** – optional
+4. **Titelbild**
+5. **Bildbeschreibung**
+6. **Artikelinhalt**
 
-Nach erfolgreicher Anmeldung wird das Repository der TTF Laudenbach ausgewählt.
+### 4.1 Titel
 
-Anschließend stehen die für die Redaktion freigegebenen Inhaltsbereiche zur Verfügung.
-
----
-
-# 3. News-System
-
-Der wichtigste redaktionell gepflegte Bereich der Webseite sind die **Neuigkeiten**.
-
-Eine News besteht grundsätzlich aus:
-
-* den allgemeinen Angaben des Beitrags
-* dem eigentlichen Inhalt
-* optionalen Bildern
-* optionalen Tabellen
-* optionalen besonderen Inhaltsblöcken
-
-Das System erstellt aus den Eingaben automatisch die erforderlichen Webseiten.
-
-Redakteure müssen deshalb **keine eigene HTML-Seite für eine News erstellen**.
-
----
-
-# 4. Neue News erstellen
-
-## 4.1 News-Bereich öffnen
-
-Nach der Anmeldung in Pages CMS:
-
-1. den Bereich **News** öffnen,
-2. eine neue News anlegen,
-3. die benötigten Angaben eintragen,
-4. den Inhalt zusammenstellen,
-5. Beitrag speichern beziehungsweise veröffentlichen.
-
-Die technische Verarbeitung erfolgt anschließend automatisch.
-
----
-
-# 5. Titel einer News
-
-Jede News benötigt einen eindeutigen und verständlichen Titel.
+Der Titel ist ein Pflichtfeld und sollte kurz und eindeutig beschreiben, worum es in der News geht.
 
 Gute Beispiele:
 
-* `Saisonauftakt der Herren I`
-* `Vereinsmeisterschaften 2026`
-* `Einladung zur Mitgliederversammlung`
-* `Erfolgreiches Wochenende für unsere Jugend`
+- `Vereinsmeisterschaften 2026`
+- `Saisonauftakt der Herren I`
+- `Einladung zur Mitgliederversammlung`
+- `Erfolgreiches Wochenende für unsere Jugend`
 
-Weniger geeignet sind sehr allgemeine Titel wie:
+Beim erstmaligen Erstellen wird aus dem Titel automatisch der dauerhafte Dateiname des Beitrags erzeugt. Der Dateiname wird später nicht automatisch geändert, wenn nur der sichtbare Titel angepasst wird. Das verhindert, dass sich die Adresse einer bereits veröffentlichten News unnötig ändert.
 
-* `Neuigkeiten`
-* `Information`
-* `Wichtig`
-* `Update`
+### 4.2 Veröffentlichung
 
-Der Titel sollte bereits erkennen lassen, worum es im Beitrag geht.
+Das Feld **Veröffentlichung** enthält Datum und Uhrzeit.
 
----
+Für eine sofortige Veröffentlichung kann der aktuelle Zeitpunkt verwendet werden. Für eine geplante Veröffentlichung wird ein zukünftiger Zeitpunkt eingetragen.
 
-# 6. Datum
+Zukünftig geplante Beiträge dürfen bereits gespeichert werden. Sie werden erst berücksichtigt, sobald ihr Veröffentlichungszeitpunkt erreicht ist und der automatische News-Workflow den nächsten Prüf-Lauf durchgeführt hat.
 
-Für jede News wird ein Datum angegeben.
+**Hinweis:** Die Prüfung geplanter Beiträge läuft zweimal pro Stunde. Eine geplante News kann deshalb einige Minuten nach der eingestellten Uhrzeit sichtbar werden.
 
-Das Datum dient unter anderem dazu, Beiträge zeitlich einzuordnen und entsprechend auf der Webseite darzustellen.
+### 4.3 Kurzbeschreibung
 
-Beim Erstellen einer neuen News sollte normalerweise das Datum verwendet werden, an dem die Nachricht veröffentlicht werden soll.
+Die Kurzbeschreibung ist optional. Sie wird als Teaser unter anderem in der News-Übersicht und im News-Slider verwendet.
 
-Bei einer nachträglichen Korrektur eines bestehenden Beitrags sollte das ursprüngliche Veröffentlichungsdatum normalerweise **nicht verändert werden**.
+Empfehlung: Eine kurze, verständliche Zusammenfassung mit ein bis zwei Sätzen eintragen.
 
----
+Wird das Feld leer gelassen, erzeugt das System automatisch eine Kurzbeschreibung aus dem Artikelinhalt.
 
-# 7. Inhalt einer News
+### 4.4 Titelbild
 
-Der Inhalt einer News wird aus verschiedenen **Inhaltsblöcken** aufgebaut.
+Jede News benötigt ein Titelbild.
 
-Die Reihenfolge der Blöcke kann frei gewählt werden.
+Das Titelbild wird unter anderem verwendet für:
 
-Dadurch können sowohl sehr einfache als auch umfangreichere Beiträge erstellt werden.
+- die News-Seite,
+- die News-Übersicht,
+- den News-Slider.
 
-Zur Verfügung stehen insbesondere:
+Unterstützt werden die Bildformate:
 
-* **Text**
-* **Zwei Spalten**
-* **Eventankündigung**
-* **Trenner**
-* **Abstand**
+- JPG/JPEG,
+- PNG,
+- WebP.
 
-Je nach Inhalt können mehrere Blöcke desselben Typs verwendet werden.
+Für News hochgeladene Bilder werden im dafür vorgesehenen News-Bildbereich gespeichert. Sie werden nicht automatisch Bestandteil der normalen Vereinsgalerie.
 
-Beispiel:
+### 4.5 Bildbeschreibung
 
-1. Text
-2. Bild innerhalb des Textes
-3. Zwei Spalten
-4. Abstand
-5. Eventankündigung
-6. Trenner
-7. Text
+Die **Bildbeschreibung** ist ein Pflichtfeld. Sie dient insbesondere der Barrierefreiheit und beschreibt sachlich, was auf dem Titelbild zu sehen ist.
 
----
+Beispiele:
 
-# 8. Inhaltsblock „Text“
+- `Jugendmannschaft der TTF Laudenbach bei der Siegerehrung`
+- `Spieler der Herren I während eines Heimspiels`
+- `Gruppenfoto der Teilnehmer der Vereinsmeisterschaften`
 
-Der Block **Text** ist der Standardblock für normale News.
+Nicht sinnvoll sind Beschreibungen wie:
 
-Er eignet sich beispielsweise für:
+- `Bild`
+- `Foto 1`
+- `Newsbild`
 
-* Berichte
-* Ankündigungen
-* Ergebnisse
-* Rückblicke
-* Informationen an Mitglieder
-* allgemeine Vereinsnachrichten
+## 5. Artikelinhalt und Inhaltsblöcke
 
-Innerhalb des Texteditors können Inhalte formatiert werden.
+Der eigentliche Artikel wird aus frei sortierbaren Inhaltsblöcken aufgebaut.
 
-Je nach Editor stehen beispielsweise zur Verfügung:
+Zur Verfügung stehen fünf Blocktypen:
 
-* Absätze
-* Überschriften
-* fett hervorgehobener Text
-* kursiver Text
-* Listen
-* Links
-* Bilder
-* Tabellen
+1. **Text**
+2. **Zwei Spalten**
+3. **Eventankündigung**
+4. **Trenner**
+5. **Abstand**
 
-Für normale Beiträge sollte dieser Block bevorzugt werden.
+Ein Artikel benötigt mindestens einen inhaltlichen Block vom Typ **Text**, **Zwei Spalten** oder **Eventankündigung**.
 
----
+Die Blöcke können in der gewünschten Reihenfolge angeordnet und bei Bedarf mehrfach verwendet werden.
 
-# 9. Überschriften innerhalb einer News
+## 6. Block „Text“
 
-Zusätzliche Überschriften sollten verwendet werden, wenn ein längerer Beitrag mehrere Themen oder Abschnitte enthält.
+Der Textblock ist der Standardbaustein für normale Artikelinhalte.
 
-Beispiel:
+Er besitzt zwei mögliche Textausrichtungen:
 
-# Vereinsmeisterschaften 2026
+- **Linksbündig** – Standard für normalen Artikeltext.
+- **Zentriert** – für kurze hervorgehobene Textbereiche, Ankündigungen oder einen Abschluss.
 
-Einleitungstext …
+Für längere Fließtexte sollte normalerweise **Linksbündig** verwendet werden.
 
-## Herren
+### Formatierung im Texteditor
 
-Text …
+Der Rich-Text-Editor unterstützt die üblichen redaktionellen Formatierungen, unter anderem:
 
-## Jugend
+- Absätze,
+- Überschriften,
+- Fettschrift,
+- Kursivschrift,
+- Aufzählungen,
+- nummerierte Listen,
+- Links,
+- Bilder,
+- Tabellen.
 
-Text …
+Für Überschriften innerhalb des Artikels dürfen nur die Ebenen **H1, H2 und H3** verwendet werden.
 
-## Siegerehrung
+Direkt eingegebenes HTML ist im News-Inhalt nicht vorgesehen und wird vom Generator abgelehnt. Für die Redaktion ist es daher nicht notwendig, in einen Quellcode-Modus zu wechseln.
 
-Text …
+### Absätze sinnvoll einsetzen
 
-Bei kurzen Beiträgen sind zusätzliche Überschriften normalerweise nicht notwendig.
+Längere Texte sollten in kurze, thematisch passende Absätze gegliedert werden. Das verbessert insbesondere auf Smartphones die Lesbarkeit.
 
-Zu viele Überschriften machen einen kurzen Beitrag unnötig unruhig.
+### Fett und kursiv
 
----
+**Fettschrift** eignet sich für einzelne wichtige Angaben, beispielsweise:
 
-# 10. Absätze
+- **Beginn: 18:00 Uhr**
+- **Anmeldeschluss: 5. September**
 
-Längere Texte sollten in sinnvolle Absätze unterteilt werden.
+*Kursive Schrift* sollte ebenfalls sparsam eingesetzt werden.
 
-Als Richtwert gilt:
+Große Teile eines Artikels sollten nicht vollständig fett oder kursiv formatiert werden.
 
-Ein Absatz sollte normalerweise nur einen Gedanken oder Themenabschnitt enthalten.
+### Listen
 
-Statt eines sehr langen Textblocks:
+Listen eignen sich besonders für mehrere kurze Angaben, zum Beispiel:
 
-> Am vergangenen Wochenende fanden unsere Vereinsmeisterschaften statt. Insgesamt nahmen zahlreiche Spieler teil. Am Vormittag wurde die Jugendkonkurrenz ausgespielt. Danach folgten die Wettbewerbe der Erwachsenen. Am Abend fand die Siegerehrung statt. Anschließend saßen die Teilnehmer noch gemeinsam zusammen.
+- Hallenöffnung: 17:00 Uhr
+- Meldeschluss: 17:30 Uhr
+- Beginn: 18:00 Uhr
+- Austragungsort: Bergstraßenhalle
 
-besser:
+### Links
 
-> Am vergangenen Wochenende fanden unsere Vereinsmeisterschaften statt. Insgesamt nahmen zahlreiche Spieler teil.
->
-> Am Vormittag wurde die Jugendkonkurrenz ausgespielt. Danach folgten die Wettbewerbe der Erwachsenen.
->
-> Am Abend fand die Siegerehrung statt. Anschließend saßen die Teilnehmer noch gemeinsam zusammen.
-
----
-
-# 11. Fett und kursiv
-
-**Fettschrift** sollte sparsam zur Hervorhebung wichtiger Informationen eingesetzt werden.
-
-Geeignete Beispiele:
-
-* **Samstag, 12. September**
-* **Beginn: 18:00 Uhr**
-* **Anmeldeschluss: 5. September**
-
-*Kursive Schrift* kann für leichte Hervorhebungen oder besondere Hinweise verwendet werden.
-
-Große Teile eines Beitrags sollten weder vollständig fett noch kursiv geschrieben werden.
-
----
-
-# 12. Listen
-
-Listen eignen sich besonders für mehrere kurze Informationen.
-
-Beispiel:
-
-* Beginn: 18:00 Uhr
-* Hallenöffnung: 17:00 Uhr
-* Meldeschluss: 17:30 Uhr
-* Austragungsort: Bergstraßenhalle
-
-Für solche Informationen ist eine Liste meist übersichtlicher als ein langer Fließtext.
-
----
-
-# 13. Links
-
-Links können beispielsweise verwendet werden für:
-
-* externe Verbandsseiten
-* Turnieranmeldungen
-* weiterführende Informationen
-* externe Ergebnisse
-* andere relevante Webseiten
-
-Der sichtbare Linktext sollte möglichst beschreiben, wohin der Link führt.
+Der Linktext sollte nach Möglichkeit beschreiben, wohin der Link führt.
 
 Besser:
 
@@ -300,586 +205,348 @@ statt:
 
 `Hier klicken`
 
-Links sollten nach dem Veröffentlichen kurz getestet werden.
+Nach der Veröffentlichung sollte ein neu eingefügter externer Link kurz getestet werden.
 
----
+## 7. Bilder im Artikel
 
-# 14. Bilder in News
+Neben dem verpflichtenden Titelbild können auch innerhalb der Rich-Text-Bereiche Bilder eingefügt werden.
 
-Bilder können innerhalb der dafür vorgesehenen Inhaltsfelder hochgeladen beziehungsweise ausgewählt werden.
+Vor der Veröffentlichung sollte geprüft werden:
 
-Geeignet sind beispielsweise:
+- Ist das Bild scharf und richtig ausgerichtet?
+- Ist der relevante Inhalt gut erkennbar?
+- Darf das Bild veröffentlicht werden?
+- Sind keine vertraulichen oder ungeeigneten Informationen sichtbar?
 
-* Mannschaftsfotos
-* Bilder von Veranstaltungen
-* Siegerehrungen
-* Turnierbilder
-* Vereinsaktionen
+Bilder werden auf der Webseite automatisch passend dargestellt. Es müssen keine Bildbreiten oder CSS-Klassen eingestellt werden.
 
-## Empfehlungen für Bilder
+## 8. Tabellen im Artikel
 
-Vor dem Hochladen sollte geprüft werden:
+Tabellen können direkt im Rich-Text-Editor erstellt werden.
 
-* Ist das Bild scharf?
-* Ist die Ausrichtung korrekt?
-* Ist der relevante Bildinhalt gut erkennbar?
-* Darf das Bild veröffentlicht werden?
-* Enthält das Bild keine unnötigen oder sensiblen Informationen?
+Sie eignen sich beispielsweise für kleine Ergebnisübersichten oder strukturierte Informationen.
 
-Extrem große Originaldateien sollten nach Möglichkeit vermieden werden.
+| Platz | Spieler | Ergebnis |
+| --- | --- | --- |
+| 1 | Max Mustermann | 5:0 |
+| 2 | Erika Beispiel | 4:1 |
 
-## Aussagekräftige Bilder verwenden
+Tabellen sollten möglichst kompakt bleiben. Sehr breite Tabellen mit vielen Spalten sind auf Smartphones schwer lesbar.
 
-Ein Bild sollte einen tatsächlichen Mehrwert für den Beitrag haben.
+Offizielle Mannschaftstabellen, Spielpläne oder automatisch importierte Ergebnisse sollten nicht manuell über eine News-Tabelle nachgebaut werden.
 
-Nicht jede News benötigt zwingend ein Bild.
+## 9. Block „Zwei Spalten“
 
-Ein guter kurzer Vereinsbeitrag ohne Bild ist besser als ein unpassendes oder qualitativ schlechtes Bild.
+Der Block **Zwei Spalten** enthält zwei voneinander unabhängige Rich-Text-Bereiche.
 
----
+Er eignet sich beispielsweise für:
 
-# 15. Tabellen innerhalb von News
+- zwei zusammengehörige Informationen,
+- Text und Bild nebeneinander,
+- zwei kurze Listen,
+- eine kleine Tabelle neben ergänzendem Text.
 
-Der Rich-Text-Editor kann auch für Tabellen verwendet werden.
+Auf Desktop-Bildschirmen werden die beiden Bereiche gleichmäßig nebeneinander dargestellt. Auf kleinen Displays werden sie automatisch untereinander angeordnet.
 
-Tabellen eignen sich für strukturierte Informationen wie:
+Bilder und Tabellen bleiben innerhalb ihrer jeweiligen Spalte.
 
-| Platz | Spieler        | Ergebnis |
-| ----- | -------------- | -------- |
-| 1     | Max Mustermann | 5:0      |
-| 2     | Erika Beispiel | 4:1      |
-| 3     | Peter Muster   | 3:2      |
+Für sehr lange Fließtexte ist der normale Textblock meist übersichtlicher.
 
-Tabellen sollten möglichst klein und übersichtlich bleiben.
+## 10. Block „Eventankündigung“
 
-Sehr breite Tabellen sind insbesondere auf Smartphones schwer darzustellen.
+Der Block **Eventankündigung** hebt einen konkreten Termin innerhalb einer News hervor.
 
-Für offizielle Mannschaftstabellen, Spielpläne oder automatisch importierte Ergebnisse sollte **keine manuelle News-Tabelle als Ersatz** erstellt werden.
+Er ist vollständig optional und sollte nur verwendet werden, wenn tatsächlich eine Veranstaltung oder ein Termin hervorgehoben werden soll.
 
----
+### Pflichtfelder
 
-# 16. Inhaltsblock „Zwei Spalten“
+- **Event**
+- **Datum**
 
-Mit dem Block **Zwei Spalten** können zwei Inhalte nebeneinander dargestellt werden.
+### Optionale Felder
 
-Der Block eignet sich beispielsweise für:
+- Uhrzeit,
+- Ort,
+- Beschreibung.
 
-* zwei zusammengehörige Informationen
-* zwei kurze Listen
-* Text und ergänzende Information
-* zwei unterschiedliche Themenbereiche
+Die Uhrzeit wird im Format `HH:MM` eingegeben, beispielsweise `18:30`.
 
-Der Zwei-Spalten-Block sollte nur verwendet werden, wenn die Inhalte tatsächlich zusammengehören.
+Geeignete Einsatzzwecke sind zum Beispiel:
 
-Sehr lange Texte sollten besser untereinander dargestellt werden.
+- Vereinsmeisterschaften,
+- Mitgliederversammlung,
+- Sommerfest,
+- Turnier,
+- Trainingsveranstaltung.
 
-Auf kleineren Bildschirmen kann die Darstellung automatisch angepasst werden.
+Eine normale News benötigt keine Eventankündigung.
 
----
+## 11. Block „Trenner“
 
-# 17. Inhaltsblock „Eventankündigung“
+Der Block **Trenner** erzeugt eine einheitliche horizontale Trennlinie zwischen Inhaltsbereichen.
 
-Für Veranstaltungen steht ein eigener Block **Eventankündigung** zur Verfügung.
+Er sollte nur verwendet werden, wenn zwei Bereiche optisch deutlich voneinander getrennt werden sollen.
 
-Dieser Block hebt wichtige Veranstaltungsinformationen optisch hervor.
+Eine eigene Designauswahl ist bewusst nicht vorgesehen.
 
-Geeignete Beispiele:
+## 12. Block „Abstand“
 
-* Vereinsmeisterschaften
-* Mitgliederversammlung
-* Sommerfest
-* Turniere
-* Trainingsveranstaltungen
-* sonstige Vereinstermine
+Der Block **Abstand** fügt zusätzlichen vertikalen Freiraum ein.
 
-Für eine Eventankündigung müssen mindestens folgende Angaben vorhanden sein:
+Zur Verfügung stehen:
 
-* **Eventname**
-* **Datum**
+- **Klein**,
+- **Mittel**,
+- **Groß**.
 
-Weitere Informationen können abhängig vom jeweiligen Beitrag im umgebenden Text ergänzt werden.
+Abstände sollten sparsam eingesetzt werden. Das normale Seitenlayout erzeugt bereits automatisch passende Abstände zwischen vielen Elementen.
 
-Der Eventblock sollte nur verwendet werden, wenn tatsächlich eine konkrete Veranstaltung angekündigt wird.
+## 13. Sinnvoller Aufbau einer News
 
-Für normale Vereinsnachrichten ist der normale Textblock besser geeignet.
+Eine einfache News benötigt häufig nur wenige Bausteine.
 
----
+Beispiel:
 
-# 18. Inhaltsblock „Trenner“
+1. Textblock mit Einleitung,
+2. Textblock mit Bericht und Bild,
+3. Eventankündigung für einen kommenden Termin,
+4. abschließender Textblock.
 
-Ein **Trenner** erzeugt eine sichtbare Abgrenzung zwischen zwei Bereichen einer News.
+Ein weiterer möglicher Aufbau:
 
-Er eignet sich beispielsweise, wenn innerhalb eines Beitrags zwei deutlich unterschiedliche Themen behandelt werden.
+1. kurzer zentrierter Text,
+2. Trenner,
+3. Zwei-Spalten-Bereich,
+4. mittlerer Abstand,
+5. normaler Textblock.
 
-Trenner sollten sparsam eingesetzt werden.
+Nicht jeder verfügbare Baustein muss in jeder News verwendet werden.
 
-Mehrere Trenner direkt hintereinander sind nicht sinnvoll.
+## 14. News speichern und veröffentlichen
 
----
+Nach Abschluss der Bearbeitung wird die News im CMS gespeichert.
 
-# 19. Inhaltsblock „Abstand“
+Pages CMS speichert die redaktionelle Quelldatei im Repository. Anschließend übernimmt die vorhandene Automatisierung den technischen Rest:
 
-Der Block **Abstand** erzeugt zusätzlichen vertikalen Freiraum zwischen zwei Bereichen.
+1. News-Inhalte werden geprüft,
+2. die einzelne Artikelseite wird erzeugt,
+3. die News-Übersicht wird aktualisiert,
+4. die Slider-Daten werden aktualisiert,
+5. die Sitemap wird aktualisiert,
+6. die Webseite wird veröffentlicht.
 
-Er kann eingesetzt werden, wenn zwei Elemente optisch etwas stärker voneinander getrennt werden sollen.
+Für diese Schritte muss die Redaktion keine GitHub Actions starten und keine Dateien manuell bearbeiten.
 
-Auch dieser Block sollte sparsam verwendet werden.
+## 15. News-Slider auf der Startseite
 
-Das normale Layout der Webseite erzeugt bereits automatisch passende Abstände.
+Der News-Slider wird automatisch aus den veröffentlichten News erzeugt.
 
----
+Es werden die **fünf aktuellsten veröffentlichten News** verwendet.
 
-# 20. Reihenfolge der Inhaltsblöcke
+Eine News muss daher nicht zusätzlich für den Slider aktiviert oder später wieder entfernt werden.
 
-Die Inhaltsblöcke können entsprechend dem gewünschten Aufbau sortiert werden.
+## 16. Bestehende News bearbeiten
 
-Eine typische News könnte beispielsweise so aufgebaut sein:
+Eine vorhandene News kann jederzeit im CMS geöffnet und bearbeitet werden.
 
-**Text**
+Typische Korrekturen sind:
 
-Kurze Einleitung und Erklärung des Ereignisses.
+- Tippfehler korrigieren,
+- Uhrzeit korrigieren,
+- Link ergänzen,
+- Bild austauschen,
+- Formulierung verbessern,
+- zusätzliche Informationen ergänzen.
 
-**Text mit Bild**
+Für kleine Änderungen wird keine neue News erstellt. Stattdessen wird der bestehende Beitrag korrigiert und erneut gespeichert.
 
-Bericht über die Veranstaltung.
+Bei einer normalen Korrektur sollte der ursprüngliche Veröffentlichungszeitpunkt beibehalten werden. Wird er verändert, kann sich auch die Reihenfolge der News ändern.
 
-**Zwei Spalten**
+## 17. News löschen
 
-Ergebnisse oder weitere Informationen.
+Nicht mehr benötigte News können über das CMS gelöscht werden.
 
-**Eventankündigung**
+Beim nächsten Generatorlauf werden die daraus erzeugten öffentlichen Dateien automatisch bereinigt beziehungsweise aktualisiert.
 
-Hinweis auf die nächste Veranstaltung.
+Alte Beiträge müssen allerdings nicht allein deshalb gelöscht werden, weil das darin beschriebene Ereignis bereits vergangen ist. Spielberichte, Vereinsmeisterschaften oder andere Vereinsereignisse können als Archiv weiterhin sinnvoll sein.
 
-**Text**
+Vor dem Löschen sollte daher geprüft werden, ob der Beitrag wirklich dauerhaft entfernt werden soll.
 
-Abschließende Informationen.
+## 18. Was darf nicht manuell bearbeitet werden?
 
-Der Aufbau muss nicht bei jeder News gleich sein.
+Die News-Quelldateien liegen unter `content/news/`. Aus ihnen werden automatisch weitere Dateien erzeugt.
 
----
+Insbesondere folgende News-Ausgaben werden automatisch gepflegt:
 
-# 21. News vor der Veröffentlichung prüfen
+- `pages/neuigkeiten.html`
+- `pages/news/*.html`
+- `assets/data/news.json`
+- die News-Einträge in `sitemap.xml`
 
-Vor dem Speichern einer neuen News sollten mindestens folgende Punkte kontrolliert werden:
+Diese generierten Dateien dürfen nicht als Ersatz für das CMS manuell korrigiert werden. Solche Änderungen würden bei einer späteren Generierung wieder überschrieben.
 
-* [ ] Titel korrekt?
-* [ ] Datum korrekt?
-* [ ] Rechtschreibung grob geprüft?
-* [ ] Absätze sinnvoll gesetzt?
-* [ ] Bilder korrekt?
-* [ ] Links korrekt?
-* [ ] Eventdaten korrekt?
-* [ ] Keine versehentlich eingefügten Platzhalter?
-* [ ] Keine internen oder vertraulichen Informationen enthalten?
-* [ ] Beitrag auch für Außenstehende verständlich?
+Für redaktionelle Änderungen gilt daher:
 
----
+> **News immer über Pages CMS bearbeiten.**
 
-# 22. News veröffentlichen
+## 19. Galerie, Spielpläne und Mannschaftsdaten
 
-Nach Abschluss der Bearbeitung wird die News in Pages CMS gespeichert.
+Die normale Bildergalerie ist vom News-System getrennt. Bilder, die für eine News hochgeladen werden, werden nicht automatisch in die Galerie übernommen.
 
-Die weitere technische Verarbeitung erfolgt automatisch.
+Auch Spielpläne, Tabellenstände und Spielerlisten gehören nicht zum News-CMS. Ein Teil dieser Daten wird automatisch verarbeitet.
 
-Im Hintergrund werden aus den redaktionellen Inhalten unter anderem die für die Webseite benötigten News-Daten und Webseiten erzeugt.
+Falls dort falsche oder fehlende Daten auffallen, sollte die technisch verantwortliche Person informiert werden, anstatt die generierten Dateien manuell zu ändern.
 
-Dazu gehören insbesondere:
+## 20. Datenschutz und Bildrechte
 
-* die News-Übersicht
-* die einzelne News-Seite
-* die Daten für die News-Darstellung
-* notwendige Aktualisierungen der Sitemap
+Die Vereinswebseite ist öffentlich erreichbar. Vor einer Veröffentlichung sollte deshalb geprüft werden, ob die verwendeten Inhalte für eine öffentliche Webseite geeignet sind.
 
-Anschließend wird die aktualisierte Webseite veröffentlicht.
+Besondere Vorsicht gilt bei:
 
-Redakteure müssen diese Dateien **nicht selbst erzeugen oder bearbeiten**.
+- privaten Telefonnummern,
+- privaten E-Mail-Adressen,
+- Anschriften,
+- sonstigen personenbezogenen Informationen,
+- Bildern von Personen,
+- insbesondere Bildern von Kindern und Jugendlichen.
 
----
+Bilder sollten nur verwendet werden, wenn sie für die Veröffentlichung vorgesehen beziehungsweise freigegeben sind.
 
-# 23. Änderungen sind nicht immer sofort sichtbar
+Vertrauliche Informationen, Zugangsdaten oder interne Vereinsinformationen gehören nicht in eine öffentliche News.
 
-Nach dem Speichern muss die Webseite technisch neu erzeugt und veröffentlicht werden.
-
-Deshalb kann zwischen dem Speichern im CMS und der sichtbaren Änderung auf der öffentlichen Webseite eine kurze Verzögerung entstehen.
-
-Während dieser Verarbeitung sollte ein Beitrag nicht mehrfach gespeichert werden, nur weil die Änderung noch nicht unmittelbar auf der Webseite sichtbar ist.
-
----
-
-# 24. News-Slider
-
-Auf der Webseite werden aktuelle News zusätzlich über einen News-Slider hervorgehoben.
-
-Der Slider wird automatisch aus den vorhandenen News erzeugt.
-
-Dabei werden die **fünf aktuellsten News** verwendet.
-
-Redakteure müssen Beiträge nicht zusätzlich in den Slider eintragen.
-
-Soll eine ältere News aus dem Slider verschwinden, muss sie ebenfalls nicht manuell entfernt werden. Sobald neuere Beiträge vorhanden sind, ändert sich die Auswahl automatisch.
-
----
-
-# 25. Bestehende News bearbeiten
-
-Bestehende Beiträge können erneut über Pages CMS geöffnet werden.
-
-Typische nachträgliche Änderungen sind:
-
-* Tippfehler korrigieren
-* falsche Uhrzeit korrigieren
-* Links ergänzen
-* Bilder ergänzen
-* Ergebnisse nachtragen
-* Formulierungen verbessern
-
-Nach dem Speichern wird die Webseite erneut automatisch erzeugt.
-
-## Keine neue News für kleine Korrekturen
-
-Bei einem Tippfehler oder einer kleinen Ergänzung sollte normalerweise der bestehende Beitrag bearbeitet werden.
-
-Es ist nicht notwendig, denselben Beitrag erneut als neue News anzulegen.
-
----
-
-# 26. News löschen
-
-Nicht mehr benötigte News können über Pages CMS gelöscht werden.
-
-Nach dem Löschen verarbeitet die automatische News-Generierung die Änderung.
-
-Dabei werden die von der News abhängigen Dateien ebenfalls aktualisiert.
-
-Ein Beitrag sollte nur gelöscht werden, wenn er tatsächlich dauerhaft entfernt werden soll.
-
-## Löschen oder bestehen lassen?
-
-Alte News müssen nicht grundsätzlich gelöscht werden.
-
-Vergangene:
-
-* Veranstaltungen
-* Spielberichte
-* Vereinsmeisterschaften
-* Saisonberichte
-* Vereinsereignisse
-
-können weiterhin als Vereinschronik beziehungsweise Archiv sinnvoll sein.
-
-Eine News sollte daher nicht allein deshalb gelöscht werden, weil sie nicht mehr aktuell ist.
-
----
-
-# 27. Was passiert technisch nach einer Änderung?
-
-Für die normale Redaktion ist dieser Ablauf nicht erforderlich, kann aber bei der Fehlersuche hilfreich sein.
-
-Vereinfacht läuft eine Änderung so ab:
-
-**Pages CMS**
-
-↓
-
-**redaktionelle Inhaltsdatei wird gespeichert**
-
-↓
-
-**automatische News-Generierung**
-
-↓
-
-**News-Daten und Webseiten werden aktualisiert**
-
-↓
-
-**Webseite wird veröffentlicht**
-
-Dazu existieren automatisierte Workflows.
-
-Redakteure müssen diese normalerweise nicht manuell starten.
-
----
-
-# 28. Niemals generierte Dateien manuell bearbeiten
-
-Ein besonders wichtiger Punkt:
-
-Bestimmte Dateien werden automatisch aus den redaktionellen Inhalten erzeugt.
-
-Diese Dateien dürfen **nicht als eigentliche Quelle einer News verwendet oder manuell korrigiert werden**.
-
-Eine manuelle Änderung könnte bei der nächsten automatischen Generierung wieder überschrieben werden.
-
-Änderungen an einer News müssen deshalb immer an der dafür vorgesehenen redaktionellen Quelle vorgenommen werden – normalerweise über Pages CMS.
-
----
-
-# 29. Galerie
-
-Die Bildergalerie der Webseite ist technisch vom News-System getrennt.
-
-News-Bilder werden deshalb **nicht automatisch zu Galerie-Bildern**.
-
-Umgekehrt sind Galerie-Bilder nicht automatisch Bestandteil einer News.
-
-Die Galerie besitzt eine eigene automatische Datenaufbereitung und sollte nicht über die News-Verwaltung gepflegt werden.
-
-Die technische Pflege beziehungsweise der entsprechende Galerie-Ablauf wird separat dokumentiert.
-
----
-
-# 30. Mannschaften, Ergebnisse und Tabellen
-
-Mannschaftsinformationen, Spielergebnisse und Tabellen gehören nicht zum News-CMS.
-
-Ein Teil dieser Daten wird automatisch verarbeitet beziehungsweise aus den dafür vorgesehenen Datenquellen erzeugt.
-
-Redakteure sollten deshalb keine Ergebnisse oder Tabellenstände in technischen Dateien korrigieren.
-
-Falls dort ein Fehler auftritt, sollte dieser an die technisch verantwortliche Person weitergegeben werden.
-
-Natürlich können Ergebnisse zusätzlich in einem normalen Spielbericht erwähnt werden.
-
----
-
-# 31. Technische Fehlermeldungen
-
-Bei einer normalen redaktionellen Änderung sollte keine technische Bearbeitung erforderlich sein.
-
-Tritt dennoch ein Fehler auf, sollte zuerst geprüft werden:
-
-1. Wurde der Beitrag im CMS tatsächlich gespeichert?
-2. Sind alle Pflichtfelder ausgefüllt?
-3. Wurde ein Bild vollständig hochgeladen?
-4. Besteht die Internetverbindung?
-5. Ist die Änderung nach der Veröffentlichung weiterhin nicht sichtbar?
-
-Wenn die Änderung danach weiterhin fehlt, sollte der Fehler an die technisch verantwortliche Person weitergegeben werden.
-
-Hilfreich sind dabei:
-
-* Titel des betroffenen Beitrags
-* Zeitpunkt der Änderung
-* kurze Beschreibung des Problems
-* Screenshot der Fehlermeldung
-* Information, was geändert werden sollte
-
-Redakteure sollten bei technischen Fehlern **nicht eigenständig Dateien im GitHub-Repository verändern**, um das Problem zu umgehen.
-
----
-
-# 32. Verhalten bei einer fehlerhaften Veröffentlichung
-
-Falls nach einer Änderung auf der öffentlichen Webseite ein Fehler auffällt:
-
-## Inhaltlicher Fehler
-
-Beispiele:
-
-* Tippfehler
-* falsches Datum
-* falsche Uhrzeit
-* falscher Link
-
-→ Beitrag im CMS korrigieren und erneut speichern.
-
-## Darstellungsfehler
-
-Beispiele:
-
-* Layout verschoben
-* Inhalt außerhalb des Bildschirms
-* News-Seite lädt nicht
-* Navigation funktioniert nicht
-* Tabelle ist technisch beschädigt
-
-→ Nicht versuchen, den Fehler über den News-Inhalt oder GitHub zu reparieren.
-
-→ Technisch verantwortliche Person informieren.
-
----
-
-# 33. Empfohlener Schreibstil
+## 21. Empfohlener Schreibstil
 
 News sollten möglichst:
 
-* sachlich
-* freundlich
-* verständlich
-* nicht unnötig kompliziert
-* für Mitglieder und Außenstehende nachvollziehbar
+- sachlich,
+- freundlich,
+- verständlich,
+- übersichtlich,
+- auch für Außenstehende nachvollziehbar
 
 geschrieben werden.
 
 Interne Abkürzungen sollten vermieden oder beim ersten Auftreten erklärt werden.
 
-## Beispiel
+Kurze Absätze und aussagekräftige Zwischenüberschriften verbessern die Lesbarkeit.
 
-Weniger gut:
+## 22. Kontrolle vor der Veröffentlichung
 
-> H1 gewinnt nach starkem Spiel das BK-Duell und steht jetzt 3:1.
+Vor dem Speichern beziehungsweise nach einer größeren Bearbeitung sollten folgende Punkte kurz geprüft werden:
 
-Besser:
+- Ist der Titel korrekt?
+- Sind Datum und Uhrzeit der Veröffentlichung korrekt?
+- Ist die Kurzbeschreibung sinnvoll oder soll sie automatisch erzeugt werden?
+- Ist das Titelbild korrekt?
+- Ist die Bildbeschreibung aussagekräftig?
+- Sind Rechtschreibung und Namen geprüft?
+- Sind Absätze und Überschriften sinnvoll gesetzt?
+- Funktionieren eingefügte Links?
+- Sind Eventdatum, Uhrzeit und Ort korrekt?
+- Enthält der Beitrag keine vertraulichen Informationen?
+- Dürfen verwendete Bilder veröffentlicht werden?
 
-> Unsere Herren I gewinnen ihr Spiel in der Bezirksklasse und stehen damit nach vier Begegnungen bei drei Siegen und einer Niederlage.
+Nach der Veröffentlichung sollte die öffentliche News-Seite kurz auf Desktop oder Smartphone kontrolliert werden.
 
----
+## 23. Wenn eine Änderung nicht sichtbar wird
 
-# 34. Datenschutz und Persönlichkeitsrechte
+Nach dem Speichern wird die Webseite automatisch verarbeitet und veröffentlicht. Die Änderung muss deshalb nicht zwingend in derselben Sekunde auf der öffentlichen Webseite erscheinen.
 
-Vor der Veröffentlichung personenbezogener Inhalte sollte geprüft werden, ob diese für die Vereinswebseite geeignet sind.
+Bei einer geplanten Veröffentlichung ist zusätzlich zu beachten, dass der automatische Zeitplan zweimal pro Stunde prüft, ob neue Beiträge freigegeben werden müssen.
 
-Besondere Vorsicht gilt bei:
+Wenn eine Änderung auch nach dem automatischen Lauf nicht sichtbar ist:
 
-* privaten Telefonnummern
-* privaten E-Mail-Adressen
-* Anschriften
-* personenbezogenen Informationen
-* Bildern von Personen
-* insbesondere Bildern von Kindern und Jugendlichen
+1. prüfen, ob der Beitrag im CMS gespeichert wurde,
+2. prüfen, ob der eingestellte Veröffentlichungszeitpunkt bereits erreicht ist,
+3. prüfen, ob alle Pflichtfelder ausgefüllt sind,
+4. die öffentliche Seite neu laden,
+5. bei weiterhin bestehendem Problem die technische Betreuung informieren.
 
-Nicht benötigte personenbezogene Daten sollten nicht veröffentlicht werden.
+Hilfreich für die Fehlersuche sind:
 
-Im Zweifelsfall sollte vor der Veröffentlichung Rücksprache mit der verantwortlichen Person im Verein gehalten werden.
+- Titel der betroffenen News,
+- ungefährer Zeitpunkt der Änderung,
+- kurze Beschreibung des Problems,
+- gegebenenfalls ein Screenshot einer Fehlermeldung.
 
----
+Bei technischen Fehlern sollten keine generierten Dateien im Repository als Workaround verändert werden.
 
-# 35. Keine vertraulichen Inhalte veröffentlichen
+## 24. Kurzablauf: neue News
 
-Die Vereinswebseite ist öffentlich erreichbar.
+1. Pages CMS öffnen und anmelden.
+2. **Neuigkeiten** öffnen.
+3. Neue News anlegen.
+4. Titel eintragen.
+5. Veröffentlichung prüfen oder planen.
+6. Optional eine Kurzbeschreibung eintragen.
+7. Titelbild auswählen oder hochladen.
+8. Bildbeschreibung eintragen.
+9. Artikel aus den gewünschten Inhaltsblöcken aufbauen.
+10. Inhalt kontrollieren.
+11. Speichern.
+12. Nach der automatischen Veröffentlichung die öffentliche News kurz prüfen.
 
-Alles, was über das CMS veröffentlicht wird, sollte deshalb grundsätzlich als öffentlich zugänglich betrachtet werden.
+## 25. Kurzablauf: bestehende News korrigieren
 
-Nicht veröffentlicht werden sollten beispielsweise:
+1. **Neuigkeiten** öffnen.
+2. Betroffenen Beitrag auswählen.
+3. Gewünschte Korrektur durchführen.
+4. Veröffentlichungszeitpunkt nur ändern, wenn dies bewusst gewünscht ist.
+5. Speichern.
+6. Öffentliche News nach der Aktualisierung kontrollieren.
 
-* interne Zugangsdaten
-* Passwörter
-* private Kontaktdaten ohne Freigabe
-* interne Vereinsdiskussionen
-* vertrauliche Dokumente
-* interne technische Informationen
+## 26. Kurzablauf: News löschen
 
----
+1. Prüfen, ob die News wirklich dauerhaft entfernt werden soll.
+2. Beitrag im CMS öffnen beziehungsweise auswählen.
+3. Löschen ausführen.
+4. Löschung bestätigen.
+5. Nach der automatischen Aktualisierung News-Übersicht und gegebenenfalls Startseite kontrollieren.
 
-# 36. Redaktionelle Grundregel
+## 27. Zuständigkeiten
 
-Für die tägliche Arbeit gilt:
+### Redaktion
 
-> **Inhalte über die dafür vorgesehene Redaktionsoberfläche pflegen – Technik nicht manuell verändern.**
+Die Redaktion ist insbesondere verantwortlich für:
 
-Bei einer normalen News-Veröffentlichung muss ein Redakteur keine Dateien erzeugen, keine Skripte starten und keinen Quellcode bearbeiten.
+- Inhalt und Formulierung der News,
+- Rechtschreibung,
+- Bilder und Bildbeschreibungen,
+- Veranstaltungsinformationen,
+- externe Links,
+- inhaltliche Aktualität.
 
----
+### Technische Betreuung
 
-# 37. Kurzablauf für eine neue News
+Zur technischen Betreuung gehören insbesondere:
 
-* [ ] Pages CMS öffnen
-* [ ] anmelden
-* [ ] Bereich „News“ öffnen
-* [ ] neue News erstellen
-* [ ] Titel eintragen
-* [ ] Datum kontrollieren
-* [ ] benötigte Inhaltsblöcke hinzufügen
-* [ ] Text schreiben und formatieren
-* [ ] gegebenenfalls Bilder oder Tabellen ergänzen
-* [ ] gegebenenfalls Eventankündigung ergänzen
-* [ ] Beitrag kontrollieren
-* [ ] speichern
-* [ ] automatische Veröffentlichung abwarten
-* [ ] öffentliche News-Seite kurz kontrollieren
+- Quellcode,
+- Navigation und Footer,
+- Seitendesign,
+- Pages-CMS-Konfiguration,
+- GitHub Pages,
+- automatische Workflows,
+- News-Generator,
+- Scraper und automatische Sportdaten,
+- Galerie-Automatisierung,
+- technische Fehler,
+- Domain und HTTPS.
 
----
-
-# 38. Kurzablauf für eine Korrektur
-
-* [ ] Pages CMS öffnen
-* [ ] betreffende News auswählen
-* [ ] Fehler korrigieren
-* [ ] keine unnötigen anderen Inhalte verändern
-* [ ] speichern
-* [ ] veröffentlichte News kontrollieren
-
----
-
-# 39. Kurzablauf zum Löschen einer News
-
-* [ ] prüfen, ob die News wirklich dauerhaft entfernt werden soll
-* [ ] betreffende News im CMS auswählen
-* [ ] löschen
-* [ ] Löschung bestätigen
-* [ ] automatische Aktualisierung abwarten
-* [ ] News-Übersicht kontrollieren
-
----
-
-# 40. Zuständigkeiten
-
-## Redaktion
-
-Verantwortlich für:
-
-* News-Inhalte
-* Rechtschreibung
-* Bilder innerhalb von News
-* Veranstaltungsinformationen
-* Links
-* inhaltliche Aktualität
-
-## Technische Betreuung
-
-Verantwortlich für:
-
-* Quellcode
-* Seitenstruktur
-* Design
-* GitHub Pages
-* Pages-CMS-Konfiguration
-* automatische Workflows
-* News-Generator
-* Datenimporte
-* Spielbetriebsdaten
-* Galerie-Automatisierung
-* technische Fehler
-* Deployment
-* Domain und HTTPS
-
----
-
-# 41. Wichtigste Regeln zusammengefasst
+## 28. Wichtigste Regeln
 
 1. News immer über **Pages CMS** bearbeiten.
-2. Generierte Dateien niemals als Ersatz für das CMS bearbeiten.
-3. Für normale News bevorzugt den **Textblock** verwenden.
-4. Eventankündigungen nur für tatsächliche Veranstaltungen verwenden.
-5. Bilder nur veröffentlichen, wenn sie dafür geeignet und freigegeben sind.
-6. Links nach Möglichkeit kontrollieren.
-7. Alte News müssen nicht automatisch gelöscht werden.
-8. Technische Dateien nicht verändern.
-9. Nach einer Veröffentlichung die öffentliche Webseite kurz kontrollieren.
-10. Bei technischen Problemen lieber die technische Betreuung informieren, statt selbst am Quellcode Änderungen vorzunehmen.
+2. Titelbild und Bildbeschreibung nicht vergessen.
+3. Die Kurzbeschreibung kann bei Bedarf automatisch erzeugt werden.
+4. Für normalen Fließtext den linksbündigen Textblock verwenden.
+5. Eventankündigungen nur für konkrete Termine verwenden.
+6. Bilder nur veröffentlichen, wenn sie dafür geeignet und freigegeben sind.
+7. Generierte Dateien nicht manuell korrigieren.
+8. Alte News nicht unnötig löschen – sie können als Vereinsarchiv dienen.
+9. Nach größeren Änderungen die öffentliche Darstellung kurz kontrollieren.
+10. Bei technischen Problemen die technische Betreuung informieren.
 
 ---
 
-# 42. Ansprechpartner
-
-## Redaktionelle Fragen
-
-**Ansprechpartner:** [Name eintragen]
-**E-Mail:** [E-Mail-Adresse eintragen]
-
-## Technische Fragen
-
-**Ansprechpartner:** Sascha Warth
-**E-Mail:** warth.sascha@outlook.de
-
----
-
-# 43. Dokumentstand
-
-**Webseite:** TTF Laudenbach
-**Dokument:** Redaktionsdokumentation
-**Stand:** August 2026
-
-Diese Dokumentation beschreibt die redaktionelle Bedienung der Vereinswebseite. Technische Einrichtung, Architektur, automatisierte Workflows, Generatoren, Datenquellen und Wartungsarbeiten werden separat in der **Technikdokumentation** beschrieben.
+**Dokumentstand:** August 2026  
+**Webseite:** TTF Laudenbach  
+**Dokument:** Redaktionshandbuch
