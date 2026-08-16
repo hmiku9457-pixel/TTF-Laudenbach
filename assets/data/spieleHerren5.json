@@ -1,14 +1,5 @@
 [
   {
-    "datum": "Sa., 19.09.2026",
-    "uhrzeit": "18:00",
-    "spielort": "",
-    "heim": "spielfrei*",
-    "gast": "TTF Laudenbach V",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "Sa., 26.09.2026",
     "uhrzeit": "18:00",
     "spielort": "1",
@@ -113,15 +104,6 @@
     "spielort": "1",
     "heim": "FC Creglingen II",
     "gast": "TTF Laudenbach V",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 24.04.2027",
-    "uhrzeit": "18:00",
-    "spielort": "",
-    "heim": "TTF Laudenbach V",
-    "gast": "spielfrei*",
     "ergebnis": null,
     "status": "geplant"
   }

@@ -45,6 +45,15 @@
     "status": "geplant"
   },
   {
+    "datum": "Fr., 13.11.2026",
+    "uhrzeit": "20:00\nt",
+    "spielort": "1",
+    "heim": "TTF Laudenbach II",
+    "gast": "SpVgg Gröningen-Satteldorf VI",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
     "datum": "Fr., 20.11.2026",
     "uhrzeit": "20:00",
     "spielort": "1",
@@ -58,15 +67,6 @@
     "uhrzeit": "20:00",
     "spielort": "1",
     "heim": "TSG Kirchberg II",
-    "gast": "TTF Laudenbach II",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "So., 06.12.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "SpVgg Gröningen-Satteldorf VI",
     "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
@@ -144,11 +144,11 @@
     "status": "geplant"
   },
   {
-    "datum": "Fr., 09.04.2027",
-    "uhrzeit": "20:00",
+    "datum": "So., 11.04.2027",
+    "uhrzeit": "10:00\nt",
     "spielort": "1",
-    "heim": "TTF Laudenbach II",
-    "gast": "SpVgg Gröningen-Satteldorf VI",
+    "heim": "SpVgg Gröningen-Satteldorf VI",
+    "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
   },
