@@ -552,3 +552,41 @@ table tr:hover {
         animation: none !important;
     }
 }
+
+/* ===== STARTSEITE: NÄCHSTE / VERGANGENE SPIELE ===== */
+.home-games-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-games-tab {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-muted);
+    font: inherit;
+    cursor: pointer;
+}
+
+.home-games-tab:hover,
+.home-games-tab.is-active {
+    color: var(--accent);
+}
+
+.home-games-tab.is-active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+}
+
+.home-games-tab:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: var(--space-s);
+}
+
+.home-games-tabs__separator {
+    color: var(--text-muted);
+}

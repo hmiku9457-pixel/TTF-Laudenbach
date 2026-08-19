@@ -141,9 +141,30 @@
 <!--hr --> <!-- Erstmal rausgenommen -->
 <div class="grid-home-secondLine">
 <div class="box">
-<div class="next-games">
-<h3 class="underline">Nächste Spiele</h3>
+<div class="next-games home-games">
+<h3 class="home-games-tabs" id="home-games-tabs">
+<button aria-controls="home-games-upcoming" aria-pressed="true" class="home-games-tab is-active" data-home-games-view="upcoming" type="button">Nächste Spiele</button>
+<span aria-hidden="true" class="home-games-tabs__separator">|</span>
+<button aria-controls="home-games-past" aria-pressed="false" class="home-games-tab" data-home-games-view="past" type="button">Vergangene Spiele</button>
+</h3>
+<div id="home-games-upcoming">
 <table><caption class="visually-hidden">Nächste Spiele</caption>
+<thead>
+<tr>
+<th scope="col">Datum</th>
+<th scope="col">Uhrzeit</th>
+<th scope="col">Mannschaft</th>
+<th scope="col">Gegner</th>
+<th scope="col">Spielort</th>
+</tr>
+</thead>
+<tbody id="spiele-startseite">
+<!-- Wird per JS gefüllt -->
+</tbody>
+</table>
+</div>
+<div hidden id="home-games-past">
+<table><caption class="visually-hidden">Vergangene Spiele</caption>
 <thead>
 <tr>
 <th scope="col">Datum</th>
@@ -154,10 +175,11 @@
 <th scope="col">Ergebnis</th>
 </tr>
 </thead>
-<tbody id="spiele-startseite">
+<tbody id="spiele-vergangen">
 <!-- Wird per JS gefüllt -->
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <div class="box">

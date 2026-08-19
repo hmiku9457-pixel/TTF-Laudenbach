@@ -1,8 +1,6 @@
 import {
     formatErgebnis,
     formatUhrzeit,
-    getErgebnis,
-    getMannschaft,
     getSpielort
 } from "../utils/game-formatters.js";
 
@@ -53,27 +51,6 @@ function createLeagueTableConfig(targetId, url) {
 }
 
 export const spieleConfigs = [
-    {
-        targetId: "spiele-startseite",
-        url: "/assets/data/spieleStartseite.json",
-        responsiveType: "next-games",
-        cells: spiel => {
-            const heim = text(spiel?.heim);
-            const gast = text(spiel?.gast);
-            const istHeimspiel = heim.includes("Laudenbach");
-            const gegner = istHeimspiel ? gast : heim;
-            return [
-                text(spiel?.datum),
-                formatUhrzeit(text(spiel?.uhrzeit)),
-                getMannschaft(heim, gast, text(spiel?.klasse)),
-                gegner,
-                getSpielort(text(spiel?.spielort), istHeimspiel),
-                getErgebnis({ ...spiel, heim, gast })
-            ];
-        },
-        emptyMessage: "Aktuell stehen keine Spiele an.",
-        errorMessage: "Die nächsten Spiele konnten nicht geladen werden."
-    },
     createGameConfig("spiele-herren1", "/assets/data/spieleHerren1.json"),
     createGameConfig("spiele-herren2", "/assets/data/spieleHerren2.json"),
     createGameConfig("spiele-herren3", "/assets/data/spieleHerren3.json"),

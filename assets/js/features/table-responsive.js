@@ -180,7 +180,7 @@ function prepareNextGamesTable(table) {
     table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
         .forEach((row, rowIndex) => {
             const cells = Array.from(row.cells);
-            if (cells.length < NEXT_GAMES_COLUMN_NAMES.length) {
+            if (cells.length < 5) {
                 return;
             }
 

@@ -44,6 +44,9 @@ async function initializePage() {
     if (has(".news-slider")) {
         tasks.push(loadFeature("./features/news-slider.js", "initNewsSlider"));
     }
+    if (has("#home-games-tabs")) {
+        tasks.push(loadFeature("./features/home-games.js", "initHomeGames"));
+    }
     if (has("#images-gallery-container, #images-event-list")) {
         tasks.push(loadFeature("./features/gallery.js", "initHistoricalImages"));
     }
