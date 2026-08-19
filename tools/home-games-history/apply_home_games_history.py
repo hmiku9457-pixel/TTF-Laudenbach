@@ -326,15 +326,23 @@ export async function initHomeGames() {
         emptyMessage: "Keine kommenden Spiele in den nächsten Wochen"
     });
 
+    const historyPool = [
+        ...teamData.games,
+        ...primary.data
+    ];
+
     const pastGames = deduplicateGames(
-        teamData.games
+        historyPool
             .filter(game => isPastGameWithResult(game, endOfToday))
             .sort((a, b) => gameTimestamp(b) - gameTimestamp(a))
     ).slice(0, FALLBACK_LIMIT);
 
     const pastError = (
         pastGames.length === 0
-        && teamData.successfulSources < teamData.totalSources
+        && (
+            primary.failed
+            || teamData.successfulSources < teamData.totalSources
+        )
     )
         ? "Die vergangenen Spiele konnten nicht vollständig geladen werden."
         : null;
@@ -458,29 +466,11 @@ NEW_MAIN_NEWS_BLOCK = OLD_MAIN_NEWS_BLOCK + """    if (has("#home-games-tabs")) 
     }
 """
 
-OLD_RESPONSIVE_HEADERS = """        ensureDualHeaderLabel(headerRow.cells[3], "Geg.");
-        ensureDualHeaderLabel(headerRow.cells[4], "H/A");
-        ensureDualHeaderLabel(headerRow.cells[5], "Erg.");
-    }
-    const targetId = table.tBodies?.[0]?.id || "next-games";
-    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
-        .forEach((row, rowIndex) => {
-            const cells = Array.from(row.cells);
-            if (cells.length < 6) {
+OLD_RESPONSIVE_GUARD = """            if (cells.length < NEXT_GAMES_COLUMN_NAMES.length) {
                 return;
             }"""
 
-NEW_RESPONSIVE_HEADERS = """        ensureDualHeaderLabel(headerRow.cells[3], "Geg.");
-        ensureDualHeaderLabel(headerRow.cells[4], "H/A");
-        if (headerRow.cells[5]) {
-            ensureDualHeaderLabel(headerRow.cells[5], "Erg.");
-        }
-    }
-    const targetId = table.tBodies?.[0]?.id || "next-games";
-    table.tBodies[0]?.querySelectorAll("tr:not(.table-status-row)")
-        .forEach((row, rowIndex) => {
-            const cells = Array.from(row.cells);
-            if (cells.length < 5) {
+NEW_RESPONSIVE_GUARD = """            if (cells.length < 5) {
                 return;
             }"""
 
@@ -614,9 +604,9 @@ def main():
 
     changed |= replace_once(
         RESPONSIVE_PATH,
-        OLD_RESPONSIVE_HEADERS,
-        NEW_RESPONSIVE_HEADERS,
-        "if (headerRow.cells[5])",
+        OLD_RESPONSIVE_GUARD,
+        NEW_RESPONSIVE_GUARD,
+        "if (cells.length < 5)",
         "table-responsive.js / 5- oder 6-spaltige Startseitentabelle"
     )
 

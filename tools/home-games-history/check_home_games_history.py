@@ -76,6 +76,8 @@ def main():
             "Ergebnisformatierung für vergangene Spiele fehlt.")
     require("hasResult(game)" in feature,
             "Vergangene Spiele werden nicht auf vorhandenes Ergebnis geprüft.")
+    require("...primary.data" in feature and "...teamData.games" in feature,
+            "Vergangene Spiele müssen Primär- und Mannschafts-JSONs zusammenführen.")
 
     expected_sources = [
         "spieleHerren1.json",
@@ -89,10 +91,10 @@ def main():
     for filename in expected_sources:
         require(filename in feature, f"Fallback-Quelle fehlt: {filename}")
 
-    require("if (headerRow.cells[5])" in responsive,
-            "Responsive-Logik behandelt die optionale Ergebnis-Spalte nicht.")
     require("if (cells.length < 5)" in responsive,
             "Responsive-Logik unterstützt die 5-spaltige kommende Tabelle nicht.")
+    require("NEXT_GAMES_COLUMN_NAMES" in responsive,
+            "Spaltenzuordnung für die Startseitentabelle fehlt.")
 
     require("STARTSEITE: NÄCHSTE / VERGANGENE SPIELE" in css,
             "CSS für den Umschalter fehlt.")
