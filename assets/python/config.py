@@ -177,6 +177,16 @@ LINKS = [
                 "id": "weinort_laudenbach",
                 "name": "Weinort Laudenbach",
                 "url": "https://weinort-laudenbach.de/"
+            },
+            {
+              "id": "webseiten_cms",
+              "name": "News Verwaltung",
+              "url": "https://app.pagescms.org/"
+            },
+            {
+              "id": "formspree_zugang",
+              "name": "Zugang Kontaktformular",
+              "url": "https://formspree.io/forms/xdavygne/overview"
             }
         ]
     },
