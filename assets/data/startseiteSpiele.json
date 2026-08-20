@@ -1,0 +1,22 @@
+[
+  {
+    "datum": "Sa., 19.09.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TTF Laudenbach II",
+    "gast": "SV Elpersheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 19.09.2026",
+    "uhrzeit": "19:45",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach III",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  }
+]
