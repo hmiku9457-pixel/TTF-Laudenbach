@@ -18,5 +18,55 @@
     "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "10:00\nv",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "SV Elpersheim II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 26.09.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E KKA",
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 27.09.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E BK",
+    "heim": "TTF Laudenbach",
+    "gast": "FC Creglingen",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 27.09.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E KLB",
+    "heim": "TTF Laudenbach IV",
+    "gast": "FC Igersheim II",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
