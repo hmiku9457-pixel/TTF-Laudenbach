@@ -68,5 +68,15 @@
     "gast": "FC Igersheim II",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Fr., 02.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "3",
+    "klasse": "E KLB",
+    "heim": "TSV Gerabronn III",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
