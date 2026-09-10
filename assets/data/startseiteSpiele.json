@@ -108,5 +108,15 @@
     "gast": "TTF Laudenbach",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 10.10.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "SV Tiefenbach II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
