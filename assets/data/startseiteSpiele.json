@@ -118,5 +118,25 @@
     "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Fr., 16.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach II",
+    "gast": "FC Igersheim",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 16.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "SC Buchenbach IV",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
