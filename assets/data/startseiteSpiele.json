@@ -138,5 +138,15 @@
     "gast": "TTF Laudenbach IV",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 17.10.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E BK",
+    "heim": "TSV Rossfeld III",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
