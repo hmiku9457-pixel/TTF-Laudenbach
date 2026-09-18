@@ -148,5 +148,15 @@
     "gast": "TTF Laudenbach",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "So., 18.10.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach III",
+    "gast": "SC Buchenbach III",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
