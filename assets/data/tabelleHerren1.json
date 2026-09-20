@@ -1,14 +1,14 @@
 [
   {
     "rang": "1",
-    "mannschaft": "TSV Gerabronn II",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "VFB Bad Mergentheim II",
+    "partien": "1",
+    "siege": "1",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "spiele": "9:3",
+    "spieleDifferenz": "+6",
+    "punkte": "2:0"
   },
   {
     "rang": "2",
@@ -23,7 +23,7 @@
   },
   {
     "rang": "3",
-    "mannschaft": "VFB Bad Mergentheim II",
+    "mannschaft": "TSV Gerabronn II",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -34,7 +34,7 @@
   },
   {
     "rang": "4",
-    "mannschaft": "TSV Schrozberg",
+    "mannschaft": "TSG Kirchberg",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -111,13 +111,13 @@
   },
   {
     "rang": "11",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "0",
+    "mannschaft": "TSV Schrozberg",
+    "partien": "1",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "3:9",
+    "spieleDifferenz": "-6",
+    "punkte": "0:2"
   }
 ]
