@@ -158,5 +158,15 @@
     "gast": "SC Buchenbach III",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Fr., 23.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TSG Kirchberg II",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
