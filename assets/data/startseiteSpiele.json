@@ -168,5 +168,35 @@
     "gast": "TTF Laudenbach III",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.10.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TV Niederstetten II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.10.2026",
+    "uhrzeit": "12:30",
+    "spielort": "3",
+    "klasse": "J19 KLA",
+    "heim": "TSV Gerabronn II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 24.10.2026",
+    "uhrzeit": "19:00",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "KSG Ellrichshausen III",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
