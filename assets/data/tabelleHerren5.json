@@ -1,18 +1,18 @@
 [
   {
     "rang": "1",
-    "mannschaft": "TTF Laudenbach V",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "TSV Markelsheim II",
+    "partien": "1",
+    "siege": "1",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "spiele": "8:2",
+    "spieleDifferenz": "+6",
+    "punkte": "2:0"
   },
   {
     "rang": "2",
-    "mannschaft": "TSV Markelsheim II",
+    "mannschaft": "TTF Laudenbach V",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -56,7 +56,7 @@
   },
   {
     "rang": "6",
-    "mannschaft": "SC Buchenbach V",
+    "mannschaft": "TSV Dörzbach II",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -67,13 +67,13 @@
   },
   {
     "rang": "7",
-    "mannschaft": "TSV Dörzbach II",
-    "partien": "0",
+    "mannschaft": "SC Buchenbach V",
+    "partien": "1",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "2:8",
+    "spieleDifferenz": "-6",
+    "punkte": "0:2"
   }
 ]

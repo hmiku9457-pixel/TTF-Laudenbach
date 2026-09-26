@@ -23,29 +23,29 @@
   },
   {
     "rang": "3",
-    "mannschaft": "TSV Rossfeld V",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "SV Bieberehren",
+    "partien": "2",
+    "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "13:15",
+    "spieleDifferenz": "-2",
+    "punkte": "2:2"
   },
   {
     "rang": "4",
-    "mannschaft": "KSG Ellrichshausen III",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "FC Langenburg II",
+    "partien": "2",
+    "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "11:16",
+    "spieleDifferenz": "-5",
+    "punkte": "2:2"
   },
   {
     "rang": "5",
-    "mannschaft": "TSV Gerabronn III",
+    "mannschaft": "TSV Rossfeld V",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -89,24 +89,24 @@
   },
   {
     "rang": "9",
-    "mannschaft": "SV Bieberehren",
+    "mannschaft": "TSV Gerabronn III",
     "partien": "1",
     "siege": "0",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "4:9",
-    "spieleDifferenz": "-5",
+    "spiele": "7:9",
+    "spieleDifferenz": "-2",
     "punkte": "0:2"
   },
   {
     "rang": "10",
-    "mannschaft": "FC Langenburg II",
+    "mannschaft": "KSG Ellrichshausen III",
     "partien": "1",
     "siege": "0",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "2:9",
-    "spieleDifferenz": "-7",
+    "spiele": "6:9",
+    "spieleDifferenz": "-3",
     "punkte": "0:2"
   }
 ]

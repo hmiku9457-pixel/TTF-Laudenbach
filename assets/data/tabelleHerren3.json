@@ -12,14 +12,14 @@
   },
   {
     "rang": "2",
-    "mannschaft": "TSV Schrozberg II",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "VFB Bad Mergentheim III",
+    "partien": "1",
+    "siege": "1",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "spiele": "9:3",
+    "spieleDifferenz": "+6",
+    "punkte": "2:0"
   },
   {
     "rang": "3",
@@ -56,17 +56,6 @@
   },
   {
     "rang": "6",
-    "mannschaft": "VFB Bad Mergentheim III",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
-    "rang": "7",
     "mannschaft": "FC Igersheim",
     "partien": "0",
     "siege": "0",
@@ -77,7 +66,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "8",
+    "rang": "7",
     "mannschaft": "SpVgg Gröningen-Satteldorf VI",
     "partien": "0",
     "siege": "0",
@@ -88,7 +77,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "9",
+    "rang": "8",
     "mannschaft": "SV Elpersheim II",
     "partien": "0",
     "siege": "0",
@@ -97,6 +86,17 @@
     "spiele": "0:0",
     "spieleDifferenz": "0",
     "punkte": "0:0"
+  },
+  {
+    "rang": "9",
+    "mannschaft": "TSV Schrozberg II",
+    "partien": "1",
+    "siege": "0",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "3:9",
+    "spieleDifferenz": "-6",
+    "punkte": "0:2"
   },
   {
     "rang": "10",

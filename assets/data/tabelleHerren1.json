@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "TSV Rossfeld III",
+    "partien": "1",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "9:1",
+    "spieleDifferenz": "+8",
+    "punkte": "2:0"
+  },
+  {
+    "rang": "2",
     "mannschaft": "VFB Bad Mergentheim II",
     "partien": "1",
     "siege": "1",
@@ -11,51 +22,29 @@
     "punkte": "2:0"
   },
   {
-    "rang": "2",
-    "mannschaft": "TTF Laudenbach",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
     "rang": "3",
-    "mannschaft": "TSV Gerabronn II",
-    "partien": "0",
+    "mannschaft": "FC Creglingen",
+    "partien": "1",
     "siege": "0",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "0:0",
+    "spiele": "8:8",
     "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "punkte": "1:1"
   },
   {
     "rang": "4",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "0",
+    "mannschaft": "TSV Gerabronn II",
+    "partien": "1",
     "siege": "0",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "0:0",
+    "spiele": "8:8",
     "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "punkte": "1:1"
   },
   {
     "rang": "5",
-    "mannschaft": "FC Creglingen",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
-    "rang": "6",
     "mannschaft": "SG Garnberg II",
     "partien": "0",
     "siege": "0",
@@ -66,8 +55,19 @@
     "punkte": "0:0"
   },
   {
+    "rang": "6",
+    "mannschaft": "TTF Laudenbach",
+    "partien": "0",
+    "siege": "0",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "0:0",
+    "spieleDifferenz": "0",
+    "punkte": "0:0"
+  },
+  {
     "rang": "7",
-    "mannschaft": "SV Tiefenbach",
+    "mannschaft": "TSG Kirchberg",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -78,17 +78,6 @@
   },
   {
     "rang": "8",
-    "mannschaft": "SpVgg Gröningen-Satteldorf IV",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
-    "rang": "9",
     "mannschaft": "TSV Dörzbach",
     "partien": "0",
     "siege": "0",
@@ -99,8 +88,8 @@
     "punkte": "0:0"
   },
   {
-    "rang": "10",
-    "mannschaft": "TSV Rossfeld III",
+    "rang": "9",
+    "mannschaft": "SpVgg Gröningen-Satteldorf IV",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",
@@ -110,7 +99,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "11",
+    "rang": "10",
     "mannschaft": "TSV Schrozberg",
     "partien": "1",
     "siege": "0",
@@ -118,6 +107,17 @@
     "niederlagen": "1",
     "spiele": "3:9",
     "spieleDifferenz": "-6",
+    "punkte": "0:2"
+  },
+  {
+    "rang": "11",
+    "mannschaft": "SV Tiefenbach",
+    "partien": "1",
+    "siege": "0",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "1:9",
+    "spieleDifferenz": "-8",
     "punkte": "0:2"
   }
 ]
