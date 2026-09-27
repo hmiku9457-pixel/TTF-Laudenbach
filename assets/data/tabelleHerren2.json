@@ -2,13 +2,13 @@
   {
     "rang": "1",
     "mannschaft": "TTF Laudenbach II",
-    "partien": "1",
+    "partien": "2",
     "siege": "1",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "9:2",
+    "spiele": "17:10",
     "spieleDifferenz": "+7",
-    "punkte": "2:0"
+    "punkte": "3:1"
   },
   {
     "rang": "2",
@@ -23,17 +23,28 @@
   },
   {
     "rang": "3",
-    "mannschaft": "SC Buchenbach III",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
+    "partien": "1",
+    "siege": "1",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "spiele": "9:7",
+    "spieleDifferenz": "+2",
+    "punkte": "2:0"
   },
   {
     "rang": "4",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "1",
+    "siege": "0",
+    "unentschieden": "1",
+    "niederlagen": "0",
+    "spiele": "8:8",
+    "spieleDifferenz": "0",
+    "punkte": "1:1"
+  },
+  {
+    "rang": "5",
     "mannschaft": "SV Tiefenbach II",
     "partien": "0",
     "siege": "0",
@@ -44,7 +55,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "5",
+    "rang": "6",
     "mannschaft": "TSG Kirchberg II",
     "partien": "0",
     "siege": "0",
@@ -55,7 +66,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "6",
+    "rang": "7",
     "mannschaft": "FC Igersheim",
     "partien": "0",
     "siege": "0",
@@ -66,26 +77,15 @@
     "punkte": "0:0"
   },
   {
-    "rang": "7",
-    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
     "rang": "8",
-    "mannschaft": "SV Elpersheim II",
-    "partien": "0",
+    "mannschaft": "SC Buchenbach III",
+    "partien": "1",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "7:9",
+    "spieleDifferenz": "-2",
+    "punkte": "0:2"
   },
   {
     "rang": "9",

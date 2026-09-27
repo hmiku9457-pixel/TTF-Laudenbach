@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "TSV Gerabronn IV",
+    "partien": "1",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "7:3",
+    "spieleDifferenz": "+4",
+    "punkte": "2:0"
+  },
+  {
+    "rang": "2",
     "mannschaft": "TTF Laudenbach II",
     "partien": "1",
     "siege": "1",
@@ -11,7 +22,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "2",
+    "rang": "3",
     "mannschaft": "TV Niederstetten II",
     "partien": "0",
     "siege": "0",
@@ -22,29 +33,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "3",
-    "mannschaft": "TSV Gerabronn IV",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
     "rang": "4",
-    "mannschaft": "TSV Dörzbach II",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
-    "rang": "5",
     "mannschaft": "SC Buchenbach II",
     "partien": "0",
     "siege": "0",
@@ -55,7 +44,7 @@
     "punkte": "0:0"
   },
   {
-    "rang": "6",
+    "rang": "5",
     "mannschaft": "SV Elpersheim II",
     "partien": "1",
     "siege": "0",
@@ -63,6 +52,17 @@
     "niederlagen": "1",
     "spiele": "4:6",
     "spieleDifferenz": "-2",
+    "punkte": "0:2"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "TSV Dörzbach II",
+    "partien": "1",
+    "siege": "0",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "3:7",
+    "spieleDifferenz": "-4",
     "punkte": "0:2"
   }
 ]

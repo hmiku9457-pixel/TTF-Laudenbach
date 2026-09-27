@@ -36,8 +36,8 @@
     "klasse": "E KLA",
     "heim": "SV Elpersheim II",
     "gast": "TTF Laudenbach II",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "8:8",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 26.09.2026",
@@ -46,8 +46,8 @@
     "klasse": "E KKA",
     "heim": "TSV Dörzbach II",
     "gast": "TTF Laudenbach V",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "9:1",
+    "status": "gespielt"
   },
   {
     "datum": "So., 27.09.2026",
@@ -56,8 +56,8 @@
     "klasse": "E BK",
     "heim": "TTF Laudenbach",
     "gast": "FC Creglingen",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "...",
+    "status": "gespielt"
   },
   {
     "datum": "So., 27.09.2026",
@@ -66,8 +66,8 @@
     "klasse": "E KLB",
     "heim": "TTF Laudenbach IV",
     "gast": "FC Igersheim II",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "...",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 02.10.2026",
