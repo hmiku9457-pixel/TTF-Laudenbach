@@ -5,7 +5,7 @@
     "spielort": "2",
     "heim": "TTF Laudenbach IV",
     "gast": "FC Igersheim II",
-    "ergebnis": "...",
+    "ergebnis": "3:9",
     "status": "gespielt"
   },
   {
@@ -73,10 +73,10 @@
   },
   {
     "datum": "Fr., 11.12.2026",
-    "uhrzeit": "20:00",
+    "uhrzeit": "20:00\nt",
     "spielort": "1",
-    "heim": "TTF Laudenbach IV",
-    "gast": "SV Bieberehren",
+    "heim": "SV Bieberehren",
+    "gast": "TTF Laudenbach IV",
     "ergebnis": null,
     "status": "geplant"
   },
@@ -109,10 +109,10 @@
   },
   {
     "datum": "Fr., 12.03.2027",
-    "uhrzeit": "20:00",
+    "uhrzeit": "20:00\nt",
     "spielort": "1",
-    "heim": "SV Bieberehren",
-    "gast": "TTF Laudenbach IV",
+    "heim": "TTF Laudenbach IV",
+    "gast": "SV Bieberehren",
     "ergebnis": null,
     "status": "geplant"
   },
