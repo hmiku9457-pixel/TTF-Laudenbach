@@ -198,5 +198,15 @@
     "gast": "TTF Laudenbach IV",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Fr., 30.10.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach III",
+    "gast": "FC Igersheim",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
