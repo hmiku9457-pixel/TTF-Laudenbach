@@ -35,6 +35,17 @@
   {
     "rang": "4",
     "mannschaft": "SV Elpersheim II",
+    "partien": "2",
+    "siege": "0",
+    "unentschieden": "2",
+    "niederlagen": "0",
+    "spiele": "16:16",
+    "spieleDifferenz": "0",
+    "punkte": "2:2"
+  },
+  {
+    "rang": "5",
+    "mannschaft": "TSG Kirchberg II",
     "partien": "1",
     "siege": "0",
     "unentschieden": "1",
@@ -44,19 +55,8 @@
     "punkte": "1:1"
   },
   {
-    "rang": "5",
-    "mannschaft": "SV Tiefenbach II",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
-  },
-  {
     "rang": "6",
-    "mannschaft": "TSG Kirchberg II",
+    "mannschaft": "SV Tiefenbach II",
     "partien": "0",
     "siege": "0",
     "unentschieden": "0",

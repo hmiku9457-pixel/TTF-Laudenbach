@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SV Bieberehren",
+    "partien": "3",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "22:16",
+    "spieleDifferenz": "+6",
+    "punkte": "4:2"
+  },
+  {
+    "rang": "2",
     "mannschaft": "TV Niederstetten",
     "partien": "1",
     "siege": "1",
@@ -11,7 +22,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "2",
+    "rang": "3",
     "mannschaft": "TSV Rossfeld V",
     "partien": "1",
     "siege": "1",
@@ -22,7 +33,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "3",
+    "rang": "4",
     "mannschaft": "FC Igersheim II",
     "partien": "1",
     "siege": "1",
@@ -33,7 +44,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "SV Elpersheim III",
     "partien": "1",
     "siege": "1",
@@ -42,17 +53,6 @@
     "spiele": "9:4",
     "spieleDifferenz": "+5",
     "punkte": "2:0"
-  },
-  {
-    "rang": "5",
-    "mannschaft": "SV Bieberehren",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "13:15",
-    "spieleDifferenz": "-2",
-    "punkte": "2:2"
   },
   {
     "rang": "6",
@@ -68,16 +68,27 @@
   {
     "rang": "7",
     "mannschaft": "TSV Gerabronn III",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "1",
-    "spiele": "7:9",
+    "spiele": "15:17",
     "spieleDifferenz": "-2",
-    "punkte": "0:2"
+    "punkte": "1:3"
   },
   {
     "rang": "8",
+    "mannschaft": "TTF Laudenbach IV",
+    "partien": "2",
+    "siege": "0",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "11:17",
+    "spieleDifferenz": "-6",
+    "punkte": "1:3"
+  },
+  {
+    "rang": "9",
     "mannschaft": "KSG Ellrichshausen III",
     "partien": "1",
     "siege": "0",
@@ -88,25 +99,14 @@
     "punkte": "0:2"
   },
   {
-    "rang": "9",
-    "mannschaft": "TTF Laudenbach IV",
-    "partien": "1",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "3:9",
-    "spieleDifferenz": "-6",
-    "punkte": "0:2"
-  },
-  {
     "rang": "10",
     "mannschaft": "SC Buchenbach IV",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "2:9",
-    "spieleDifferenz": "-7",
-    "punkte": "0:2"
+    "niederlagen": "2",
+    "spiele": "3:18",
+    "spieleDifferenz": "-15",
+    "punkte": "0:4"
   }
 ]

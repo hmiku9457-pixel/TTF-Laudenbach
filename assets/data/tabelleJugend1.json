@@ -1,36 +1,36 @@
 [
   {
     "rang": "1",
-    "mannschaft": "SV Onolzheim II",
+    "mannschaft": "TSG Kirchberg",
     "partien": "1",
     "siege": "1",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "10:0",
-    "spieleDifferenz": "+10",
+    "spiele": "6:4",
+    "spieleDifferenz": "+2",
     "punkte": "2:0"
   },
   {
     "rang": "2",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "SV Onolzheim II",
+    "partien": "2",
+    "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "14:6",
+    "spieleDifferenz": "+8",
+    "punkte": "2:2"
   },
   {
     "rang": "3",
-    "mannschaft": "FC Langenburg II",
-    "partien": "0",
-    "siege": "0",
+    "mannschaft": "SV Onolzheim III",
+    "partien": "2",
+    "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
+    "niederlagen": "1",
+    "spiele": "7:13",
+    "spieleDifferenz": "-6",
+    "punkte": "2:2"
   },
   {
     "rang": "4",
@@ -67,13 +67,13 @@
   },
   {
     "rang": "7",
-    "mannschaft": "SV Onolzheim III",
+    "mannschaft": "FC Langenburg II",
     "partien": "1",
     "siege": "0",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "0:10",
-    "spieleDifferenz": "-10",
+    "spiele": "3:7",
+    "spieleDifferenz": "-4",
     "punkte": "0:2"
   }
 ]
