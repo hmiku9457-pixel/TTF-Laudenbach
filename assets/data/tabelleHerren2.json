@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "2",
+    "niederlagen": "0",
+    "spiele": "25:21",
+    "spieleDifferenz": "+4",
+    "punkte": "4:2"
+  },
+  {
+    "rang": "2",
     "mannschaft": "TTF Laudenbach II",
     "partien": "2",
     "siege": "1",
@@ -11,19 +22,8 @@
     "punkte": "3:1"
   },
   {
-    "rang": "2",
-    "mannschaft": "FC Igersheim",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "9:3",
-    "spieleDifferenz": "+6",
-    "punkte": "2:0"
-  },
-  {
     "rang": "3",
-    "mannschaft": "VFB Bad Mergentheim III",
+    "mannschaft": "FC Igersheim",
     "partien": "1",
     "siege": "1",
     "unentschieden": "0",
@@ -45,17 +45,28 @@
   },
   {
     "rang": "5",
-    "mannschaft": "SV Elpersheim II",
+    "mannschaft": "VFB Bad Mergentheim III",
     "partien": "2",
-    "siege": "0",
-    "unentschieden": "2",
-    "niederlagen": "0",
-    "spiele": "16:16",
-    "spieleDifferenz": "0",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "14:12",
+    "spieleDifferenz": "+2",
     "punkte": "2:2"
   },
   {
     "rang": "6",
+    "mannschaft": "TTF Laudenbach III",
+    "partien": "2",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "11:15",
+    "spieleDifferenz": "-4",
+    "punkte": "2:2"
+  },
+  {
+    "rang": "7",
     "mannschaft": "TSG Kirchberg II",
     "partien": "1",
     "siege": "0",
@@ -64,17 +75,6 @@
     "spiele": "8:8",
     "spieleDifferenz": "0",
     "punkte": "1:1"
-  },
-  {
-    "rang": "7",
-    "mannschaft": "SV Tiefenbach II",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
   },
   {
     "rang": "8",
@@ -89,13 +89,13 @@
   },
   {
     "rang": "9",
-    "mannschaft": "TTF Laudenbach III",
+    "mannschaft": "SV Tiefenbach II",
     "partien": "1",
     "siege": "0",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "2:9",
-    "spieleDifferenz": "-7",
+    "spiele": "6:9",
+    "spieleDifferenz": "-3",
     "punkte": "0:2"
   },
   {

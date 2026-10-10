@@ -86,8 +86,8 @@
     "klasse": "E KLA",
     "heim": "SV Tiefenbach II",
     "gast": "TTF Laudenbach III",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "6:9",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 09.10.2026",
@@ -96,8 +96,8 @@
     "klasse": "E KKA",
     "heim": "TTF Laudenbach V",
     "gast": "SC Buchenbach V",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "5:5",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 09.10.2026",
@@ -106,8 +106,8 @@
     "klasse": "E BK",
     "heim": "TSV Gerabronn II",
     "gast": "TTF Laudenbach",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "9:5",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 10.10.2026",

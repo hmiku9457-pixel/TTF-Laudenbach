@@ -12,6 +12,17 @@
   },
   {
     "rang": "2",
+    "mannschaft": "FC Langenburg II",
+    "partien": "3",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "20:22",
+    "spieleDifferenz": "-2",
+    "punkte": "4:2"
+  },
+  {
+    "rang": "3",
     "mannschaft": "TV Niederstetten",
     "partien": "1",
     "siege": "1",
@@ -22,7 +33,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "3",
+    "rang": "4",
     "mannschaft": "TSV Rossfeld V",
     "partien": "1",
     "siege": "1",
@@ -33,7 +44,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "FC Igersheim II",
     "partien": "1",
     "siege": "1",
@@ -44,7 +55,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "5",
+    "rang": "6",
     "mannschaft": "SV Elpersheim III",
     "partien": "1",
     "siege": "1",
@@ -53,17 +64,6 @@
     "spiele": "9:4",
     "spieleDifferenz": "+5",
     "punkte": "2:0"
-  },
-  {
-    "rang": "6",
-    "mannschaft": "FC Langenburg II",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "11:16",
-    "spieleDifferenz": "-5",
-    "punkte": "2:2"
   },
   {
     "rang": "7",
@@ -90,13 +90,13 @@
   {
     "rang": "9",
     "mannschaft": "KSG Ellrichshausen III",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "6:9",
-    "spieleDifferenz": "-3",
-    "punkte": "0:2"
+    "niederlagen": "2",
+    "spiele": "12:18",
+    "spieleDifferenz": "-6",
+    "punkte": "0:4"
   },
   {
     "rang": "10",
