@@ -1,28 +1,39 @@
 [
   {
     "rang": "1",
-    "mannschaft": "SV Elpersheim II",
+    "mannschaft": "TTF Laudenbach II",
     "partien": "3",
-    "siege": "1",
-    "unentschieden": "2",
+    "siege": "2",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "25:21",
-    "spieleDifferenz": "+4",
-    "punkte": "4:2"
+    "spiele": "26:15",
+    "spieleDifferenz": "+11",
+    "punkte": "5:1"
   },
   {
     "rang": "2",
-    "mannschaft": "TTF Laudenbach II",
+    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
     "partien": "2",
-    "siege": "1",
-    "unentschieden": "1",
+    "siege": "2",
+    "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "17:10",
-    "spieleDifferenz": "+7",
-    "punkte": "3:1"
+    "spiele": "18:9",
+    "spieleDifferenz": "+9",
+    "punkte": "4:0"
   },
   {
     "rang": "3",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "4",
+    "siege": "1",
+    "unentschieden": "2",
+    "niederlagen": "1",
+    "spiele": "27:30",
+    "spieleDifferenz": "-3",
+    "punkte": "4:4"
+  },
+  {
+    "rang": "4",
     "mannschaft": "FC Igersheim",
     "partien": "1",
     "siege": "1",
@@ -30,17 +41,6 @@
     "niederlagen": "0",
     "spiele": "9:3",
     "spieleDifferenz": "+6",
-    "punkte": "2:0"
-  },
-  {
-    "rang": "4",
-    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "9:7",
-    "spieleDifferenz": "+2",
     "punkte": "2:0"
   },
   {
@@ -90,13 +90,13 @@
   {
     "rang": "9",
     "mannschaft": "SV Tiefenbach II",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "6:9",
-    "spieleDifferenz": "-3",
-    "punkte": "0:2"
+    "niederlagen": "2",
+    "spiele": "11:18",
+    "spieleDifferenz": "-7",
+    "punkte": "0:4"
   },
   {
     "rang": "10",

@@ -116,8 +116,8 @@
     "klasse": "E KLA",
     "heim": "SV Tiefenbach II",
     "gast": "TTF Laudenbach II",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "5:9",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 16.10.2026",
@@ -150,8 +150,8 @@
     "status": "geplant"
   },
   {
-    "datum": "So., 18.10.2026",
-    "uhrzeit": "10:30",
+    "datum": "Termin offen",
+    "uhrzeit": "u",
     "spielort": "2",
     "klasse": "E KLA",
     "heim": "TTF Laudenbach III",

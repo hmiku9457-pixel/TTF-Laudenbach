@@ -23,6 +23,17 @@
   },
   {
     "rang": "3",
+    "mannschaft": "TSV Rossfeld III",
+    "partien": "3",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "23:15",
+    "spieleDifferenz": "+8",
+    "punkte": "4:2"
+  },
+  {
+    "rang": "4",
     "mannschaft": "TSV Gerabronn II",
     "partien": "2",
     "siege": "1",
@@ -33,7 +44,7 @@
     "punkte": "3:1"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "TSV Schrozberg",
     "partien": "3",
     "siege": "1",
@@ -42,17 +53,6 @@
     "spiele": "20:23",
     "spieleDifferenz": "-3",
     "punkte": "3:3"
-  },
-  {
-    "rang": "5",
-    "mannschaft": "TSV Rossfeld III",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "14:10",
-    "spieleDifferenz": "+4",
-    "punkte": "2:2"
   },
   {
     "rang": "6",
@@ -90,13 +90,13 @@
   {
     "rang": "9",
     "mannschaft": "TSV Dörzbach",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "12:17",
-    "spieleDifferenz": "-5",
-    "punkte": "1:3"
+    "niederlagen": "2",
+    "spiele": "17:26",
+    "spieleDifferenz": "-9",
+    "punkte": "1:5"
   },
   {
     "rang": "10",

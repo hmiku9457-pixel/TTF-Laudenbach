@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SV Elpersheim III",
+    "partien": "2",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "18:4",
+    "spieleDifferenz": "+14",
+    "punkte": "4:0"
+  },
+  {
+    "rang": "2",
     "mannschaft": "SV Bieberehren",
     "partien": "3",
     "siege": "2",
@@ -11,7 +22,7 @@
     "punkte": "4:2"
   },
   {
-    "rang": "2",
+    "rang": "3",
     "mannschaft": "FC Langenburg II",
     "partien": "3",
     "siege": "2",
@@ -22,18 +33,29 @@
     "punkte": "4:2"
   },
   {
-    "rang": "3",
+    "rang": "4",
     "mannschaft": "TV Niederstetten",
-    "partien": "1",
+    "partien": "2",
     "siege": "1",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "9:2",
+    "spiele": "17:10",
     "spieleDifferenz": "+7",
-    "punkte": "2:0"
+    "punkte": "3:1"
   },
   {
-    "rang": "4",
+    "rang": "5",
+    "mannschaft": "FC Igersheim II",
+    "partien": "2",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "0",
+    "spiele": "17:11",
+    "spieleDifferenz": "+6",
+    "punkte": "3:1"
+  },
+  {
+    "rang": "6",
     "mannschaft": "TSV Rossfeld V",
     "partien": "1",
     "siege": "1",
@@ -41,28 +63,6 @@
     "niederlagen": "0",
     "spiele": "9:2",
     "spieleDifferenz": "+7",
-    "punkte": "2:0"
-  },
-  {
-    "rang": "5",
-    "mannschaft": "FC Igersheim II",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "9:3",
-    "spieleDifferenz": "+6",
-    "punkte": "2:0"
-  },
-  {
-    "rang": "6",
-    "mannschaft": "SV Elpersheim III",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "9:4",
-    "spieleDifferenz": "+5",
     "punkte": "2:0"
   },
   {
@@ -101,12 +101,12 @@
   {
     "rang": "10",
     "mannschaft": "SC Buchenbach IV",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "3:18",
-    "spieleDifferenz": "-15",
-    "punkte": "0:4"
+    "niederlagen": "3",
+    "spiele": "3:27",
+    "spieleDifferenz": "-24",
+    "punkte": "0:6"
   }
 ]
