@@ -20,16 +20,6 @@
     "status": "gespielt"
   },
   {
-    "datum": "Termin offen",
-    "uhrzeit": "u",
-    "spielort": "1",
-    "klasse": "J19 KLE",
-    "heim": "TTF Laudenbach II",
-    "gast": "SC Buchenbach II",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "Sa., 26.09.2026",
     "uhrzeit": "18:00",
     "spielort": "1",
@@ -150,6 +140,16 @@
     "status": "geplant"
   },
   {
+    "datum": "So., 18.10.2026",
+    "uhrzeit": "10:30\nv",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
     "datum": "Termin offen",
     "uhrzeit": "u",
     "spielort": "2",
@@ -246,6 +246,26 @@
     "klasse": "E BK",
     "heim": "TTF Laudenbach",
     "gast": "TSV Dörzbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 13.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "TTF Laudenbach IV",
+    "gast": "SV Elpersheim III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 13.11.2026",
+    "uhrzeit": "20:00\nt",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach II",
+    "gast": "SpVgg Gröningen-Satteldorf VI",
     "ergebnis": null,
     "status": "geplant"
   }
