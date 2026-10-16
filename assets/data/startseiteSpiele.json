@@ -268,5 +268,55 @@
     "gast": "SpVgg Gröningen-Satteldorf VI",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 14.11.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TTF Laudenbach II",
+    "gast": "TSV Gerabronn IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 14.11.2026",
+    "uhrzeit": "10:00",
+    "spielort": "1",
+    "klasse": "J19 KLA",
+    "heim": "TTF Laudenbach",
+    "gast": "VFB Jagstheim",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 14.11.2026",
+    "uhrzeit": "14:00",
+    "spielort": "1",
+    "klasse": "E KKA",
+    "heim": "VFB Bad Mergentheim IV",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 15.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach III",
+    "gast": "SV Elpersheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "So., 15.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E BK",
+    "heim": "TTF Laudenbach",
+    "gast": "TSV Schrozberg",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
