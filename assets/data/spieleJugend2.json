@@ -9,20 +9,20 @@
     "status": "gespielt"
   },
   {
+    "datum": "Sa., 17.10.2026",
+    "uhrzeit": "10:00\nv",
+    "spielort": "1",
+    "heim": "TV Niederstetten II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "0:10",
+    "status": "gespielt"
+  },
+  {
     "datum": "So., 18.10.2026",
     "uhrzeit": "10:30\nv",
     "spielort": "1",
     "heim": "TTF Laudenbach II",
     "gast": "SC Buchenbach II",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 24.10.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "heim": "TV Niederstetten II",
-    "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
   },

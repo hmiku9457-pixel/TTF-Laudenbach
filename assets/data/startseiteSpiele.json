@@ -116,8 +116,8 @@
     "klasse": "E KLA",
     "heim": "TTF Laudenbach II",
     "gast": "FC Igersheim",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "6:9",
+    "status": "gespielt"
   },
   {
     "datum": "Fr., 16.10.2026",
@@ -126,8 +126,18 @@
     "klasse": "E KLB",
     "heim": "SC Buchenbach IV",
     "gast": "TTF Laudenbach IV",
-    "ergebnis": null,
-    "status": "geplant"
+    "ergebnis": "9:3",
+    "status": "gespielt"
+  },
+  {
+    "datum": "Sa., 17.10.2026",
+    "uhrzeit": "10:00\nv",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TV Niederstetten II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": "0:10",
+    "status": "gespielt"
   },
   {
     "datum": "Sa., 17.10.2026",
@@ -166,16 +176,6 @@
     "klasse": "E KLA",
     "heim": "TSG Kirchberg II",
     "gast": "TTF Laudenbach III",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
-    "datum": "Sa., 24.10.2026",
-    "uhrzeit": "10:00",
-    "spielort": "1",
-    "klasse": "J19 KLE",
-    "heim": "TV Niederstetten II",
-    "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
   },

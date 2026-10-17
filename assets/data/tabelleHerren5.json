@@ -12,6 +12,17 @@
   },
   {
     "rang": "2",
+    "mannschaft": "TSV Markelsheim II",
+    "partien": "4",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "21:19",
+    "spieleDifferenz": "+2",
+    "punkte": "3:5"
+  },
+  {
+    "rang": "3",
     "mannschaft": "FC Creglingen II",
     "partien": "1",
     "siege": "1",
@@ -22,18 +33,18 @@
     "punkte": "2:0"
   },
   {
-    "rang": "3",
-    "mannschaft": "TSV Markelsheim II",
-    "partien": "3",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "16:14",
-    "spieleDifferenz": "+2",
-    "punkte": "2:4"
+    "rang": "4",
+    "mannschaft": "VFB Bad Mergentheim IV",
+    "partien": "1",
+    "siege": "0",
+    "unentschieden": "1",
+    "niederlagen": "0",
+    "spiele": "5:5",
+    "spieleDifferenz": "0",
+    "punkte": "1:1"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "SC Buchenbach V",
     "partien": "2",
     "siege": "0",
@@ -44,7 +55,7 @@
     "punkte": "1:3"
   },
   {
-    "rang": "5",
+    "rang": "6",
     "mannschaft": "TTF Laudenbach V",
     "partien": "2",
     "siege": "0",
@@ -53,17 +64,6 @@
     "spiele": "6:14",
     "spieleDifferenz": "-8",
     "punkte": "1:3"
-  },
-  {
-    "rang": "6",
-    "mannschaft": "VFB Bad Mergentheim IV",
-    "partien": "0",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "0:0",
-    "spieleDifferenz": "0",
-    "punkte": "0:0"
   },
   {
     "rang": "7",

@@ -2,17 +2,17 @@
   {
     "rang": "1",
     "mannschaft": "TTF Laudenbach II",
-    "partien": "3",
+    "partien": "4",
     "siege": "2",
     "unentschieden": "1",
-    "niederlagen": "0",
-    "spiele": "26:15",
-    "spieleDifferenz": "+11",
-    "punkte": "5:1"
+    "niederlagen": "1",
+    "spiele": "32:24",
+    "spieleDifferenz": "+8",
+    "punkte": "5:3"
   },
   {
     "rang": "2",
-    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
+    "mannschaft": "FC Igersheim",
     "partien": "2",
     "siege": "2",
     "unentschieden": "0",
@@ -23,6 +23,17 @@
   },
   {
     "rang": "3",
+    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
+    "partien": "2",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "18:9",
+    "spieleDifferenz": "+9",
+    "punkte": "4:0"
+  },
+  {
+    "rang": "4",
     "mannschaft": "SV Elpersheim II",
     "partien": "4",
     "siege": "1",
@@ -31,17 +42,6 @@
     "spiele": "27:30",
     "spieleDifferenz": "-3",
     "punkte": "4:4"
-  },
-  {
-    "rang": "4",
-    "mannschaft": "FC Igersheim",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "9:3",
-    "spieleDifferenz": "+6",
-    "punkte": "2:0"
   },
   {
     "rang": "5",
@@ -56,6 +56,17 @@
   },
   {
     "rang": "6",
+    "mannschaft": "SC Buchenbach III",
+    "partien": "2",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "16:16",
+    "spieleDifferenz": "0",
+    "punkte": "2:2"
+  },
+  {
+    "rang": "7",
     "mannschaft": "TTF Laudenbach III",
     "partien": "2",
     "siege": "1",
@@ -66,26 +77,15 @@
     "punkte": "2:2"
   },
   {
-    "rang": "7",
+    "rang": "8",
     "mannschaft": "TSG Kirchberg II",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
     "unentschieden": "1",
-    "niederlagen": "0",
-    "spiele": "8:8",
-    "spieleDifferenz": "0",
-    "punkte": "1:1"
-  },
-  {
-    "rang": "8",
-    "mannschaft": "SC Buchenbach III",
-    "partien": "1",
-    "siege": "0",
-    "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "7:9",
+    "spiele": "15:17",
     "spieleDifferenz": "-2",
-    "punkte": "0:2"
+    "punkte": "1:3"
   },
   {
     "rang": "9",
