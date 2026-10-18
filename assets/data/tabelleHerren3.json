@@ -1,6 +1,28 @@
 [
   {
     "rang": "1",
+    "mannschaft": "FC Igersheim",
+    "partien": "3",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "27:9",
+    "spieleDifferenz": "+18",
+    "punkte": "6:0"
+  },
+  {
+    "rang": "2",
+    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
+    "partien": "3",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "27:11",
+    "spieleDifferenz": "+16",
+    "punkte": "6:0"
+  },
+  {
+    "rang": "3",
     "mannschaft": "TTF Laudenbach II",
     "partien": "4",
     "siege": "2",
@@ -9,28 +31,6 @@
     "spiele": "32:24",
     "spieleDifferenz": "+8",
     "punkte": "5:3"
-  },
-  {
-    "rang": "2",
-    "mannschaft": "FC Igersheim",
-    "partien": "2",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "18:9",
-    "spieleDifferenz": "+9",
-    "punkte": "4:0"
-  },
-  {
-    "rang": "3",
-    "mannschaft": "SpVgg Gröningen-Satteldorf VI",
-    "partien": "2",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "18:9",
-    "spieleDifferenz": "+9",
-    "punkte": "4:0"
   },
   {
     "rang": "4",
@@ -45,17 +45,6 @@
   },
   {
     "rang": "5",
-    "mannschaft": "VFB Bad Mergentheim III",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "14:12",
-    "spieleDifferenz": "+2",
-    "punkte": "2:2"
-  },
-  {
-    "rang": "6",
     "mannschaft": "SC Buchenbach III",
     "partien": "2",
     "siege": "1",
@@ -66,7 +55,7 @@
     "punkte": "2:2"
   },
   {
-    "rang": "7",
+    "rang": "6",
     "mannschaft": "TTF Laudenbach III",
     "partien": "2",
     "siege": "1",
@@ -75,6 +64,17 @@
     "spiele": "11:15",
     "spieleDifferenz": "-4",
     "punkte": "2:2"
+  },
+  {
+    "rang": "7",
+    "mannschaft": "VFB Bad Mergentheim III",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "2",
+    "spiele": "14:21",
+    "spieleDifferenz": "-7",
+    "punkte": "2:4"
   },
   {
     "rang": "8",
@@ -101,12 +101,12 @@
   {
     "rang": "10",
     "mannschaft": "TSV Schrozberg II",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "6:18",
-    "spieleDifferenz": "-12",
-    "punkte": "0:4"
+    "niederlagen": "3",
+    "spiele": "8:27",
+    "spieleDifferenz": "-19",
+    "punkte": "0:6"
   }
 ]

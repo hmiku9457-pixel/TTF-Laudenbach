@@ -34,17 +34,39 @@
   },
   {
     "rang": "4",
-    "mannschaft": "TSV Rossfeld III",
+    "mannschaft": "TTF Laudenbach",
     "partien": "3",
     "siege": "2",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "23:15",
-    "spieleDifferenz": "+8",
+    "spiele": "23:16",
+    "spieleDifferenz": "+7",
     "punkte": "4:2"
   },
   {
     "rang": "5",
+    "mannschaft": "TSV Rossfeld III",
+    "partien": "4",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "2",
+    "spiele": "29:24",
+    "spieleDifferenz": "+5",
+    "punkte": "4:4"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "SV Tiefenbach",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "18:21",
+    "spieleDifferenz": "-3",
+    "punkte": "3:3"
+  },
+  {
+    "rang": "7",
     "mannschaft": "TSV Schrozberg",
     "partien": "4",
     "siege": "1",
@@ -55,29 +77,18 @@
     "punkte": "3:5"
   },
   {
-    "rang": "6",
-    "mannschaft": "TTF Laudenbach",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "14:10",
-    "spieleDifferenz": "+4",
-    "punkte": "2:2"
-  },
-  {
-    "rang": "7",
-    "mannschaft": "SV Tiefenbach",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "10:13",
-    "spieleDifferenz": "-3",
-    "punkte": "2:2"
-  },
-  {
     "rang": "8",
+    "mannschaft": "SG Garnberg II",
+    "partien": "4",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "23:31",
+    "spieleDifferenz": "-8",
+    "punkte": "3:5"
+  },
+  {
+    "rang": "9",
     "mannschaft": "VFB Bad Mergentheim II",
     "partien": "3",
     "siege": "1",
@@ -85,17 +96,6 @@
     "niederlagen": "2",
     "spiele": "21:21",
     "spieleDifferenz": "0",
-    "punkte": "2:4"
-  },
-  {
-    "rang": "9",
-    "mannschaft": "SG Garnberg II",
-    "partien": "3",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "15:23",
-    "spieleDifferenz": "-8",
     "punkte": "2:4"
   },
   {
