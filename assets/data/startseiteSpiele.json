@@ -161,7 +161,7 @@
   },
   {
     "datum": "Sa., 24.10.2026",
-    "uhrzeit": "12:30",
+    "uhrzeit": "10:00\nv",
     "spielort": "3",
     "klasse": "J19 KLA",
     "heim": "TSV Gerabronn II",
@@ -296,6 +296,66 @@
     "klasse": "E BK",
     "heim": "TTF Laudenbach",
     "gast": "TSV Schrozberg",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 20.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "TV Niederstetten",
+    "gast": "TTF Laudenbach IV",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 20.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TTF Laudenbach II",
+    "gast": "SC Buchenbach III",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "12:15",
+    "spielort": "1",
+    "klasse": "J19 KLA",
+    "heim": "FC Langenburg II",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "14:30\nv",
+    "spielort": "1",
+    "klasse": "J19 KLE",
+    "heim": "TSV Dörzbach II",
+    "gast": "TTF Laudenbach II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "17:30",
+    "spielort": "1",
+    "klasse": "E KKA",
+    "heim": "SV Elpersheim IV",
+    "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 21.11.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E BK",
+    "heim": "SV Tiefenbach",
+    "gast": "TTF Laudenbach",
     "ergebnis": null,
     "status": "geplant"
   }
