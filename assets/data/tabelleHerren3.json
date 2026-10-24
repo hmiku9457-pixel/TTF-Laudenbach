@@ -45,6 +45,17 @@
   },
   {
     "rang": "5",
+    "mannschaft": "TSG Kirchberg II",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "24:22",
+    "spieleDifferenz": "+2",
+    "punkte": "3:3"
+  },
+  {
+    "rang": "6",
     "mannschaft": "SC Buchenbach III",
     "partien": "2",
     "siege": "1",
@@ -52,17 +63,6 @@
     "niederlagen": "1",
     "spiele": "16:16",
     "spieleDifferenz": "0",
-    "punkte": "2:2"
-  },
-  {
-    "rang": "6",
-    "mannschaft": "TTF Laudenbach III",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "11:15",
-    "spieleDifferenz": "-4",
     "punkte": "2:2"
   },
   {
@@ -78,14 +78,14 @@
   },
   {
     "rang": "8",
-    "mannschaft": "TSG Kirchberg II",
-    "partien": "2",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "15:17",
-    "spieleDifferenz": "-2",
-    "punkte": "1:3"
+    "mannschaft": "TTF Laudenbach III",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "2",
+    "spiele": "16:24",
+    "spieleDifferenz": "-8",
+    "punkte": "2:4"
   },
   {
     "rang": "9",

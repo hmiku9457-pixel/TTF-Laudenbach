@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SV Bieberehren",
+    "partien": "5",
+    "siege": "3",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "39:29",
+    "spieleDifferenz": "+10",
+    "punkte": "7:3"
+  },
+  {
+    "rang": "2",
     "mannschaft": "SV Elpersheim III",
     "partien": "3",
     "siege": "3",
@@ -11,26 +22,15 @@
     "punkte": "6:0"
   },
   {
-    "rang": "2",
-    "mannschaft": "SV Bieberehren",
-    "partien": "4",
-    "siege": "2",
-    "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "30:24",
-    "spieleDifferenz": "+6",
-    "punkte": "5:3"
-  },
-  {
     "rang": "3",
     "mannschaft": "TSV Rossfeld V",
-    "partien": "2",
+    "partien": "3",
     "siege": "2",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "18:7",
-    "spieleDifferenz": "+11",
-    "punkte": "4:0"
+    "niederlagen": "1",
+    "spiele": "23:16",
+    "spieleDifferenz": "+7",
+    "punkte": "4:2"
   },
   {
     "rang": "4",
