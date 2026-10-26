@@ -12,28 +12,61 @@
   },
   {
     "rang": "2",
-    "mannschaft": "TSV Gerabronn II",
-    "partien": "3",
-    "siege": "2",
-    "unentschieden": "1",
-    "niederlagen": "0",
-    "spiele": "26:18",
-    "spieleDifferenz": "+8",
-    "punkte": "5:1"
+    "mannschaft": "TSV Rossfeld III",
+    "partien": "5",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "2",
+    "spiele": "38:29",
+    "spieleDifferenz": "+9",
+    "punkte": "6:4"
   },
   {
     "rang": "3",
     "mannschaft": "TSG Kirchberg",
-    "partien": "2",
+    "partien": "3",
     "siege": "2",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "18:11",
+    "spiele": "26:19",
     "spieleDifferenz": "+7",
-    "punkte": "4:0"
+    "punkte": "5:1"
   },
   {
     "rang": "4",
+    "mannschaft": "TSV Gerabronn II",
+    "partien": "4",
+    "siege": "2",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "31:27",
+    "spieleDifferenz": "+4",
+    "punkte": "5:3"
+  },
+  {
+    "rang": "5",
+    "mannschaft": "TSV Schrozberg",
+    "partien": "5",
+    "siege": "2",
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "33:33",
+    "spieleDifferenz": "0",
+    "punkte": "5:5"
+  },
+  {
+    "rang": "6",
+    "mannschaft": "SV Tiefenbach",
+    "partien": "5",
+    "siege": "2",
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "33:37",
+    "spieleDifferenz": "-4",
+    "punkte": "5:5"
+  },
+  {
+    "rang": "7",
     "mannschaft": "TTF Laudenbach",
     "partien": "3",
     "siege": "2",
@@ -44,18 +77,7 @@
     "punkte": "4:2"
   },
   {
-    "rang": "5",
-    "mannschaft": "TSV Rossfeld III",
-    "partien": "4",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "29:24",
-    "spieleDifferenz": "+5",
-    "punkte": "4:4"
-  },
-  {
-    "rang": "6",
+    "rang": "8",
     "mannschaft": "VFB Bad Mergentheim II",
     "partien": "4",
     "siege": "2",
@@ -66,48 +88,26 @@
     "punkte": "4:4"
   },
   {
-    "rang": "7",
-    "mannschaft": "SV Tiefenbach",
-    "partien": "4",
-    "siege": "1",
-    "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "24:30",
-    "spieleDifferenz": "-6",
-    "punkte": "3:5"
-  },
-  {
-    "rang": "8",
-    "mannschaft": "TSV Schrozberg",
-    "partien": "4",
-    "siege": "1",
-    "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "24:32",
-    "spieleDifferenz": "-8",
-    "punkte": "3:5"
-  },
-  {
     "rang": "9",
     "mannschaft": "SG Garnberg II",
-    "partien": "4",
+    "partien": "6",
     "siege": "1",
-    "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "23:31",
-    "spieleDifferenz": "-8",
-    "punkte": "3:5"
+    "unentschieden": "2",
+    "niederlagen": "3",
+    "spiele": "32:48",
+    "spieleDifferenz": "-16",
+    "punkte": "4:8"
   },
   {
     "rang": "10",
     "mannschaft": "TSV Dörzbach",
-    "partien": "3",
+    "partien": "4",
     "siege": "0",
     "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "17:26",
-    "spieleDifferenz": "-9",
-    "punkte": "1:5"
+    "niederlagen": "3",
+    "spiele": "24:35",
+    "spieleDifferenz": "-11",
+    "punkte": "1:7"
   },
   {
     "rang": "11",

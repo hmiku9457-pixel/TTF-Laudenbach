@@ -2,13 +2,13 @@
   {
     "rang": "1",
     "mannschaft": "TSV Dörzbach II",
-    "partien": "2",
-    "siege": "2",
+    "partien": "3",
+    "siege": "3",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "15:5",
-    "spieleDifferenz": "+10",
-    "punkte": "4:0"
+    "spiele": "22:8",
+    "spieleDifferenz": "+14",
+    "punkte": "6:0"
   },
   {
     "rang": "2",
@@ -35,13 +35,13 @@
   {
     "rang": "4",
     "mannschaft": "FC Creglingen II",
-    "partien": "2",
+    "partien": "3",
     "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "9:11",
-    "spieleDifferenz": "-2",
-    "punkte": "2:2"
+    "niederlagen": "2",
+    "spiele": "12:18",
+    "spieleDifferenz": "-6",
+    "punkte": "2:4"
   },
   {
     "rang": "5",

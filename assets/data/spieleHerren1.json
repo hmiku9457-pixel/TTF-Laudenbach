@@ -54,15 +54,6 @@
     "status": "geplant"
   },
   {
-    "datum": "Sa., 21.11.2026",
-    "uhrzeit": "18:00",
-    "spielort": "1",
-    "heim": "SV Tiefenbach",
-    "gast": "TTF Laudenbach",
-    "ergebnis": null,
-    "status": "geplant"
-  },
-  {
     "datum": "Sa., 28.11.2026",
     "uhrzeit": "18:00",
     "spielort": "1",
@@ -77,6 +68,15 @@
     "spielort": "2",
     "heim": "TTF Laudenbach",
     "gast": "SG Garnberg II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 04.12.2026",
+    "uhrzeit": "19:30\ntv",
+    "spielort": "1",
+    "heim": "TTF Laudenbach",
+    "gast": "SV Tiefenbach",
     "ergebnis": null,
     "status": "geplant"
   },
@@ -136,10 +136,10 @@
   },
   {
     "datum": "So., 04.04.2027",
-    "uhrzeit": "10:30",
-    "spielort": "2",
-    "heim": "TTF Laudenbach",
-    "gast": "SV Tiefenbach",
+    "uhrzeit": "10:30\nt",
+    "spielort": "1",
+    "heim": "SV Tiefenbach",
+    "gast": "TTF Laudenbach",
     "ergebnis": null,
     "status": "geplant"
   },

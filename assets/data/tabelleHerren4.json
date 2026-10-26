@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SV Elpersheim III",
+    "partien": "4",
+    "siege": "4",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "36:12",
+    "spieleDifferenz": "+24",
+    "punkte": "8:0"
+  },
+  {
+    "rang": "2",
     "mannschaft": "SV Bieberehren",
     "partien": "5",
     "siege": "3",
@@ -9,17 +20,6 @@
     "spiele": "39:29",
     "spieleDifferenz": "+10",
     "punkte": "7:3"
-  },
-  {
-    "rang": "2",
-    "mannschaft": "SV Elpersheim III",
-    "partien": "3",
-    "siege": "3",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "27:7",
-    "spieleDifferenz": "+20",
-    "punkte": "6:0"
   },
   {
     "rang": "3",
@@ -67,6 +67,17 @@
   },
   {
     "rang": "7",
+    "mannschaft": "TTF Laudenbach IV",
+    "partien": "4",
+    "siege": "0",
+    "unentschieden": "2",
+    "niederlagen": "2",
+    "spiele": "22:34",
+    "spieleDifferenz": "-12",
+    "punkte": "2:6"
+  },
+  {
+    "rang": "8",
     "mannschaft": "SC Buchenbach IV",
     "partien": "4",
     "siege": "1",
@@ -77,36 +88,25 @@
     "punkte": "2:6"
   },
   {
-    "rang": "8",
-    "mannschaft": "TSV Gerabronn III",
-    "partien": "2",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "15:17",
-    "spieleDifferenz": "-2",
-    "punkte": "1:3"
-  },
-  {
     "rang": "9",
-    "mannschaft": "TTF Laudenbach IV",
+    "mannschaft": "KSG Ellrichshausen III",
     "partien": "3",
     "siege": "0",
     "unentschieden": "1",
     "niederlagen": "2",
-    "spiele": "14:26",
-    "spieleDifferenz": "-12",
+    "spiele": "20:26",
+    "spieleDifferenz": "-6",
     "punkte": "1:5"
   },
   {
     "rang": "10",
-    "mannschaft": "KSG Ellrichshausen III",
-    "partien": "2",
+    "mannschaft": "TSV Gerabronn III",
+    "partien": "3",
     "siege": "0",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "2",
-    "spiele": "12:18",
+    "spiele": "20:26",
     "spieleDifferenz": "-6",
-    "punkte": "0:4"
+    "punkte": "1:5"
   }
 ]

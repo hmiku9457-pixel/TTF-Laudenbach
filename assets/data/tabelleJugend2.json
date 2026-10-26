@@ -23,6 +23,17 @@
   },
   {
     "rang": "3",
+    "mannschaft": "TSV Dörzbach II",
+    "partien": "2",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "12:8",
+    "spieleDifferenz": "+4",
+    "punkte": "2:2"
+  },
+  {
+    "rang": "4",
     "mannschaft": "SV Elpersheim II",
     "partien": "1",
     "siege": "0",
@@ -33,7 +44,7 @@
     "punkte": "0:2"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "SC Buchenbach II",
     "partien": "1",
     "siege": "0",
@@ -44,25 +55,14 @@
     "punkte": "0:2"
   },
   {
-    "rang": "5",
-    "mannschaft": "TSV Dörzbach II",
-    "partien": "1",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "3:7",
-    "spieleDifferenz": "-4",
-    "punkte": "0:2"
-  },
-  {
     "rang": "6",
     "mannschaft": "TV Niederstetten II",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "0:10",
-    "spieleDifferenz": "-10",
-    "punkte": "0:2"
+    "niederlagen": "2",
+    "spiele": "1:19",
+    "spieleDifferenz": "-18",
+    "punkte": "0:4"
   }
 ]
