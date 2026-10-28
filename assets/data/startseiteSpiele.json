@@ -1,25 +1,5 @@
 [
   {
-    "datum": "So., 27.09.2026",
-    "uhrzeit": "10:30",
-    "spielort": "2",
-    "klasse": "E BK",
-    "heim": "TTF Laudenbach",
-    "gast": "FC Creglingen",
-    "ergebnis": "9:1",
-    "status": "gespielt"
-  },
-  {
-    "datum": "So., 27.09.2026",
-    "uhrzeit": "10:30",
-    "spielort": "2",
-    "klasse": "E KLB",
-    "heim": "TTF Laudenbach IV",
-    "gast": "FC Igersheim II",
-    "ergebnis": "3:9",
-    "status": "gespielt"
-  },
-  {
     "datum": "Fr., 02.10.2026",
     "uhrzeit": "20:00",
     "spielort": "3",
@@ -326,6 +306,26 @@
     "klasse": "E KKA",
     "heim": "SV Elpersheim IV",
     "gast": "TTF Laudenbach V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 27.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLB",
+    "heim": "TTF Laudenbach IV",
+    "gast": "TSV Rossfeld V",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Fr., 27.11.2026",
+    "uhrzeit": "20:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "TSG Kirchberg II",
+    "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
   }
