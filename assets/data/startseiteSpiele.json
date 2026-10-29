@@ -328,5 +328,35 @@
     "gast": "TTF Laudenbach II",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "18:00",
+    "spielort": "1",
+    "klasse": "E BK",
+    "heim": "TSG Kirchberg",
+    "gast": "TTF Laudenbach",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "18:45",
+    "spielort": "1",
+    "klasse": "E KKA",
+    "heim": "TTF Laudenbach V",
+    "gast": "TSV Markelsheim II",
+    "ergebnis": null,
+    "status": "geplant"
+  },
+  {
+    "datum": "Sa., 28.11.2026",
+    "uhrzeit": "19:00",
+    "spielort": "1",
+    "klasse": "E KLA",
+    "heim": "SpVgg Gröningen-Satteldorf VI",
+    "gast": "TTF Laudenbach III",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
