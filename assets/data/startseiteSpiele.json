@@ -358,5 +358,15 @@
     "gast": "TTF Laudenbach III",
     "ergebnis": null,
     "status": "geplant"
+  },
+  {
+    "datum": "So., 29.11.2026",
+    "uhrzeit": "10:30",
+    "spielort": "2",
+    "klasse": "E BK",
+    "heim": "TTF Laudenbach",
+    "gast": "SG Garnberg II",
+    "ergebnis": null,
+    "status": "geplant"
   }
 ]
