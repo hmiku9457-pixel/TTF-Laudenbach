@@ -23,6 +23,17 @@
   },
   {
     "rang": "3",
+    "mannschaft": "FC Langenburg II",
+    "partien": "5",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "2",
+    "spiele": "34:38",
+    "spieleDifferenz": "-4",
+    "punkte": "6:4"
+  },
+  {
+    "rang": "4",
     "mannschaft": "TSV Rossfeld V",
     "partien": "3",
     "siege": "2",
@@ -33,7 +44,7 @@
     "punkte": "4:2"
   },
   {
-    "rang": "4",
+    "rang": "5",
     "mannschaft": "TV Niederstetten",
     "partien": "3",
     "siege": "1",
@@ -44,29 +55,29 @@
     "punkte": "4:2"
   },
   {
-    "rang": "5",
-    "mannschaft": "FC Langenburg II",
-    "partien": "4",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "25:31",
-    "spieleDifferenz": "-6",
-    "punkte": "4:4"
-  },
-  {
     "rang": "6",
-    "mannschaft": "FC Igersheim II",
-    "partien": "3",
+    "mannschaft": "TSV Gerabronn III",
+    "partien": "4",
     "siege": "1",
     "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "20:20",
-    "spieleDifferenz": "0",
-    "punkte": "3:3"
+    "niederlagen": "2",
+    "spiele": "29:28",
+    "spieleDifferenz": "+1",
+    "punkte": "3:5"
   },
   {
     "rang": "7",
+    "mannschaft": "FC Igersheim II",
+    "partien": "4",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "27:29",
+    "spieleDifferenz": "-2",
+    "punkte": "3:5"
+  },
+  {
+    "rang": "8",
     "mannschaft": "TTF Laudenbach IV",
     "partien": "4",
     "siege": "0",
@@ -77,30 +88,19 @@
     "punkte": "2:6"
   },
   {
-    "rang": "8",
+    "rang": "9",
     "mannschaft": "SC Buchenbach IV",
-    "partien": "4",
+    "partien": "5",
     "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "12:30",
-    "spieleDifferenz": "-18",
-    "punkte": "2:6"
-  },
-  {
-    "rang": "9",
-    "mannschaft": "KSG Ellrichshausen III",
-    "partien": "3",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "20:26",
-    "spieleDifferenz": "-6",
-    "punkte": "1:5"
+    "niederlagen": "4",
+    "spiele": "14:39",
+    "spieleDifferenz": "-25",
+    "punkte": "2:8"
   },
   {
     "rang": "10",
-    "mannschaft": "TSV Gerabronn III",
+    "mannschaft": "KSG Ellrichshausen III",
     "partien": "3",
     "siege": "0",
     "unentschieden": "1",

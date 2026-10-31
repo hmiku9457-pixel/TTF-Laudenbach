@@ -1,6 +1,17 @@
 [
   {
     "rang": "1",
+    "mannschaft": "TSV Gerabronn II",
+    "partien": "5",
+    "siege": "3",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "40:34",
+    "spieleDifferenz": "+6",
+    "punkte": "7:3"
+  },
+  {
+    "rang": "2",
     "mannschaft": "SpVgg Gröningen-Satteldorf IV",
     "partien": "3",
     "siege": "3",
@@ -11,7 +22,7 @@
     "punkte": "6:0"
   },
   {
-    "rang": "2",
+    "rang": "3",
     "mannschaft": "TSV Rossfeld III",
     "partien": "5",
     "siege": "3",
@@ -22,25 +33,14 @@
     "punkte": "6:4"
   },
   {
-    "rang": "3",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "3",
-    "siege": "2",
-    "unentschieden": "1",
-    "niederlagen": "0",
-    "spiele": "26:19",
-    "spieleDifferenz": "+7",
-    "punkte": "5:1"
-  },
-  {
     "rang": "4",
-    "mannschaft": "TSV Gerabronn II",
+    "mannschaft": "TSG Kirchberg",
     "partien": "4",
     "siege": "2",
     "unentschieden": "1",
     "niederlagen": "1",
-    "spiele": "31:27",
-    "spieleDifferenz": "+4",
+    "spiele": "33:28",
+    "spieleDifferenz": "+5",
     "punkte": "5:3"
   },
   {
