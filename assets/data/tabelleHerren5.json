@@ -2,13 +2,13 @@
   {
     "rang": "1",
     "mannschaft": "TSV Dörzbach II",
-    "partien": "3",
-    "siege": "3",
+    "partien": "4",
+    "siege": "4",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "22:8",
-    "spieleDifferenz": "+14",
-    "punkte": "6:0"
+    "spiele": "31:9",
+    "spieleDifferenz": "+22",
+    "punkte": "8:0"
   },
   {
     "rang": "2",
@@ -23,17 +23,28 @@
   },
   {
     "rang": "3",
-    "mannschaft": "SV Elpersheim IV",
-    "partien": "1",
-    "siege": "1",
-    "unentschieden": "0",
+    "mannschaft": "VFB Bad Mergentheim IV",
+    "partien": "2",
+    "siege": "0",
+    "unentschieden": "2",
     "niederlagen": "0",
-    "spiele": "7:3",
-    "spieleDifferenz": "+4",
-    "punkte": "2:0"
+    "spiele": "10:10",
+    "spieleDifferenz": "0",
+    "punkte": "2:2"
   },
   {
     "rang": "4",
+    "mannschaft": "SV Elpersheim IV",
+    "partien": "2",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "8:12",
+    "spieleDifferenz": "-4",
+    "punkte": "2:2"
+  },
+  {
+    "rang": "5",
     "mannschaft": "FC Creglingen II",
     "partien": "3",
     "siege": "1",
@@ -44,26 +55,15 @@
     "punkte": "2:4"
   },
   {
-    "rang": "5",
-    "mannschaft": "VFB Bad Mergentheim IV",
-    "partien": "1",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "0",
-    "spiele": "5:5",
-    "spieleDifferenz": "0",
-    "punkte": "1:1"
-  },
-  {
     "rang": "6",
     "mannschaft": "SC Buchenbach V",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
-    "unentschieden": "1",
+    "unentschieden": "2",
     "niederlagen": "1",
-    "spiele": "7:13",
+    "spiele": "12:18",
     "spieleDifferenz": "-6",
-    "punkte": "1:3"
+    "punkte": "2:4"
   },
   {
     "rang": "7",

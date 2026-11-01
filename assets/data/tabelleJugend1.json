@@ -12,6 +12,17 @@
   },
   {
     "rang": "2",
+    "mannschaft": "SV Onolzheim II",
+    "partien": "3",
+    "siege": "1",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "19:11",
+    "spieleDifferenz": "+8",
+    "punkte": "3:3"
+  },
+  {
+    "rang": "3",
     "mannschaft": "TTF Laudenbach",
     "partien": "1",
     "siege": "1",
@@ -22,7 +33,7 @@
     "punkte": "2:0"
   },
   {
-    "rang": "3",
+    "rang": "4",
     "mannschaft": "TSG Kirchberg",
     "partien": "1",
     "siege": "1",
@@ -31,17 +42,6 @@
     "spiele": "6:4",
     "spieleDifferenz": "+2",
     "punkte": "2:0"
-  },
-  {
-    "rang": "4",
-    "mannschaft": "SV Onolzheim II",
-    "partien": "2",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "14:6",
-    "spieleDifferenz": "+8",
-    "punkte": "2:2"
   },
   {
     "rang": "5",
@@ -57,13 +57,13 @@
   {
     "rang": "6",
     "mannschaft": "TSV Gerabronn II",
-    "partien": "1",
+    "partien": "2",
     "siege": "0",
-    "unentschieden": "0",
+    "unentschieden": "1",
     "niederlagen": "1",
-    "spiele": "3:7",
+    "spiele": "8:12",
     "spieleDifferenz": "-4",
-    "punkte": "0:2"
+    "punkte": "1:3"
   },
   {
     "rang": "7",

@@ -1,6 +1,28 @@
 [
   {
     "rang": "1",
+    "mannschaft": "SpVgg Gröningen-Satteldorf IV",
+    "partien": "4",
+    "siege": "4",
+    "unentschieden": "0",
+    "niederlagen": "0",
+    "spiele": "36:14",
+    "spieleDifferenz": "+22",
+    "punkte": "8:0"
+  },
+  {
+    "rang": "2",
+    "mannschaft": "TSG Kirchberg",
+    "partien": "5",
+    "siege": "3",
+    "unentschieden": "1",
+    "niederlagen": "1",
+    "spiele": "42:35",
+    "spieleDifferenz": "+7",
+    "punkte": "7:3"
+  },
+  {
+    "rang": "3",
     "mannschaft": "TSV Gerabronn II",
     "partien": "5",
     "siege": "3",
@@ -11,18 +33,7 @@
     "punkte": "7:3"
   },
   {
-    "rang": "2",
-    "mannschaft": "SpVgg Gröningen-Satteldorf IV",
-    "partien": "3",
-    "siege": "3",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "27:9",
-    "spieleDifferenz": "+18",
-    "punkte": "6:0"
-  },
-  {
-    "rang": "3",
+    "rang": "4",
     "mannschaft": "TSV Rossfeld III",
     "partien": "5",
     "siege": "3",
@@ -31,17 +42,6 @@
     "spiele": "38:29",
     "spieleDifferenz": "+9",
     "punkte": "6:4"
-  },
-  {
-    "rang": "4",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "4",
-    "siege": "2",
-    "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "33:28",
-    "spieleDifferenz": "+5",
-    "punkte": "5:3"
   },
   {
     "rang": "5",
@@ -57,13 +57,13 @@
   {
     "rang": "6",
     "mannschaft": "SV Tiefenbach",
-    "partien": "5",
+    "partien": "6",
     "siege": "2",
     "unentschieden": "1",
-    "niederlagen": "2",
-    "spiele": "33:37",
-    "spieleDifferenz": "-4",
-    "punkte": "5:5"
+    "niederlagen": "3",
+    "spiele": "40:46",
+    "spieleDifferenz": "-6",
+    "punkte": "5:7"
   },
   {
     "rang": "7",
@@ -100,17 +100,6 @@
   },
   {
     "rang": "10",
-    "mannschaft": "TSV Dörzbach",
-    "partien": "4",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "3",
-    "spiele": "24:35",
-    "spieleDifferenz": "-11",
-    "punkte": "1:7"
-  },
-  {
-    "rang": "11",
     "mannschaft": "FC Creglingen",
     "partien": "4",
     "siege": "0",
@@ -119,5 +108,16 @@
     "spiele": "18:35",
     "spieleDifferenz": "-17",
     "punkte": "1:7"
+  },
+  {
+    "rang": "11",
+    "mannschaft": "TSV Dörzbach",
+    "partien": "5",
+    "siege": "0",
+    "unentschieden": "1",
+    "niederlagen": "4",
+    "spiele": "29:44",
+    "spieleDifferenz": "-15",
+    "punkte": "1:9"
   }
 ]

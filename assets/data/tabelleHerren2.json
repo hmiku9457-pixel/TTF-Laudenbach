@@ -23,6 +23,17 @@
   },
   {
     "rang": "3",
+    "mannschaft": "SC Buchenbach III",
+    "partien": "4",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "34:18",
+    "spieleDifferenz": "+16",
+    "punkte": "6:2"
+  },
+  {
+    "rang": "4",
     "mannschaft": "TTF Laudenbach II",
     "partien": "4",
     "siege": "2",
@@ -31,17 +42,6 @@
     "spiele": "32:24",
     "spieleDifferenz": "+8",
     "punkte": "5:3"
-  },
-  {
-    "rang": "4",
-    "mannschaft": "SC Buchenbach III",
-    "partien": "3",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "25:16",
-    "spieleDifferenz": "+9",
-    "punkte": "4:2"
   },
   {
     "rang": "5",
@@ -56,6 +56,17 @@
   },
   {
     "rang": "6",
+    "mannschaft": "TTF Laudenbach III",
+    "partien": "5",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "3",
+    "spiele": "27:35",
+    "spieleDifferenz": "-8",
+    "punkte": "4:6"
+  },
+  {
+    "rang": "7",
     "mannschaft": "TSG Kirchberg II",
     "partien": "3",
     "siege": "1",
@@ -64,17 +75,6 @@
     "spiele": "24:22",
     "spieleDifferenz": "+2",
     "punkte": "3:3"
-  },
-  {
-    "rang": "7",
-    "mannschaft": "TTF Laudenbach III",
-    "partien": "4",
-    "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "18:33",
-    "spieleDifferenz": "-15",
-    "punkte": "2:6"
   },
   {
     "rang": "8",
@@ -90,23 +90,23 @@
   {
     "rang": "9",
     "mannschaft": "SV Tiefenbach II",
-    "partien": "2",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "11:18",
-    "spieleDifferenz": "-7",
-    "punkte": "0:4"
-  },
-  {
-    "rang": "10",
-    "mannschaft": "TSV Schrozberg II",
     "partien": "3",
     "siege": "0",
     "unentschieden": "0",
     "niederlagen": "3",
-    "spiele": "8:27",
-    "spieleDifferenz": "-19",
+    "spiele": "13:27",
+    "spieleDifferenz": "-14",
     "punkte": "0:6"
+  },
+  {
+    "rang": "10",
+    "mannschaft": "TSV Schrozberg II",
+    "partien": "4",
+    "siege": "0",
+    "unentschieden": "0",
+    "niederlagen": "4",
+    "spiele": "10:36",
+    "spieleDifferenz": "-26",
+    "punkte": "0:8"
   }
 ]
