@@ -1,12 +1,12 @@
 ---
 title: Heimspiel und Weißwurstfrühstück
-publish_at: 2026-11-11T10:19
+publish_at: 2026-11-11T10:30
 image: /assets/images/news/screenshot20261111102743gallery.jpg
 image_alt: Weißwurstfrühstück
 sections:
   - type: text
     alignment: left
-    body: >+
+    body: >-
       Tischtennisevent in der Laudenbacher Zehntscheune 
 
 
