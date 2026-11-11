@@ -1,6 +1,6 @@
 ---
 title: Heimspiel und Weißwurstfrühstück
-publish_at: 2026-11-11T10:30
+publish_at: 2026-11-11T10:31
 image: /assets/images/news/screenshot20261111102743gallery.jpg
 image_alt: Weißwurstfrühstück
 sections:
