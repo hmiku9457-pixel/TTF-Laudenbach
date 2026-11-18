@@ -22,7 +22,8 @@ DATA = ROOT / "assets" / "data"
 INPUT = ROOT / "content" / "assistant-import" / "aktuell.json"
 DELTA = DELTA_DIR / "2026-27.json"
 STATUS = DATA / "assistantStatus.json"
-GAMES = sorted(DATA.glob("spiele*.json")) + [DATA / "startseiteSpiele.json"]
+GAMES = sorted(p for p in DATA.glob("spiele*.json")
+               if re.fullmatch(r"spiele(?:Herren[1-5]|Jugend[12]|Startseite)\.json", p.name)) + [DATA / "startseiteSpiele.json"]
 TABLE_FIELDS = {
     "rang", "mannschaft", "partien", "siege", "unentschieden",
     "niederlagen", "spiele", "spieleDifferenz", "punkte",
