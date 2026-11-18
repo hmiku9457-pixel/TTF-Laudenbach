@@ -74,8 +74,8 @@ class ValidationTests(unittest.TestCase):
                         "heim": "TTF Laudenbach", "gast": "TSV Schrozberg",
                         "spieler": player_list, "quelle": {"typ": "nutzer-screenshot"}}
             delta.write_text(json.dumps({"saison":"2026/27", "begegnungen":[previous],
-                                         "fehler":[], "vollstaendigBis":null,
-                                         "zuletztGeprueft":null}), encoding="utf-8")
+                                         "fehler":[], "vollstaendigBis":None,
+                                         "zuletztGeprueft":None}), encoding="utf-8")
             official = {**match(), "meetingId": "12345678",
                         "reportUrl": match()["sourceUrl"], "spieler": player_list}
             feed.write_text(json.dumps({"schemaVersion": 1,
