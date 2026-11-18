@@ -81,13 +81,14 @@ Einrichtung, Zuständigkeiten und Repair-Ablauf sind in `docs/pages-deployment.m
 
 ### Mannschaften, Spielpläne und Tabellen
 
-Der Workflow **Auto-Update Daten** startet täglich und kann zusätzlich manuell ausgeführt werden.
+Die tägliche Recherche übernimmt seit November 2026 eine **ChatGPT-Aufgabe um 07:00 Uhr**. Nach Quellenprüfung schreibt sie ausschließlich `content/assistant-import/aktuell.json`. Der Workflow **ChatGPT-Datenimport** validiert diese Eingaben und aktualisiert die vorhandenen Spielpläne, Tabellen und ggf. bestätigte Spieler-Einsätze der Ewigen Rangliste. Änderungen werden anschließend zentral veröffentlicht.
 
-- Scraper: `assets/python/scraper.py`
-- Konfiguration: `assets/python/config.py`
-- Prüfung vor Übernahme: `assets/python/validate_scraper_data.py`
+- Geschützter Import: `assets/python/import_assistant_data.py`
+- Prüfdatei: `content/assistant-import/aktuell.json`
+- Status: `assets/data/assistantStatus.json` (erst nach erfolgreichem nichtleeren Import)
+- Betriebsanleitung und Datenformat: `docs/chatgpt-data-workflow.md`
 
-Bei einem ungewöhnlich großen Datenrückgang bricht die Prüfung ab. Für einen beabsichtigten Saisonwechsel kann der manuelle Workflow mit `allow_large_data_drop` ausgeführt werden.
+Der frühere Playwright-Scraper (`assets/python/scraper.py`, Konfiguration `config.py`, Prüfung `validate_scraper_data.py`) läuft **nicht mehr täglich**, sondern ist nur noch als manueller Alt-Workflow verfügbar. Die Recherche und der GitHub-Zugriff über ChatGPT sind nicht garantiert: Bei fehlenden Nachweisen bleibt der bisherige Stand bestehen.
 
 ### Galerie
 
@@ -115,10 +116,10 @@ Unter `assets/data/` liegen automatisch erzeugte JSON-Dateien. Für die Wartung 
 |---|---|
 | `news.json` | automatisch durch **News generieren** / `assets/python/generate_news.py` |
 | `gallerie.json` | automatisch durch **Generate Gallery JSON** / `assets/python/generate_gallery.py` |
-| `links.json` | automatisch aus `assets/python/config.py` durch den Scraper |
-| `spiele*.json` | automatisch durch den Scraper |
-| `tabelle*.json` | automatisch durch den Scraper |
-| `spieler*.json` | automatisch durch den Scraper |
+| `links.json` | bei manuellem Alt-Scraper-Lauf aus `assets/python/config.py` |
+| `spiele*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
+| `tabelle*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
+| `spieler*.json` | weiterhin durch den manuellen Alt-Scraper; kein automatischer Import ohne verifizierte Datenquelle |
 
 Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. Änderungen gehören stattdessen in die jeweilige Quelle oder Konfiguration, damit sie beim nächsten Workflow-Lauf nicht überschrieben werden.
 
