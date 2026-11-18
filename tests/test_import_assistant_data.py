@@ -24,6 +24,9 @@ def match(result="9:2"):
 
 
 class ValidationTests(unittest.TestCase):
+    def test_player_lists_are_not_match_schedules(self):
+        self.assertFalse(any(p.name.startswith("spieler") for p in mod.GAMES))
+
     def test_accepts_confirmed_result(self):
         items = mod.validate_matches([match()], "2026-09-18")
         self.assertEqual(len(items), 1)
