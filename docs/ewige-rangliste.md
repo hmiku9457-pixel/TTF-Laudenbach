@@ -35,7 +35,7 @@ Das ursprüngliche fünffeldrige CSV-Format mit dem "(Stand ...)"-Kopf und histo
 
 Beim Saisonwechsel müssen wie bisher `SAISON` und die Erwachsenen-Mannschaftslinks in `assets/python/config.py` aktualisiert werden. Der Scraper erzeugt automatisch eine neue `delta/YYYY-YY.json` und behält ältere saisonale Deltas, solange sie nicht im Master aufgehen.
 
-Der bestehende tägliche Workflow ruft nach dem regulären Scraper `assets/python/scrape_ewige_rangliste.py` auf. Bei einzelnen fehlenden Spielberichten bleiben bereits bekannte Einträge erhalten; andere Ergebnisse werden weiter verarbeitet. Warnungen erscheinen auf der Website. Die automatische Auswertung ist **nur dann als vollständig zu verstehen**, wenn alle fünf Erwachsenenmannschaftsseiten und ihre relevanten Berichte erreichbar und eindeutig auswertbar waren.
+Der neue Erwachsenen-Spielberichtparser liegt unter `assets/python/scrape_ewige_rangliste.py`, ist aber **noch nicht mit dem täglichen Produktivworkflow verbunden**: Der begrenzte Live-Test vom 18.11.2026 wurde durch eine myTischtennis-Verifizierung (HTTP 429) blockiert. Erst nach Klärung und erfolgreichem Integrationstest darf der zusätzliche Abruf aktiviert werden. Das bestehende tägliche Scraping bleibt unverändert. Bei späterer Aktivierung gilt: Bei einzelnen fehlenden Berichten bleiben bekannte Einträge erhalten, während andere Ergebnisse weiter verarbeitet werden. Warnungen erscheinen auf der Website. Die automatische Auswertung ist **nur dann als vollständig zu verstehen**, wenn alle fünf Erwachsenenmannschaftsseiten und ihre relevanten Berichte erreichbar und eindeutig auswertbar waren.
 
 ## Entwicklung und Test
 
