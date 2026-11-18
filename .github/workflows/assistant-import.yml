@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - "content/assistant-import/aktuell.json"
+      - ".github/workflows/assistant-import.yml"
+  schedule:
+    # Fallback: nach der 07:00-Uhr-Recherche; Cron verwendet UTC.
+    - cron: "45 7 * * *"
   workflow_dispatch:
 
 permissions:
