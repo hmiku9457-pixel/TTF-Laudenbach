@@ -92,6 +92,64 @@
       ]
     },
     {
+      "id": "16173690",
+      "datum": "2026-09-26",
+      "heim": "TSV Dörzbach II",
+      "gast": "TTF Laudenbach V",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530040&meeting=16173690",
+      "spieler": [
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
+        },
+        {
+          "name": "Christian Bätzel",
+          "personId": "2961446"
+        },
+        {
+          "name": "Steffen Wolfert",
+          "personId": "2334799"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        }
+      ]
+    },
+    {
+      "id": "16070112",
+      "datum": "2026-09-27",
+      "heim": "TTF Laudenbach IV",
+      "gast": "FC Igersheim II",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530002&meeting=16070112",
+      "spieler": [
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Christopher Wolfert",
+          "personId": "393008"
+        },
+        {
+          "name": "Steffen Wolfert",
+          "personId": "2334799"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        }
+      ]
+    },
+    {
       "id": "16106799",
       "datum": "2026-09-27",
       "heim": "TTF Laudenbach",
@@ -121,6 +179,39 @@
         {
           "name": "Hubert Kraft",
           "personId": "391386"
+        }
+      ]
+    },
+    {
+      "id": "16070133",
+      "datum": "2026-10-02",
+      "heim": "TSV Gerabronn III",
+      "gast": "TTF Laudenbach IV",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530002&meeting=16070133",
+      "spieler": [
+        {
+          "name": "Erwin Mezger",
+          "personId": "2893743"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Christopher Wolfert",
+          "personId": "393008"
+        },
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
         }
       ]
     },
@@ -191,6 +282,35 @@
       ]
     },
     {
+      "id": "16173696",
+      "datum": "2026-10-09",
+      "heim": "TTF Laudenbach V",
+      "gast": "SC Buchenbach V",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530040&meeting=16173696",
+      "spieler": [
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
+        },
+        {
+          "name": "Steffen Wolfert",
+          "personId": "2334799"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        },
+        {
+          "name": "Tim Tippl",
+          "personId": "2826985"
+        },
+        {
+          "name": "Tobias Kimmelmann",
+          "personId": "2961406"
+        }
+      ]
+    },
+    {
       "id": "16071879",
       "datum": "2026-10-10",
       "heim": "SV Tiefenbach II",
@@ -220,6 +340,39 @@
         {
           "name": "Dietrich Kruth",
           "personId": "382184"
+        }
+      ]
+    },
+    {
+      "id": "16070139",
+      "datum": "2026-10-16",
+      "heim": "SC Buchenbach IV",
+      "gast": "TTF Laudenbach IV",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530002&meeting=16070139",
+      "spieler": [
+        {
+          "name": "Erwin Mezger",
+          "personId": "2893743"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Adrian Bach",
+          "personId": "2830763"
+        },
+        {
+          "name": "Christian Bätzel",
+          "personId": "2961446"
         }
       ]
     },
@@ -286,6 +439,72 @@
         {
           "name": "Hubert Kraft",
           "personId": "391386"
+        }
+      ]
+    },
+    {
+      "id": "16071905",
+      "datum": "2026-10-23",
+      "heim": "TSG Kirchberg II",
+      "gast": "TTF Laudenbach III",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=529997&meeting=16071905",
+      "spieler": [
+        {
+          "name": "Martin Schneider",
+          "personId": "2113412"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Stefan Wolfert",
+          "personId": "361039"
+        },
+        {
+          "name": "Melanie Wolfert",
+          "personId": "392953"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        }
+      ]
+    },
+    {
+      "id": "16070119",
+      "datum": "2026-10-24",
+      "heim": "KSG Ellrichshausen III",
+      "gast": "TTF Laudenbach IV",
+      "url": "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?championship=SK+Bez.+HO+26%2F27&group=530002&meeting=16070119",
+      "spieler": [
+        {
+          "name": "Erwin Mezger",
+          "personId": "2893743"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Adrian Bach",
+          "personId": "2830763"
+        },
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
         }
       ]
     },
@@ -585,50 +804,8 @@
       "datum": "2026-11-06",
       "mannschaft": "spieleHerren1",
       "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-10-23",
-      "mannschaft": "spieleHerren3",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-09-27",
-      "mannschaft": "spieleHerren4",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-10-02",
-      "mannschaft": "spieleHerren4",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-10-16",
-      "mannschaft": "spieleHerren4",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-10-24",
-      "mannschaft": "spieleHerren4",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-09-26",
-      "mannschaft": "spieleHerren5",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-10-09",
-      "mannschaft": "spieleHerren5",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
     }
   ],
-  "zuletztGeprueft": "2026-11-18T23:00:03+00:00",
+  "zuletztGeprueft": "2026-11-18T23:02:22+00:00",
   "vollstaendigBis": null
 }
