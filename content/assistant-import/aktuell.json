@@ -1,6 +1,188 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-18T22:30:00+01:00",
-  "matches": [],
+  "checkedAt": "2026-11-18T21:45:09.376Z",
+  "matches": [
+    {
+      "datum": "2026-11-13",
+      "heim": "TTF Laudenbach IV",
+      "gast": "SV Elpersheim III",
+      "ergebnis": "2:9",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530002&meeting=16070136",
+      "meetingId": "16070136",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530002&meeting=16070136",
+      "spieler": [
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Erwin Mezger",
+          "personId": "2893743"
+        },
+        {
+          "name": "Dominik Huber",
+          "personId": "2819807"
+        },
+        {
+          "name": "Christopher Wolfert",
+          "personId": "393008"
+        },
+        {
+          "name": "Adrian Bach",
+          "personId": "2830763"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-13",
+      "heim": "TTF Laudenbach II",
+      "gast": "SpVgg Gröningen-Satteldorf VI",
+      "ergebnis": "8:8",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529997&meeting=16071880",
+      "meetingId": "16071880",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529997&meeting=16071880",
+      "spieler": [
+        {
+          "name": "Jörg Hever",
+          "personId": "1994826"
+        },
+        {
+          "name": "Gerhard Wolfert",
+          "personId": "383646"
+        },
+        {
+          "name": "Christian Heer",
+          "personId": "360413"
+        },
+        {
+          "name": "Stefan Wolfert",
+          "personId": "361039"
+        },
+        {
+          "name": "Günter Friedel",
+          "personId": "392917"
+        },
+        {
+          "name": "Melanie Wolfert",
+          "personId": "392953"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-14",
+      "heim": "TTF Laudenbach II",
+      "gast": "TSV Gerabronn IV",
+      "ergebnis": "4:6",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533911&meeting=16138873"
+    },
+    {
+      "datum": "2026-11-14",
+      "heim": "TTF Laudenbach",
+      "gast": "VFB Jagstheim",
+      "ergebnis": "3:7",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168427"
+    },
+    {
+      "datum": "2026-11-14",
+      "heim": "VFB Bad Mergentheim IV",
+      "gast": "TTF Laudenbach V",
+      "ergebnis": "8:2",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173710",
+      "meetingId": "16173710",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173710",
+      "spieler": [
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
+        },
+        {
+          "name": "Christian Bätzel",
+          "personId": "2961446"
+        },
+        {
+          "name": "Tobias Sturm",
+          "personId": "3117047"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-15",
+      "heim": "TTF Laudenbach",
+      "gast": "TSV Schrozberg",
+      "ergebnis": "9:2",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529980&meeting=16106796",
+      "meetingId": "16106796",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529980&meeting=16106796",
+      "spieler": [
+        {
+          "name": "Peter Pflüger",
+          "personId": "477913"
+        },
+        {
+          "name": "Oleksandr Pochereniuk",
+          "personId": "2837640"
+        },
+        {
+          "name": "Thomas Ruske",
+          "personId": "369539"
+        },
+        {
+          "name": "Ludwig Moll",
+          "personId": "392912"
+        },
+        {
+          "name": "Hubert Kraft",
+          "personId": "391386"
+        },
+        {
+          "name": "Gerhard Wolfert",
+          "personId": "383646"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-15",
+      "heim": "TTF Laudenbach III",
+      "gast": "SV Elpersheim II",
+      "ergebnis": "9:6",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529997&meeting=16071889",
+      "meetingId": "16071889",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=529997&meeting=16071889",
+      "spieler": [
+        {
+          "name": "Florian Wolfert",
+          "personId": "384787"
+        },
+        {
+          "name": "Melanie Wolfert",
+          "personId": "392953"
+        },
+        {
+          "name": "Stefan Wolfert",
+          "personId": "361039"
+        },
+        {
+          "name": "Martin Schneider",
+          "personId": "2113412"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        }
+      ]
+    }
+  ],
   "tables": []
 }
