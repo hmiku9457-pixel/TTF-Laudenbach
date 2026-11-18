@@ -2,979 +2,1127 @@
   "schemaVersion": 1,
   "masterStichtag": "2026-09-18",
   "exportStichtag": "2026-09-18",
-  "zuletztGeprueft": null,
+  "zuletztGeprueft": "2026-11-18T21:51:17+00:00",
   "unvollstaendig": true,
   "hinweise": [
     {
-      "typ": "status",
-      "meldung": "Automatischer Abgleich noch nicht erfolgt."
+      "typ": "bericht",
+      "datum": "2026-09-27",
+      "mannschaft": "spieleHerren1",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-09",
+      "mannschaft": "spieleHerren1",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-17",
+      "mannschaft": "spieleHerren1",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-06",
+      "mannschaft": "spieleHerren1",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-08",
+      "mannschaft": "spieleHerren1",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-09-19",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-09-26",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-10",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-16",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-07",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-09",
+      "mannschaft": "spieleHerren3",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-23",
+      "mannschaft": "spieleHerren3",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-30",
+      "mannschaft": "spieleHerren3",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-31",
+      "mannschaft": "spieleHerren3",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-09-27",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-02",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-16",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-24",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-09-26",
+      "mannschaft": "spieleHerren5",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-10-09",
+      "mannschaft": "spieleHerren5",
+      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
     }
   ],
-  "anzahlFehler": 0,
-  "anzahlBegegnungen": 0,
+  "anzahlFehler": 20,
+  "anzahlBegegnungen": 5,
   "saisons": [
     "2026-27.json"
   ],
   "spieler": [
     {
+      "rang": 1,
       "name": "Johannes Scherrer",
       "master": 870,
       "delta": 0,
       "spiele": 870,
-      "exportSpiele": 870,
-      "rang": 1
+      "exportSpiele": 870
     },
     {
+      "rang": 2,
       "name": "Paul Stumpp",
       "master": 840,
       "delta": 0,
       "spiele": 840,
-      "exportSpiele": 840,
-      "rang": 2
+      "exportSpiele": 840
     },
     {
+      "rang": 3,
+      "name": "Gerhard Wolfert",
+      "master": 814,
+      "delta": 2,
+      "spiele": 816,
+      "exportSpiele": 814
+    },
+    {
+      "rang": 4,
       "name": "Stefan Gölz",
       "master": 815,
       "delta": 0,
       "spiele": 815,
-      "exportSpiele": 815,
-      "rang": 3
+      "exportSpiele": 815
     },
     {
-      "name": "Gerhard Wolfert",
-      "master": 814,
-      "delta": 0,
-      "spiele": 814,
-      "exportSpiele": 814,
-      "rang": 4
-    },
-    {
+      "rang": 5,
       "name": "Ludwig Moll",
       "master": 777,
-      "delta": 0,
-      "spiele": 777,
-      "exportSpiele": 777,
-      "rang": 5
+      "delta": 1,
+      "spiele": 778,
+      "exportSpiele": 777
     },
     {
+      "rang": 6,
       "name": "Hubert Kraft",
       "master": 767,
-      "delta": 0,
-      "spiele": 767,
-      "exportSpiele": 767,
-      "rang": 6
+      "delta": 1,
+      "spiele": 768,
+      "exportSpiele": 767
     },
     {
+      "rang": 7,
       "name": "Peter Przywara",
       "master": 701,
       "delta": 0,
       "spiele": 701,
-      "exportSpiele": 701,
-      "rang": 7
+      "exportSpiele": 701
     },
     {
+      "rang": 8,
       "name": "Thomas Ruske",
       "master": 489,
-      "delta": 0,
-      "spiele": 489,
-      "exportSpiele": 489,
-      "rang": 8
+      "delta": 1,
+      "spiele": 490,
+      "exportSpiele": 489
     },
     {
+      "rang": 9,
       "name": "Albert Zenkert",
       "master": 372,
       "delta": 0,
       "spiele": 372,
-      "exportSpiele": 372,
-      "rang": 9
+      "exportSpiele": 372
     },
     {
+      "rang": 10,
       "name": "Paul Gölz",
       "master": 322,
       "delta": 0,
       "spiele": 322,
-      "exportSpiele": 322,
-      "rang": 10
+      "exportSpiele": 322
     },
     {
+      "rang": 11,
       "name": "Reinhold Popp",
       "master": 305,
       "delta": 0,
       "spiele": 305,
-      "exportSpiele": 305,
-      "rang": 11
+      "exportSpiele": 305
     },
     {
+      "rang": 12,
       "name": "Stefan Wolfert",
       "master": 297,
-      "delta": 0,
-      "spiele": 297,
-      "exportSpiele": 297,
-      "rang": 12
+      "delta": 2,
+      "spiele": 299,
+      "exportSpiele": 297
     },
     {
+      "rang": 13,
       "name": "Franz Kraft",
       "master": 272,
       "delta": 0,
       "spiele": 272,
-      "exportSpiele": 272,
-      "rang": 13
+      "exportSpiele": 272
     },
     {
+      "rang": 14,
       "name": "Manuel Ilzhöfer",
       "master": 240,
       "delta": 0,
       "spiele": 240,
-      "exportSpiele": 240,
-      "rang": 14
+      "exportSpiele": 240
     },
     {
+      "rang": 15,
       "name": "Christian Heer",
       "master": 235,
-      "delta": 0,
-      "spiele": 235,
-      "exportSpiele": 235,
-      "rang": 15
+      "delta": 1,
+      "spiele": 236,
+      "exportSpiele": 235
     },
     {
+      "rang": 16,
       "name": "Manfred Litwitz",
       "master": 222,
       "delta": 0,
       "spiele": 222,
-      "exportSpiele": 222,
-      "rang": 16
+      "exportSpiele": 222
     },
     {
+      "rang": 17,
       "name": "Michael Konrad",
       "master": 215,
       "delta": 0,
       "spiele": 215,
-      "exportSpiele": 215,
-      "rang": 17
+      "exportSpiele": 215
     },
     {
+      "rang": 18,
       "name": "Erik Stiefel",
       "master": 209,
       "delta": 0,
       "spiele": 209,
-      "exportSpiele": 209,
-      "rang": 18
+      "exportSpiele": 209
     },
     {
+      "rang": 19,
       "name": "Melanie Wolfert",
       "master": 194,
-      "delta": 0,
-      "spiele": 194,
-      "exportSpiele": 194,
-      "rang": 19
+      "delta": 2,
+      "spiele": 196,
+      "exportSpiele": 194
     },
     {
+      "rang": 20,
       "name": "Joachim Scherrer",
       "master": 172,
       "delta": 0,
       "spiele": 172,
-      "exportSpiele": 172,
-      "rang": 20
+      "exportSpiele": 172
     },
     {
+      "rang": 21,
       "name": "Johann Konrad",
       "master": 153,
       "delta": 0,
       "spiele": 153,
-      "exportSpiele": 153,
-      "rang": 21
+      "exportSpiele": 153
     },
     {
+      "rang": 22,
       "name": "Klaus Arndt",
       "master": 138,
       "delta": 0,
       "spiele": 138,
-      "exportSpiele": 138,
-      "rang": 22
+      "exportSpiele": 138
     },
     {
+      "rang": 23,
       "name": "Jörg Hever",
       "master": 133,
-      "delta": 0,
-      "spiele": 133,
-      "exportSpiele": 133,
-      "rang": 23
+      "delta": 1,
+      "spiele": 134,
+      "exportSpiele": 133
     },
     {
+      "rang": 24,
       "name": "Johannes Michelberger",
       "master": 130,
       "delta": 0,
       "spiele": 130,
-      "exportSpiele": 130,
-      "rang": 24
+      "exportSpiele": 130
     },
     {
+      "rang": 25,
       "name": "Bernd Striffler",
       "master": 117,
       "delta": 0,
       "spiele": 117,
-      "exportSpiele": 117,
-      "rang": 25
+      "exportSpiele": 117
     },
     {
+      "rang": 26,
       "name": "Patrick Bienert",
       "master": 108,
       "delta": 0,
       "spiele": 108,
-      "exportSpiele": 108,
-      "rang": 26
+      "exportSpiele": 108
     },
     {
+      "rang": 27,
       "name": "Arnold Krämer",
       "master": 99,
       "delta": 0,
       "spiele": 99,
-      "exportSpiele": 99,
-      "rang": 27
+      "exportSpiele": 99
     },
     {
+      "rang": 28,
       "name": "Stefan Zeller",
       "master": 97,
       "delta": 0,
       "spiele": 97,
-      "exportSpiele": 97,
-      "rang": 28
+      "exportSpiele": 97
     },
     {
+      "rang": 29,
       "name": "Roman Budaker",
       "master": 94,
       "delta": 0,
       "spiele": 94,
-      "exportSpiele": 94,
-      "rang": 29
+      "exportSpiele": 94
     },
     {
+      "rang": 30,
       "name": "Martin Schneider",
       "master": 90,
-      "delta": 0,
-      "spiele": 90,
-      "exportSpiele": 90,
-      "rang": 30
+      "delta": 1,
+      "spiele": 91,
+      "exportSpiele": 90
     },
     {
+      "rang": 31,
       "name": "Günter Friedel",
       "master": 77,
-      "delta": 0,
-      "spiele": 77,
-      "exportSpiele": 77,
-      "rang": 31
+      "delta": 1,
+      "spiele": 78,
+      "exportSpiele": 77
     },
     {
+      "rang": 32,
       "name": "Michael Englerth",
       "master": 75,
       "delta": 0,
       "spiele": 75,
-      "exportSpiele": 75,
-      "rang": 32
+      "exportSpiele": 75
     },
     {
+      "rang": 33,
       "name": "Bernd Rüttler",
       "master": 65,
       "delta": 0,
       "spiele": 65,
-      "exportSpiele": 65,
-      "rang": 33
+      "exportSpiele": 65
     },
     {
+      "rang": 34,
       "name": "Christian Gundel",
       "master": 63,
       "delta": 0,
       "spiele": 63,
-      "exportSpiele": 63,
-      "rang": 34
+      "exportSpiele": 63
     },
     {
+      "rang": 34,
       "name": "Karsten Lenuweit",
       "master": 63,
       "delta": 0,
       "spiele": 63,
-      "exportSpiele": 63,
-      "rang": 34
+      "exportSpiele": 63
     },
     {
+      "rang": 36,
       "name": "Sebastian Dilmann",
       "master": 62,
       "delta": 0,
       "spiele": 62,
-      "exportSpiele": 62,
-      "rang": 36
+      "exportSpiele": 62
     },
     {
+      "rang": 37,
       "name": "Ralf Striffler",
       "master": 61,
       "delta": 0,
       "spiele": 61,
-      "exportSpiele": 61,
-      "rang": 37
+      "exportSpiele": 61
     },
     {
+      "rang": 38,
       "name": "Erich Zenkert, gest. 2006",
       "master": 59,
       "delta": 0,
       "spiele": 59,
-      "exportSpiele": 59,
-      "rang": 38
+      "exportSpiele": 59
     },
     {
+      "rang": 38,
       "name": "Timo Sieber",
       "master": 59,
       "delta": 0,
       "spiele": 59,
-      "exportSpiele": 59,
-      "rang": 38
+      "exportSpiele": 59
     },
     {
+      "rang": 40,
       "name": "Thomas Emmert",
       "master": 57,
       "delta": 0,
       "spiele": 57,
-      "exportSpiele": 57,
-      "rang": 40
+      "exportSpiele": 57
     },
     {
+      "rang": 41,
       "name": "Thomas Michelberger, gest. 2014",
       "master": 54,
       "delta": 0,
       "spiele": 54,
-      "exportSpiele": 54,
-      "rang": 41
+      "exportSpiele": 54
     },
     {
+      "rang": 42,
       "name": "Tilmann Böttcher",
       "master": 52,
       "delta": 0,
       "spiele": 52,
-      "exportSpiele": 52,
-      "rang": 42
+      "exportSpiele": 52
     },
     {
+      "rang": 43,
       "name": "Inge Arndt",
       "master": 51,
       "delta": 0,
       "spiele": 51,
-      "exportSpiele": 51,
-      "rang": 43
+      "exportSpiele": 51
     },
     {
+      "rang": 44,
       "name": "Mario Grgic",
       "master": 50,
       "delta": 0,
       "spiele": 50,
-      "exportSpiele": 50,
-      "rang": 44
+      "exportSpiele": 50
     },
     {
+      "rang": 45,
       "name": "Hans Henning",
       "master": 48,
       "delta": 0,
       "spiele": 48,
-      "exportSpiele": 48,
-      "rang": 45
+      "exportSpiele": 48
     },
     {
+      "rang": 45,
       "name": "Rainer Schüßler",
       "master": 48,
       "delta": 0,
       "spiele": 48,
-      "exportSpiele": 48,
-      "rang": 45
+      "exportSpiele": 48
     },
     {
+      "rang": 45,
       "name": "Waldemar Link",
       "master": 48,
       "delta": 0,
       "spiele": 48,
-      "exportSpiele": 48,
-      "rang": 45
+      "exportSpiele": 48
     },
     {
+      "rang": 48,
       "name": "Martin Fischer",
       "master": 47,
       "delta": 0,
       "spiele": 47,
-      "exportSpiele": 47,
-      "rang": 48
+      "exportSpiele": 47
     },
     {
+      "rang": 49,
       "name": "Andreas Rebholz",
       "master": 45,
       "delta": 0,
       "spiele": 45,
-      "exportSpiele": 45,
-      "rang": 49
+      "exportSpiele": 45
     },
     {
+      "rang": 50,
       "name": "Franz Schweizer",
       "master": 44,
       "delta": 0,
       "spiele": 44,
-      "exportSpiele": 44,
-      "rang": 50
+      "exportSpiele": 44
     },
     {
+      "rang": 51,
       "name": "Sujeevan Thavabalasingam",
       "master": 42,
       "delta": 0,
       "spiele": 42,
-      "exportSpiele": 42,
-      "rang": 51
+      "exportSpiele": 42
     },
     {
+      "rang": 52,
       "name": "Wolfgang Heer, gest. 2015",
       "master": 39,
       "delta": 0,
       "spiele": 39,
-      "exportSpiele": 39,
-      "rang": 52
+      "exportSpiele": 39
     },
     {
+      "rang": 53,
       "name": "Wolfgang Silberzahn",
       "master": 38,
       "delta": 0,
       "spiele": 38,
-      "exportSpiele": 38,
-      "rang": 53
+      "exportSpiele": 38
     },
     {
+      "rang": 54,
       "name": "Günter Kraft",
       "master": 37,
       "delta": 0,
       "spiele": 37,
-      "exportSpiele": 37,
-      "rang": 54
+      "exportSpiele": 37
     },
     {
+      "rang": 55,
       "name": "Sascha Warth",
       "master": 36,
       "delta": 0,
       "spiele": 36,
-      "exportSpiele": 36,
-      "rang": 55
+      "exportSpiele": 36
     },
     {
+      "rang": 55,
       "name": "Wolfgang Schneider",
       "master": 36,
       "delta": 0,
       "spiele": 36,
-      "exportSpiele": 36,
-      "rang": 55
+      "exportSpiele": 36
     },
     {
+      "rang": 57,
+      "name": "Christopher Wolfert",
+      "master": 34,
+      "delta": 1,
+      "spiele": 35,
+      "exportSpiele": 34
+    },
+    {
+      "rang": 57,
       "name": "Günter Vetter",
       "master": 35,
       "delta": 0,
       "spiele": 35,
-      "exportSpiele": 35,
-      "rang": 57
+      "exportSpiele": 35
     },
     {
-      "name": "Christopher Wolfert",
-      "master": 34,
-      "delta": 0,
-      "spiele": 34,
-      "exportSpiele": 34,
-      "rang": 58
+      "rang": 59,
+      "name": "Dominik Huber",
+      "master": 31,
+      "delta": 1,
+      "spiele": 32,
+      "exportSpiele": 31
     },
     {
+      "rang": 59,
       "name": "Doris Kraft",
       "master": 32,
       "delta": 0,
       "spiele": 32,
-      "exportSpiele": 32,
-      "rang": 59
+      "exportSpiele": 32
     },
     {
-      "name": "Dominik Huber",
-      "master": 31,
-      "delta": 0,
-      "spiele": 31,
-      "exportSpiele": 31,
-      "rang": 60
-    },
-    {
+      "rang": 61,
       "name": "Anna Mühleck",
       "master": 30,
       "delta": 0,
       "spiele": 30,
-      "exportSpiele": 30,
-      "rang": 61
+      "exportSpiele": 30
     },
     {
+      "rang": 61,
       "name": "Elisabeth Breitschopf, gest. 1999",
       "master": 30,
       "delta": 0,
       "spiele": 30,
-      "exportSpiele": 30,
-      "rang": 61
+      "exportSpiele": 30
     },
     {
+      "rang": 61,
       "name": "Linda Ilzhöfer",
       "master": 30,
       "delta": 0,
       "spiele": 30,
-      "exportSpiele": 30,
-      "rang": 61
+      "exportSpiele": 30
     },
     {
+      "rang": 61,
       "name": "Theresa Mühleck",
       "master": 30,
       "delta": 0,
       "spiele": 30,
-      "exportSpiele": 30,
-      "rang": 61
+      "exportSpiele": 30
     },
     {
+      "rang": 65,
       "name": "Holger Happold",
       "master": 28,
       "delta": 0,
       "spiele": 28,
-      "exportSpiele": 28,
-      "rang": 65
+      "exportSpiele": 28
     },
     {
+      "rang": 65,
       "name": "Rita Schäfer",
       "master": 28,
       "delta": 0,
       "spiele": 28,
-      "exportSpiele": 28,
-      "rang": 65
+      "exportSpiele": 28
     },
     {
+      "rang": 67,
       "name": "Andrea Büttner",
       "master": 27,
       "delta": 0,
       "spiele": 27,
-      "exportSpiele": 27,
-      "rang": 67
+      "exportSpiele": 27
     },
     {
+      "rang": 67,
       "name": "Florian Wolfert",
       "master": 26,
-      "delta": 0,
-      "spiele": 26,
-      "exportSpiele": 26,
-      "rang": 68
+      "delta": 1,
+      "spiele": 27,
+      "exportSpiele": 26
     },
     {
+      "rang": 67,
       "name": "Frank Repovs",
       "master": 25,
-      "delta": 0,
-      "spiele": 25,
-      "exportSpiele": 25,
-      "rang": 69
+      "delta": 2,
+      "spiele": 27,
+      "exportSpiele": 25
     },
     {
+      "rang": 70,
       "name": "Florian Piepenburg",
       "master": 24,
       "delta": 0,
       "spiele": 24,
-      "exportSpiele": 24,
-      "rang": 70
+      "exportSpiele": 24
     },
     {
+      "rang": 71,
       "name": "Christine Michel",
       "master": 23,
       "delta": 0,
       "spiele": 23,
-      "exportSpiele": 23,
-      "rang": 71
+      "exportSpiele": 23
     },
     {
+      "rang": 71,
       "name": "Christoph Popp",
       "master": 23,
       "delta": 0,
       "spiele": 23,
-      "exportSpiele": 23,
-      "rang": 71
+      "exportSpiele": 23
     },
     {
+      "rang": 73,
       "name": "Christoph Wehr",
       "master": 22,
       "delta": 0,
       "spiele": 22,
-      "exportSpiele": 22,
-      "rang": 73
+      "exportSpiele": 22
     },
     {
+      "rang": 74,
       "name": "Dominik Emmert",
       "master": 21,
       "delta": 0,
       "spiele": 21,
-      "exportSpiele": 21,
-      "rang": 74
+      "exportSpiele": 21
     },
     {
+      "rang": 75,
       "name": "Roland Eifert",
       "master": 17,
       "delta": 0,
       "spiele": 17,
-      "exportSpiele": 17,
-      "rang": 75
+      "exportSpiele": 17
     },
     {
+      "rang": 76,
       "name": "Harald Popp",
       "master": 16,
       "delta": 0,
       "spiele": 16,
-      "exportSpiele": 16,
-      "rang": 76
+      "exportSpiele": 16
     },
     {
+      "rang": 76,
       "name": "Simon Zenkert",
       "master": 16,
       "delta": 0,
       "spiele": 16,
-      "exportSpiele": 16,
-      "rang": 76
+      "exportSpiele": 16
     },
     {
+      "rang": 78,
       "name": "Simone Wehr",
       "master": 15,
       "delta": 0,
       "spiele": 15,
-      "exportSpiele": 15,
-      "rang": 78
+      "exportSpiele": 15
     },
     {
+      "rang": 79,
       "name": "Andreas Endres",
       "master": 14,
       "delta": 0,
       "spiele": 14,
-      "exportSpiele": 14,
-      "rang": 79
+      "exportSpiele": 14
     },
     {
+      "rang": 79,
       "name": "Bernd Juche",
       "master": 14,
       "delta": 0,
       "spiele": 14,
-      "exportSpiele": 14,
-      "rang": 79
+      "exportSpiele": 14
     },
     {
+      "rang": 79,
       "name": "Klaus Grüner",
       "master": 14,
       "delta": 0,
       "spiele": 14,
-      "exportSpiele": 14,
-      "rang": 79
+      "exportSpiele": 14
     },
     {
+      "rang": 82,
       "name": "Carl Klärle",
       "master": 13,
       "delta": 0,
       "spiele": 13,
-      "exportSpiele": 13,
-      "rang": 82
+      "exportSpiele": 13
     },
     {
+      "rang": 83,
       "name": "Daniela Denninger",
       "master": 11,
       "delta": 0,
       "spiele": 11,
-      "exportSpiele": 11,
-      "rang": 83
+      "exportSpiele": 11
     },
     {
+      "rang": 83,
       "name": "Erwin Mezger",
       "master": 10,
-      "delta": 0,
-      "spiele": 10,
-      "exportSpiele": 10,
-      "rang": 84
+      "delta": 1,
+      "spiele": 11,
+      "exportSpiele": 10
     },
     {
+      "rang": 85,
       "name": "Bastian Schwallach",
       "master": 9,
       "delta": 0,
       "spiele": 9,
-      "exportSpiele": 9,
-      "rang": 85
+      "exportSpiele": 9
     },
     {
+      "rang": 85,
       "name": "Michael Weller",
       "master": 9,
       "delta": 0,
       "spiele": 9,
-      "exportSpiele": 9,
-      "rang": 85
+      "exportSpiele": 9
     },
     {
+      "rang": 85,
       "name": "Steffen Wolfert (ehem. Fahrbach)",
       "master": 9,
       "delta": 0,
       "spiele": 9,
-      "exportSpiele": 9,
-      "rang": 85
+      "exportSpiele": 9
     },
     {
+      "rang": 88,
       "name": "Achim Popp",
       "master": 8,
       "delta": 0,
       "spiele": 8,
-      "exportSpiele": 8,
-      "rang": 88
+      "exportSpiele": 8
     },
     {
+      "rang": 88,
       "name": "Silvia Mangold",
       "master": 8,
       "delta": 0,
       "spiele": 8,
-      "exportSpiele": 8,
-      "rang": 88
+      "exportSpiele": 8
     },
     {
+      "rang": 88,
       "name": "Simone Warth",
       "master": 8,
       "delta": 0,
       "spiele": 8,
-      "exportSpiele": 8,
-      "rang": 88
+      "exportSpiele": 8
     },
     {
+      "rang": 88,
       "name": "Sonja Thürauf",
       "master": 8,
       "delta": 0,
       "spiele": 8,
-      "exportSpiele": 8,
-      "rang": 88
+      "exportSpiele": 8
     },
     {
+      "rang": 88,
       "name": "Svea Täubert",
       "master": 8,
       "delta": 0,
       "spiele": 8,
-      "exportSpiele": 8,
-      "rang": 88
+      "exportSpiele": 8
     },
     {
+      "rang": 93,
       "name": "Adriane Wetzel",
       "master": 7,
       "delta": 0,
       "spiele": 7,
-      "exportSpiele": 7,
-      "rang": 93
+      "exportSpiele": 7
     },
     {
+      "rang": 93,
       "name": "Andrea Hofmann",
       "master": 7,
       "delta": 0,
       "spiele": 7,
-      "exportSpiele": 7,
-      "rang": 93
+      "exportSpiele": 7
     },
     {
+      "rang": 93,
+      "name": "Dietrich Kruth",
+      "master": 5,
+      "delta": 2,
+      "spiele": 7,
+      "exportSpiele": 5
+    },
+    {
+      "rang": 93,
       "name": "Kerstin Wildermuth",
       "master": 7,
       "delta": 0,
       "spiele": 7,
-      "exportSpiele": 7,
-      "rang": 93
+      "exportSpiele": 7
     },
     {
+      "rang": 93,
       "name": "Max Maureira",
       "master": 7,
       "delta": 0,
       "spiele": 7,
-      "exportSpiele": 7,
-      "rang": 93
+      "exportSpiele": 7
     },
     {
+      "rang": 98,
       "name": "Christina Denninger",
       "master": 6,
       "delta": 0,
       "spiele": 6,
-      "exportSpiele": 6,
-      "rang": 97
+      "exportSpiele": 6
     },
     {
-      "name": "Dietrich Kruth",
-      "master": 5,
-      "delta": 0,
+      "rang": 99,
+      "name": "Armin Ulshöfer",
+      "master": 4,
+      "delta": 1,
       "spiele": 5,
-      "exportSpiele": 5,
-      "rang": 98
+      "exportSpiele": 4
     },
     {
+      "rang": 99,
       "name": "Kevin Muckenauer",
       "master": 5,
       "delta": 0,
       "spiele": 5,
-      "exportSpiele": 5,
-      "rang": 98
+      "exportSpiele": 5
     },
     {
+      "rang": 99,
       "name": "Luca Fries",
       "master": 5,
       "delta": 0,
       "spiele": 5,
-      "exportSpiele": 5,
-      "rang": 98
+      "exportSpiele": 5
     },
     {
-      "name": "Armin Ulshöfer",
-      "master": 4,
-      "delta": 0,
-      "spiele": 4,
-      "exportSpiele": 4,
-      "rang": 101
-    },
-    {
+      "rang": 102,
       "name": "Michaela Lampert",
       "master": 4,
       "delta": 0,
       "spiele": 4,
-      "exportSpiele": 4,
-      "rang": 101
+      "exportSpiele": 4
     },
     {
+      "rang": 102,
+      "name": "Peter Pflüger",
+      "master": 3,
+      "delta": 1,
+      "spiele": 4,
+      "exportSpiele": 3
+    },
+    {
+      "rang": 102,
       "name": "Rainer Wehr",
       "master": 4,
       "delta": 0,
       "spiele": 4,
-      "exportSpiele": 4,
-      "rang": 101
+      "exportSpiele": 4
     },
     {
+      "rang": 105,
+      "name": "Adrian Bach",
+      "master": 2,
+      "delta": 1,
+      "spiele": 3,
+      "exportSpiele": 2
+    },
+    {
+      "rang": 105,
       "name": "Alexander Safenreiter",
       "master": 3,
       "delta": 0,
       "spiele": 3,
-      "exportSpiele": 3,
-      "rang": 104
+      "exportSpiele": 3
     },
     {
+      "rang": 105,
       "name": "Florian Sutoris",
       "master": 3,
       "delta": 0,
       "spiele": 3,
-      "exportSpiele": 3,
-      "rang": 104
+      "exportSpiele": 3
     },
     {
+      "rang": 105,
       "name": "Hannes Lück",
       "master": 3,
       "delta": 0,
       "spiele": 3,
-      "exportSpiele": 3,
-      "rang": 104
+      "exportSpiele": 3
     },
     {
+      "rang": 105,
       "name": "Lukas Oswald",
       "master": 3,
       "delta": 0,
       "spiele": 3,
-      "exportSpiele": 3,
-      "rang": 104
+      "exportSpiele": 3
     },
     {
-      "name": "Peter Pflüger",
-      "master": 3,
-      "delta": 0,
-      "spiele": 3,
-      "exportSpiele": 3,
-      "rang": 104
-    },
-    {
-      "name": "Adrian Bach",
-      "master": 2,
-      "delta": 0,
-      "spiele": 2,
-      "exportSpiele": 2,
-      "rang": 109
-    },
-    {
+      "rang": 110,
       "name": "Alexander Engelhardt",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Alina Häfner",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Andreas Kraft",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Benjamin Braun",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
+      "name": "Christian Bätzel",
+      "master": 0,
+      "delta": 1,
+      "spiele": 1,
+      "exportSpiele": 0
+    },
+    {
+      "rang": 110,
       "name": "Christian Lill",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Christoph Dumke",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Elias Münzer",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Hans-Georg Haffelt",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Jona Schammann",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
       "name": "Leander Ruske",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
     },
     {
+      "rang": 110,
+      "name": "Markus Rahn",
+      "master": 0,
+      "delta": 1,
+      "spiele": 1,
+      "exportSpiele": 0
+    },
+    {
+      "rang": 110,
+      "name": "Oleksandr Pochereniuk",
+      "master": 0,
+      "delta": 1,
+      "spiele": 1,
+      "exportSpiele": 0
+    },
+    {
+      "rang": 110,
       "name": "Tobias Kimmelmann",
       "master": 1,
       "delta": 0,
       "spiele": 1,
-      "exportSpiele": 1,
-      "rang": 110
+      "exportSpiele": 1
+    },
+    {
+      "rang": 110,
+      "name": "Tobias Sturm",
+      "master": 0,
+      "delta": 1,
+      "spiele": 1,
+      "exportSpiele": 0
     }
   ]
 }
