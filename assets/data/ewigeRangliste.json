@@ -1,19 +1,12 @@
 {
   "schemaVersion": 1,
   "masterStichtag": "2026-09-18",
-  "exportStichtag": "2026-09-18",
-  "zuletztGeprueft": "2026-11-18T23:02:22+00:00",
-  "unvollstaendig": true,
-  "hinweise": [
-    {
-      "typ": "bericht",
-      "datum": "2026-11-06",
-      "mannschaft": "spieleHerren1",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    }
-  ],
-  "anzahlFehler": 1,
-  "anzahlBegegnungen": 24,
+  "exportStichtag": "2026-11-15",
+  "zuletztGeprueft": "2026-11-18T23:15:25+00:00",
+  "unvollstaendig": false,
+  "hinweise": [],
+  "anzahlFehler": 0,
+  "anzahlBegegnungen": 25,
   "saisons": [
     "2026-27.json"
   ],
@@ -40,7 +33,7 @@
       "master": 814,
       "delta": 8,
       "spiele": 822,
-      "exportSpiele": 814
+      "exportSpiele": 822
     },
     {
       "rang": 4,
@@ -54,17 +47,17 @@
       "rang": 5,
       "name": "Ludwig Moll",
       "master": 777,
-      "delta": 3,
-      "spiele": 780,
-      "exportSpiele": 777
+      "delta": 4,
+      "spiele": 781,
+      "exportSpiele": 781
     },
     {
       "rang": 6,
       "name": "Hubert Kraft",
       "master": 767,
-      "delta": 5,
-      "spiele": 772,
-      "exportSpiele": 767
+      "delta": 6,
+      "spiele": 773,
+      "exportSpiele": 773
     },
     {
       "rang": 7,
@@ -78,9 +71,9 @@
       "rang": 8,
       "name": "Thomas Ruske",
       "master": 489,
-      "delta": 4,
-      "spiele": 493,
-      "exportSpiele": 489
+      "delta": 5,
+      "spiele": 494,
+      "exportSpiele": 494
     },
     {
       "rang": 9,
@@ -112,7 +105,7 @@
       "master": 297,
       "delta": 8,
       "spiele": 305,
-      "exportSpiele": 297
+      "exportSpiele": 305
     },
     {
       "rang": 13,
@@ -126,9 +119,9 @@
       "rang": 14,
       "name": "Manuel Ilzhöfer",
       "master": 240,
-      "delta": 4,
-      "spiele": 244,
-      "exportSpiele": 240
+      "delta": 5,
+      "spiele": 245,
+      "exportSpiele": 245
     },
     {
       "rang": 15,
@@ -136,7 +129,7 @@
       "master": 235,
       "delta": 7,
       "spiele": 242,
-      "exportSpiele": 235
+      "exportSpiele": 242
     },
     {
       "rang": 16,
@@ -168,7 +161,7 @@
       "master": 194,
       "delta": 9,
       "spiele": 203,
-      "exportSpiele": 194
+      "exportSpiele": 203
     },
     {
       "rang": 20,
@@ -200,7 +193,7 @@
       "master": 133,
       "delta": 3,
       "spiele": 136,
-      "exportSpiele": 133
+      "exportSpiele": 136
     },
     {
       "rang": 24,
@@ -240,7 +233,7 @@
       "master": 90,
       "delta": 7,
       "spiele": 97,
-      "exportSpiele": 90
+      "exportSpiele": 97
     },
     {
       "rang": 28,
@@ -264,7 +257,7 @@
       "master": 77,
       "delta": 7,
       "spiele": 84,
-      "exportSpiele": 77
+      "exportSpiele": 84
     },
     {
       "rang": 32,
@@ -432,7 +425,7 @@
       "master": 31,
       "delta": 8,
       "spiele": 39,
-      "exportSpiele": 31
+      "exportSpiele": 39
     },
     {
       "rang": 52,
@@ -456,7 +449,7 @@
       "master": 34,
       "delta": 3,
       "spiele": 37,
-      "exportSpiele": 34
+      "exportSpiele": 37
     },
     {
       "rang": 55,
@@ -472,7 +465,7 @@
       "master": 25,
       "delta": 11,
       "spiele": 36,
-      "exportSpiele": 25
+      "exportSpiele": 36
     },
     {
       "rang": 57,
@@ -504,7 +497,7 @@
       "master": 26,
       "delta": 7,
       "spiele": 33,
-      "exportSpiele": 26
+      "exportSpiele": 33
     },
     {
       "rang": 62,
@@ -616,7 +609,7 @@
       "master": 5,
       "delta": 13,
       "spiele": 18,
-      "exportSpiele": 5
+      "exportSpiele": 18
     },
     {
       "rang": 76,
@@ -648,7 +641,7 @@
       "master": 10,
       "delta": 5,
       "spiele": 15,
-      "exportSpiele": 10
+      "exportSpiele": 15
     },
     {
       "rang": 79,
@@ -688,7 +681,7 @@
       "master": 9,
       "delta": 5,
       "spiele": 14,
-      "exportSpiele": 9
+      "exportSpiele": 14
     },
     {
       "rang": 85,
@@ -712,7 +705,7 @@
       "master": 4,
       "delta": 5,
       "spiele": 9,
-      "exportSpiele": 4
+      "exportSpiele": 9
     },
     {
       "rang": 87,
@@ -731,7 +724,15 @@
       "exportSpiele": 9
     },
     {
-      "rang": 90,
+      "rang": 87,
+      "name": "Peter Pflüger",
+      "master": 3,
+      "delta": 6,
+      "spiele": 9,
+      "exportSpiele": 9
+    },
+    {
+      "rang": 91,
       "name": "Achim Popp",
       "master": 8,
       "delta": 0,
@@ -739,15 +740,7 @@
       "exportSpiele": 8
     },
     {
-      "rang": 90,
-      "name": "Peter Pflüger",
-      "master": 3,
-      "delta": 5,
-      "spiele": 8,
-      "exportSpiele": 3
-    },
-    {
-      "rang": 90,
+      "rang": 91,
       "name": "Silvia Mangold",
       "master": 8,
       "delta": 0,
@@ -755,7 +748,7 @@
       "exportSpiele": 8
     },
     {
-      "rang": 90,
+      "rang": 91,
       "name": "Simone Warth",
       "master": 8,
       "delta": 0,
@@ -763,7 +756,7 @@
       "exportSpiele": 8
     },
     {
-      "rang": 90,
+      "rang": 91,
       "name": "Sonja Thürauf",
       "master": 8,
       "delta": 0,
@@ -771,7 +764,7 @@
       "exportSpiele": 8
     },
     {
-      "rang": 90,
+      "rang": 91,
       "name": "Svea Täubert",
       "master": 8,
       "delta": 0,
@@ -824,7 +817,7 @@
       "master": 2,
       "delta": 3,
       "spiele": 5,
-      "exportSpiele": 2
+      "exportSpiele": 5
     },
     {
       "rang": 101,
@@ -848,10 +841,18 @@
       "master": 0,
       "delta": 5,
       "spiele": 5,
-      "exportSpiele": 0
+      "exportSpiele": 5
     },
     {
-      "rang": 105,
+      "rang": 101,
+      "name": "Oleksandr Pochereniuk",
+      "master": 0,
+      "delta": 5,
+      "spiele": 5,
+      "exportSpiele": 5
+    },
+    {
+      "rang": 106,
       "name": "Michaela Lampert",
       "master": 4,
       "delta": 0,
@@ -859,15 +860,7 @@
       "exportSpiele": 4
     },
     {
-      "rang": 105,
-      "name": "Oleksandr Pochereniuk",
-      "master": 0,
-      "delta": 4,
-      "spiele": 4,
-      "exportSpiele": 0
-    },
-    {
-      "rang": 105,
+      "rang": 106,
       "name": "Rainer Wehr",
       "master": 4,
       "delta": 0,
@@ -888,7 +881,7 @@
       "master": 0,
       "delta": 3,
       "spiele": 3,
-      "exportSpiele": 0
+      "exportSpiele": 3
     },
     {
       "rang": 108,
@@ -920,7 +913,7 @@
       "master": 1,
       "delta": 1,
       "spiele": 2,
-      "exportSpiele": 1
+      "exportSpiele": 2
     },
     {
       "rang": 114,
@@ -1008,7 +1001,7 @@
       "master": 0,
       "delta": 1,
       "spiele": 1,
-      "exportSpiele": 0
+      "exportSpiele": 1
     },
     {
       "rang": 114,
@@ -1016,7 +1009,7 @@
       "master": 0,
       "delta": 1,
       "spiele": 1,
-      "exportSpiele": 0
+      "exportSpiele": 1
     }
   ]
 }
