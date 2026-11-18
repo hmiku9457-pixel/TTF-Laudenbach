@@ -1,0 +1,59 @@
+name: ChatGPT-Datenimport – Quellen prüfen und veröffentlichen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/assistant-import/aktuell.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-writer
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+      - name: Python 3.12 einrichten
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Assistenten-Import testen
+        run: python -m unittest discover -s tests -p "test_import_assistant_data.py" -v
+      - name: Geprüfte Ergebnisse übernehmen
+        run: python assets/python/import_assistant_data.py
+      - name: Änderungen gemeinsam committen
+        id: commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- assets/data content/ewige-rangliste/delta/2026-27.json
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Daten: überprüfte Assistenten-Ergebnisse übernehmen"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+  deploy:
+    needs: import
+    if: needs.import.result == 'success' && needs.import.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml

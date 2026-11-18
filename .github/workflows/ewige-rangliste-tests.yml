@@ -5,9 +5,13 @@ on:
     paths:
       - "assets/python/ewige_rangliste.py"
       - "assets/python/scrape_ewige_rangliste.py"
+      - "assets/python/import_assistant_data.py"
+      - "tests/test_import_assistant_data.py"
+      - ".github/workflows/assistant-import.yml"
       - "assets/js/features/ewige-rangliste.js"
       - "tests/test_ewige_rangliste.py"
       - "content/ewige-rangliste/**"
+      - "content/assistant-import/**"
       - ".github/workflows/ewige-rangliste-*.yml"
   workflow_dispatch:
 
@@ -23,8 +27,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Python Syntax
-        run: python -m py_compile assets/python/ewige_rangliste.py assets/python/scrape_ewige_rangliste.py
+        run: python -m py_compile assets/python/ewige_rangliste.py assets/python/scrape_ewige_rangliste.py assets/python/import_assistant_data.py
       - name: Datenmodell, Korrekturen und Stichtage
         run: python -m unittest discover -s tests -p "test_ewige_rangliste.py" -v
+      - name: ChatGPT-Import und Konfliktschutz
+        run: python -m unittest discover -s tests -p "test_import_assistant_data.py" -v
       - name: JavaScript Syntax
         run: node --check assets/js/features/ewige-rangliste.js
