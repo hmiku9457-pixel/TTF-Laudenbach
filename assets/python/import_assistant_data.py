@@ -234,6 +234,12 @@ def apply():
             table_changes += 1
     old_delta = load(DELTA)
     events = {str(e["id"]): e for e in old_delta.get("begegnungen", [])}
+    by_match = {}
+    for existing in events.values():
+        existing_key = key(existing)
+        if existing_key in by_match:
+            raise ValueError("Doppelte Begegnung mit verschiedenen Berichts-IDs: " + str(existing_key))
+        by_match[existing_key] = str(existing["id"])
     added_reports = 0
     for k, match in matches.items():
         if match.get("spieler") is None:
@@ -244,8 +250,20 @@ def apply():
         eid = event["id"]
         if eid in events and events[eid] != event:
             raise ValueError("Vorhandener Bericht widerspricht der neuen Quelle: " + eid)
+        old_id = by_match.get(k)
+        if old_id and old_id != eid:
+            old_event = events[old_id]
+            evidence = old_event.get("quelle")
+            if not isinstance(evidence, dict) or evidence.get("typ") != "nutzer-screenshot":
+                raise ValueError("Begegnung mit anderer Berichts-ID vorhanden: " + str(k))
+            old_people = {str(p.get("personId") or normalized(p["name"])) for p in old_event["spieler"]}
+            new_people = {str(p.get("personId") or normalized(p["name"])) for p in event["spieler"]}
+            if old_people != new_people:
+                raise ValueError("Originalbericht widerspricht dem Screenshot-Nachweis: " + str(k))
+            del events[old_id]
         if eid not in events:
             events[eid] = event
+            by_match[k] = eid
             added_reports += 1
     # Auch unbeantwortete alte Begegnungen als Lücken melden. Kein
     # Vollständigkeits-Stichtag wird ohne vollständigen Nachweis erhöht.
