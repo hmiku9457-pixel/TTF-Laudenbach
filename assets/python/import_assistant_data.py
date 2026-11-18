@@ -30,7 +30,7 @@ TABLE_FIELDS = {
 }
 RESULT = re.compile(r"^\d{1,2}:\d{1,2}$")
 DATE = re.compile(r"(\d{1,2})\.(\d{1,2})\.(\d{4})")
-HOSTS = {"ttbw.click-tt.de", "ttvwh.click-tt.de", "mytischtennis.de", "www.mytischtennis.de"}
+HOSTS = {"ttbw.click-tt.de", "ttvwh.click-tt.de", "wttv.click-tt.de", "mytischtennis.de", "www.mytischtennis.de"}
 CLUB = "ttf laudenbach"
 
 
