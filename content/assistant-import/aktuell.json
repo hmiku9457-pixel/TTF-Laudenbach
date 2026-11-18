@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-18T23:02:22.286Z",
+  "checkedAt": "2026-11-18T23:15:25.909Z",
   "matches": [
     {
       "datum": "2026-09-19",
@@ -868,5 +868,89 @@
       ]
     }
   ],
-  "tables": []
+  "tables": [
+    {
+      "file": "tabelleHerren5.json",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaDokumentTTDE.woa/wa/nuDokument?dokument=ScheduleReportFOP&group=530040",
+      "rows": [
+        {
+          "rang": "1",
+          "mannschaft": "TSV Dörzbach II",
+          "partien": "5",
+          "siege": "5",
+          "unentschieden": "0",
+          "niederlagen": "0",
+          "spiele": "41:9",
+          "spieleDifferenz": "+32",
+          "punkte": "10:0"
+        },
+        {
+          "rang": "2",
+          "mannschaft": "TSV Markelsheim II",
+          "partien": "5",
+          "siege": "2",
+          "unentschieden": "1",
+          "niederlagen": "2",
+          "spiele": "29:21",
+          "spieleDifferenz": "+8",
+          "punkte": "5:5"
+        },
+        {
+          "rang": "3",
+          "mannschaft": "VFB Bad Mergentheim IV",
+          "partien": "3",
+          "siege": "1",
+          "unentschieden": "2",
+          "niederlagen": "0",
+          "spiele": "18:12",
+          "spieleDifferenz": "+6",
+          "punkte": "4:2"
+        },
+        {
+          "rang": "4",
+          "mannschaft": "FC Creglingen II",
+          "partien": "4",
+          "siege": "2",
+          "unentschieden": "0",
+          "niederlagen": "2",
+          "spiele": "22:18",
+          "spieleDifferenz": "+4",
+          "punkte": "4:4"
+        },
+        {
+          "rang": "5",
+          "mannschaft": "SV Elpersheim IV",
+          "partien": "3",
+          "siege": "1",
+          "unentschieden": "0",
+          "niederlagen": "2",
+          "spiele": "10:20",
+          "spieleDifferenz": "-10",
+          "punkte": "2:4"
+        },
+        {
+          "rang": "6",
+          "mannschaft": "SC Buchenbach V",
+          "partien": "5",
+          "siege": "0",
+          "unentschieden": "2",
+          "niederlagen": "3",
+          "spiele": "12:38",
+          "spieleDifferenz": "-26",
+          "punkte": "2:8"
+        },
+        {
+          "rang": "7",
+          "mannschaft": "TTF Laudenbach V",
+          "partien": "3",
+          "siege": "0",
+          "unentschieden": "1",
+          "niederlagen": "2",
+          "spiele": "8:22",
+          "spieleDifferenz": "-14",
+          "punkte": "1:5"
+        }
+      ]
+    }
+  ]
 }
