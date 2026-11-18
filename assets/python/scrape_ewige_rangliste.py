@@ -160,6 +160,8 @@ def scrape():
     if len(plans) != 5:
         raise ValueError(f"Erwartete fünf Erwachsenenmannschaften, gefunden: {len(plans)}")
     processed = set()
+    successful_plans = set()
+    resolved = set()
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         page = browser.new_page(viewport={"width": 1440, "height": 900})
@@ -173,6 +175,7 @@ def scrape():
                 if not games:
                     errors.append({"typ": "spielplan", "mannschaft": name, "meldung": "Kein Spielplan gefunden."})
                     continue
+                successful_plans.add(name)
                 for game in games:
                     day = game["datum"]
                     if day <= cutoff or day > today:
@@ -188,6 +191,8 @@ def scrape():
                     report = game["links"][0]
                     gid = meeting_id(report)
                     if gid in processed:
+                        if gid in events:
+                            resolved.add((name, day))
                         continue
                     processed.add(gid)
                     if re.search(r"kampflos|nicht angetreten", game["ergebnis"], re.I):
@@ -202,6 +207,7 @@ def scrape():
                         event = {"id": gid, "datum": day, "heim": game["heim"], "gast": game["gast"],
                                  "url": report, "spieler": players}
                         events[gid] = event
+                        resolved.add((name, day))
                         print(f"OK {day} {gid}: {len(players)} TTF-Spieler")
                     except Exception as exc:
                         errors.append({"typ": "bericht", "mannschaft": name, "datum": day,
@@ -220,6 +226,14 @@ def scrape():
     current_keys = {(x.get("typ"), x.get("spiel"), x.get("mannschaft"), x.get("datum")) for x in errors}
     for previous in data.get("fehler", []):
         if previous.get("datum") and previous["datum"] <= cutoff:
+            continue
+        if previous.get("typ") == "system":
+            continue
+        if previous.get("typ") == "spielplan" and previous.get("mannschaft") in successful_plans:
+            continue
+        if previous.get("typ") in ("bericht", "sonderfall") and (
+            previous.get("mannschaft"), previous.get("datum")
+        ) in resolved:
             continue
         if previous.get("spiel") and str(previous["spiel"]) in processed:
             continue
