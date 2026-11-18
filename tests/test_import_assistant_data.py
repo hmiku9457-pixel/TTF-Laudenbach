@@ -31,6 +31,10 @@ class ValidationTests(unittest.TestCase):
         items = mod.validate_matches([match()], "2026-09-18")
         self.assertEqual(len(items), 1)
 
+    def test_official_wttv_report_link_is_permitted(self):
+        link = "https://wttv.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupMeetingReport?group=529997&meeting=16071885"
+        self.assertEqual(mod.valid_source(link), link)
+
     def test_rejects_missing_source_and_bad_result(self):
         bad = match()
         bad["sourceUrl"] = "https://example.org/result"
