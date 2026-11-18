@@ -14,7 +14,10 @@ Nur **verifizierte Originalquellen** dürfen in
 durch, erzeugt die Ewige Rangliste und veröffentlicht anschließend die Seite.
 
 Der bisherige HTML-Scraper ist als manuelle Alt-Option erhalten,
-seine tägliche GitHub-Schedule wird abgeschaltet.
+seine tägliche GitHub-Schedule wird abgeschaltet. Falls der Push des
+ChatGPT-Dateneingangs kein GitHub-Ereignis auslöst, versucht eine zusätzliche
+GitHub-Actions-Schedule täglich um 07:45 UTC, die letzte Eingangsdatei zu
+verarbeiten (im Winter 08:45 Uhr, im Sommer 09:45 Uhr in Deutschland).
 
 ## JSON-Format für ChatGPT
 
