@@ -50,6 +50,9 @@ async function initializePage() {
     if (has("#images-gallery-container, #images-event-list")) {
         tasks.push(loadFeature("./features/gallery.js", "initHistoricalImages"));
     }
+    if (has("#rangliste-body")) {
+        tasks.push(loadFeature("./features/ewige-rangliste.js", "initEwigeRangliste"));
+    }
     if (has("#spieler-mannschaft")) {
         tasks.push(loadFeature("./features/player-list.js", "initSpielerliste"));
     }
