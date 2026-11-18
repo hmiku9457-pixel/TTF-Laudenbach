@@ -25,7 +25,7 @@ MASTER_DIR = CONTENT / "master"
 DELTA_DIR = CONTENT / "delta"
 IMPORT_DIR = CONTENT / "import"
 OUTPUT = ROOT / "assets" / "data" / "ewigeRangliste.json"
-ALIASES = {"peter pfüger": "Peter Pflüger"}
+ALIASES = {"peter pfüger": "Peter Pflüger", "steffen wolfert": "Steffen Wolfert (ehem. Fahrbach)"}
 
 
 def norm(value: str) -> str:
@@ -157,6 +157,7 @@ def build():
     display = {k: x["name"] for k, x in master.items()}
     deltas = Counter()
     known_identity = {}
+    name_identity = {}
     unknown = {}
     game_seen = set()
     for season, event in events:
@@ -172,16 +173,24 @@ def build():
             k = key(ALIASES.get(key(name), name))
             identity = str(player.get("personId") or "")
             dedupe_id = identity if identity else k
-            if dedupe_id in people:
+            if dedupe_id in people or k in people:
                 continue
             people.add(dedupe_id)
+            people.add(k)
             if k not in master and not identity:
                 unknown.setdefault(k, {"name": name, "datum": event["datum"], "spiel": event["id"]})
                 continue
             if identity and identity in known_identity and known_identity[identity] != k:
-                raise ValueError(f"Personen-ID {identity} ist mehreren Namen zugeordnet.")
+                errors.append({"typ": "zuordnung", "datum": event["datum"], "spiel": event["id"],
+                               "meldung": f"Personen-ID {identity} mit abweichenden Namen."})
+                continue
+            if identity and k in name_identity and name_identity[k] != identity:
+                errors.append({"typ": "zuordnung", "datum": event["datum"], "spiel": event["id"],
+                               "meldung": f"Gleicher Name {name} mit verschiedenen Personen-IDs."})
+                continue
             if identity:
                 known_identity[identity] = k
+                name_identity[k] = identity
             if k not in display:
                 display[k] = name
                 master_counts[k] = 0
