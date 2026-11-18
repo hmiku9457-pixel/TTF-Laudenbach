@@ -57,6 +57,40 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             mod.validate_players({**match(), "spieler": [{"name": "Unbekannt"}]})
 
+    def test_same_match_report_replaces_consistent_user_screenshot(self):
+        # Eine spätere echte Berichts-ID darf einen Screenshot nicht doppelt zählen.
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = root / "assets" / "data"
+            feed = root / "content" / "assistant-import" / "aktuell.json"
+            delta = root / "content" / "ewige-rangliste" / "delta" / "2026-27.json"
+            for folder in (data, feed.parent, delta.parent):
+                folder.mkdir(parents=True, exist_ok=True)
+            game = data / "spieleHerren1.json"
+            game.write_text(json.dumps([row(date.today().strftime("%d.%m.%Y"), "9:2")]), encoding="utf-8")
+            player_list = [{"name": f"Player {i}", "personId": str(i)} for i in range(1, 7)]
+            previous = {"id": "user-screenshot-123", "datum": date.today().isoformat(),
+                        "heim": "TTF Laudenbach", "gast": "TSV Schrozberg",
+                        "spieler": player_list, "quelle": {"typ": "nutzer-screenshot"}}
+            delta.write_text(json.dumps({"saison":"2026/27", "begegnungen":[previous],
+                                         "fehler":[], "vollstaendigBis":None,
+                                         "zuletztGeprueft":None}), encoding="utf-8")
+            official = {**match(), "meetingId": "12345678",
+                        "reportUrl": match()["sourceUrl"], "spieler": player_list}
+            feed.write_text(json.dumps({"schemaVersion": 1,
+                                        "checkedAt": datetime.now(timezone.utc).isoformat(),
+                                        "matches": [official], "tables": []}), encoding="utf-8")
+            with patch.object(mod, "GAMES", [game]), patch.object(mod, "INPUT", feed), \
+                 patch.object(mod, "DATA", data), patch.object(mod, "DELTA", delta), \
+                 patch.object(mod, "STATUS", data / "assistantStatus.json"), \
+                 patch.object(mod, "load_active", return_value=({"stichtag":"2026-09-18"}, {})), \
+                 patch.object(mod, "build"):
+                mod.apply()
+            events = json.loads(delta.read_text(encoding="utf-8"))["begegnungen"]
+            self.assertEqual(len(events), 1)
+            self.assertEqual(events[0]["id"], "12345678")
+
     def test_merges_without_deleting_unrelated_games(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
