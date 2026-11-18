@@ -575,6 +575,43 @@
       ]
     },
     {
+      "id": "user-screenshot-2026-11-06-herren1",
+      "datum": "2026-11-06",
+      "heim": "TTF Laudenbach",
+      "gast": "VFB Bad Mergentheim II",
+      "spieler": [
+        {
+          "name": "Peter Pflüger",
+          "personId": "477913"
+        },
+        {
+          "name": "Oleksandr Pochereniuk",
+          "personId": "2837640"
+        },
+        {
+          "name": "Thomas Ruske",
+          "personId": "369539"
+        },
+        {
+          "name": "Ludwig Moll",
+          "personId": "392912"
+        },
+        {
+          "name": "Manuel Ilzhöfer",
+          "personId": "360416"
+        },
+        {
+          "name": "Hubert Kraft",
+          "personId": "391386"
+        }
+      ],
+      "quelle": {
+        "typ": "nutzer-screenshot",
+        "beschreibung": "Vollständiger Spielbericht vom 06.11.2026, vom Nutzer am 19.11.2026 im Projektchat bereitgestellt",
+        "sha256": "328b6b1f90e775d839a14a29199d9ed1a8221155ad29d6c18b1a5b8a11743045"
+      }
+    },
+    {
       "id": "16071885",
       "datum": "2026-11-07",
       "heim": "TTF Laudenbach II",
@@ -798,14 +835,7 @@
       ]
     }
   ],
-  "fehler": [
-    {
-      "typ": "bericht",
-      "datum": "2026-11-06",
-      "mannschaft": "spieleHerren1",
-      "meldung": "Bestätigte TTF-Aufstellung aus Spielbericht fehlt."
-    }
-  ],
+  "fehler": [],
   "zuletztGeprueft": "2026-11-18T23:02:22+00:00",
-  "vollstaendigBis": null
+  "vollstaendigBis": "2026-11-15"
 }
