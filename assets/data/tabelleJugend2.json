@@ -1,68 +1,68 @@
 [
   {
     "rang": "1",
-    "mannschaft": "TTF Laudenbach II",
+    "mannschaft": "TSV Gerabronn IV",
     "partien": "3",
     "siege": "3",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "22:8",
-    "spieleDifferenz": "+14",
+    "spiele": "21:9",
+    "spieleDifferenz": "+12",
     "punkte": "6:0"
   },
   {
     "rang": "2",
-    "mannschaft": "TSV Gerabronn IV",
-    "partien": "1",
-    "siege": "1",
+    "mannschaft": "TTF Laudenbach II",
+    "partien": "4",
+    "siege": "3",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "7:3",
-    "spieleDifferenz": "+4",
-    "punkte": "2:0"
+    "niederlagen": "1",
+    "spiele": "26:14",
+    "spieleDifferenz": "+12",
+    "punkte": "6:2"
   },
   {
     "rang": "3",
     "mannschaft": "TSV Dörzbach II",
+    "partien": "3",
+    "siege": "2",
+    "unentschieden": "0",
+    "niederlagen": "1",
+    "spiele": "18:12",
+    "spieleDifferenz": "+6",
+    "punkte": "4:2"
+  },
+  {
+    "rang": "4",
+    "mannschaft": "SC Buchenbach II",
     "partien": "2",
     "siege": "1",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "12:8",
-    "spieleDifferenz": "+4",
+    "spiele": "14:6",
+    "spieleDifferenz": "+8",
     "punkte": "2:2"
   },
   {
-    "rang": "4",
-    "mannschaft": "SV Elpersheim II",
-    "partien": "1",
-    "siege": "0",
-    "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "4:6",
-    "spieleDifferenz": "-2",
-    "punkte": "0:2"
-  },
-  {
     "rang": "5",
-    "mannschaft": "SC Buchenbach II",
-    "partien": "1",
+    "mannschaft": "SV Elpersheim II",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "1",
-    "spiele": "4:6",
-    "spieleDifferenz": "-2",
-    "punkte": "0:2"
+    "niederlagen": "3",
+    "spiele": "10:20",
+    "spieleDifferenz": "-10",
+    "punkte": "0:6"
   },
   {
     "rang": "6",
     "mannschaft": "TV Niederstetten II",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "1:19",
-    "spieleDifferenz": "-18",
-    "punkte": "0:4"
+    "niederlagen": "3",
+    "spiele": "1:29",
+    "spieleDifferenz": "-28",
+    "punkte": "0:6"
   }
 ]
