@@ -12,6 +12,7 @@ import json
 import re
 import sys
 from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -142,7 +143,6 @@ def read_club_players(page, home, away):
 def scrape():
     active, _ = load_active()
     cutoff = active["stichtag"]
-    season = SAISON.replace("--", "/")  # 26/27 -> nachfolgend 2026/27
     start = 2000 + int(SAISON[:2])
     season_label = f"{start}/{str(start + 1)[-2:]}"
     season_file = DELTA_DIR / f"{start}-{str(start+1)[-2:]}.json"
@@ -153,8 +153,9 @@ def scrape():
     events = {str(e["id"]): e for e in data.get("begegnungen", []) if e["datum"] > cutoff}
     errors = []
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    today = date.today().isoformat()
-    yesterday = (date.today() - timedelta(days=1)).isoformat()
+    local_today = datetime.now(ZoneInfo("Europe/Berlin")).date()
+    today = local_today.isoformat()
+    yesterday = (local_today - timedelta(days=1)).isoformat()
     plans = [p for p in SPIELPLAENE if p.get("type") == "mannschaft" and "Herren" in p["name"]]
     if len(plans) != 5:
         raise ValueError(f"Erwartete fünf Erwachsenenmannschaften, gefunden: {len(plans)}")
@@ -245,5 +246,22 @@ if __name__ == "__main__":
     try:
         scrape()
     except Exception as exc:
+        # Auch ein unerwarteter Fehler darf die anderen Website-Daten nicht
+        # blockieren. Alte Delta-Einträge behalten und öffentlich warnen.
         print(f"FEHLER Saison-Delta: {exc}", file=sys.stderr)
-        sys.exit(1)
+        try:
+            start = 2000 + int(SAISON[:2])
+            season_file = DELTA_DIR / f"{start}-{str(start+1)[-2:]}.json"
+            fallback = load_json(season_file) if season_file.exists() else {
+                "saison": f"{start}/{str(start+1)[-2:]}", "begegnungen": [],
+                "fehler": [], "zuletztGeprueft": None, "vollstaendigBis": None
+            }
+            fallback.setdefault("fehler", []).append({
+                "typ": "system", "meldung": str(exc)[:200]
+            })
+            fallback["zuletztGeprueft"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            write_json(season_file, fallback)
+            build()
+        except Exception as inner:
+            print(f"FEHLER auch im Fallback: {inner}", file=sys.stderr)
+            sys.exit(1)
