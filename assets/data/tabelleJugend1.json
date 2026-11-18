@@ -2,78 +2,78 @@
   {
     "rang": "1",
     "mannschaft": "VFB Jagstheim",
-    "partien": "2",
-    "siege": "2",
+    "partien": "4",
+    "siege": "4",
     "unentschieden": "0",
     "niederlagen": "0",
-    "spiele": "16:4",
-    "spieleDifferenz": "+12",
-    "punkte": "4:0"
+    "spiele": "29:11",
+    "spieleDifferenz": "+18",
+    "punkte": "8:0"
   },
   {
     "rang": "2",
     "mannschaft": "SV Onolzheim II",
-    "partien": "3",
-    "siege": "1",
+    "partien": "4",
+    "siege": "2",
     "unentschieden": "1",
     "niederlagen": "1",
-    "spiele": "19:11",
-    "spieleDifferenz": "+8",
-    "punkte": "3:3"
+    "spiele": "27:13",
+    "spieleDifferenz": "+14",
+    "punkte": "5:3"
   },
   {
     "rang": "3",
-    "mannschaft": "TTF Laudenbach",
-    "partien": "1",
-    "siege": "1",
+    "mannschaft": "TSG Kirchberg",
+    "partien": "3",
+    "siege": "2",
     "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "7:3",
+    "niederlagen": "1",
+    "spiele": "17:13",
     "spieleDifferenz": "+4",
-    "punkte": "2:0"
+    "punkte": "4:2"
   },
   {
     "rang": "4",
-    "mannschaft": "TSG Kirchberg",
-    "partien": "1",
+    "mannschaft": "TSV Gerabronn II",
+    "partien": "4",
     "siege": "1",
-    "unentschieden": "0",
-    "niederlagen": "0",
-    "spiele": "6:4",
-    "spieleDifferenz": "+2",
-    "punkte": "2:0"
+    "unentschieden": "1",
+    "niederlagen": "2",
+    "spiele": "17:23",
+    "spieleDifferenz": "-6",
+    "punkte": "3:5"
   },
   {
     "rang": "5",
-    "mannschaft": "SV Onolzheim III",
-    "partien": "3",
+    "mannschaft": "TTF Laudenbach",
+    "partien": "2",
     "siege": "1",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "8:22",
-    "spieleDifferenz": "-14",
-    "punkte": "2:4"
+    "niederlagen": "1",
+    "spiele": "10:10",
+    "spieleDifferenz": "0",
+    "punkte": "2:2"
   },
   {
     "rang": "6",
-    "mannschaft": "TSV Gerabronn II",
-    "partien": "2",
-    "siege": "0",
-    "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "8:12",
-    "spieleDifferenz": "-4",
-    "punkte": "1:3"
+    "mannschaft": "SV Onolzheim III",
+    "partien": "4",
+    "siege": "1",
+    "unentschieden": "0",
+    "niederlagen": "3",
+    "spiele": "12:28",
+    "spieleDifferenz": "-16",
+    "punkte": "2:6"
   },
   {
     "rang": "7",
     "mannschaft": "FC Langenburg II",
-    "partien": "2",
+    "partien": "3",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "2",
-    "spiele": "6:14",
-    "spieleDifferenz": "-8",
-    "punkte": "0:4"
+    "niederlagen": "3",
+    "spiele": "8:22",
+    "spieleDifferenz": "-14",
+    "punkte": "0:6"
   }
 ]
