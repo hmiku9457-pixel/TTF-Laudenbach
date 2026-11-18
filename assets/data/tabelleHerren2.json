@@ -2,79 +2,79 @@
   {
     "rang": "1",
     "mannschaft": "FC Igersheim",
-    "partien": "5",
-    "siege": "4",
+    "partien": "7",
+    "siege": "6",
     "unentschieden": "1",
     "niederlagen": "0",
-    "spiele": "44:19",
-    "spieleDifferenz": "+25",
-    "punkte": "9:1"
+    "spiele": "62:26",
+    "spieleDifferenz": "+36",
+    "punkte": "13:1"
   },
   {
     "rang": "2",
     "mannschaft": "SpVgg Gröningen-Satteldorf VI",
-    "partien": "4",
-    "siege": "3",
-    "unentschieden": "1",
+    "partien": "7",
+    "siege": "5",
+    "unentschieden": "2",
     "niederlagen": "0",
-    "spiele": "35:19",
-    "spieleDifferenz": "+16",
-    "punkte": "7:1"
+    "spiele": "61:32",
+    "spieleDifferenz": "+29",
+    "punkte": "12:2"
   },
   {
     "rang": "3",
     "mannschaft": "SC Buchenbach III",
-    "partien": "4",
-    "siege": "3",
+    "partien": "5",
+    "siege": "4",
     "unentschieden": "0",
     "niederlagen": "1",
-    "spiele": "34:18",
-    "spieleDifferenz": "+16",
-    "punkte": "6:2"
+    "spiele": "43:24",
+    "spieleDifferenz": "+19",
+    "punkte": "8:2"
   },
   {
     "rang": "4",
     "mannschaft": "TTF Laudenbach II",
-    "partien": "4",
-    "siege": "2",
-    "unentschieden": "1",
+    "partien": "6",
+    "siege": "3",
+    "unentschieden": "2",
     "niederlagen": "1",
-    "spiele": "32:24",
-    "spieleDifferenz": "+8",
-    "punkte": "5:3"
+    "spiele": "49:36",
+    "spieleDifferenz": "+13",
+    "punkte": "8:4"
   },
   {
     "rang": "5",
-    "mannschaft": "SV Elpersheim II",
-    "partien": "4",
-    "siege": "1",
-    "unentschieden": "2",
-    "niederlagen": "1",
-    "spiele": "27:30",
-    "spieleDifferenz": "-3",
-    "punkte": "4:4"
+    "mannschaft": "TTF Laudenbach III",
+    "partien": "6",
+    "siege": "3",
+    "unentschieden": "0",
+    "niederlagen": "3",
+    "spiele": "36:41",
+    "spieleDifferenz": "-5",
+    "punkte": "6:6"
   },
   {
     "rang": "6",
-    "mannschaft": "TTF Laudenbach III",
-    "partien": "5",
-    "siege": "2",
-    "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "27:35",
-    "spieleDifferenz": "-8",
-    "punkte": "4:6"
+    "mannschaft": "SV Elpersheim II",
+    "partien": "7",
+    "siege": "1",
+    "unentschieden": "2",
+    "niederlagen": "4",
+    "spiele": "42:57",
+    "spieleDifferenz": "-15",
+    "punkte": "4:10"
   },
   {
     "rang": "7",
     "mannschaft": "TSG Kirchberg II",
-    "partien": "3",
+    "partien": "4",
     "siege": "1",
     "unentschieden": "1",
-    "niederlagen": "1",
-    "spiele": "24:22",
-    "spieleDifferenz": "+2",
-    "punkte": "3:3"
+    "niederlagen": "2",
+    "spiele": "26:31",
+    "spieleDifferenz": "-5",
+    "punkte": "3:5"
   },
   {
     "rang": "8",
@@ -90,23 +90,23 @@
   {
     "rang": "9",
     "mannschaft": "SV Tiefenbach II",
-    "partien": "3",
+    "partien": "5",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "3",
-    "spiele": "13:27",
-    "spieleDifferenz": "-14",
-    "punkte": "0:6"
+    "niederlagen": "5",
+    "spiele": "20:45",
+    "spieleDifferenz": "-25",
+    "punkte": "0:10"
   },
   {
     "rang": "10",
     "mannschaft": "TSV Schrozberg II",
-    "partien": "4",
+    "partien": "5",
     "siege": "0",
     "unentschieden": "0",
-    "niederlagen": "4",
-    "spiele": "10:36",
-    "spieleDifferenz": "-26",
-    "punkte": "0:8"
+    "niederlagen": "5",
+    "spiele": "14:45",
+    "spieleDifferenz": "-31",
+    "punkte": "0:10"
   }
 ]
