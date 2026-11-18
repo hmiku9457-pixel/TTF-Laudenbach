@@ -193,6 +193,9 @@ def apply():
     changed = {}
     found = set()
     match_changes = 0
+    adult_keys = {key(row) for path, rows in original_games.items()
+                  if re.fullmatch(r"spieleHerren[1-5]\.json", path.name)
+                  for row in rows}
     for path, rows in original_games.items():
         altered = []
         for row in rows:
@@ -234,8 +237,8 @@ def apply():
     for k, match in matches.items():
         if match.get("spieler") is None:
             continue
-        if not ("ttf laudenbach" in normalized(match["heim"]) or "ttf laudenbach" in normalized(match["gast"])):
-            continue
+        if k not in adult_keys:
+            raise ValueError("Spieleraufstellung gehört zu keiner Erwachsenenbegegnung: " + str(k))
         event = validate_players(match)
         eid = event["id"]
         if eid in events and events[eid] != event:
