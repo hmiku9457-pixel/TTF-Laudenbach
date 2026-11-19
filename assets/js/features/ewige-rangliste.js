@@ -46,7 +46,7 @@ function downloadMaster(data) {
 
 function playerKey(name) {
     return String(name ?? "").normalize("NFKC")
-        .replace(/\\s+/g, " ").trim().toLocaleLowerCase("de-DE");
+        .replace(/\s+/g, " ").trim().toLocaleLowerCase("de-DE");
 }
 
 function appendCell(row, tagName, value, className) {
