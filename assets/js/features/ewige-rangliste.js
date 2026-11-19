@@ -58,23 +58,12 @@ function appendCell(row, tagName, value, className) {
     return cell;
 }
 
-/**
- * Abstand bis zum nächsthöheren Rang (nächste unterschiedliche Einsatzzahl).
- * Beim Gleichstand erhalten alle Spieler derselben Ranggruppe denselben Abstand.
- * Die gesamte Spitzengruppe hat keinen höheren Rang: "–".
- */
-export function gapsToNextHigherRank(players) {
-    let groupCount = null;
-    let nextHigherCount = null;
+/** Abstand zum unmittelbar darüberstehenden Spieler; bei Gleichstand oder Spitze „–“. */
+export function gapsToPreviousPlayer(players) {
     return players.map((player, index) => {
-        const count = Number(player.spiele);
-        if (index === 0) {
-            groupCount = count;
-        } else if (count < groupCount) {
-            nextHigherCount = groupCount;
-            groupCount = count;
-        }
-        return nextHigherCount === null ? "–" : String(nextHigherCount - count);
+        if (index === 0) return "–";
+        const gap = Number(players[index - 1].spiele) - Number(player.spiele);
+        return gap > 0 ? String(gap) : "–";
     });
 }
 
@@ -113,7 +102,7 @@ export async function initEwigeRangliste() {
         }
         tbody.replaceChildren();
         const fragment = document.createDocumentFragment();
-        const gapLabels = gapsToNextHigherRank(data.spieler);
+        const gapLabels = gapsToPreviousPlayer(data.spieler);
         for (const [index, item] of data.spieler.entries()) {
             const row = document.createElement("tr");
             const detail = showSeasonDetails(
