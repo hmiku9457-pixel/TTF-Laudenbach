@@ -15,6 +15,7 @@ on:
       - "assets/js/features/ewige-rangliste.js"
       - "tests/test_ewige_rangliste.py"
       - "tests/test_ewige_rangliste_saison.py"
+      - "tests/test_ewige_rangliste_abstand.mjs"
       - "content/ewige-rangliste/**"
       - "content/assistant-import/**"
       - ".github/workflows/ewige-rangliste-*.yml"
@@ -41,5 +42,11 @@ jobs:
         run: python assets/python/import_assistant_data.py
       - name: Saisonstatistik und Mannschaftsmeldung prüfen
         run: python -m unittest discover -s tests -p "test_ewige_rangliste_saison.py" -v
+      - name: Node.js 22 für JavaScript-Tests einrichten
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
       - name: JavaScript Syntax
         run: node --check assets/js/features/ewige-rangliste.js
+      - name: Abstandsberechnung bei Gleichstand
+        run: node --experimental-default-type=module --test tests/test_ewige_rangliste_abstand.mjs

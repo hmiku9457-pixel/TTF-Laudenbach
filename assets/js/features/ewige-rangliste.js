@@ -58,15 +58,33 @@ function appendCell(row, tagName, value, className) {
     return cell;
 }
 
-function showSeasonDetails(item, seasonData, previousTotal, index, available) {
+/**
+ * Abstand bis zum nächsthöheren Rang (nächste unterschiedliche Einsatzzahl).
+ * Beim Gleichstand erhalten alle Spieler derselben Ranggruppe denselben Abstand.
+ * Die gesamte Spitzengruppe hat keinen höheren Rang: "–".
+ */
+export function gapsToNextHigherRank(players) {
+    let groupCount = null;
+    let nextHigherCount = null;
+    return players.map((player, index) => {
+        const count = Number(player.spiele);
+        if (index === 0) {
+            groupCount = count;
+        } else if (count < groupCount) {
+            nextHigherCount = groupCount;
+            groupCount = count;
+        }
+        return nextHigherCount === null ? "–" : String(nextHigherCount - count);
+    });
+}
+
+function showSeasonDetails(seasonData, gapLabel, available) {
     const registered = Boolean(seasonData?.gemeldet);
     const currentSeason = available && Number.isInteger(seasonData?.einsätze)
         ? seasonData.einsätze : (available ? 0 : null);
     const seasonLabel = currentSeason === null ? "–"
         : (!registered && currentSeason === 0 ? "–" : String(currentSeason));
-    const total = Number(item.spiele);
-    const gap = index === 0 ? null : Math.max(0, previousTotal - total);
-    return { registered, seasonLabel, gapLabel: gap === null || gap === 0 ? "–" : String(gap) };
+    return { registered, seasonLabel, gapLabel };
 }
 
 export async function initEwigeRangliste() {
@@ -95,11 +113,12 @@ export async function initEwigeRangliste() {
         }
         tbody.replaceChildren();
         const fragment = document.createDocumentFragment();
+        const gapLabels = gapsToNextHigherRank(data.spieler);
         for (const [index, item] of data.spieler.entries()) {
             const row = document.createElement("tr");
-            const previous = index === 0 ? 0 : Number(data.spieler[index - 1].spiele);
-            const detail = showSeasonDetails(item, seasonIndex.get(playerKey(item.name)),
-                previous, index, available);
+            const detail = showSeasonDetails(
+                seasonIndex.get(playerKey(item.name)), gapLabels[index], available
+            );
             if (detail.registered) {
                 row.classList.add("ranking-player--registered");
                 row.title = "Für diese Saison gemeldet";
