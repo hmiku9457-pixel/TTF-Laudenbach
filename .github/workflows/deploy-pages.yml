@@ -14,6 +14,9 @@ on:
       - "assets/css/**"
       - "assets/js/**"
       - "assets/data/**"
+      - "content/ewige-rangliste/delta/**"
+      - "content/ewige-rangliste/saison-archiv/**"
+      - "content/ewige-rangliste/aktiver-master.json"
       - "assets/images/seo/**"
   workflow_call:
   workflow_dispatch:
@@ -54,6 +57,11 @@ jobs:
           cp index.html 404.html CNAME robots.txt sitemap.xml .pages-site/
           cp -a components pages .pages-site/
           cp -a assets/css assets/data assets/images assets/js .pages-site/assets/
+
+          # Saisonkennzahlen aus den bereits gespeicherten Begegnungen und
+          # der Mannschaftsmeldung erzeugen; kein zusätzlicher Datenabruf.
+          python assets/python/ewige_rangliste_saison.py --output .pages-site/assets/data/ewigeRanglisteSaison.json
+          test -f .pages-site/assets/data/ewigeRanglisteSaison.json
 
           test -f .pages-site/index.html
           test -f .pages-site/404.html
