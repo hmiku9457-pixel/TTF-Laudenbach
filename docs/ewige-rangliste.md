@@ -19,7 +19,9 @@ Die Vereinsrangliste wird nicht mehr in der HTML-Tabelle gepflegt.
 4. GitHub Action **Ewige Rangliste – Master importieren** validiert sie automatisch und aktiviert sie ohne weitere Bestätigung. Bei einem Fehler bleibt der bisherige Master erhalten.
 5. Die Aktion legt die neue Datei als `master_YYYY-MM-DD_vN.csv` im Archiv ab, entfernt alle Begegnungen `<=` neuem Datum aus den aktuellen Delta-Dateien und berechnet die Website-Datei neu.
 
-Begegnungen, die beim Import aus den laufenden Delta-Dateien entfernt werden, bleiben für die saisonalen Einsatzzahlen separat archiviert.\n\nEin höherer Stichtag ist nur möglich, wenn die automatische Erfassung **bis mindestens zu diesem Stichtag vollständig** war. Bereits importierte Masterversionen bleiben erhalten. Bei demselben Datum wird eine neue Versionsnummer erzeugt. Alle Änderungen werden von GitHub im Commit-Verlauf nachvollziehbar protokolliert.
+Begegnungen, die beim Import aus den laufenden Delta-Dateien entfernt werden, bleiben für die saisonalen Einsatzzahlen separat archiviert.
+
+Ein höherer Stichtag ist nur möglich, wenn die automatische Erfassung **bis mindestens zu diesem Stichtag vollständig** war. Bereits importierte Masterversionen bleiben erhalten. Bei demselben Datum wird eine neue Versionsnummer erzeugt. Alle Änderungen werden von GitHub im Commit-Verlauf nachvollziehbar protokolliert.
 
 ## Saisonanzeige (automatisch beim Pages-Deployment)
 
