@@ -66,7 +66,7 @@ function showSeasonDetails(item, seasonData, previousTotal, index, available) {
         : (!registered && currentSeason === 0 ? "–" : String(currentSeason));
     const total = Number(item.spiele);
     const gap = index === 0 ? null : Math.max(0, previousTotal - total);
-    return { registered, seasonLabel, gapLabel: gap === null ? "–" : String(gap) };
+    return { registered, seasonLabel, gapLabel: gap === null || gap === 0 ? "–" : String(gap) };
 }
 
 export async function initEwigeRangliste() {
@@ -119,7 +119,7 @@ export async function initEwigeRangliste() {
             const mobile = document.createElement("small");
             mobile.className = "ranking-mobile-details";
             mobile.textContent = "Saison: " + detail.seasonLabel +
-                " · Rückstand: " + detail.gapLabel;
+                " · Abstand: " + detail.gapLabel;
             name.append(mobile);
             appendCell(row, "td", Number(item.spiele).toLocaleString("de-DE"),
                 "ranking-cell-number ranking-cell-total");
