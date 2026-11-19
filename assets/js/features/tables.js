@@ -66,6 +66,7 @@ export async function loadTable(config) {
                 row.appendChild(cell);
             });
 
+            config.decorateRow?.(item, row);
             tbody.appendChild(row);
         });
     } catch (error) {

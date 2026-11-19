@@ -1,7 +1,8 @@
 import {
     formatErgebnis,
     formatUhrzeit,
-    getSpielort
+    getSpielort,
+    highlightGameResult
 } from "../utils/game-formatters.js";
 
 const text = value => value == null ? "" : String(value);
@@ -11,6 +12,12 @@ function createGameConfig(targetId, url) {
         targetId,
         url,
         responsiveType: "schedule",
+        decorateRow: (game, row) => highlightGameResult(
+            row.lastElementChild,
+            game?.heim,
+            game?.gast,
+            game?.ergebnis
+        ),
         cells: row => {
             const heim = text(row?.heim);
             const gast = text(row?.gast);

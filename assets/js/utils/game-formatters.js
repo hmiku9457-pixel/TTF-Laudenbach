@@ -69,3 +69,47 @@ export function formatErgebnis(heim, _gast, ergebnis) {
         ? `${heimPunkte}:${gastPunkte}`
         : `${gastPunkte}:${heimPunkte}`;
 }
+
+// Ergebnisse werden immer aus Sicht der TTF Laudenbach gewertet.
+export function getGameOutcome(heim, gast, ergebnis) {
+    const homeIsTtf = String(heim ?? "").includes("TTF Laudenbach");
+    const awayIsTtf = String(gast ?? "").includes("TTF Laudenbach");
+    const score = String(ergebnis ?? "").trim().match(/^(\d+)\s*:\s*(\d+)$/);
+
+    if (homeIsTtf === awayIsTtf || !score) {
+        return null;
+    }
+
+    const homePoints = Number(score[1]);
+    const awayPoints = Number(score[2]);
+    const ownPoints = homeIsTtf ? homePoints : awayPoints;
+    const opponentPoints = homeIsTtf ? awayPoints : homePoints;
+
+    if (ownPoints === opponentPoints) {
+        return "draw";
+    }
+
+    return ownPoints > opponentPoints ? "win" : "loss";
+}
+
+export function highlightGameResult(cell, heim, gast, ergebnis) {
+    if (!cell) {
+        return;
+    }
+
+    const outcome = getGameOutcome(heim, gast, ergebnis);
+    if (!outcome) {
+        return;
+    }
+
+    const labels = {
+        win: "Sieg",
+        loss: "Niederlage",
+        draw: "Unentschieden"
+    };
+    const label = labels[outcome];
+
+    cell.classList.add(`game-result--${outcome}`);
+    cell.title = label;
+    cell.setAttribute("aria-label", `${label}: ${cell.textContent}`);
+}

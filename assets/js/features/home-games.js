@@ -4,7 +4,8 @@ import {
     formatErgebnis,
     formatUhrzeit,
     getMannschaft,
-    getSpielort
+    getSpielort,
+    highlightGameResult
 } from "../utils/game-formatters.js";
 import { refreshResponsiveTable } from "./table-responsive.js";
 
@@ -160,6 +161,15 @@ function renderGames(tbody, games, {
             cell.textContent = value || "–";
             row.appendChild(cell);
         });
+
+        if (includeResult) {
+            highlightGameResult(
+                row.lastElementChild,
+                game?.heim,
+                game?.gast,
+                game?.ergebnis
+            );
+        }
 
         tbody.appendChild(row);
     });
