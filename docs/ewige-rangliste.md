@@ -19,7 +19,23 @@ Die Vereinsrangliste wird nicht mehr in der HTML-Tabelle gepflegt.
 4. GitHub Action **Ewige Rangliste – Master importieren** validiert sie automatisch und aktiviert sie ohne weitere Bestätigung. Bei einem Fehler bleibt der bisherige Master erhalten.
 5. Die Aktion legt die neue Datei als `master_YYYY-MM-DD_vN.csv` im Archiv ab, entfernt alle Begegnungen `<=` neuem Datum aus den aktuellen Delta-Dateien und berechnet die Website-Datei neu.
 
+Begegnungen, die beim Import aus den laufenden Delta-Dateien entfernt werden, bleiben für die saisonalen Einsatzzahlen separat archiviert.
+
 Ein höherer Stichtag ist nur möglich, wenn die automatische Erfassung **bis mindestens zu diesem Stichtag vollständig** war. Bereits importierte Masterversionen bleiben erhalten. Bei demselben Datum wird eine neue Versionsnummer erzeugt. Alle Änderungen werden von GitHub im Commit-Verlauf nachvollziehbar protokolliert.
+
+## Saisonanzeige (automatisch beim Pages-Deployment)
+
+Die Tabelle zeigt neben den historischen Gesamteinsätzen auch **Saisoneinsätze**, **Rückstand zum unmittelbar höheren Tabellenrang** und eine dezente Markierung der für die aktuelle Saison gemeldeten Erwachsenen.
+
+- Der Meldestatus stammt aus `assets/data/spielerHerren.json` (alle fünf Erwachsenenmannschaften); die aktuelle Fassung dieser Mannschaftsmeldung muss beim Saisonwechsel bzw. bei Nachmeldungen gepflegt werden.
+- Der Saisonwert wird pro Begegnungs-ID einmalig gezählt. Ein Spieler mit Einzel und Doppel zählt in derselben Begegnung nur einmal. Das gilt auch bei vereinsinternen Begegnungen.
+- Namensvarianten wie „Steffen Wolfert“ und „Steffen Wolfert (ehem. Fahrbach)“ werden über die vorhandene Zuordnungstabelle zusammengeführt.
+- Bei einer Masterkorrektur werden aus dem aktiven Delta entfernte Begegnungen in `content/ewige-rangliste/saison-archiv/YYYY-YY.json` übertragen. Das Archiv dient **nur** der Saisonzählung und wird nicht zusätzlich zu den Master-Einsätzen gezählt.
+- Der Deploy führt `python assets/python/ewige_rangliste_saison.py --output .pages-site/assets/data/ewigeRanglisteSaison.json` aus. Das getrennte Saison-JSON wird **nicht vom ChatGPT-Cronjob geschrieben**, sondern bei jedem Pages-Deployment aus der aktuell im Repository vorhandenen Meldung und den Begegnungen erzeugt.
+- Wenn Saisoninformationen nicht verfügbar sind, bleibt die Haupt-Rangliste einschließlich CSV-Export sichtbar. Es werden dann keine unbelegten Saisonzahlen angezeigt.
+- Gleicher Rang: Rückstand 0. Erster Rang: kein Rückstand (–). Eine für die Saison gemeldete Person ohne bisher erfassten Einsatz erhält 0; bei historischen Spielern ohne Saisonmeldung und ohne Einsatz steht –.
+
+Die Saisonanzeige berücksichtigt nur Begegnungen, die in den aktuellen Deltas oder Saisonarchiven tatsächlich vorliegen. Der bisherige Masterstichtag liegt am 18.09.2026; die gespeicherten Mannschaftsspielpläne 2026/27 beginnen ab dem 19.09.2026. Falls in einer künftigen Saison schon vor einem neuen Masterstichtag Spiele stattgefunden haben, muss deren Übernahme ins Saisonarchiv sichergestellt werden.
 
 ## CSV-Formate
 

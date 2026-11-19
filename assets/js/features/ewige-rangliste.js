@@ -1,6 +1,7 @@
 import { fetchJson } from "../core/http.js";
 
 const DATA_URL = "/assets/data/ewigeRangliste.json";
+const SEASON_URL = "/assets/data/ewigeRanglisteSaison.json";
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 function germanDate(iso) {
@@ -42,34 +43,103 @@ function downloadMaster(data) {
     setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
 }
 
+
+function playerKey(name) {
+    return String(name ?? "").normalize("NFKC")
+        .replace(/\s+/g, " ").trim().toLocaleLowerCase("de-DE");
+}
+
+function appendCell(row, tagName, value, className) {
+    const cell = document.createElement(tagName);
+    if (tagName === "th") cell.scope = "row";
+    if (className) cell.className = className;
+    cell.textContent = value;
+    row.appendChild(cell);
+    return cell;
+}
+
+function showSeasonDetails(item, seasonData, previousTotal, index, available) {
+    const registered = Boolean(seasonData?.gemeldet);
+    const currentSeason = available && Number.isInteger(seasonData?.einsätze)
+        ? seasonData.einsätze : (available ? 0 : null);
+    const seasonLabel = currentSeason === null ? "–"
+        : (!registered && currentSeason === 0 ? "–" : String(currentSeason));
+    const total = Number(item.spiele);
+    const gap = index === 0 ? null : Math.max(0, previousTotal - total);
+    return { registered, seasonLabel, gapLabel: gap === null ? "–" : String(gap) };
+}
+
 export async function initEwigeRangliste() {
     const tbody = document.getElementById("rangliste-body");
     const status = document.getElementById("rangliste-status");
     const stand = document.getElementById("rangliste-stand");
     const button = document.getElementById("rangliste-export");
     const search = document.getElementById("searchInput");
+    const seasonInfo = document.getElementById("rangliste-saisoninfo");
     if (!tbody || !status || !button || !stand) return;
 
     try {
-        const data = await fetchJson(DATA_URL, { cache: "no-cache" });
+        // Die Rangliste bleibt nutzbar, selbst wenn optionale Saisoninformationen fehlen.
+        const [data, seasonRequest] = await Promise.all([
+            fetchJson(DATA_URL, { cache: "no-cache" }),
+            fetchJson(SEASON_URL, { cache: "no-cache" }).catch(error => {
+                console.warn("Saisoninformationen konnten nicht geladen werden:", error);
+                return null;
+            })
+        ]);
+        const seasonData = seasonRequest && Array.isArray(seasonRequest.spieler) ? seasonRequest : null;
+        const seasonIndex = new Map((seasonData?.spieler || []).map(item => [playerKey(item.name), item]));
+        const available = Boolean(seasonData);
         if (!Array.isArray(data.spieler) || !DATE_RE.test(data.masterStichtag)) {
             throw new Error("Ranglistendaten haben ein ungültiges Format.");
         }
         tbody.replaceChildren();
         const fragment = document.createDocumentFragment();
-        for (const item of data.spieler) {
+        for (const [index, item] of data.spieler.entries()) {
             const row = document.createElement("tr");
-            const rank = document.createElement("th");
-            rank.scope = "row";
-            rank.textContent = String(item.rang);
-            const name = document.createElement("td");
-            name.textContent = item.name;
-            const games = document.createElement("td");
-            games.textContent = Number(item.spiele).toLocaleString("de-DE");
-            row.append(rank, name, games);
+            const previous = index === 0 ? 0 : Number(data.spieler[index - 1].spiele);
+            const detail = showSeasonDetails(item, seasonIndex.get(playerKey(item.name)),
+                previous, index, available);
+            if (detail.registered) {
+                row.classList.add("ranking-player--registered");
+                row.title = "Für diese Saison gemeldet";
+            }
+            appendCell(row, "th", String(item.rang), "ranking-cell-rank");
+            const name = appendCell(row, "td", "", "ranking-cell-name");
+            const nameSpan = document.createElement("span");
+            nameSpan.className = "ranking-player-name";
+            nameSpan.textContent = item.name;
+            name.append(nameSpan);
+            if (detail.registered) {
+                const hiddenText = document.createElement("span");
+                hiddenText.className = "visually-hidden";
+                hiddenText.textContent = " – für diese Saison gemeldet";
+                name.append(hiddenText);
+            }
+            const mobile = document.createElement("small");
+            mobile.className = "ranking-mobile-details";
+            mobile.textContent = "Saison: " + detail.seasonLabel +
+                " · Rückstand: " + detail.gapLabel;
+            name.append(mobile);
+            appendCell(row, "td", Number(item.spiele).toLocaleString("de-DE"),
+                "ranking-cell-number ranking-cell-total");
+            appendCell(row, "td", detail.seasonLabel,
+                "ranking-cell-number ranking-cell-season");
+            appendCell(row, "td", detail.gapLabel,
+                "ranking-cell-number ranking-cell-gap");
             fragment.append(row);
         }
         tbody.append(fragment);
+        if (seasonInfo) {
+            if (seasonData) {
+                seasonInfo.textContent = "Saison " + seasonData.saison + " · " +
+                    Number(seasonData.erfassteBegegnungen || 0) +
+                    " Begegnungen erfasst · Markierte Spieler sind aktuell für Erwachsenenmannschaften gemeldet." +
+                    (seasonData.unvollstaendig ? " Einzelne Saisonberichte sind möglicherweise noch unvollständig." : "");
+            } else {
+                seasonInfo.textContent = "Saisoninformationen derzeit nicht verfügbar. Die Gesamteinsätze bleiben sichtbar.";
+            }
+        }
         const dateLabel = germanDate(data.exportStichtag);
         stand.textContent = "Master: " + germanDate(data.masterStichtag) +
             " · Sicherer CSV-Export bis: " + dateLabel +
@@ -91,11 +161,12 @@ export async function initEwigeRangliste() {
         tbody.replaceChildren();
         const row = document.createElement("tr");
         const cell = document.createElement("td");
-        cell.colSpan = 3;
+        cell.colSpan = 5;
         cell.textContent = "Die Ewige Rangliste konnte nicht geladen werden.";
         row.append(cell);
         tbody.append(row);
         status.textContent = "Datenabruf fehlgeschlagen. Bitte später erneut versuchen.";
+        if (seasonInfo) seasonInfo.textContent = "";
         status.classList.add("ranking-status--warning");
         button.disabled = true;
     }

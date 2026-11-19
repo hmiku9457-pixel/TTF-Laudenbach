@@ -23,7 +23,7 @@ export function initTableSearch() {
         const search = input.value.trim().toLowerCase();
         document.querySelectorAll(".table-ewigeRangliste tbody tr")
             .forEach(row => {
-                const nameCell = row.children[1];
+                const nameCell = row.querySelector(".ranking-player-name") || row.children[1];
                 if (nameCell) {
                     row.style.display = nameCell.textContent.toLowerCase().includes(search)
                         ? ""

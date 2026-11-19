@@ -288,12 +288,32 @@ def import_master():
     dest = MASTER_DIR / f"master_{new_date}_v{version}.csv"
     # Erst alle Delta-Dateien vorbereiten, dann Dateien auf dem Arbeitsbranch gemeinsam committen.
     pending = []
+    season_history = []
     for file in sorted(DELTA_DIR.glob("*.json")):
         data = load_json(file)
-        data["begegnungen"] = [e for e in data.get("begegnungen", []) if iso_date(e["datum"]) > new_date]
+        keep = []
+        moved = []
+        for event in data.get("begegnungen", []):
+            (moved if iso_date(event["datum"]) <= new_date else keep).append(event)
+        if moved:
+            archive_file = CONTENT / "saison-archiv" / file.name
+            history = load_json(archive_file) if archive_file.exists() else {
+                "saison": data["saison"], "begegnungen": []
+            }
+            if history["saison"] != data["saison"]:
+                raise ValueError(f"Saisonarchiv passt nicht zum Delta: {file.name}")
+            history_ids = {str(e["id"]) for e in history["begegnungen"]}
+            for event in moved:
+                if str(event["id"]) not in history_ids:
+                    history["begegnungen"].append(event)
+                    history_ids.add(str(event["id"]))
+            season_history.append((archive_file, history))
+        data["begegnungen"] = keep
         data["fehler"] = [e for e in data.get("fehler", []) if not e.get("datum") or iso_date(e["datum"]) > new_date]
         pending.append((file, data))
     shutil.copyfile(source, dest)
+    for path, data in season_history:
+        write_json(path, data)
     for path, data in pending:
         write_json(path, data)
     write_json(ACTIVE, {"datei": f"master/{dest.name}", "stichtag": new_date, "version": version})

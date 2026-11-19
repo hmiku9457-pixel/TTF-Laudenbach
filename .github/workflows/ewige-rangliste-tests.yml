@@ -4,12 +4,17 @@ on:
   pull_request:
     paths:
       - "assets/python/ewige_rangliste.py"
-      - "assets/python/scrape_ewige_rangliste.py"
+      - "assets/python/ewige_rangliste_saison.py"
+      - "pages/aktiverSpielbetrieb/ewigeRangliste.html"
+      - "assets/css/components/ewige-rangliste.css"
+      - ".github/workflows/deploy-pages.yml"
+      - "assets/python/scrape_ewige_rangliste.py assets/python/ewige_rangliste_saison.py"
       - "assets/python/import_assistant_data.py"
       - "tests/test_import_assistant_data.py"
       - ".github/workflows/assistant-import.yml"
       - "assets/js/features/ewige-rangliste.js"
       - "tests/test_ewige_rangliste.py"
+      - "tests/test_ewige_rangliste_saison.py"
       - "content/ewige-rangliste/**"
       - "content/assistant-import/**"
       - ".github/workflows/ewige-rangliste-*.yml"
@@ -34,5 +39,7 @@ jobs:
         run: python -m unittest discover -s tests -p "test_import_assistant_data.py" -v
       - name: Echten Assistenten-Import im temporären Checkout prüfen
         run: python assets/python/import_assistant_data.py
+      - name: Saisonstatistik und Mannschaftsmeldung prüfen
+        run: python -m unittest discover -s tests -p "test_ewige_rangliste_saison.py" -v
       - name: JavaScript Syntax
         run: node --check assets/js/features/ewige-rangliste.js
