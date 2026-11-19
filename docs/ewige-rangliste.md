@@ -25,7 +25,7 @@ Ein höherer Stichtag ist nur möglich, wenn die automatische Erfassung **bis mi
 
 ## Saisonanzeige (automatisch beim Pages-Deployment)
 
-Die Tabelle zeigt neben den historischen Gesamteinsätzen auch **Saisoneinsätze**, **Abstand zum darüberstehenden Spieler** und eine dezente Markierung der für die aktuelle Saison gemeldeten Erwachsenen.
+Die Tabelle zeigt neben den historischen Gesamteinsätzen auch **Saisoneinsätze**, **Abstand zur nächsthöheren Ranggruppe** und eine dezente Markierung der für die aktuelle Saison gemeldeten Erwachsenen.
 
 - Der Meldestatus stammt aus `assets/data/spielerHerren.json` (alle fünf Erwachsenenmannschaften); die aktuelle Fassung dieser Mannschaftsmeldung muss beim Saisonwechsel bzw. bei Nachmeldungen gepflegt werden.
 - Der Saisonwert wird pro Begegnungs-ID einmalig gezählt. Ein Spieler mit Einzel und Doppel zählt in derselben Begegnung nur einmal. Das gilt auch bei vereinsinternen Begegnungen.
@@ -33,7 +33,7 @@ Die Tabelle zeigt neben den historischen Gesamteinsätzen auch **Saisoneinsätze
 - Bei einer Masterkorrektur werden aus dem aktiven Delta entfernte Begegnungen in `content/ewige-rangliste/saison-archiv/YYYY-YY.json` übertragen. Das Archiv dient **nur** der Saisonzählung und wird nicht zusätzlich zu den Master-Einsätzen gezählt.
 - Der Deploy führt `python assets/python/ewige_rangliste_saison.py --output .pages-site/assets/data/ewigeRanglisteSaison.json` aus. Das getrennte Saison-JSON wird **nicht vom ChatGPT-Cronjob geschrieben**, sondern bei jedem Pages-Deployment aus der aktuell im Repository vorhandenen Meldung und den Begegnungen erzeugt.
 - Wenn Saisoninformationen nicht verfügbar sind, bleibt die Haupt-Rangliste einschließlich CSV-Export sichtbar. Es werden dann keine unbelegten Saisonzahlen angezeigt.
-- Gleichstand: Abstand –. Erster Rang: Abstand –. Sonst die Differenz der Gesamteinsätze zum unmittelbar darüberstehenden Spieler. Eine für die Saison gemeldete Person ohne bisher erfassten Einsatz erhält 0; bei historischen Spielern ohne Saisonmeldung und ohne Einsatz steht –.
+- Bei Gleichstand erhalten alle Spieler derselben Ranggruppe den Abstand zur nächsthöheren Ranggruppe. Nur die Spitzengruppe ohne höheren Rang erhält „–“. Sonst ist der Abstand die Differenz der Gesamteinsätze zur nächsthöheren Einsatzzahl. Eine für die Saison gemeldete Person ohne bisher erfassten Einsatz erhält 0; bei historischen Spielern ohne Saisonmeldung und ohne Einsatz steht –.
 
 Die Saisonanzeige berücksichtigt nur Begegnungen, die in den aktuellen Deltas oder Saisonarchiven tatsächlich vorliegen. Der bisherige Masterstichtag liegt am 18.09.2026; die gespeicherten Mannschaftsspielpläne 2026/27 beginnen ab dem 19.09.2026. Falls in einer künftigen Saison schon vor einem neuen Masterstichtag Spiele stattgefunden haben, muss deren Übernahme ins Saisonarchiv sichergestellt werden.
 
