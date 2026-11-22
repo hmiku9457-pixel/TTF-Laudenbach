@@ -2,11 +2,24 @@
   "schemaVersion": 1,
   "masterStichtag": "2026-09-18",
   "exportStichtag": "2026-11-15",
-  "zuletztGeprueft": "2026-11-18T23:15:25+00:00",
-  "unvollstaendig": false,
-  "hinweise": [],
-  "anzahlFehler": 0,
-  "anzahlBegegnungen": 25,
+  "zuletztGeprueft": "2026-11-22T06:03:50+00:00",
+  "unvollstaendig": true,
+  "hinweise": [
+    {
+      "typ": "bericht",
+      "datum": "2026-11-20",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-21",
+      "mannschaft": "spieleHerren5",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    }
+  ],
+  "anzahlFehler": 2,
+  "anzahlBegegnungen": 26,
   "saisons": [
     "2026-27.json"
   ],
@@ -437,6 +450,14 @@
     },
     {
       "rang": 54,
+      "name": "Christopher Wolfert",
+      "master": 34,
+      "delta": 4,
+      "spiele": 38,
+      "exportSpiele": 37
+    },
+    {
+      "rang": 54,
       "name": "Wolfgang Silberzahn",
       "master": 38,
       "delta": 0,
@@ -444,15 +465,15 @@
       "exportSpiele": 38
     },
     {
-      "rang": 55,
-      "name": "Christopher Wolfert",
-      "master": 34,
-      "delta": 3,
+      "rang": 56,
+      "name": "Frank Repovs",
+      "master": 25,
+      "delta": 12,
       "spiele": 37,
-      "exportSpiele": 37
+      "exportSpiele": 36
     },
     {
-      "rang": 55,
+      "rang": 56,
       "name": "Günter Kraft",
       "master": 37,
       "delta": 0,
@@ -460,23 +481,15 @@
       "exportSpiele": 37
     },
     {
-      "rang": 57,
-      "name": "Frank Repovs",
-      "master": 25,
-      "delta": 11,
-      "spiele": 36,
-      "exportSpiele": 36
-    },
-    {
-      "rang": 57,
+      "rang": 56,
       "name": "Sascha Warth",
       "master": 36,
-      "delta": 0,
-      "spiele": 36,
+      "delta": 1,
+      "spiele": 37,
       "exportSpiele": 36
     },
     {
-      "rang": 57,
+      "rang": 59,
       "name": "Wolfgang Schneider",
       "master": 36,
       "delta": 0,
@@ -607,8 +620,8 @@
       "rang": 75,
       "name": "Dietrich Kruth",
       "master": 5,
-      "delta": 13,
-      "spiele": 18,
+      "delta": 14,
+      "spiele": 19,
       "exportSpiele": 18
     },
     {
@@ -618,6 +631,14 @@
       "delta": 0,
       "spiele": 17,
       "exportSpiele": 17
+    },
+    {
+      "rang": 77,
+      "name": "Erwin Mezger",
+      "master": 10,
+      "delta": 6,
+      "spiele": 16,
+      "exportSpiele": 15
     },
     {
       "rang": 77,
@@ -636,15 +657,7 @@
       "exportSpiele": 16
     },
     {
-      "rang": 79,
-      "name": "Erwin Mezger",
-      "master": 10,
-      "delta": 5,
-      "spiele": 15,
-      "exportSpiele": 15
-    },
-    {
-      "rang": 79,
+      "rang": 80,
       "name": "Simone Wehr",
       "master": 15,
       "delta": 0,
@@ -805,6 +818,14 @@
     },
     {
       "rang": 100,
+      "name": "Adrian Bach",
+      "master": 2,
+      "delta": 4,
+      "spiele": 6,
+      "exportSpiele": 5
+    },
+    {
+      "rang": 100,
       "name": "Christina Denninger",
       "master": 6,
       "delta": 0,
@@ -812,15 +833,7 @@
       "exportSpiele": 6
     },
     {
-      "rang": 101,
-      "name": "Adrian Bach",
-      "master": 2,
-      "delta": 3,
-      "spiele": 5,
-      "exportSpiele": 5
-    },
-    {
-      "rang": 101,
+      "rang": 102,
       "name": "Kevin Muckenauer",
       "master": 5,
       "delta": 0,
@@ -828,7 +841,7 @@
       "exportSpiele": 5
     },
     {
-      "rang": 101,
+      "rang": 102,
       "name": "Luca Fries",
       "master": 5,
       "delta": 0,
@@ -836,7 +849,7 @@
       "exportSpiele": 5
     },
     {
-      "rang": 101,
+      "rang": 102,
       "name": "Markus Rahn",
       "master": 0,
       "delta": 5,
@@ -844,7 +857,7 @@
       "exportSpiele": 5
     },
     {
-      "rang": 101,
+      "rang": 102,
       "name": "Oleksandr Pochereniuk",
       "master": 0,
       "delta": 5,
