@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "masterStichtag": "2026-09-18",
   "exportStichtag": "2026-11-15",
-  "zuletztGeprueft": "2026-11-22T06:03:50+00:00",
+  "zuletztGeprueft": "2026-11-22T14:11:00+00:00",
   "unvollstaendig": true,
   "hinweise": [
     {
@@ -10,16 +10,10 @@
       "datum": "2026-11-20",
       "mannschaft": "spieleHerren2",
       "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-11-21",
-      "mannschaft": "spieleHerren5",
-      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
     }
   ],
-  "anzahlFehler": 2,
-  "anzahlBegegnungen": 26,
+  "anzahlFehler": 1,
+  "anzahlBegegnungen": 27,
   "saisons": [
     "2026-27.json"
   ],
@@ -716,12 +710,12 @@
       "rang": 87,
       "name": "Armin Ulshöfer",
       "master": 4,
-      "delta": 5,
-      "spiele": 9,
+      "delta": 6,
+      "spiele": 10,
       "exportSpiele": 9
     },
     {
-      "rang": 87,
+      "rang": 88,
       "name": "Bastian Schwallach",
       "master": 9,
       "delta": 0,
@@ -729,7 +723,7 @@
       "exportSpiele": 9
     },
     {
-      "rang": 87,
+      "rang": 88,
       "name": "Michael Weller",
       "master": 9,
       "delta": 0,
@@ -737,7 +731,7 @@
       "exportSpiele": 9
     },
     {
-      "rang": 87,
+      "rang": 88,
       "name": "Peter Pflüger",
       "master": 3,
       "delta": 6,
@@ -833,7 +827,15 @@
       "exportSpiele": 6
     },
     {
-      "rang": 102,
+      "rang": 100,
+      "name": "Markus Rahn",
+      "master": 0,
+      "delta": 6,
+      "spiele": 6,
+      "exportSpiele": 5
+    },
+    {
+      "rang": 103,
       "name": "Kevin Muckenauer",
       "master": 5,
       "delta": 0,
@@ -841,7 +843,7 @@
       "exportSpiele": 5
     },
     {
-      "rang": 102,
+      "rang": 103,
       "name": "Luca Fries",
       "master": 5,
       "delta": 0,
@@ -849,15 +851,7 @@
       "exportSpiele": 5
     },
     {
-      "rang": 102,
-      "name": "Markus Rahn",
-      "master": 0,
-      "delta": 5,
-      "spiele": 5,
-      "exportSpiele": 5
-    },
-    {
-      "rang": 102,
+      "rang": 103,
       "name": "Oleksandr Pochereniuk",
       "master": 0,
       "delta": 5,
@@ -921,15 +915,23 @@
       "exportSpiele": 3
     },
     {
-      "rang": 113,
+      "rang": 108,
       "name": "Tobias Kimmelmann",
       "master": 1,
-      "delta": 1,
-      "spiele": 2,
+      "delta": 2,
+      "spiele": 3,
       "exportSpiele": 2
     },
     {
       "rang": 114,
+      "name": "Tim Tippl",
+      "master": 0,
+      "delta": 2,
+      "spiele": 2,
+      "exportSpiele": 1
+    },
+    {
+      "rang": 115,
       "name": "Alexander Engelhardt",
       "master": 1,
       "delta": 0,
@@ -937,7 +939,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Alina Häfner",
       "master": 1,
       "delta": 0,
@@ -945,7 +947,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Andreas Kraft",
       "master": 1,
       "delta": 0,
@@ -953,7 +955,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Benjamin Braun",
       "master": 1,
       "delta": 0,
@@ -961,7 +963,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Christian Lill",
       "master": 1,
       "delta": 0,
@@ -969,7 +971,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Christoph Dumke",
       "master": 1,
       "delta": 0,
@@ -977,7 +979,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Elias Münzer",
       "master": 1,
       "delta": 0,
@@ -985,7 +987,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Hans-Georg Haffelt",
       "master": 1,
       "delta": 0,
@@ -993,7 +995,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Jona Schammann",
       "master": 1,
       "delta": 0,
@@ -1001,7 +1003,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
+      "rang": 115,
       "name": "Leander Ruske",
       "master": 1,
       "delta": 0,
@@ -1009,15 +1011,7 @@
       "exportSpiele": 1
     },
     {
-      "rang": 114,
-      "name": "Tim Tippl",
-      "master": 0,
-      "delta": 1,
-      "spiele": 1,
-      "exportSpiele": 1
-    },
-    {
-      "rang": 114,
+      "rang": 115,
       "name": "Tobias Sturm",
       "master": 0,
       "delta": 1,

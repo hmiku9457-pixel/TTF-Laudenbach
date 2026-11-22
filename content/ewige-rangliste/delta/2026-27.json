@@ -866,6 +866,31 @@
           "personId": "1325669"
         }
       ]
+    },
+    {
+      "id": "16173700",
+      "datum": "2026-11-21",
+      "heim": "SV Elpersheim IV",
+      "gast": "TTF Laudenbach V",
+      "url": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173700",
+      "spieler": [
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        },
+        {
+          "name": "Tobias Kimmelmann",
+          "personId": "2961406"
+        },
+        {
+          "name": "Tim Tippl",
+          "personId": "2826985"
+        }
+      ]
     }
   ],
   "fehler": [
@@ -874,14 +899,8 @@
       "datum": "2026-11-20",
       "mannschaft": "spieleHerren2",
       "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
-    },
-    {
-      "typ": "bericht",
-      "datum": "2026-11-21",
-      "mannschaft": "spieleHerren5",
-      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
     }
   ],
-  "zuletztGeprueft": "2026-11-22T06:03:50+00:00",
+  "zuletztGeprueft": "2026-11-22T14:11:00+00:00",
   "vollstaendigBis": "2026-11-15"
 }
