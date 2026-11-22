@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-20T05:59:14.000Z",
+  "checkedAt": "2026-11-22T06:03:50.000Z",
   "matches": [
     {
       "datum": "2026-09-19",
@@ -902,6 +902,103 @@
           "personId": "2857966"
         }
       ]
+    },
+    {
+      "datum": "2026-11-20",
+      "heim": "TV Niederstetten",
+      "gast": "TTF Laudenbach IV",
+      "ergebnis": "9:0",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530002&meeting=16070152",
+      "meetingId": "16070152",
+      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530002&meeting=16070152",
+      "spieler": [
+        {
+          "name": "Erwin Mezger",
+          "personId": "2893743"
+        },
+        {
+          "name": "Christopher Wolfert",
+          "personId": "393008"
+        },
+        {
+          "name": "Dietrich Kruth",
+          "personId": "382184"
+        },
+        {
+          "name": "Frank Repovs",
+          "personId": "2857966"
+        },
+        {
+          "name": "Adrian Bach",
+          "personId": "2830763"
+        },
+        {
+          "name": "Sascha Warth",
+          "personId": "1325669"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-21",
+      "heim": "FC Langenburg II",
+      "gast": "TTF Laudenbach",
+      "ergebnis": "4:6",
+      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168437",
+      "meetingId": "16168437",
+      "reportUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168437",
+      "spieler": [
+        {
+          "name": "Adrian Bach",
+          "personId": "2830763"
+        },
+        {
+          "name": "Nico Wolfert",
+          "personId": "2827040"
+        },
+        {
+          "name": "Mateo Euring",
+          "personId": "3146616"
+        },
+        {
+          "name": "Tim Tippl",
+          "personId": "2826985"
+        }
+      ]
+    },
+    {
+      "datum": "2026-11-21",
+      "heim": "TSV Dörzbach II",
+      "gast": "TTF Laudenbach II",
+      "ergebnis": "4:6",
+      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubInfoDisplay?club=3920",
+      "meetingId": "16138876"
+    },
+    {
+      "datum": "2026-11-21",
+      "heim": "SV Elpersheim IV",
+      "gast": "TTF Laudenbach V",
+      "ergebnis": "7:3",
+      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173700",
+      "meetingId": "16173700",
+      "reportUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173700",
+      "spieler": [
+        {
+          "name": "Armin Ulshöfer",
+          "personId": "2902625"
+        },
+        {
+          "name": "Markus Rahn",
+          "personId": "3117090"
+        },
+        {
+          "name": "Tobias Kimmelmann",
+          "personId": "2961406"
+        },
+        {
+          "name": "Tim Tippl",
+          "personId": "2826985"
+        }
+      ]
     }
   ],
   "tables": [
@@ -985,6 +1082,122 @@
           "spiele": "8:22",
           "spieleDifferenz": "-14",
           "punkte": "1:5"
+        }
+      ]
+    },
+    {
+      "file": "tabelleHerren4.json",
+      "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/groupPage?championship=SK+Bez.+HO+26%2F27&group=530002&targetFed=TTBW",
+      "rows": [
+        {
+          "rang": "1",
+          "mannschaft": "SV Elpersheim III",
+          "partien": "7",
+          "siege": "6",
+          "unentschieden": "0",
+          "niederlagen": "1",
+          "spiele": "60:27",
+          "spieleDifferenz": "+33",
+          "punkte": "12:2"
+        },
+        {
+          "rang": "2",
+          "mannschaft": "FC Langenburg II",
+          "partien": "8",
+          "siege": "6",
+          "unentschieden": "0",
+          "niederlagen": "2",
+          "spiele": "61:52",
+          "spieleDifferenz": "+9",
+          "punkte": "12:4"
+        },
+        {
+          "rang": "3",
+          "mannschaft": "TV Niederstetten",
+          "partien": "6",
+          "siege": "3",
+          "unentschieden": "2",
+          "niederlagen": "1",
+          "spiele": "47:28",
+          "spieleDifferenz": "+19",
+          "punkte": "8:4"
+        },
+        {
+          "rang": "4",
+          "mannschaft": "TSV Rossfeld V",
+          "partien": "6",
+          "siege": "4",
+          "unentschieden": "0",
+          "niederlagen": "2",
+          "spiele": "45:36",
+          "spieleDifferenz": "+9",
+          "punkte": "8:4"
+        },
+        {
+          "rang": "5",
+          "mannschaft": "TSV Gerabronn III",
+          "partien": "7",
+          "siege": "3",
+          "unentschieden": "1",
+          "niederlagen": "3",
+          "spiele": "48:43",
+          "spieleDifferenz": "+5",
+          "punkte": "7:7"
+        },
+        {
+          "rang": "6",
+          "mannschaft": "SV Bieberehren",
+          "partien": "7",
+          "siege": "3",
+          "unentschieden": "1",
+          "niederlagen": "3",
+          "spiele": "47:47",
+          "spieleDifferenz": "0",
+          "punkte": "7:7"
+        },
+        {
+          "rang": "7",
+          "mannschaft": "FC Igersheim II",
+          "partien": "6",
+          "siege": "2",
+          "unentschieden": "1",
+          "niederlagen": "3",
+          "spiele": "42:43",
+          "spieleDifferenz": "-1",
+          "punkte": "5:7"
+        },
+        {
+          "rang": "8",
+          "mannschaft": "KSG Ellrichshausen III",
+          "partien": "6",
+          "siege": "1",
+          "unentschieden": "1",
+          "niederlagen": "4",
+          "spiele": "36:51",
+          "spieleDifferenz": "-15",
+          "punkte": "3:9"
+        },
+        {
+          "rang": "9",
+          "mannschaft": "TTF Laudenbach IV",
+          "partien": "6",
+          "siege": "0",
+          "unentschieden": "2",
+          "niederlagen": "4",
+          "spiele": "24:52",
+          "spieleDifferenz": "-28",
+          "punkte": "2:10"
+        },
+        {
+          "rang": "10",
+          "mannschaft": "SC Buchenbach IV",
+          "partien": "7",
+          "siege": "1",
+          "unentschieden": "0",
+          "niederlagen": "6",
+          "spiele": "26:57",
+          "spieleDifferenz": "-31",
+          "punkte": "2:12"
         }
       ]
     }
