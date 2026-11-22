@@ -762,22 +762,7 @@
       "gast": "VFB Jagstheim",
       "ergebnis": "3:7",
       "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168427",
-      "meetingId": "16168427",
-      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168427",
-      "spieler": [
-        {
-          "name": "Adrian Bach",
-          "personId": "2830763"
-        },
-        {
-          "name": "Mateo Euring",
-          "personId": "3146616"
-        },
-        {
-          "name": "Tim Tippl",
-          "personId": "2826985"
-        }
-      ]
+      "meetingId": "16168427"
     },
     {
       "datum": "2026-11-14",
@@ -785,26 +770,7 @@
       "gast": "TSV Gerabronn IV",
       "ergebnis": "4:6",
       "sourceUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533911&meeting=16138873",
-      "meetingId": "16138873",
-      "reportUrl": "https://ttbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533911&meeting=16138873",
-      "spieler": [
-        {
-          "name": "Lukas Rahn",
-          "personId": "2876901"
-        },
-        {
-          "name": "Oskar Metzger",
-          "personId": "2961507"
-        },
-        {
-          "name": "Xaver Kirchberger",
-          "personId": "2826981"
-        },
-        {
-          "name": "Emil Metzger",
-          "personId": "3139847"
-        }
-      ]
+      "meetingId": "16138873"
     },
     {
       "datum": "2026-11-14",
@@ -935,68 +901,6 @@
         {
           "name": "Sascha Warth",
           "personId": "1325669"
-        }
-      ]
-    },
-    {
-      "datum": "2026-11-21",
-      "heim": "FC Langenburg II",
-      "gast": "TTF Laudenbach",
-      "ergebnis": "4:6",
-      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168437",
-      "meetingId": "16168437",
-      "reportUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=533900&meeting=16168437",
-      "spieler": [
-        {
-          "name": "Adrian Bach",
-          "personId": "2830763"
-        },
-        {
-          "name": "Nico Wolfert",
-          "personId": "2827040"
-        },
-        {
-          "name": "Mateo Euring",
-          "personId": "3146616"
-        },
-        {
-          "name": "Tim Tippl",
-          "personId": "2826985"
-        }
-      ]
-    },
-    {
-      "datum": "2026-11-21",
-      "heim": "TSV Dörzbach II",
-      "gast": "TTF Laudenbach II",
-      "ergebnis": "4:6",
-      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubInfoDisplay?club=3920",
-      "meetingId": "16138876"
-    },
-    {
-      "datum": "2026-11-21",
-      "heim": "SV Elpersheim IV",
-      "gast": "TTF Laudenbach V",
-      "ergebnis": "7:3",
-      "sourceUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173700",
-      "meetingId": "16173700",
-      "reportUrl": "https://ttvbw.click-tt.de/cgi-bin/WebObjects/nuLigaTTDE.woa/wa/clubMeetingReport?championship=SK+Bez.+HO+26%2F27&club=3920&group=530040&meeting=16173700",
-      "spieler": [
-        {
-          "name": "Armin Ulshöfer",
-          "personId": "2902625"
-        },
-        {
-          "name": "Markus Rahn",
-          "personId": "3117090"
-        },
-        {
-          "name": "Tobias Kimmelmann",
-          "personId": "2961406"
-        },
-        {
-          "name": "Tim Tippl",
-          "personId": "2826985"
         }
       ]
     }
