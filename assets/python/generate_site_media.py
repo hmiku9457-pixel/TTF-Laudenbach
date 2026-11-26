@@ -15,13 +15,22 @@ def image(value, prefix):
     return local(value, prefix, {".jpg", ".jpeg", ".png", ".webp", ".gif"})
 
 
+def render_team_info(team):
+    # Pages CMS may remove optional, entirely empty objects on save.
+    if team is None:
+        team = {}
+    if not isinstance(team, dict):
+        raise ValueError("Mannschaftsinformationen müssen ein Objekt sein")
+    info = f'<br/><p>Mannschaftsführer: {text(team["captain"])}</p>' if team.get("captain") else ""
+    if team.get("photo"):
+        info += f'<div class="news-rich-image"><img src="{image(team["photo"], "/assets/images/site/")}" alt="{text(team.get("photo_alt"))}" loading="lazy"/></div>'
+    return info
+
+
 def build(output):
     teams, albums = load("teams"), load("albums")
     for key in TEAMS:
-        team = teams[key]
-        info = f'<br/><p>Mannschaftsführer: {text(team["captain"])}</p>' if team.get("captain") else ""
-        if team.get("photo"):
-            info += f'<div class="news-rich-image"><img src="{image(team["photo"], "/assets/images/site/")}" alt="{text(team["photo_alt"])}" loading="lazy"/></div>'
+        info = render_team_info(teams.get(key))
         if render_page(output, f"pages/aktiverSpielbetrieb/{key}.html", {"team_info": info}) != {"team_info"}:
             raise ValueError(f"Mannschaft {key}: Platzhalter fehlt")
     gallery = build_gallery_data()

@@ -21,3 +21,9 @@ Freie Neuanordnung der bestehenden festen Seitenbereiche, beliebige neue Unterse
 
 ## Testartefakt
 GitHub Actions > CMS Gesamttest > erfolgreicher Lauf > cms-testseite herunterladen, entpacken und im entpackten Verzeichnis einen lokalen Webserver starten (z. B. python -m http.server 8000). Im Browser http://localhost:8000 öffnen. Absolute Pfade funktionieren nicht über file://.
+
+## Redaktionelle Abnahme am 26.11.2026
+Alle 14 Punkte des Nutzertests wurden als bestanden gemeldet: CMS-Menü, Training, Spiellokale, Vereinsinformationen, Mitgliedschaft, Sponsoren, Mannschaften, Dokumente, Links, Galerie, Newsletter, Seitenbaukasten, Seiteneinstellungen und mobile Darstellung.
+Der automatische Build nach CMS-Speicherung zeigte jedoch, dass vollständig leere Mannschaftsobjekte entfernt werden können. Der Generator behandelt fehlende optionale Mannschaftsangaben nun als leer; Regressionstest ergänzt.
+Vor Produktivfreigabe die im Testbranch gespeicherten redaktionellen Änderungen (Mitgliedschaftstexte, Mannschaftsführer Herren III und hochgeladenes Galeriebild) auf beabsichtigte Übernahme prüfen. Sie wurden nicht automatisch zurückgesetzt.
+Nächster Entwicklungsabschnitt: vollständige Inhaltsverwaltung (bestehende Fotoalben, flexible Seitenlayouts, neue Unterseiten und Navigation), danach redaktioneller Komfort und Produktivfreigabe.

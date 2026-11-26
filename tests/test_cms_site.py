@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "assets/python"))
 from generate_site import web, text, render_training, load, link_groups
 from generate_site_extra import pdf, page_sections
 from generate_site import SOURCE
+from generate_site_media import render_team_info
 
 
 class CmsSiteTests(unittest.TestCase):
@@ -47,6 +48,13 @@ class CmsSiteTests(unittest.TestCase):
         self.assertIn("Testhinweis", html)
         with self.assertRaises(ValueError):
             page_sections([{"type": "button", "label": "Test", "url": "javascript:alert(1)"}], SOURCE / "page_blocks.json")
+
+    def test_optional_team_fields_removed_by_cms(self):
+        self.assertEqual(render_team_info(None), "")
+        self.assertEqual(render_team_info({}), "")
+        self.assertIn("Testname", render_team_info({"captain": "Testname"}))
+        with self.assertRaises(ValueError):
+            render_team_info("invalid")
 
 
 if __name__ == "__main__":
