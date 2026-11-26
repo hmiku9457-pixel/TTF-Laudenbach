@@ -4,17 +4,19 @@
     {
       "id": "general",
       "title": "Generelle Bilder",
+      "date": "",
+      "description": "",
       "images": [
         {
-          "src": "/assets/images/LustAufTischtennis.png",
+          "src": "/assets/images/gallery/general/LustAufTischtennis.png",
           "alt": "Generelle Bilder: LustAufTischtennis"
         },
         {
-          "src": "/assets/images/TTF-Laudenbach_Logo.png",
+          "src": "/assets/images/gallery/general/TTF-Laudenbach_Logo.png",
           "alt": "Generelle Bilder: TTF Laudenbach Logo"
         },
         {
-          "src": "/assets/images/VierElemente_TTFLaudenbach.jpg",
+          "src": "/assets/images/gallery/general/VierElemente_TTFLaudenbach.jpg",
           "alt": "Generelle Bilder: VierElemente TTFLaudenbach"
         }
       ]
@@ -22,69 +24,71 @@
     {
       "id": "49-ttf-hauptversammlung",
       "title": "49. TTF Hauptversammlung",
+      "date": "",
+      "description": "",
       "images": [
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung1.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung1.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung1"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung10.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung10.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung10"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung11.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung11.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung11"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung12.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung12.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung12"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung13.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung13.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung13"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung14.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung14.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung14"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung15.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung15.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung15"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung16.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung16.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung16"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung2.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung2.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung2"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung3.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung3.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung3"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung4.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung4.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung4"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung5.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung5.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung5"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung6.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung6.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung6"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung7.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung7.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung7"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung8.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung8.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung8"
         },
         {
-          "src": "/assets/images/49.%20TTF%20Hauptversammlung/49TTFHauptVersammlung9.jpg",
+          "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung9.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung9"
         }
       ]
