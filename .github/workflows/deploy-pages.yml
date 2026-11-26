@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
     paths:
+      - "content/site/**"
+      - "assets/python/generate_site.py"
+      - "assets/python/generate_site_extra.py"
+      - "assets/python/generate_news.py"
+      - "assets/python/news_requirements.txt"
+      - "assets/images/site/**"
+      - "assets/images/gallery/**"
+      - ".github/workflows/deploy-pages.yml"
       - "index.html"
       - "404.html"
       - "CNAME"
@@ -47,6 +55,9 @@ jobs:
       - name: GitHub Pages konfigurieren
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
+      - name: CMS-Abhängigkeiten installieren
+        run: python -m pip install --disable-pip-version-check -r assets/python/news_requirements.txt
+
       - name: Öffentliches Website-Artefakt vorbereiten
         shell: bash
         run: |
@@ -57,6 +68,8 @@ jobs:
           cp index.html 404.html CNAME robots.txt sitemap.xml .pages-site/
           cp -a components pages .pages-site/
           cp -a assets/css assets/data assets/images assets/js .pages-site/assets/
+
+          python assets/python/generate_site.py --output .pages-site
 
           # Saisonkennzahlen aus den bereits gespeicherten Begegnungen und
           # der Mannschaftsmeldung erzeugen; kein zusätzlicher Datenabruf.
