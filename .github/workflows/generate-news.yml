@@ -97,6 +97,7 @@ jobs:
         github.event_name == 'workflow_dispatch'
       )
     permissions:
+      actions: read
       contents: read
       pages: write
       id-token: write

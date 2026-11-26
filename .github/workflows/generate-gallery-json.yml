@@ -64,6 +64,7 @@ jobs:
     needs: generate-gallery-json
     if: needs.generate-gallery-json.result == 'success'
     permissions:
+      actions: read
       contents: read
       pages: write
       id-token: write

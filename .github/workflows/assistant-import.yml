@@ -57,6 +57,7 @@ jobs:
     needs: import
     if: needs.import.result == 'success' && needs.import.outputs.changed == 'true'
     permissions:
+      actions: read
       contents: read
       pages: write
       id-token: write

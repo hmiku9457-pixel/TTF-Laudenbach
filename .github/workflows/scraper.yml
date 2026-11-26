@@ -111,6 +111,7 @@ jobs:
       needs.run-scraper.result == 'success' &&
       needs.run-scraper.outputs.changed == 'true'
     permissions:
+      actions: read
       contents: read
       pages: write
       id-token: write
