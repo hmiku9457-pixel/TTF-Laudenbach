@@ -9,6 +9,9 @@ on:
       - "templates/custom-page.html"
       - "assets/python/generate_site_layout.py"
       - "assets/python/generate_site_navigation.py"
+      - "assets/python/generate_cms_status.py"
+      - "tests/test_cms_site.py"
+      - ".pages.yml"
       - "assets/python/generate_gallery.py"
       - "assets/python/generate_site.py"
       - "assets/python/generate_site_extra.py"
@@ -65,12 +68,14 @@ jobs:
         run: python -m pip install --disable-pip-version-check -r assets/python/news_requirements.txt
 
       - name: Öffentliches Website-Artefakt vorbereiten
+        id: build
         shell: bash
         run: |
           set -euo pipefail
           rm -rf .pages-site
           mkdir -p .pages-site/assets
 
+          python assets/python/generate_news.py
           cp index.html 404.html CNAME robots.txt sitemap.xml .pages-site/
           cp -a components pages .pages-site/
           cp -a assets/css assets/data assets/images assets/js .pages-site/assets/
@@ -84,6 +89,10 @@ jobs:
           # der Mannschaftsmeldung erzeugen; kein zusätzlicher Datenabruf.
           python assets/python/ewige_rangliste_saison.py --output .pages-site/assets/data/ewigeRanglisteSaison.json
           test -f .pages-site/assets/data/ewigeRanglisteSaison.json
+
+          python -m unittest discover -s tests -p 'test_cms_site.py'
+          python -c "from pathlib import Path; assert not any('<!-- CMS:' in p.read_text() or '{{CMS_' in p.read_text() or '<!-- LAYOUT:' in p.read_text() for p in Path('.pages-site').rglob('*.html'))"
+          python assets/python/generate_cms_status.py --output .pages-site --mode production --ref main
 
           test -f .pages-site/index.html
           test -f .pages-site/404.html
@@ -106,3 +115,22 @@ jobs:
       - name: Auf GitHub Pages veröffentlichen
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+
+      - name: Veröffentlichungsstatus zusammenfassen
+        if: always()
+        env:
+          DEPLOY_OUTCOME: ${{ steps.deployment.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          BUILT_SHA: ${{ steps.build.outputs.built_sha }}
+        run: |
+          if [ "$DEPLOY_OUTCOME" = success ]; then
+            echo '## Website erfolgreich veröffentlicht' >> "$GITHUB_STEP_SUMMARY"
+            echo "Veröffentlichter Commit: `$BUILT_SHA`" >> "$GITHUB_STEP_SUMMARY"
+            echo '[Aktuellen Live-Stand prüfen](https://www.ttf-laudenbach.de/redaktionsstatus.html)' >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$BUILD_OUTCOME" = failure ]; then
+            echo '## Veröffentlichung nicht erfolgt – Inhaltsprüfung fehlgeschlagen' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Die bisherige Live-Version bleibt bestehen. Details stehen im fehlgeschlagenen Build-Schritt. Inhalt im CMS korrigieren und erneut speichern.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Veröffentlichung nicht bestätigt' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Prüfe die fehlgeschlagenen oder abgebrochenen Workflow-Schritte. Der Live-Stand ist maßgeblich.' >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -12,6 +12,7 @@ from generate_site import SOURCE
 from generate_site_media import render_team_info
 from generate_gallery import build_gallery_data
 from generate_site_layout import reorder
+from generate_cms_status import build_status
 from generate_site_navigation import render_custom_pages, render_menu, render_footer, sync_sitemap
 
 
@@ -124,6 +125,19 @@ class CmsSiteTests(unittest.TestCase):
             footer = render_footer({"footer": [], "show_sponsors": False}, pages, {}, {"items": []})
             for name in ("kontakt", "impressum", "datenschutz"):
                 self.assertIn(f"/pages/footer/{name}.html", footer)
+
+    def test_build_status_distinguishes_preview_and_production(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            sha = "a"*40
+            preview = build_status(root,"preview",sha,"cms-gesamtumbau","https://github.com/example/run", "2026-11-26T12:00:00+00:00")
+            self.assertEqual(preview["mode"],"preview")
+            self.assertIn("nicht veröffentlicht", (root/"redaktionsstatus.html").read_text())
+            production = build_status(root,"production",sha,"main","https://github.com/example/run")
+            self.assertEqual(production["commit"],sha)
+            self.assertEqual(json.loads((root/"cms-stand.json").read_text())["mode"],"production")
+            with self.assertRaises(ValueError):
+                build_status(root,"production","invalid","main","https://github.com/example/run")
 
 
 if __name__ == "__main__":

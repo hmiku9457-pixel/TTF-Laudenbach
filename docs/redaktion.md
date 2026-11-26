@@ -23,7 +23,7 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 - Veranstaltungen hervorheben,
 - Trenner und zusätzliche Abstände verwenden.
 
-Nicht zur normalen Redaktion gehören unter anderem Navigationsstruktur, Seitendesign, Spielpläne, Tabellenstände, Spielerlisten, Scraper, historische Galerieordner und technische Workflows. Diese Bereiche werden separat technisch betreut.
+Navigation, Fotoalben und Seitenlayouts können über die vorgesehenen CMS-Formulare bearbeitet werden. Nicht zur Redaktion gehören technische Vorlagen, CSS/JavaScript, Spielpläne, Tabellenstände, Spielerlisten, Scraper und Workflows. Diese Bereiche werden separat technisch betreut.
 
 ## 2. Pages CMS öffnen
 
@@ -553,3 +553,6 @@ Zur technischen Betreuung gehören insbesondere:
 
 ## Erweiterte Webseitenverwaltung (Phase B)
 Unter **Fotoalben** können auch vorhandene Bilder und Alben geändert werden. Unter **Seitenlayouts** können vorhandene Funktionsgruppen und zusätzliche Inhalte umsortiert werden. **Eigene Unterseiten** erlaubt das Anlegen und Löschen redaktioneller Seiten; erst der Schalter Veröffentlichen macht sie öffentlich auf der Webseite sichtbar. Die Adresse bleibt bei Titeländerungen gleich. Unter **Navigation & Footer** werden Menüeinträge und ihre Untermenüs, Footer-Links und Sponsorenanzeige verwaltet. Gelöschte Unterseiten werden automatisch aus der Navigation ausgeblendet. Die Pflichtlinks bleiben erhalten. Ausführliche Test- und Bedienhinweise: docs/cms-gesamtumbau.md.
+
+## Phase C: Vorschau und Veröffentlichung
+Im CMS den Menüpunkt Vorschau & Veröffentlichungsstatus öffnen. Nach dem Speichern erzeugt GitHub automatisch eine visuelle Vorschau. Unter dem verlinkten Prüflauf das Artefakt cms-visuelle-vorschau entpacken und Vorschau.html per Doppelklick öffnen. Desktop und Mobil sind wählbar; die Bilder können in Originalgröße geöffnet werden. Für interaktive Tests weiterhin cms-testseite mit einem lokalen Webserver verwenden. Die Vorschau enthält den gespeicherten Stand, keine ungespeicherten Formularänderungen. Auf dem Testbranch wird nicht veröffentlicht. Der Live-Status unter /redaktionsstatus.html zeigt ab Produktivfreigabe den tatsächlich ausgelieferten Commit. Bei rotem Build nicht erneut blind speichern; Fehlermeldung im Prüflauf ansehen.
