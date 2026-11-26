@@ -1,0 +1,112 @@
+{
+  "home": {
+    "order": [
+      {
+        "area": "news_training"
+      },
+      {
+        "area": "games_contact"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "club": {
+    "order": [
+      {
+        "area": "current"
+      },
+      {
+        "area": "history"
+      },
+      {
+        "area": "chair_history"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "training": {
+    "order": [
+      {
+        "area": "venues_training"
+      },
+      {
+        "area": "teams"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "membership": {
+    "order": [
+      {
+        "area": "fees"
+      },
+      {
+        "area": "join"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "sponsors": {
+    "order": [
+      {
+        "area": "heading"
+      },
+      {
+        "area": "sponsors"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "documents": {
+    "order": [
+      {
+        "area": "heading"
+      },
+      {
+        "area": "documents"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  },
+  "links": {
+    "order": [
+      {
+        "area": "heading"
+      },
+      {
+        "area": "tt"
+      },
+      {
+        "area": "sports"
+      },
+      {
+        "area": "other"
+      },
+      {
+        "area": "sponsors"
+      },
+      {
+        "area": "custom"
+      }
+    ],
+    "width": "full"
+  }
+}

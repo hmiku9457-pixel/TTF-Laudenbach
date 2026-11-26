@@ -1,0 +1,174 @@
+{
+  "intro": "Als eigenständiger Verein gingen die TTF 1975 aus der Tischtennisabteilung des TSV Laudenbach hervor.\n\nBald schon stellten sich erste sportliche Erfolge ein.\n\nDie Mannschaften aus dem Vorbachtal konnten zahlreiche Meisterschaften im Jugend- und Erwachsenenbereich erringen.\n\nAuch im gesellschaftlichen Leben des Weikersheimer Teilortes wurde man eine anerkannte Größe. Neben der Organisation des sogenannten \"Sommernachtsfestes\" sowie alljährlichen Weinproben und den traditionellen Nikolausfeiern engagieren sich die Ballkünstler im Rahmen des Faschingsumzuges.\n\nLange Jahre prägte die engagierte Vorstandschaft unter dem Vorsitz des umtriebigen Vorsitzenden Johannes Scherrer das Vereinsleben nach innen und außen.\n\nIn der jüngeren Vergangenheit setzte das Vorstandsteam um den tatkräftigen neuen Vorsitzenden Thomas Ruske diese Tradition fort.\n\nSeit dem Jahr 2017 ist Manfred Litwitz gemeinsam mit der umstrukturierten Vorstandsmannschaft für die Geschicke des Vereins verantwortlich.",
+  "board": [
+    {
+      "role": "1. Vorsitzender",
+      "names": [
+        "Manuel Ilzhöfer",
+        "Christopher Wolfert"
+      ]
+    },
+    {
+      "role": "2. Vorsitzender",
+      "names": [
+        "Martin Schneider"
+      ]
+    },
+    {
+      "role": "Kassierer",
+      "names": [
+        "Dominik Huber"
+      ]
+    },
+    {
+      "role": "Abteilungsleiter",
+      "names": [
+        "Frank Repovs"
+      ]
+    },
+    {
+      "role": "Jugendabteilungsleiter",
+      "names": [
+        "Lukas Oswald"
+      ]
+    },
+    {
+      "role": "Schriftführer",
+      "names": [
+        "Erik Stiefel"
+      ]
+    },
+    {
+      "role": "Ausschussmitglieder",
+      "names": [
+        "Stefan Gölz",
+        "Hubert Kraft",
+        "Thomas Ruske",
+        "Svea Täubert",
+        "Gebhard Schweizer"
+      ]
+    }
+  ],
+  "honor": [
+    {
+      "role": "Ehrenvorsitzender",
+      "name": "Johannes Scherrer"
+    },
+    {
+      "role": "Ehrenmitglied",
+      "name": "Klaus Arndt"
+    },
+    {
+      "role": "Ehrenmitglied",
+      "name": "Waldemar Link"
+    },
+    {
+      "role": "Ehrenmitglied",
+      "name": "Ewald Rein"
+    },
+    {
+      "role": "Ehrenmitglied",
+      "name": "Albert Zenkert"
+    },
+    {
+      "role": "Ehrenmitglied",
+      "name": "Josef Zenkert"
+    }
+  ],
+  "founders": [
+    "Klaus Arndt",
+    "Waldemar Link",
+    "Jürgen Böhrer",
+    "Johannes Scherrer",
+    "Rolf Göbel",
+    "Albert Zenkert",
+    "Erwin Lanig"
+  ],
+  "members": [
+    "Inge Arndt",
+    "Ewald Rein",
+    "Klaus Arndt",
+    "Johannes Scherrer",
+    "Rolf Göbel",
+    "Rosemarie Scherrer",
+    "Josef Groß",
+    "Brigitta Selig",
+    "Theresia Heer",
+    "Irmgard Striffler",
+    "Johann Konrad",
+    "Heinz Waldmann",
+    "Franz Kraft",
+    "Walter Wehr",
+    "Gerda Kraft",
+    "Karl-Heinz Weiß",
+    "Erwin Lanig",
+    "Albert Zenkert",
+    "Waldemar Link",
+    "Hildegard Zenkert",
+    "Hannelore Popp",
+    "Josef Zenkert",
+    "Reinhold Popp"
+  ],
+  "history": [
+    {
+      "period": "1969",
+      "chair": "Waldemar Link (Abteilungsleiter)",
+      "deputy": "Rolf Göbel (Stellv. Abteilungsleiter)"
+    },
+    {
+      "period": "1970 - 1975",
+      "chair": "Rolf Göbel (Abteilungsleiter)",
+      "deputy": "Waldemar Link (Stellv. Abteilungsleiter)"
+    },
+    {
+      "period": "1975 - 1976",
+      "chair": "Rolf Göbel",
+      "deputy": "Reinhold Popp"
+    },
+    {
+      "period": "1977 - 1983",
+      "chair": "Johannes Scherrer",
+      "deputy": "Reinhold Popp"
+    },
+    {
+      "period": "1983 - 1985",
+      "chair": "Johannes Scherrer",
+      "deputy": "-"
+    },
+    {
+      "period": "1985 - 1988",
+      "chair": "Johannes Scherrer",
+      "deputy": "Thomas Michelberger"
+    },
+    {
+      "period": "1989 - 2007",
+      "chair": "Johannes Scherrer",
+      "deputy": "Paul Gölz"
+    },
+    {
+      "period": "2007 - 2017",
+      "chair": "Thomas Ruske",
+      "deputy": "Gerhard Wolfert"
+    },
+    {
+      "period": "2017 - 2019",
+      "chair": "Manfred Litwitz",
+      "deputy": "Gerhard Wolfert"
+    },
+    {
+      "period": "2019 - 2023",
+      "chair": "Jörg Hever",
+      "deputy": "Gerhard Wolfert"
+    },
+    {
+      "period": "seit 2023",
+      "chair": "Manuel Ilzhöfer / Svea Täubert (Doppelspitze)",
+      "deputy": "Martin Schneider"
+    },
+    {
+      "period": "seit 2025",
+      "chair": "Manuel Ilzhöfer / Christopher Wolfert (Doppelspitze)",
+      "deputy": "Martin Schneider"
+    }
+  ]
+}

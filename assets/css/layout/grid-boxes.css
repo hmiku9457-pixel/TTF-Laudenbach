@@ -90,11 +90,11 @@
 }
 
 /* Unser Verein: Satzungslink nutzt die volle Breite der linken Spalte. */
-.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+.column > .grid-button:has(> a[data-document="statutes"]) {
     padding: 0;
 }
 
-.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) > .button {
+.column > .grid-button:has(> a[data-document="statutes"]) > .button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,12 +143,12 @@
  * gestreckten linken Spalte nach unten geschoben. Für den Satzungsbereich
  * wird dieses Verhalten bewusst aufgehoben und ein definierter Abstand gesetzt.
  */
-.column:has(> .grid-button > a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+.column:has(> .grid-button > a[data-document="statutes"]) {
     align-content: start;
     gap: var(--space-xl);
 }
 
-.column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+.column > .grid-button:has(> a[data-document="statutes"]) {
     margin-top: 0;
 }
 
@@ -170,7 +170,7 @@
         padding-right: var(--space-m);
     }
 
-    .column > .grid-button:has(> a[href$="04.05.2011_TTF_Satzung_v1.1.pdf"]) {
+    .column > .grid-button:has(> a[data-document="statutes"]) {
         padding-right: 0;
         padding-left: 0;
     }

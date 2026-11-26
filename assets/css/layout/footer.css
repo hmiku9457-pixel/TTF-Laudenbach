@@ -7,7 +7,7 @@
 .footer {
     display: grid;
     text-align: center;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(var(--footer-columns, 5), minmax(0, 1fr));
     padding: var(--space-xl);
     color: var(--text-muted);
 }
@@ -44,3 +44,5 @@
         flex-wrap: wrap;
     }
 }
+
+.footer-sponsor { overflow-wrap: anywhere; }

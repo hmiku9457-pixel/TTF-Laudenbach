@@ -1,0 +1,37 @@
+{
+  "herren1": {
+    "captain": "Hubert Kraft",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "herren2": {
+    "captain": "Erik Stiefel",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "herren3": {
+    "captain": "Günter Friedel",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "herren4": {
+    "captain": "Frank Repovs",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "herren5": {
+    "captain": "Steffen Wolfert",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "jugend1": {
+    "captain": "",
+    "photo": "",
+    "photo_alt": ""
+  },
+  "jugend2": {
+    "captain": "",
+    "photo": "",
+    "photo_alt": ""
+  }
+}

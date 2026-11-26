@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from datetime import date
 from urllib.parse import quote, unquote
 
 
@@ -12,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 IMAGES_DIR = ROOT / "assets/images"
 OUTPUT_FILE = ROOT / "assets/data/gallerie.json"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-EXCLUDED_DIRECTORIES = {"seo", "news"}
+EXCLUDED_DIRECTORIES = {"seo", "news", "gallery", "site"}
 
 
 def slugify(text: str) -> str:
@@ -43,7 +44,48 @@ def image_entry(path: Path, gallery_title: str) -> dict[str, str]:
     }
 
 
+def build_manifest_gallery(source: Path) -> dict[str, object]:
+    """CMS manifest is authoritative; original images remain for existing URLs."""
+    data = json.loads(source.read_text(encoding="utf-8"))
+    galleries = []
+    ids = set()
+    for album in data.get("albums") or []:
+        title = album.get("title")
+        if not isinstance(title, str) or not title.strip():
+            raise ValueError("Galerie: Albumtitel fehlt")
+        id_ = album.get("id") or "cms-" + slugify(title)
+        if not isinstance(id_, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", id_) or id_ == "cms-" or id_ in ids:
+            raise ValueError("Galerie: eindeutige gültige Album-ID erforderlich")
+        ids.add(id_)
+        event_date = album.get("date") or ""
+        if event_date:
+            date.fromisoformat(event_date)
+        description = album.get("description") or ""
+        if not isinstance(description, str):
+            raise ValueError("Galerie: Beschreibung muss Text sein")
+        images = []
+        for entry in album.get("images") or []:
+            value, alt = entry.get("src"), entry.get("alt")
+            if not isinstance(value, str) or not isinstance(alt, str) or not alt.strip():
+                raise ValueError("Galerie: Bild und Bildbeschreibung erforderlich")
+            value = unquote(value)
+            if not value.startswith("/assets/images/gallery/") or "\\" in value or any(ord(c) < 32 for c in value):
+                raise ValueError("Galerie: ungültiger Bildpfad")
+            path = ROOT / value.lstrip("/")
+            base = ROOT / "assets/images/gallery"
+            if not path.resolve().is_relative_to(base.resolve()) or path.suffix.lower() not in IMAGE_EXTENSIONS or not path.is_file():
+                raise ValueError(f"Galerie: Bild fehlt: {value}")
+            images.append({"src": quote(value, safe="/-._~"), "alt": alt})
+        galleries.append({"id": id_, "title": title, "date": event_date, "description": description, "images": images})
+    result = {"defaultGallery": galleries[0]["id"] if galleries else "", "galleries": galleries}
+    validate_gallery_data(result)
+    return result
+
+
 def build_gallery_data() -> dict[str, object]:
+    manifest = ROOT / 'content/site/albums.json'
+    if manifest.is_file():
+        return build_manifest_gallery(manifest)
     if not IMAGES_DIR.is_dir():
         raise FileNotFoundError(f"Bilderordner fehlt: {IMAGES_DIR.relative_to(ROOT)}")
 

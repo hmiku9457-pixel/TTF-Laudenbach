@@ -1,0 +1,44 @@
+{
+  "tt": [
+    {
+      "name": "click-tt",
+      "url": "https://ttvwh.click-tt.de/"
+    },
+    {
+      "name": "Tischtennisbezirk Hohenlohe",
+      "url": "https://www.ttbw.de/hohenlohe"
+    },
+    {
+      "name": "TTVWH",
+      "url": "https://www.ttvwh.de/"
+    },
+    {
+      "name": "DTTB",
+      "url": "https://www.tischtennis.de/"
+    }
+  ],
+  "sports": [
+    {
+      "name": "WLSB",
+      "url": "https://www.wlsb.de/"
+    },
+    {
+      "name": "Sportkreis Mergentheim",
+      "url": "https://sportkreis-mergentheim.de/"
+    }
+  ],
+  "other": [
+    {
+      "name": "Weinort Laudenbach",
+      "url": "https://weinort-laudenbach.de/"
+    },
+    {
+      "name": "Webseitenverwaltung",
+      "url": "https://app.pagescms.org/"
+    },
+    {
+      "name": "Zugang Kontaktformular",
+      "url": "https://formspree.io/forms/xdavygne/overview"
+    }
+  ]
+}

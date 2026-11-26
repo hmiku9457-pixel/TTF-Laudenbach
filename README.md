@@ -116,7 +116,7 @@ Unter `assets/data/` liegen automatisch erzeugte JSON-Dateien. Für die Wartung 
 |---|---|
 | `news.json` | automatisch durch **News generieren** / `assets/python/generate_news.py` |
 | `gallerie.json` | automatisch durch **Generate Gallery JSON** / `assets/python/generate_gallery.py` |
-| `links.json` | bei manuellem Alt-Scraper-Lauf aus `assets/python/config.py` |
+| `links.json` | sportliche Links aus dem Alt-Scraper; redaktionelle Links zentral aus `content/site/` beim Deployment |
 | `spiele*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
 | `tabelle*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
 | `spieler*.json` | weiterhin durch den manuellen Alt-Scraper; kein automatischer Import ohne verifizierte Datenquelle |
@@ -127,9 +127,9 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 
 | Änderung | Datei / Bereich |
 |---|---|
-| Navigation | `components/header.html` |
+| Navigation | `components/header.html`; Willkommenstext im CMS |
 | Footer | `components/footer.html` |
-| Seiteninhalt | jeweilige HTML-Datei |
+| Seiteninhalt | `content/site/` für redaktionelle Bereiche, HTML als technische Vorlage |
 | Gestaltung | `assets/css/` |
 | Frontend-Funktion | `assets/js/` |
 | Mannschafts-/Ligaquellen | `assets/python/config.py` und ggf. `assets/js/config/` |
@@ -143,3 +143,12 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 ## Wartungsregel
 
 Neue Abstraktionen oder Build-Schritte nur einführen, wenn sie ein konkretes Wartungsproblem lösen. Für diese Vereinswebsite gilt bewusst: **wenige Ebenen, eindeutige Zuständigkeiten und möglichst wenig duplizierter Code.**
+
+## CMS-Erweiterung
+Redaktionelle Inhalte unter `content/site/` werden beim Deployment durch `generate_site.py`, `generate_site_extra.py` und `generate_site_media.py` in statische HTML-Seiten, Linkdaten und Galeriedaten gerendert. HTML mit CMS-Platzhaltern ist eine technische Vorlage. Siehe `docs/cms-gesamtumbau.md`.
+
+Phase B: Fotoalben aus `content/site/albums.json`, verschiebbare Funktionsgruppen aus `content/site/layouts.json`, zusätzliche Unterseiten aus `content/custom-pages/` sowie Navigation/Footer aus `content/site/navigation.json`. Die generierten Unterseiten und ihre Sitemap-Einträge existieren nur im Pages-Artefakt.
+
+Phase C: `cms-visuelle-vorschau` bietet offline öffnbare Chromium-Aufnahmen für Desktop und Mobil; `cms-testseite` bleibt interaktiv per Webserver. Veröffentlichungsmarker `/cms-stand.json` und `/redaktionsstatus.html` werden nur im Artefakt erstellt. Redaktionsrollen und Einschränkungen: `docs/cms-status.md`.
+
+Produktiver CMS-Betrieb: Pages CMS auf `main`; rechtliche Angaben unter `content/site/legal.json`, Statusseite `/redaktionsstatus.html`. Die technischen HTML-Quellen werden erst durch den GitHub-Pages-Workflow in eine vollständige Website verwandelt. Details: `docs/redaktion.md`, `docs/technik.md`, `docs/cms-status.md`.

@@ -1,0 +1,25 @@
+{
+  "fees": [
+    {
+      "category": "Schüler und Jugendliche bis einschließlich 18 Jahre",
+      "note": "",
+      "amount": 15
+    },
+    {
+      "category": "Erwachsene (Passiv)",
+      "note": "",
+      "amount": 20
+    },
+    {
+      "category": "Erwachsene (Aktiv)",
+      "note": "",
+      "amount": 30
+    },
+    {
+      "category": "Familienbeitrag",
+      "note": "(Paare und deren minderjährige Kinder)",
+      "amount": 25
+    }
+  ],
+  "intro": "Unsere Mitgliedsbeiträge ermöglichen den Trainings- und Spielbetrieb der Tischtennis-Freunde Laudenbach sowie die Förderung unserer Jugend- und Vereinsarbeit.\n\nWenn du Teil unserer Vereinsgemeinschaft werden möchtest, findest du über den untenstehenden Button das Beitrittsformular zum Download. Bei Fragen helfen wir gerne weiter."
+}

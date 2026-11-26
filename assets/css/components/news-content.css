@@ -341,3 +341,10 @@
         max-height: 18rem;
     }
 }
+
+/* Redaktionelle Seitenlayouts. */
+.cms-narrow { width: min(100%, 78ch); justify-self: center; }
+.news-block--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cms-image-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--space-m); }
+.cms-image-row img { width: 100%; height: auto; }
+@media (max-width: 768px) { .news-block--three { grid-template-columns: 1fr; } }

@@ -18,7 +18,7 @@ Die Webseite besteht im Kern aus:
 - automatisch erzeugten JSON-Daten,
 - Python-Skripten für Scraping und Generatoren,
 - GitHub Actions für Automatisierung und Deployment,
-- Pages CMS für die redaktionelle News-Pflege,
+- Pages CMS für die redaktionelle Pflege aller vorgesehenen Vereinsinhalte,
 - GitHub Pages als Hosting.
 
 Es gibt bewusst **keinen CSS- oder JavaScript-Buildprozess** und kein Framework. Die Dateien werden vom Browser direkt geladen.
@@ -41,8 +41,8 @@ Beispiele:
 - Generierte News-Seiten: **nicht** manuell bearbeiten.
 - Spielbetriebsdaten: Quelle bzw. Scraper-Konfiguration bearbeiten.
 - Generierte JSON-Dateien: **nicht** dauerhaft manuell korrigieren.
-- Navigation: `components/header.html` bearbeiten.
-- Footer: `components/footer.html` bearbeiten.
+- Navigation: `content/site/navigation.json` über Pages CMS bearbeiten.
+- Footer: `content/site/navigation.json` über Pages CMS bearbeiten.
 - Styling: das zuständige CSS-Modul bearbeiten.
 
 Diese Trennung verhindert, dass manuelle Änderungen beim nächsten Workflow-Lauf wieder überschrieben werden.
@@ -113,7 +113,7 @@ Die zentrale Navigation liegt in:
 
 `components/header.html`
 
-Soll ein Menüpunkt hinzugefügt, entfernt oder umbenannt werden, erfolgt die Änderung dort.
+Menüeinträge werden über Pages CMS in content/site/navigation.json gepflegt und beim Build in den Header geschrieben.
 
 Da alle Seiten denselben Header dynamisch laden, muss die Navigation nicht auf mehreren HTML-Seiten synchron gehalten werden.
 
@@ -131,7 +131,7 @@ Dort befinden sich insbesondere:
 - Sponsor-Links,
 - Copyright-Ausgabe.
 
-Sponsor-Ziele werden zusätzlich über die automatisch erzeugten Linkdaten verwaltet. Bei Sponsoränderungen deshalb auch `assets/python/config.py` prüfen.
+Sponsoren werden zentral über content/site/sponsors.json gepflegt. Der Navigation-Generator erzeugt den endgültigen Footer.
 
 ## 7. CSS-Struktur
 
@@ -1087,3 +1087,10 @@ Ergänzende Dateien im Repository:
 **Stand:** August 2026
 
 Die Dokumentation beschreibt den technischen Stand zum Zeitpunkt der Übergabe. Werden Architektur, Workflows, externe Dienste oder zentrale Pfade geändert, sollte dieses Dokument im selben Änderungspaket aktualisiert werden.
+
+## Produktionsbetrieb ab CMS-Gesamtumbau
+Die Quelldateien unter content/site, content/custom-pages und content/news werden durch Pages CMS gepflegt. HTML-Platzhalter sind technische Vorlagen. Der Veröffentlichungsworkflow erzeugt im separaten Artefakt .pages-site sämtliche redaktionellen Seiten, Galerie, Navigation, Footer, Rechtstexte, News und Saisonkennzahlen. Tests müssen vor Upload erfolgreich sein. Die sportlichen Datenimporte und ihre Quelldateien bleiben getrennt.
+- Live-Stand: https://www.ttf-laudenbach.de/redaktionsstatus.html
+- Vorschau: Actions / CMS Gesamttest / cms-visuelle-vorschau; cms-testseite für interaktive Tests.
+- Rollback: fehlerhaften Merge bzw. Commit per Revert rückgängig machen und Website-Workflow erneut ausführen. Nicht main hart zurücksetzen, da dadurch zwischenzeitliche Sportdaten verloren gehen können.
+- Vereinsregistergericht/-nummer, Vertretungsbefugnis, postalische Anschrift, Datenschutzgrundlagen, tatsächliche Aufbewahrungsfristen und Drittlandübermittlungen durch Vereinsverantwortliche verifizieren. Keine Rechtsprüfung behaupten. Die alten TMG-Verweise und Register-Platzhalter sind entfernt. Rechtsangaben werden über Rechtliche Angaben gepflegt.

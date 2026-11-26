@@ -10,7 +10,7 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 
 ## 1. Was kann über das CMS gepflegt werden?
 
-Über das CMS werden die **Neuigkeiten** der Vereinswebseite gepflegt. Dazu gehören:
+Über das CMS werden die **Neuigkeiten** und weitere Vereinsinformationen gepflegt. Die neuen Formulare umfassen Training, Verein, Mannschaften, Mitgliedschaft, Sponsoren, Links, Dokumente, Fotoalben, Newsletter und Willkommenstext. Der Seitenbaukasten ergänzt vorhandene Seiten um frei sortierbare Inhaltsblöcke. Details und Testanleitung: docs/cms-gesamtumbau.md. Dazu gehören:
 
 - neue News erstellen,
 - bestehende News bearbeiten,
@@ -23,14 +23,14 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 - Veranstaltungen hervorheben,
 - Trenner und zusätzliche Abstände verwenden.
 
-Nicht zur normalen Redaktion gehören unter anderem Navigation, Footer, Seitendesign, Spielpläne, Tabellenstände, Spielerlisten, Scraper, Galerie-Automatisierung und technische Workflows. Diese Bereiche werden separat technisch betreut.
+Navigation, Fotoalben und Seitenlayouts können über die vorgesehenen CMS-Formulare bearbeitet werden. Nicht zur Redaktion gehören technische Vorlagen, CSS/JavaScript, Spielpläne, Tabellenstände, Spielerlisten, Scraper und Workflows. Diese Bereiche werden separat technisch betreut.
 
 ## 2. Pages CMS öffnen
 
 1. Pages CMS öffnen.
 2. Mit dem eingerichteten Zugang anmelden.
 3. Das Repository der TTF Laudenbach auswählen.
-4. Im Menü **Neuigkeiten** öffnen.
+4. Für Meldungen **Neuigkeiten** öffnen; die übrigen Inhalte sind thematisch gruppiert.
 
 Zusätzlich steht im CMS der Bereich **Dokumentation** zur Verfügung. Dort kann dieses Redaktionshandbuch jederzeit eingesehen werden.
 
@@ -550,3 +550,12 @@ Zur technischen Betreuung gehören insbesondere:
 **Dokumentstand:** August 2026  
 **Webseite:** TTF Laudenbach  
 **Dokument:** Redaktionshandbuch
+
+## Erweiterte Webseitenverwaltung (Phase B)
+Unter **Fotoalben** können auch vorhandene Bilder und Alben geändert werden. Unter **Seitenlayouts** können vorhandene Funktionsgruppen und zusätzliche Inhalte umsortiert werden. **Eigene Unterseiten** erlaubt das Anlegen und Löschen redaktioneller Seiten; erst der Schalter Veröffentlichen macht sie öffentlich auf der Webseite sichtbar. Die Adresse bleibt bei Titeländerungen gleich. Unter **Navigation & Footer** werden Menüeinträge und ihre Untermenüs, Footer-Links und Sponsorenanzeige verwaltet. Gelöschte Unterseiten werden automatisch aus der Navigation ausgeblendet. Die Pflichtlinks bleiben erhalten. Ausführliche Test- und Bedienhinweise: docs/cms-gesamtumbau.md.
+
+## Phase C: Vorschau und Veröffentlichung
+Im CMS den Menüpunkt Vorschau & Veröffentlichungsstatus öffnen. Nach dem Speichern erzeugt GitHub automatisch eine visuelle Vorschau. Unter dem verlinkten Prüflauf das Artefakt cms-visuelle-vorschau entpacken und Vorschau.html per Doppelklick öffnen. Desktop und Mobil sind wählbar; die Bilder können in Originalgröße geöffnet werden. Für interaktive Tests weiterhin cms-testseite mit einem lokalen Webserver verwenden. Die Vorschau enthält den gespeicherten Stand, keine ungespeicherten Formularänderungen. Auf dem Testbranch wird nicht veröffentlicht. Der Live-Status unter /redaktionsstatus.html zeigt ab Produktivfreigabe den tatsächlich ausgelieferten Commit. Bei rotem Build nicht erneut blind speichern; Fehlermeldung im Prüflauf ansehen.
+
+## CMS-Menü nach Produktivfreigabe
+Neuigkeiten; Verein & Spielbetrieb (Unser Verein, Training, Mannschaften, Mitgliedschaft, Sponsoren und Links); Galerie & Dokumente; Webseitenaufbau (Seitenbaukasten, Layouts, eigene Unterseiten, Navigation und Einstellungen); Rechtliche Angaben; Vorschau & Veröffentlichungsstatus; Dokumentation. Für normale Änderungen den Branch main verwenden. Speichern startet die Veröffentlichung; der Testbranch ist nur für technische Entwicklung vorgesehen. Rechtstexte nur nach Abstimmung mit dem Vorstand ändern. Registergericht und Registernummer sind noch zu bestätigen. Entwürfe im öffentlichen Repository sind nicht vertraulich.
