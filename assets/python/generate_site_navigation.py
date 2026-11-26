@@ -17,7 +17,7 @@ LEGAL = ("contact", "imprint", "privacy")
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
-def render_custom_pages(output, source=CUSTOM):
+def render_custom_pages(output, source=CUSTOM, drafts_only=False):
     directory = output / PREFIX.lstrip("/")
     directory.mkdir(parents=True, exist_ok=True)
     template = (ROOT / "templates/custom-page.html").read_text(encoding="utf-8")
@@ -28,7 +28,8 @@ def render_custom_pages(output, source=CUSTOM):
             raise ValueError(f"Ungültiger Seitenname: {path.name}")
         data = json.loads(path.read_text(encoding="utf-8"))
         title = text(data["title"])
-        if data.get("published") is not True:
+        published = data.get("published") is True
+        if published == drafts_only:
             continue
         url = PREFIX + slug + ".html"
         description = text(data.get("description") or data["title"])
@@ -44,7 +45,7 @@ def render_custom_pages(output, source=CUSTOM):
             raise ValueError(f"Kollision mit vorhandener Seite: {dest.name}")
         dest.write_text(html, encoding="utf-8")
         pages["content/custom-pages/" + path.name] = {"title": data["title"], "url": url,
-            "auto_menu": data.get("auto_menu") is True, "nav_label": data.get("nav_label") or data["title"]}
+            "auto_menu": published and data.get("auto_menu") is True, "nav_label": data.get("nav_label") or data["title"]}
     return pages
 
 

@@ -3,6 +3,7 @@ from pathlib import Path
 import unittest
 import json
 import tempfile
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "assets/python"))
 from generate_site import web, text, render_training, load, link_groups
@@ -77,6 +78,20 @@ class CmsSiteTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             reorder(page, spec, {"order": [{"area": "b"}, {"area": "b"}]}, "")
 
+    def test_additional_page_blocks(self):
+        with patch("generate_site_extra.local", return_value="/assets/images/site/test.png"):
+            html = page_sections([
+                {"type":"heading","title":"Überschrift & mehr"},
+                {"type":"three_columns","left":"**Links**","middle":"Mitte","right":"Rechts"},
+                {"type":"gallery","images":[{"src":"/assets/images/site/test.png","alt":"Testbild"}]},
+            ], SOURCE / "page_blocks.json")
+        self.assertIn("Überschrift &amp; mehr", html)
+        self.assertIn("news-block--three", html)
+        self.assertEqual(html.count('class="news-block__column"'),3)
+        self.assertIn("<strong>Links</strong>", html)
+        self.assertIn('alt="Testbild"', html)
+        self.assertIn("cms-image-row", html)
+
     def test_custom_page_publish_delete_and_navigation(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -91,6 +106,10 @@ class CmsSiteTests(unittest.TestCase):
             pages = render_custom_pages(output, source)
             self.assertTrue((output / "pages/individuell/test.html").is_file())
             self.assertFalse((output / "pages/individuell/draft.html").exists())
+            drafts = render_custom_pages(output, source, drafts_only=True)
+            self.assertTrue((output / "pages/individuell/draft.html").exists())
+            self.assertEqual(set(drafts), {"content/custom-pages/draft.json"})
+            self.assertFalse(drafts["content/custom-pages/draft.json"]["auto_menu"])
             self.assertIn("Test &amp; Verein", (output / "pages/individuell/test.html").read_text())
             ref = {"target": "custom", "custom_page": "content/custom-pages/test.json"}
             menu = render_menu([ref], pages, {})

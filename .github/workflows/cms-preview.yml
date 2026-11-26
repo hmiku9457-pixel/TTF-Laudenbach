@@ -1,9 +1,26 @@
 name: CMS Gesamttest
 on:
   push:
-    branches: [cms-gesamtumbau]
+    branches: [cms-gesamtumbau, main]
+    paths:
+      - 'content/site/**'
+      - 'content/custom-pages/**'
+      - 'content/news/**'
+      - 'assets/images/**'
+      - 'assets/python/generate_*.py'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - 'templates/**'
+      - 'pages/**'
+      - 'components/**'
+      - 'index.html'
+      - '.pages.yml'
+      - '.github/workflows/cms-preview.yml'
+      - 'tests/test_cms_site.py'
   pull_request:
     paths:
+      - "content/news/**"
+      - "assets/images/**"
       - "content/site/**"
       - "content/custom-pages/**"
       - "templates/custom-page.html"
@@ -11,17 +28,26 @@ on:
       - "assets/js/**"
       - ".pages.yml"
       - "assets/python/generate_site*.py"
+      - "assets/python/generate_cms_visual_preview.py"
+      - ".github/workflows/cms-preview.yml"
+      - "tests/test_cms_site.py"
       - "assets/python/generate_gallery.py"
       - "assets/python/generate_news.py"
       - "pages/**"
       - "components/**"
       - "index.html"
   workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload (optional)
+        type: string
+        required: false
 permissions:
   contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
       - name: Python-Abhängigkeiten
@@ -30,6 +56,7 @@ jobs:
         run: |
           python -c "import yaml; c=yaml.safe_load(open('.pages.yml')); assert len(c['content']) >= 12"
           python -m py_compile assets/python/generate_site*.py
+          python assets/python/generate_news.py
           mkdir -p .cms-preview/assets
           cp index.html 404.html CNAME robots.txt sitemap.xml .cms-preview/
           cp -a components pages .cms-preview/
@@ -41,8 +68,35 @@ jobs:
           python assets/python/ewige_rangliste_saison.py --output .cms-preview/assets/data/ewigeRanglisteSaison.json
           python -m unittest discover -s tests -p 'test_cms_site.py'
           python -c "from pathlib import Path; assert not any('<!-- CMS:' in p.read_text() or '{{CMS_' in p.read_text() or '<!-- LAYOUT:' in p.read_text() for p in Path('.cms-preview').rglob('*.html'))"
+      - name: Ergebnis der Inhaltsprüfung
+        if: always()
+        env:
+          BUILD_STATUS: ${{ job.status }}
+        run: |
+          if [ "$BUILD_STATUS" = success ]; then
+            echo '## Inhaltsprüfung erfolgreich' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Die gespeicherten Inhalte sind technisch gültig. Dies ist keine Bestätigung einer Live-Veröffentlichung.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Inhaltsprüfung fehlgeschlagen' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Die Inhalte wurden nicht freigegeben. Öffne den fehlgeschlagenen Build-Schritt für Dateiname und Fehlermeldung.' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: cms-testseite
           path: .cms-preview
+          include-hidden-files: true
+
+      - name: Chromium für visuelle Vorschau installieren
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Desktop- und Mobilvorschau erzeugen
+        run: |
+          cp -a .cms-preview .cms-visual-source
+          python assets/python/generate_cms_visual_preview.py --site .cms-visual-source --output .cms-visual
+      - name: Visuelle Vorschau zum Herunterladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: cms-visuelle-vorschau
+          path: .cms-visual
           include-hidden-files: true

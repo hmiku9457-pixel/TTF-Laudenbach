@@ -326,3 +326,11 @@ settings:
     merge: true
   commit:
     identity: app
+
+actions:
+  - name: visual-preview
+    label: Vorschau und Inhaltsprüfung
+    workflow: cms-preview.yml
+    ref: current
+    confirm: false
+    cancelable: false
