@@ -35,6 +35,18 @@ def page_sections(blocks, source):
         kind = block.get("type")
         if kind in ("text", "two_columns", "event"):
             parts.append(render_sections([block], source))
+        elif kind == "heading":
+            parts.append(f'<h2 class="news-block">{text(block["title"])}</h2>')
+        elif kind == "three_columns":
+            columns = "".join(f'<div class="news-block__column">{rich(block[k], source.stem)}</div>' for k in ("left", "middle", "right"))
+            parts.append(f'<section class="news-block news-block--columns news-block--three">{columns}</section>')
+        elif kind == "gallery":
+            figures = []
+            for item in seq(block.get("images")):
+                src = local(item["src"], "/assets/images/site/", {".jpg", ".jpeg", ".png", ".webp"})
+                figures.append(f'<img src="{src}" alt="{text(item["alt"])}" loading="lazy"/>')
+            if figures:
+                parts.append(f'<div class="news-block cms-image-row">{"".join(figures)}</div>')
         elif kind == "divider":
             parts.append(render_divider_block())
         elif kind == "spacer":
@@ -108,7 +120,8 @@ def build(output):
         p.write_text(page, encoding="utf-8")
     if set(values)-seen:
         raise ValueError(f"Nicht verwendete CMS-Bausteine: {set(values)-seen}")
-    append_page_blocks(output)
+    from generate_site_layout import apply_layouts
+    apply_layouts(output)
     print("CMS: Verein, Mitgliedschaft, Dokumente, Newsletter, Header und Seitenbaukasten erzeugt")
 
 
