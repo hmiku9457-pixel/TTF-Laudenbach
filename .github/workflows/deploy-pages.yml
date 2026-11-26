@@ -70,6 +70,7 @@ jobs:
           cp -a assets/css assets/data assets/images assets/js .pages-site/assets/
 
           python assets/python/generate_site.py --output .pages-site
+          python assets/python/generate_site_extra.py --output .pages-site
 
           # Saisonkennzahlen aus den bereits gespeicherten Begegnungen und
           # der Mannschaftsmeldung erzeugen; kein zusätzlicher Datenabruf.
