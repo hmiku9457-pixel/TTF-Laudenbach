@@ -7,6 +7,7 @@ from generate_site import web, text, render_training, load, link_groups
 from generate_site_extra import pdf, page_sections
 from generate_site import SOURCE
 from generate_site_media import render_team_info
+from generate_gallery import build_gallery_data
 
 
 class CmsSiteTests(unittest.TestCase):
@@ -55,6 +56,13 @@ class CmsSiteTests(unittest.TestCase):
         self.assertIn("Testname", render_team_info({"captain": "Testname"}))
         with self.assertRaises(ValueError):
             render_team_info("invalid")
+
+    def test_gallery_manifest(self):
+        result = build_gallery_data()
+        albums = load("albums").get("albums") or []
+        self.assertEqual([a["title"] for a in albums], [a["title"] for a in result["galleries"]])
+        self.assertEqual(sum(len(a.get("images") or []) for a in albums),
+                         sum(len(a["images"]) for a in result["galleries"]))
 
 
 if __name__ == "__main__":

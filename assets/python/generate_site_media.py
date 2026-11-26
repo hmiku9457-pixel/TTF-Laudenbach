@@ -2,11 +2,10 @@
 """Erzeugt Mannschaftsinformationen und ergänzt redaktionelle Fotoalben."""
 from __future__ import annotations
 import argparse
-from datetime import date
 import json
 from pathlib import Path
 from generate_site import ROOT, load, text, seq, local, render_page
-from generate_gallery import build_gallery_data, slugify
+from generate_gallery import build_gallery_data
 
 TEAMS = ("herren1", "herren2", "herren3", "herren4", "herren5", "jugend1", "jugend2")
 
@@ -28,31 +27,12 @@ def render_team_info(team):
 
 
 def build(output):
-    teams, albums = load("teams"), load("albums")
+    teams = load("teams")
     for key in TEAMS:
         info = render_team_info(teams.get(key))
         if render_page(output, f"pages/aktiverSpielbetrieb/{key}.html", {"team_info": info}) != {"team_info"}:
             raise ValueError(f"Mannschaft {key}: Platzhalter fehlt")
     gallery = build_gallery_data()
-    ids = {r["id"] for r in gallery["galleries"]}
-    for album in seq(albums.get("albums")):
-        title = album["title"]
-        text(title)
-        id_ = "cms-" + slugify(title)
-        if id_ == "cms-" or id_ in ids:
-            raise ValueError("Galerie: eindeutige Albumtitel erforderlich")
-        ids.add(id_)
-        images = [{"src": image(r["src"], "/assets/images/gallery/"), "alt": r["alt"]} for r in seq(album.get("images"))]
-        for img in images:
-            text(img["alt"])
-        event_date = album.get("date") or ""
-        if event_date:
-            date.fromisoformat(event_date)
-        description = album.get("description") or ""
-        if not isinstance(description, str):
-            raise ValueError("Galerie: Beschreibung muss Text sein")
-        if images:
-            gallery["galleries"].append({"id": id_, "title": title, "images": images, "date": event_date, "description": description})
     (output / "assets/data/gallerie.json").write_text(json.dumps(gallery, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     print("CMS: Mannschaften und Galerien erzeugt")
 
