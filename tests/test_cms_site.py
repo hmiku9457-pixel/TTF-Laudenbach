@@ -10,7 +10,7 @@ from generate_site import web, text, render_training, load, link_groups
 from generate_site_extra import pdf, page_sections
 from generate_site import SOURCE
 from generate_site_media import render_team_info
-from generate_gallery import build_gallery_data
+from generate_gallery import build_gallery_data, build_manifest_gallery
 from generate_site_layout import reorder
 from generate_cms_status import build_status
 from generate_site_legal import imprint_html
@@ -70,6 +70,31 @@ class CmsSiteTests(unittest.TestCase):
         self.assertEqual([a["title"] for a in albums], [a["title"] for a in result["galleries"]])
         self.assertEqual(sum(len(a.get("images") or []) for a in albums),
                          sum(len(a["images"]) for a in result["galleries"]))
+
+    def test_gallery_multiple_images(self):
+        existing = load("albums")["albums"][0]["images"]
+        paths = [e["src"] if isinstance(e, dict) else e for e in existing]
+        self.assertGreaterEqual(len(paths), 2)
+        with tempfile.TemporaryDirectory() as temp:
+            source = Path(temp) / "albums.json"
+            album = {"title":"Mehrfachupload", "images": [paths[1], paths[0]], "image_descriptions":[{"src":paths[0],"alt":"Individuelle Beschreibung"}]}
+            source.write_text(json.dumps({"albums":[album]}), encoding="utf-8")
+            images = build_manifest_gallery(source)["galleries"][0]["images"]
+            self.assertEqual([x["src"] for x in images], [paths[1],paths[0]])
+            self.assertEqual(images[0]["alt"],"Mehrfachupload – Foto 1")
+            self.assertEqual(images[1]["alt"],"Individuelle Beschreibung")
+            album["images"] = [paths[1]]
+            source.write_text(json.dumps({"albums":[album]}), encoding="utf-8")
+            self.assertEqual(len(build_manifest_gallery(source)["galleries"][0]["images"]),1)
+            album["images"] = [{"src":paths[0],"alt":"Alter Alt-Text"}]
+            album.pop("image_descriptions")
+            source.write_text(json.dumps({"albums":[album]}), encoding="utf-8")
+            self.assertEqual(build_manifest_gallery(source)["galleries"][0]["images"][0]["alt"],"Alter Alt-Text")
+            for invalid in ([paths[0],paths[0]],["/assets/images/gallery/../test.jpg"]):
+                album["images"] = invalid
+                source.write_text(json.dumps({"albums":[album]}), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    build_manifest_gallery(source)
 
     def test_layout_reorder_and_protection(self):
         page = '<main><!-- LAYOUT:start:a -->A<!-- LAYOUT:end:a --><!-- LAYOUT:start:b -->B<!-- LAYOUT:end:b --></main>'

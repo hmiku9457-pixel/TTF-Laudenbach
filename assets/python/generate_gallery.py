@@ -64,10 +64,20 @@ def build_manifest_gallery(source: Path) -> dict[str, object]:
         if not isinstance(description, str):
             raise ValueError("Galerie: Beschreibung muss Text sein")
         images = []
-        for entry in album.get("images") or []:
-            value, alt = entry.get("src"), entry.get("alt")
-            if not isinstance(value, str) or not isinstance(alt, str) or not alt.strip():
-                raise ValueError("Galerie: Bild und Bildbeschreibung erforderlich")
+        overrides = {}
+        for entry in album.get("image_descriptions") or []:
+            if not isinstance(entry, dict) or not isinstance(entry.get("src"), str) or not isinstance(entry.get("alt"), str) or not entry["alt"].strip():
+                raise ValueError("Galerie: ungültige individuelle Bildbeschreibung")
+            overrides[unquote(entry["src"])] = entry["alt"].strip()
+        raw_images = album.get("images") or []
+        if not isinstance(raw_images, list):
+            raise ValueError("Galerie: Fotos müssen eine Liste sein")
+        seen_images = set()
+        for index, entry in enumerate(raw_images, 1):
+            # Backward compatibility for older album manifests.
+            value = entry.get("src") if isinstance(entry, dict) else entry
+            if not isinstance(value, str):
+                raise ValueError("Galerie: Bildpfad erforderlich")
             value = unquote(value)
             if not value.startswith("/assets/images/gallery/") or "\\" in value or any(ord(c) < 32 for c in value):
                 raise ValueError("Galerie: ungültiger Bildpfad")
@@ -75,6 +85,14 @@ def build_manifest_gallery(source: Path) -> dict[str, object]:
             base = ROOT / "assets/images/gallery"
             if not path.resolve().is_relative_to(base.resolve()) or path.suffix.lower() not in IMAGE_EXTENSIONS or not path.is_file():
                 raise ValueError(f"Galerie: Bild fehlt: {value}")
+            if value in seen_images:
+                raise ValueError(f"Galerie: doppeltes Bild im Album: {value}")
+            seen_images.add(value)
+            legacy_alt = entry.get("alt") if isinstance(entry, dict) else None
+            # Do not expose generated filenames as descriptions. No guesses about image contents.
+            alt = overrides.get(value) or legacy_alt or f"{title} – Foto {index}"
+            if not isinstance(alt, str) or not alt.strip():
+                raise ValueError("Galerie: ungültige Bildbeschreibung")
             images.append({"src": quote(value, safe="/-._~"), "alt": alt})
         galleries.append({"id": id_, "title": title, "date": event_date, "description": description, "images": images})
     result = {"defaultGallery": galleries[0]["id"] if galleries else "", "galleries": galleries}

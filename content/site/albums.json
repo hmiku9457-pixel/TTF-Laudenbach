@@ -6,6 +6,11 @@
       "date": "",
       "description": "",
       "images": [
+        "/assets/images/gallery/general/LustAufTischtennis.png",
+        "/assets/images/gallery/general/TTF-Laudenbach_Logo.png",
+        "/assets/images/gallery/general/VierElemente_TTFLaudenbach.jpg"
+      ],
+      "image_descriptions": [
         {
           "src": "/assets/images/gallery/general/LustAufTischtennis.png",
           "alt": "Generelle Bilder: LustAufTischtennis"
@@ -26,6 +31,24 @@
       "date": "",
       "description": "",
       "images": [
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung1.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung10.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung11.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung12.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung13.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung14.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung15.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung16.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung2.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung3.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung4.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung5.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung6.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung7.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung8.jpg",
+        "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung9.jpg"
+      ],
+      "image_descriptions": [
         {
           "src": "/assets/images/gallery/49-ttf-hauptversammlung/49TTFHauptVersammlung1.jpg",
           "alt": "49. TTF Hauptversammlung: 49TTFHauptVersammlung1"
