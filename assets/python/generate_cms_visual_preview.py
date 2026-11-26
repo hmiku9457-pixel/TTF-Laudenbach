@@ -18,7 +18,6 @@ from urllib.parse import quote
 from playwright.sync_api import sync_playwright
 from generate_site_navigation import render_custom_pages
 from generate_news import load_all_articles, article_html, resolve_now
-from generate_site_extra import page_sections
 
 SIZES = {"desktop": (1440, 900), "mobil": (390, 844)}
 MAX_HEIGHT = 14000

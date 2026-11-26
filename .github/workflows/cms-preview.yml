@@ -88,14 +88,17 @@ jobs:
           include-hidden-files: true
 
       - name: Chromium für visuelle Vorschau installieren
+        if: github.event_name != 'pull_request'
         run: |
           python -m pip install --disable-pip-version-check playwright==1.56.0
           python -m playwright install --with-deps chromium
       - name: Desktop- und Mobilvorschau erzeugen
+        if: github.event_name != 'pull_request'
         run: |
           cp -a .cms-preview .cms-visual-source
           python assets/python/generate_cms_visual_preview.py --site .cms-visual-source --output .cms-visual
       - name: Visuelle Vorschau zum Herunterladen
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: cms-visuelle-vorschau

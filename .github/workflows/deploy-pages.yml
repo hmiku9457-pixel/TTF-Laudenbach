@@ -125,7 +125,7 @@ jobs:
         run: |
           if [ "$DEPLOY_OUTCOME" = success ]; then
             echo '## Website erfolgreich veröffentlicht' >> "$GITHUB_STEP_SUMMARY"
-            echo "Veröffentlichter Commit: `$BUILT_SHA`" >> "$GITHUB_STEP_SUMMARY"
+            printf 'Veröffentlichter Commit: `%s`\n' "$BUILT_SHA" >> "$GITHUB_STEP_SUMMARY"
             echo '[Aktuellen Live-Stand prüfen](https://www.ttf-laudenbach.de/redaktionsstatus.html)' >> "$GITHUB_STEP_SUMMARY"
           elif [ "$BUILD_OUTCOME" = failure ]; then
             echo '## Veröffentlichung nicht erfolgt – Inhaltsprüfung fehlgeschlagen' >> "$GITHUB_STEP_SUMMARY"
