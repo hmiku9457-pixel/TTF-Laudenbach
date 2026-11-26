@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
 import unittest
+import json
+import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "assets/python"))
 from generate_site import web, text, render_training, load, link_groups
@@ -8,6 +10,8 @@ from generate_site_extra import pdf, page_sections
 from generate_site import SOURCE
 from generate_site_media import render_team_info
 from generate_gallery import build_gallery_data
+from generate_site_layout import reorder
+from generate_site_navigation import render_custom_pages, render_menu, render_footer, sync_sitemap
 
 
 class CmsSiteTests(unittest.TestCase):
@@ -63,6 +67,44 @@ class CmsSiteTests(unittest.TestCase):
         self.assertEqual([a["title"] for a in albums], [a["title"] for a in result["galleries"]])
         self.assertEqual(sum(len(a.get("images") or []) for a in albums),
                          sum(len(a["images"]) for a in result["galleries"]))
+
+    def test_layout_reorder_and_protection(self):
+        page = '<main><!-- LAYOUT:start:a -->A<!-- LAYOUT:end:a --><!-- LAYOUT:start:b -->B<!-- LAYOUT:end:b --></main>'
+        spec = {"path": "test", "keys": ["a", "b"], "inner": True}
+        result = reorder(page, spec, {"order": [{"area": "custom"}, {"area": "b"}]}, "C")
+        self.assertIn("C</div>\nB\nA", result)
+        self.assertNotIn("LAYOUT:", result)
+        with self.assertRaises(ValueError):
+            reorder(page, spec, {"order": [{"area": "b"}, {"area": "b"}]}, "")
+
+    def test_custom_page_publish_delete_and_navigation(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            source = root / "src"
+            source.mkdir()
+            output = root / "out"
+            output.mkdir()
+            data = {"title": "Test & Verein", "published": True, "auto_menu": True,
+                    "sections": [{"type": "heading", "title": "Willkommen"}]}
+            (source / "test.json").write_text(json.dumps(data), encoding="utf-8")
+            (source / "draft.json").write_text(json.dumps({"title": "Entwurf", "published": False}), encoding="utf-8")
+            pages = render_custom_pages(output, source)
+            self.assertTrue((output / "pages/individuell/test.html").is_file())
+            self.assertFalse((output / "pages/individuell/draft.html").exists())
+            self.assertIn("Test &amp; Verein", (output / "pages/individuell/test.html").read_text())
+            ref = {"target": "custom", "custom_page": "content/custom-pages/test.json"}
+            menu = render_menu([ref], pages, {})
+            self.assertEqual(menu.count("/pages/individuell/test.html"), 1)
+            self.assertNotIn("test.html", render_menu([ref], {}, {}))
+            sitemap = output / "sitemap.xml"
+            sitemap.write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>')
+            sync_sitemap(sitemap, pages)
+            self.assertIn("/pages/individuell/test.html", sitemap.read_text())
+            sync_sitemap(sitemap, {})
+            self.assertNotIn("test.html", sitemap.read_text())
+            footer = render_footer({"footer": [], "show_sponsors": False}, pages, {}, {"items": []})
+            for name in ("kontakt", "impressum", "datenschutz"):
+                self.assertIn(f"/pages/footer/{name}.html", footer)
 
 
 if __name__ == "__main__":

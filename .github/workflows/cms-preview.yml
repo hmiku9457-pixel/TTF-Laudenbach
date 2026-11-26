@@ -5,6 +5,10 @@ on:
   pull_request:
     paths:
       - "content/site/**"
+      - "content/custom-pages/**"
+      - "templates/custom-page.html"
+      - "assets/css/**"
+      - "assets/js/**"
       - ".pages.yml"
       - "assets/python/generate_site*.py"
       - "assets/python/generate_gallery.py"
@@ -33,9 +37,10 @@ jobs:
           python assets/python/generate_site.py --output .cms-preview
           python assets/python/generate_site_extra.py --output .cms-preview
           python assets/python/generate_site_media.py --output .cms-preview
+          python assets/python/generate_site_navigation.py --output .cms-preview
           python assets/python/ewige_rangliste_saison.py --output .cms-preview/assets/data/ewigeRanglisteSaison.json
           python -m unittest discover -s tests -p 'test_cms_site.py'
-          python -c "from pathlib import Path; assert not any('<!-- CMS:' in p.read_text() or '{{CMS_' in p.read_text() for p in Path('.cms-preview').rglob('*.html'))"
+          python -c "from pathlib import Path; assert not any('<!-- CMS:' in p.read_text() or '{{CMS_' in p.read_text() or '<!-- LAYOUT:' in p.read_text() for p in Path('.cms-preview').rglob('*.html'))"
       - uses: actions/upload-artifact@v4
         with:
           name: cms-testseite

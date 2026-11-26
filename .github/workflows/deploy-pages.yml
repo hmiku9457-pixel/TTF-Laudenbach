@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - "content/site/**"
+      - "content/custom-pages/**"
+      - "templates/custom-page.html"
+      - "assets/python/generate_site_layout.py"
+      - "assets/python/generate_site_navigation.py"
+      - "assets/python/generate_gallery.py"
       - "assets/python/generate_site.py"
       - "assets/python/generate_site_extra.py"
       - "assets/python/generate_site_media.py"
@@ -73,6 +78,7 @@ jobs:
           python assets/python/generate_site.py --output .pages-site
           python assets/python/generate_site_extra.py --output .pages-site
           python assets/python/generate_site_media.py --output .pages-site
+          python assets/python/generate_site_navigation.py --output .pages-site
 
           # Saisonkennzahlen aus den bereits gespeicherten Begegnungen und
           # der Mannschaftsmeldung erzeugen; kein zusätzlicher Datenabruf.

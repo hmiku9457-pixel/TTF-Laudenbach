@@ -146,3 +146,5 @@ Neue Abstraktionen oder Build-Schritte nur einführen, wenn sie ein konkretes Wa
 
 ## CMS-Erweiterung
 Redaktionelle Inhalte unter `content/site/` werden beim Deployment durch `generate_site.py`, `generate_site_extra.py` und `generate_site_media.py` in statische HTML-Seiten, Linkdaten und Galeriedaten gerendert. HTML mit CMS-Platzhaltern ist eine technische Vorlage. Siehe `docs/cms-gesamtumbau.md`.
+
+Phase B: Fotoalben aus `content/site/albums.json`, verschiebbare Funktionsgruppen aus `content/site/layouts.json`, zusätzliche Unterseiten aus `content/custom-pages/` sowie Navigation/Footer aus `content/site/navigation.json`. Die generierten Unterseiten und ihre Sitemap-Einträge existieren nur im Pages-Artefakt.

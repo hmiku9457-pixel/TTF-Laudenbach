@@ -4,9 +4,11 @@ on:
   push:
     branches: [main]
     paths:
+      - "content/site/albums.json"
       - "assets/images/**"
       - "!assets/images/seo/**"
       - "!assets/images/news/**"
+      - "!assets/images/site/**"
       - "assets/python/generate_gallery.py"
       - ".github/workflows/generate-gallery-json.yml"
   workflow_dispatch:

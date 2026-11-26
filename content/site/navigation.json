@@ -1,0 +1,78 @@
+{
+  "menu": [
+    {
+      "target": "home"
+    },
+    {
+      "target": "club"
+    },
+    {
+      "target": "training",
+      "children": [
+        {
+          "target": "herren1"
+        },
+        {
+          "target": "herren2"
+        },
+        {
+          "target": "herren3"
+        },
+        {
+          "target": "herren4"
+        },
+        {
+          "target": "herren5"
+        },
+        {
+          "target": "jugend1"
+        },
+        {
+          "target": "jugend2"
+        },
+        {
+          "target": "ranking"
+        }
+      ]
+    },
+    {
+      "target": "membership"
+    },
+    {
+      "target": "documents",
+      "children": [
+        {
+          "target": "gallery"
+        },
+        {
+          "target": "newsletter"
+        },
+        {
+          "target": "statutes"
+        },
+        {
+          "target": "join"
+        }
+      ]
+    },
+    {
+      "target": "sponsors"
+    },
+    {
+      "target": "links"
+    }
+  ],
+  "footer": [
+    {
+      "target": "contact"
+    },
+    {
+      "target": "imprint"
+    },
+    {
+      "target": "privacy"
+    }
+  ],
+  "copyright": "TTF Laudenbach",
+  "show_sponsors": true
+}

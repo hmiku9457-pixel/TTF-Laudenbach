@@ -550,3 +550,6 @@ Zur technischen Betreuung gehören insbesondere:
 **Dokumentstand:** August 2026  
 **Webseite:** TTF Laudenbach  
 **Dokument:** Redaktionshandbuch
+
+## Erweiterte Webseitenverwaltung (Phase B)
+Unter **Fotoalben** können auch vorhandene Bilder und Alben geändert werden. Unter **Seitenlayouts** können vorhandene Funktionsgruppen und zusätzliche Inhalte umsortiert werden. **Eigene Unterseiten** erlaubt das Anlegen und Löschen redaktioneller Seiten; erst der Schalter Veröffentlichen macht sie öffentlich auf der Webseite sichtbar. Die Adresse bleibt bei Titeländerungen gleich. Unter **Navigation & Footer** werden Menüeinträge und ihre Untermenüs, Footer-Links und Sponsorenanzeige verwaltet. Gelöschte Unterseiten werden automatisch aus der Navigation ausgeblendet. Die Pflichtlinks bleiben erhalten. Ausführliche Test- und Bedienhinweise: docs/cms-gesamtumbau.md.
