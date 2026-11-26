@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 IMAGES_DIR = ROOT / "assets/images"
 OUTPUT_FILE = ROOT / "assets/data/gallerie.json"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-EXCLUDED_DIRECTORIES = {"seo", "news"}
+EXCLUDED_DIRECTORIES = {"seo", "news", "gallery", "site"}
 
 
 def slugify(text: str) -> str:

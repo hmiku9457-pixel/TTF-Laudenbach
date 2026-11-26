@@ -10,7 +10,7 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 
 ## 1. Was kann über das CMS gepflegt werden?
 
-Über das CMS werden die **Neuigkeiten** der Vereinswebseite gepflegt. Dazu gehören:
+Über das CMS werden die **Neuigkeiten** und weitere Vereinsinformationen gepflegt. Die neuen Formulare umfassen Training, Verein, Mannschaften, Mitgliedschaft, Sponsoren, Links, Dokumente, Fotoalben, Newsletter und Willkommenstext. Details und Testanleitung: docs/cms-gesamtumbau.md. Dazu gehören:
 
 - neue News erstellen,
 - bestehende News bearbeiten,
@@ -23,7 +23,7 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 - Veranstaltungen hervorheben,
 - Trenner und zusätzliche Abstände verwenden.
 
-Nicht zur normalen Redaktion gehören unter anderem Navigation, Footer, Seitendesign, Spielpläne, Tabellenstände, Spielerlisten, Scraper, Galerie-Automatisierung und technische Workflows. Diese Bereiche werden separat technisch betreut.
+Nicht zur normalen Redaktion gehören unter anderem Navigationsstruktur, Seitendesign, Spielpläne, Tabellenstände, Spielerlisten, Scraper, historische Galerieordner und technische Workflows. Diese Bereiche werden separat technisch betreut.
 
 ## 2. Pages CMS öffnen
 

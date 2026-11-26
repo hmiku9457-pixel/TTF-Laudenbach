@@ -43,6 +43,19 @@ export async function initHistoricalImages() {
             title.className = "u-text-center";
             title.textContent = gallery.title;
             section.appendChild(title);
+            if (gallery.date) {
+                const date = document.createElement("p");
+                date.className = "u-text-center";
+                const parts = String(gallery.date).split("-");
+                date.textContent = parts.length === 3 ? parts.reverse().join(".") : gallery.date;
+                section.appendChild(date);
+            }
+            if (gallery.description) {
+                const description = document.createElement("p");
+                description.className = "u-text-center";
+                description.textContent = gallery.description;
+                section.appendChild(description);
+            }
 
             const masonry = document.createElement("div");
             masonry.className = "masonry-gallery";

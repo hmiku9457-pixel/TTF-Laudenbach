@@ -143,3 +143,6 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 ## Wartungsregel
 
 Neue Abstraktionen oder Build-Schritte nur einführen, wenn sie ein konkretes Wartungsproblem lösen. Für diese Vereinswebsite gilt bewusst: **wenige Ebenen, eindeutige Zuständigkeiten und möglichst wenig duplizierter Code.**
+
+## CMS-Erweiterung
+Redaktionelle Inhalte unter `content/site/` werden beim Deployment durch `generate_site.py`, `generate_site_extra.py` und `generate_site_media.py` in statische HTML-Seiten, Linkdaten und Galeriedaten gerendert. HTML mit CMS-Platzhaltern ist eine technische Vorlage. Siehe `docs/cms-gesamtumbau.md`.
