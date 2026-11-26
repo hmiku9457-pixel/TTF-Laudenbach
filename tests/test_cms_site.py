@@ -72,10 +72,12 @@ class CmsSiteTests(unittest.TestCase):
                          sum(len(a["images"]) for a in result["galleries"]))
 
     def test_gallery_multiple_images(self):
-        existing = load("albums")["albums"][0]["images"]
-        paths = [e["src"] if isinstance(e, dict) else e for e in existing]
-        self.assertGreaterEqual(len(paths), 2)
-        with tempfile.TemporaryDirectory() as temp:
+        paths = ["/assets/images/gallery/first.jpg", "/assets/images/gallery/second.jpg"]
+        with tempfile.TemporaryDirectory() as temp, patch("generate_gallery.ROOT", Path(temp)):
+            for value in paths:
+                image = Path(temp) / value.lstrip("/")
+                image.parent.mkdir(parents=True, exist_ok=True)
+                image.write_bytes(b"fixture")
             source = Path(temp) / "albums.json"
             album = {"title":"Mehrfachupload", "images": [paths[1], paths[0]], "image_descriptions":[{"src":paths[0],"alt":"Individuelle Beschreibung"}]}
             source.write_text(json.dumps({"albums":[album]}), encoding="utf-8")
