@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import urlsplit, quote, unquote
-from generate_news import render_markdown, render_sections
+from generate_news import render_markdown
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "content/site"
@@ -145,19 +145,14 @@ def render_page(output, target, values):
 def build(output):
     training, sponsors, links = [load(n) for n in ("training", "sponsors", "links")]
     items = seq(sponsors.get("items"))
-    footer_items = [f'<div class="footer-sponsor"><a href="{web(r["url"])}" rel="noopener noreferrer" target="_blank">{text(r["name"])}</a></div>' for r in items]
-    split = len(footer_items)//2
     values = {"training": render_training(training), "hall1": render_hall(training["hall1"], 1), "hall2": render_hall(training["hall2"], 2),
-              "sponsors": "".join(button(r["name"], web(r["url"])) for r in items),
-              "sponsors_left": "".join(footer_items[:split]), "sponsors_right": "".join(footer_items[split:])}
-    targets = ["index.html", "pages/aktiverSpielbetrieb.html", "pages/sponsoren.html", "components/footer.html"]
+              "sponsors": "".join(button(r["name"], web(r["url"])) for r in items)}
+    targets = ["index.html", "pages/aktiverSpielbetrieb.html", "pages/sponsoren.html"]
     seen = set()
     for target in targets:
         seen |= render_page(output, target, values)
     if set(values) - seen:
         raise ValueError(f"Nicht verwendete CMS-Bausteine: {set(values)-seen}")
-    footer = output / "components/footer.html"
-    footer.write_text(footer.read_text(encoding="utf-8").replace('data-cms-footer="true"', f'style="--footer-columns: {min(len(items)+1, 5)}"'), encoding="utf-8")
     link_file = output / "assets/data/links.json"
     data = json.loads(link_file.read_text(encoding="utf-8"))
     data["links"] = link_groups(links, sponsors)

@@ -150,3 +150,5 @@ Redaktionelle Inhalte unter `content/site/` werden beim Deployment durch `genera
 Phase B: Fotoalben aus `content/site/albums.json`, verschiebbare Funktionsgruppen aus `content/site/layouts.json`, zusätzliche Unterseiten aus `content/custom-pages/` sowie Navigation/Footer aus `content/site/navigation.json`. Die generierten Unterseiten und ihre Sitemap-Einträge existieren nur im Pages-Artefakt.
 
 Phase C: `cms-visuelle-vorschau` bietet offline öffnbare Chromium-Aufnahmen für Desktop und Mobil; `cms-testseite` bleibt interaktiv per Webserver. Veröffentlichungsmarker `/cms-stand.json` und `/redaktionsstatus.html` werden nur im Artefakt erstellt. Redaktionsrollen und Einschränkungen: `docs/cms-status.md`.
+
+Produktiver CMS-Betrieb: Pages CMS auf `main`; rechtliche Angaben unter `content/site/legal.json`, Statusseite `/redaktionsstatus.html`. Die technischen HTML-Quellen werden erst durch den GitHub-Pages-Workflow in eine vollständige Website verwandelt. Details: `docs/redaktion.md`, `docs/technik.md`, `docs/cms-status.md`.

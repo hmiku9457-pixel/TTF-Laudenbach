@@ -16,14 +16,14 @@ title: "Vorschau und Veröffentlichungsstatus"
 
 - [Prüfläufe und Vorschau](https://github.com/hmiku9457-pixel/TTF-Laudenbach/actions/workflows/cms-preview.yml)
 - [Veröffentlichungsläufe](https://github.com/hmiku9457-pixel/TTF-Laudenbach/actions/workflows/deploy-pages.yml)
-- [Aktuell ausgelieferter Stand](https://www.ttf-laudenbach.de/redaktionsstatus.html) (erst nach Produktivfreigabe von Phase C verfügbar)
+- [Aktuell ausgelieferter Stand](https://www.ttf-laudenbach.de/redaktionsstatus.html)
 - [Live-Website](https://www.ttf-laudenbach.de/)
 
-Die CMS-Schaltfläche **Vorschau und Inhaltsprüfung** prüft den aktuellen Branch; sie veröffentlicht nichts. GitHub Actions benötigt die Workflow-Datei auf dem Standardbranch, bevor die Schaltfläche dort bzw. auf anderen Branches dispatchen kann. Vor der Produktivfreigabe startet die Vorschau automatisch nach dem Speichern.
+Die CMS-Schaltfläche **Vorschau und Inhaltsprüfung** prüft den aktuellen Branch; sie veröffentlicht nichts. GitHub Actions benötigt die Workflow-Datei auf dem Standardbranch, bevor die Schaltfläche dort bzw. auf anderen Branches dispatchen kann. Die Vorschau startet außerdem automatisch nach dem Speichern.
 
 ## Entwürfe und Rechte
 
-Eigene Unterseiten: Schalter Veröffentlichen aus = Entwurf; an = beim nächsten erfolgreichen Build auf dem jeweiligen Branch enthalten. Neuigkeiten: Zeitpunkt in der Zukunft = geplant; Zeitpunkt erreicht = zur Veröffentlichung vorgesehen. Auf dem Testbranch wird nie die Live-Website aktualisiert.
+Eigene Unterseiten: Schalter Veröffentlichen aus = Entwurf; an = beim nächsten erfolgreichen Build auf dem jeweiligen Branch enthalten. Neuigkeiten: Zeitpunkt in der Zukunft = geplant; Zeitpunkt erreicht = zur Veröffentlichung vorgesehen. Auf dem Testbranch wird nie die Live-Website aktualisiert. Für normale redaktionelle Änderungen main wählen.
 
 Das GitHub-Repository ist öffentlich. Entwürfe und hochgeladene Medien sind deshalb nicht vertraulich.
 

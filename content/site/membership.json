@@ -2,16 +2,17 @@
   "fees": [
     {
       "category": "Schüler und Jugendliche bis einschließlich 18 Jahre",
+      "note": "",
       "amount": 15
     },
     {
-      "category": "Erwachsene",
-      "note": "(Passiv)",
+      "category": "Erwachsene (Passiv)",
+      "note": "",
       "amount": 20
     },
     {
-      "category": "Erwachsene",
-      "note": "(Aktiv)",
+      "category": "Erwachsene (Aktiv)",
+      "note": "",
       "amount": 30
     },
     {

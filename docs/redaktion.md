@@ -30,7 +30,7 @@ Navigation, Fotoalben und Seitenlayouts können über die vorgesehenen CMS-Formu
 1. Pages CMS öffnen.
 2. Mit dem eingerichteten Zugang anmelden.
 3. Das Repository der TTF Laudenbach auswählen.
-4. Im Menü **Neuigkeiten** öffnen.
+4. Für Meldungen **Neuigkeiten** öffnen; die übrigen Inhalte sind thematisch gruppiert.
 
 Zusätzlich steht im CMS der Bereich **Dokumentation** zur Verfügung. Dort kann dieses Redaktionshandbuch jederzeit eingesehen werden.
 
@@ -556,3 +556,6 @@ Unter **Fotoalben** können auch vorhandene Bilder und Alben geändert werden. U
 
 ## Phase C: Vorschau und Veröffentlichung
 Im CMS den Menüpunkt Vorschau & Veröffentlichungsstatus öffnen. Nach dem Speichern erzeugt GitHub automatisch eine visuelle Vorschau. Unter dem verlinkten Prüflauf das Artefakt cms-visuelle-vorschau entpacken und Vorschau.html per Doppelklick öffnen. Desktop und Mobil sind wählbar; die Bilder können in Originalgröße geöffnet werden. Für interaktive Tests weiterhin cms-testseite mit einem lokalen Webserver verwenden. Die Vorschau enthält den gespeicherten Stand, keine ungespeicherten Formularänderungen. Auf dem Testbranch wird nicht veröffentlicht. Der Live-Status unter /redaktionsstatus.html zeigt ab Produktivfreigabe den tatsächlich ausgelieferten Commit. Bei rotem Build nicht erneut blind speichern; Fehlermeldung im Prüflauf ansehen.
+
+## CMS-Menü nach Produktivfreigabe
+Neuigkeiten; Verein & Spielbetrieb (Unser Verein, Training, Mannschaften, Mitgliedschaft, Sponsoren und Links); Galerie & Dokumente; Webseitenaufbau (Seitenbaukasten, Layouts, eigene Unterseiten, Navigation und Einstellungen); Rechtliche Angaben; Vorschau & Veröffentlichungsstatus; Dokumentation. Für normale Änderungen den Branch main verwenden. Speichern startet die Veröffentlichung; der Testbranch ist nur für technische Entwicklung vorgesehen. Rechtstexte nur nach Abstimmung mit dem Vorstand ändern. Registergericht und Registernummer sind noch zu bestätigen. Entwürfe im öffentlichen Repository sind nicht vertraulich.

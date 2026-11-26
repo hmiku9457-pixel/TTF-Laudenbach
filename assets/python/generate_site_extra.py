@@ -18,15 +18,6 @@ def pairs(items):
 
 
 
-PAGES = {
-    "home": "index.html", "club": "pages/unserVerein.html",
-    "training": "pages/aktiverSpielbetrieb.html",
-    "membership": "pages/vereinsmitgliedschaft.html",
-    "sponsors": "pages/sponsoren.html", "documents": "pages/dokumente.html",
-    "links": "pages/links.html",
-}
-
-
 def page_sections(blocks, source):
     parts = []
     for i, block in enumerate(seq(blocks), 1):
@@ -64,20 +55,6 @@ def page_sections(blocks, source):
         else:
             raise ValueError(f"{source.name}: Unbekannter Block {kind!r}")
     return "\n".join(parts)
-
-
-def append_page_blocks(output):
-    data = load("page_blocks")
-    for key, path in PAGES.items():
-        body = page_sections(data.get(key), SOURCE / "page_blocks.json")
-        if not body:
-            continue
-        target = output / path
-        page = target.read_text(encoding="utf-8")
-        if page.count("</main>") != 1:
-            raise ValueError(f"{path}: Eindeutiges main-Ende fehlt")
-        section = f'<div class="grid"><div class="box full-width news-article__content">{body}</div></div>'
-        target.write_text(page.replace("</main>", section + "</main>"), encoding="utf-8")
 
 
 def build(output):
@@ -122,6 +99,8 @@ def build(output):
         raise ValueError(f"Nicht verwendete CMS-Bausteine: {set(values)-seen}")
     from generate_site_layout import apply_layouts
     apply_layouts(output)
+    from generate_site_legal import build as build_legal
+    build_legal(output)
     print("CMS: Verein, Mitgliedschaft, Dokumente, Newsletter, Header und Seitenbaukasten erzeugt")
 
 

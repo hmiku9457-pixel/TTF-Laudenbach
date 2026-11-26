@@ -54,7 +54,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check -r assets/python/news_requirements.txt
       - name: CMS-Konfiguration prüfen und Testseite bauen
         run: |
-          python -c "import yaml; c=yaml.safe_load(open('.pages.yml')); assert len(c['content']) >= 12"
+          python -c "import yaml; c=yaml.safe_load(open('.pages.yml')); assert sum(len(e.get('items', [e])) for e in c['content']) >= 17"
           python -m py_compile assets/python/generate_site*.py
           python assets/python/generate_news.py
           mkdir -p .cms-preview/assets

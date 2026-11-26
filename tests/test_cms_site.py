@@ -13,6 +13,7 @@ from generate_site_media import render_team_info
 from generate_gallery import build_gallery_data
 from generate_site_layout import reorder
 from generate_cms_status import build_status
+from generate_site_legal import imprint_html
 from generate_site_navigation import render_custom_pages, render_menu, render_footer, sync_sitemap
 
 
@@ -138,6 +139,17 @@ class CmsSiteTests(unittest.TestCase):
             self.assertEqual(json.loads((root/"cms-stand.json").read_text())["mode"],"production")
             with self.assertRaises(ValueError):
                 build_status(root,"production","invalid","main","https://github.com/example/run")
+
+    def test_legal_fields(self):
+        legal = load("legal")
+        html = imprint_html(legal["imprint"])
+        self.assertIn("mailto:", html)
+        self.assertNotIn("[[", html)
+        if not legal["imprint"].get("register_number"):
+            self.assertNotIn("<h2>Vereinsregister</h2>", html)
+        invalid = dict(legal["imprint"], register_court="Test", register_number="")
+        with self.assertRaises(ValueError):
+            imprint_html(invalid)
 
 
 if __name__ == "__main__":

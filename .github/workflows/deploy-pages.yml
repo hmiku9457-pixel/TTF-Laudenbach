@@ -7,6 +7,7 @@ on:
       - "content/site/**"
       - "content/custom-pages/**"
       - "templates/custom-page.html"
+      - "assets/python/generate_site_legal.py"
       - "assets/python/generate_site_layout.py"
       - "assets/python/generate_site_navigation.py"
       - "assets/python/generate_cms_status.py"
