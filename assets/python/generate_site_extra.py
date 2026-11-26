@@ -4,8 +4,8 @@ from __future__ import annotations
 import argparse
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from generate_site import ROOT, SOURCE, load, text, seq, local, rich, table, button, render_page
-from generate_news import render_sections
+from generate_site import ROOT, SOURCE, load, text, seq, local, rich, table, button, render_page, web
+from generate_news import render_sections, render_divider_block, render_spacer_block
 
 
 def pdf(value):
@@ -15,6 +15,57 @@ def pdf(value):
 def pairs(items):
     names = [text(n) for n in seq(items)]
     return [names[i:i+2] + ([""] if i == len(names)-1 else []) for i in range(0, len(names), 2)]
+
+
+
+PAGES = {
+    "home": "index.html", "club": "pages/unserVerein.html",
+    "training": "pages/aktiverSpielbetrieb.html",
+    "membership": "pages/vereinsmitgliedschaft.html",
+    "sponsors": "pages/sponsoren.html", "documents": "pages/dokumente.html",
+    "links": "pages/links.html",
+}
+
+
+def page_sections(blocks, source):
+    parts = []
+    for i, block in enumerate(seq(blocks), 1):
+        if not isinstance(block, dict):
+            raise ValueError(f"{source.name}: Block {i} muss ein Objekt sein")
+        kind = block.get("type")
+        if kind in ("text", "two_columns", "event"):
+            parts.append(render_sections([block], source))
+        elif kind == "divider":
+            parts.append(render_divider_block())
+        elif kind == "spacer":
+            parts.append(render_spacer_block(block, source, i))
+        elif kind == "image":
+            src = local(block["src"], "/assets/images/site/", {".jpg", ".jpeg", ".png", ".webp"})
+            caption = f'<figcaption class="u-text-center">{text(block["caption"])}</figcaption>' if block.get("caption") else ""
+            parts.append(f'<figure class="news-block news-rich-image"><img src="{src}" alt="{text(block["alt"])}" loading="lazy"/>{caption}</figure>')
+        elif kind in ("button", "download"):
+            href = web(block["url"]) if kind == "button" else pdf(block["path"])
+            parts.append(f'<div class="news-block grid-button">{button(block["label"], href)}</div>')
+        elif kind == "notice":
+            body = rich(block["body"], source.stem)
+            parts.append(f'<section class="news-block news-event"><h2 class="news-event__title">{text(block["title"])}</h2>{body}</section>')
+        else:
+            raise ValueError(f"{source.name}: Unbekannter Block {kind!r}")
+    return "\n".join(parts)
+
+
+def append_page_blocks(output):
+    data = load("page_blocks")
+    for key, path in PAGES.items():
+        body = page_sections(data.get(key), SOURCE / "page_blocks.json")
+        if not body:
+            continue
+        target = output / path
+        page = target.read_text(encoding="utf-8")
+        if page.count("</main>") != 1:
+            raise ValueError(f"{path}: Eindeutiges main-Ende fehlt")
+        section = f'<div class="grid"><div class="box full-width news-article__content">{body}</div></div>'
+        target.write_text(page.replace("</main>", section + "</main>"), encoding="utf-8")
 
 
 def build(output):
@@ -30,7 +81,7 @@ def build(output):
         "extra_documents": "".join(button(r["title"], pdf(r["path"])) for r in seq(documents.get("extra"))),
         "subtitle": text(settings["subtitle"]),
         "newsletter_title": text(newsletter["title"]),
-        "newsletter_sections": render_sections(newsletter["sections"], SOURCE / "newsletter.json") if newsletter.get("sections") else ""
+        "newsletter_sections": page_sections(newsletter.get("sections"), SOURCE / "newsletter.json")
     }
     fee_rows = []
     for r in seq(membership.get("fees")):
@@ -57,7 +108,8 @@ def build(output):
         p.write_text(page, encoding="utf-8")
     if set(values)-seen:
         raise ValueError(f"Nicht verwendete CMS-Bausteine: {set(values)-seen}")
-    print("CMS: Verein, Mitgliedschaft, Dokumente, Newsletter und Header erzeugt")
+    append_page_blocks(output)
+    print("CMS: Verein, Mitgliedschaft, Dokumente, Newsletter, Header und Seitenbaukasten erzeugt")
 
 
 if __name__ == "__main__":

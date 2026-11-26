@@ -10,7 +10,7 @@ Die Redaktion arbeitet ausschließlich über **Pages CMS**. Technische Dateien d
 
 ## 1. Was kann über das CMS gepflegt werden?
 
-Über das CMS werden die **Neuigkeiten** und weitere Vereinsinformationen gepflegt. Die neuen Formulare umfassen Training, Verein, Mannschaften, Mitgliedschaft, Sponsoren, Links, Dokumente, Fotoalben, Newsletter und Willkommenstext. Details und Testanleitung: docs/cms-gesamtumbau.md. Dazu gehören:
+Über das CMS werden die **Neuigkeiten** und weitere Vereinsinformationen gepflegt. Die neuen Formulare umfassen Training, Verein, Mannschaften, Mitgliedschaft, Sponsoren, Links, Dokumente, Fotoalben, Newsletter und Willkommenstext. Der Seitenbaukasten ergänzt vorhandene Seiten um frei sortierbare Inhaltsblöcke. Details und Testanleitung: docs/cms-gesamtumbau.md. Dazu gehören:
 
 - neue News erstellen,
 - bestehende News bearbeiten,

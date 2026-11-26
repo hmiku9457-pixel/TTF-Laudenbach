@@ -116,7 +116,7 @@ Unter `assets/data/` liegen automatisch erzeugte JSON-Dateien. Für die Wartung 
 |---|---|
 | `news.json` | automatisch durch **News generieren** / `assets/python/generate_news.py` |
 | `gallerie.json` | automatisch durch **Generate Gallery JSON** / `assets/python/generate_gallery.py` |
-| `links.json` | bei manuellem Alt-Scraper-Lauf aus `assets/python/config.py` |
+| `links.json` | sportliche Links aus dem Alt-Scraper; redaktionelle Links zentral aus `content/site/` beim Deployment |
 | `spiele*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
 | `tabelle*.json` | durch geprüften ChatGPT-Datenimport; älterer Scraper nur noch manuell |
 | `spieler*.json` | weiterhin durch den manuellen Alt-Scraper; kein automatischer Import ohne verifizierte Datenquelle |
@@ -127,9 +127,9 @@ Automatisch erzeugte Dateien sollten nicht dauerhaft manuell korrigiert werden. 
 
 | Änderung | Datei / Bereich |
 |---|---|
-| Navigation | `components/header.html` |
+| Navigation | `components/header.html`; Willkommenstext im CMS |
 | Footer | `components/footer.html` |
-| Seiteninhalt | jeweilige HTML-Datei |
+| Seiteninhalt | `content/site/` für redaktionelle Bereiche, HTML als technische Vorlage |
 | Gestaltung | `assets/css/` |
 | Frontend-Funktion | `assets/js/` |
 | Mannschafts-/Ligaquellen | `assets/python/config.py` und ggf. `assets/js/config/` |
