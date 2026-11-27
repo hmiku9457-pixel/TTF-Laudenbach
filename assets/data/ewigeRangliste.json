@@ -10,9 +10,21 @@
       "datum": "2026-11-20",
       "mannschaft": "spieleHerren2",
       "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-27",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-27",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
     }
   ],
-  "anzahlFehler": 1,
+  "anzahlFehler": 3,
   "anzahlBegegnungen": 27,
   "saisons": [
     "2026-27.json"

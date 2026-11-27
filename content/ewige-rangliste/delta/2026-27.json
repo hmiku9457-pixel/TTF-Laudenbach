@@ -899,6 +899,18 @@
       "datum": "2026-11-20",
       "mannschaft": "spieleHerren2",
       "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-27",
+      "mannschaft": "spieleHerren2",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
+    },
+    {
+      "typ": "bericht",
+      "datum": "2026-11-27",
+      "mannschaft": "spieleHerren4",
+      "meldung": "Ergebnis oder TTF-Aufstellung noch nicht verifiziert."
     }
   ],
   "zuletztGeprueft": "2026-11-22T14:11:00+00:00",
