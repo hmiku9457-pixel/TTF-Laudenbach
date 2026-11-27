@@ -107,6 +107,27 @@ class CmsSiteTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             reorder(page, spec, {"order": [{"area": "b"}, {"area": "b"}]}, "")
 
+    def test_unified_layout_interleaves_content_and_preserves_fixed_areas(self):
+        page = '<main><!-- LAYOUT:start:a -->FIXED_A<!-- LAYOUT:end:a --><!-- LAYOUT:start:b -->FIXED_B<!-- LAYOUT:end:b --></main>'
+        spec = {"path": "test", "keys": ["a", "b"], "inner": True}
+        layout = {"width":"narrow", "sections":[
+            {"type":"heading","title":"FIRST"},
+            {"type":"fixed_b"},
+            {"type":"text","body":"BETWEEN","alignment":"left"},
+            {"type":"fixed_a"},
+            {"type":"heading","title":"LAST"},
+            {"type":"fixed_a"}
+        ]}
+        result = reorder(page,spec,layout)
+        self.assertEqual(result.count("FIXED_A"),1)
+        self.assertEqual(result.count("FIXED_B"),1)
+        self.assertEqual(sorted(["FIRST","FIXED_B","BETWEEN","FIXED_A","LAST"],key=result.index),["FIRST","FIXED_B","BETWEEN","FIXED_A","LAST"])
+        self.assertIn("cms-narrow",result)
+        result = reorder(page,spec,{"sections":[{"type":"fixed_b"}]})
+        self.assertLess(result.index("FIXED_B"),result.index("FIXED_A"))
+        with self.assertRaises(ValueError):
+            reorder(page,spec,{"sections":[{"type":"fixed_unknown"}]})
+
     def test_additional_page_blocks(self):
         with patch("generate_site_extra.local", return_value="/assets/images/site/test.png"):
             html = page_sections([

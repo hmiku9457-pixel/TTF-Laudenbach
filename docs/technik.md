@@ -1094,3 +1094,5 @@ Die Quelldateien unter content/site, content/custom-pages und content/news werde
 - Vorschau: Actions / CMS Gesamttest / cms-visuelle-vorschau; cms-testseite für interaktive Tests.
 - Rollback: fehlerhaften Merge bzw. Commit per Revert rückgängig machen und Website-Workflow erneut ausführen. Nicht main hart zurücksetzen, da dadurch zwischenzeitliche Sportdaten verloren gehen können.
 - Vereinsregistergericht/-nummer, Vertretungsbefugnis, postalische Anschrift, Datenschutzgrundlagen, tatsächliche Aufbewahrungsfristen und Drittlandübermittlungen durch Vereinsverantwortliche verifizieren. Keine Rechtsprüfung behaupten. Die alten TMG-Verweise und Register-Platzhalter sind entfernt. Rechtsangaben werden über Rechtliche Angaben gepflegt.
+
+Seitengestaltung: content/site/layouts.json enthält nun pro Seite sections mit festen Bereichen (type: fixed_...) und frei sortierbaren Inhaltsblöcken. Alte page_blocks.json bleibt als historische Kompatibilitätsquelle erhalten, wird bei vorhandenen sections nicht mehr eingelesen. Aufeinanderfolgende freie Blöcke werden gemeinsam gerendert. Fehlende feste Bereiche werden ergänzt, doppelte feste Bereiche nur einmal gerendert.

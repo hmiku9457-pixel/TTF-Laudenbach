@@ -1,110 +1,107 @@
 {
   "home": {
-    "order": [
+    "sections": [
       {
-        "area": "news_training"
+        "type": "fixed_news_training",
+        "enabled": true
       },
       {
-        "area": "games_contact"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_games_contact",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "club": {
-    "order": [
+    "sections": [
       {
-        "area": "current"
+        "type": "fixed_current",
+        "enabled": true
       },
       {
-        "area": "history"
+        "type": "fixed_history",
+        "enabled": true
       },
       {
-        "area": "chair_history"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_chair_history",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "training": {
-    "order": [
+    "sections": [
       {
-        "area": "venues_training"
+        "type": "fixed_venues_training",
+        "enabled": true
       },
       {
-        "area": "teams"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_teams",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "membership": {
-    "order": [
+    "sections": [
       {
-        "area": "fees"
+        "type": "fixed_fees",
+        "enabled": true
       },
       {
-        "area": "join"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_join",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "sponsors": {
-    "order": [
+    "sections": [
       {
-        "area": "heading"
+        "type": "fixed_heading",
+        "enabled": true
       },
       {
-        "area": "sponsors"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_sponsors",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "documents": {
-    "order": [
+    "sections": [
       {
-        "area": "heading"
+        "type": "fixed_heading",
+        "enabled": true
       },
       {
-        "area": "documents"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_documents",
+        "enabled": true
       }
     ],
     "width": "full"
   },
   "links": {
-    "order": [
+    "sections": [
       {
-        "area": "heading"
+        "type": "fixed_heading",
+        "enabled": true
       },
       {
-        "area": "tt"
+        "type": "fixed_tt",
+        "enabled": true
       },
       {
-        "area": "sports"
+        "type": "fixed_sports",
+        "enabled": true
       },
       {
-        "area": "other"
+        "type": "fixed_other",
+        "enabled": true
       },
       {
-        "area": "sponsors"
-      },
-      {
-        "area": "custom"
+        "type": "fixed_sponsors",
+        "enabled": true
       }
     ],
     "width": "full"
